@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Storyteller.sharedInstance.initialize(with: .Staging, apiKey: "[APIKEY]")
+        Storyteller.sharedInstance.initialize(with: .Production, apiKey: "[APIKEY]")
             .andThen(Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: UUID().uuidString)))
             .subscribe(onCompleted: {
                 // Do something on completion...
