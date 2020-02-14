@@ -7,27 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		863976D8D65CB56E7EB9675E /* Pods_StorytellerSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */; };
 		B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427423F2E32E0093A423 /* AppDelegate.swift */; };
-		B8E4427723F2E32E0093A423 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427623F2E32E0093A423 /* SceneDelegate.swift */; };
 		B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427823F2E32E0093A423 /* ViewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
-		F936B4B77FB72AD2DB455495 /* Pods_StorytellerSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFDD68C983E8086756F4891 /* Pods_StorytellerSampleApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6EFDD68C983E8086756F4891 /* Pods_StorytellerSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorytellerSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		934269A38C8C933E9DA82B02 /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
-		A43F8A01836711598BB82AD2 /* Pods-StorytellerSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0AE053130A26CC1FE93B2421 /* Pods-StorytellerSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		B8D9B28023F6D81200C81B11 /* Storyteller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Storyteller.framework; path = "../../storyteller-sdk-swift/Carthage/Build/Storyteller-1.0.6-iOS-xcode-11.1/Storyteller.framework"; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427423F2E32E0093A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8E4427623F2E32E0093A423 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8E4427823F2E32E0093A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorytellerSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,29 +34,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F936B4B77FB72AD2DB455495 /* Pods_StorytellerSampleApp.framework in Frameworks */,
+				863976D8D65CB56E7EB9675E /* Pods_StorytellerSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		392224F31B7B540EBEE2A222 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A43F8A01836711598BB82AD2 /* Pods-StorytellerSampleApp.debug.xcconfig */,
-				934269A38C8C933E9DA82B02 /* Pods-StorytellerSampleApp.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		B8E4426823F2E32D0093A423 = {
 			isa = PBXGroup;
 			children = (
 				B8E4427323F2E32E0093A423 /* StorytellerSampleApp */,
 				B8E4427223F2E32E0093A423 /* Products */,
-				392224F31B7B540EBEE2A222 /* Pods */,
 				E94D869BBD7EBA5344C28169 /* Frameworks */,
+				C34BD090E8CB4D8196445ADE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				B8E4427423F2E32E0093A423 /* AppDelegate.swift */,
-				B8E4427623F2E32E0093A423 /* SceneDelegate.swift */,
 				B8E4427823F2E32E0093A423 /* ViewController.swift */,
 				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
@@ -83,10 +72,20 @@
 			path = StorytellerSampleApp;
 			sourceTree = "<group>";
 		};
+		C34BD090E8CB4D8196445ADE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AE053130A26CC1FE93B2421 /* Pods-StorytellerSampleApp.debug.xcconfig */,
+				AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E94D869BBD7EBA5344C28169 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6EFDD68C983E8086756F4891 /* Pods_StorytellerSampleApp.framework */,
+				B8D9B28023F6D81200C81B11 /* Storyteller.framework */,
+				CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -226,7 +225,6 @@
 			files = (
 				B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */,
 				B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */,
-				B8E4427723F2E32E0093A423 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -368,7 +366,7 @@
 		};
 		B8E4428623F2E32E0093A423 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A43F8A01836711598BB82AD2 /* Pods-StorytellerSampleApp.debug.xcconfig */;
+			baseConfigurationReference = 0AE053130A26CC1FE93B2421 /* Pods-StorytellerSampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -388,7 +386,7 @@
 		};
 		B8E4428723F2E32E0093A423 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 934269A38C8C933E9DA82B02 /* Pods-StorytellerSampleApp.release.xcconfig */;
+			baseConfigurationReference = AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
