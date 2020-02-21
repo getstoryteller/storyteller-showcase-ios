@@ -1,1 +1,2 @@
-binary "[CARTHAGEFEEDURL]" ~> 1.0.6
+binary "[CARTHAGEFEEDURL]" ~> 1.0.7
+github "stormideas/storyteller-sdk-cartfile"
