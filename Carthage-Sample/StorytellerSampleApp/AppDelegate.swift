@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Storyteller
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
