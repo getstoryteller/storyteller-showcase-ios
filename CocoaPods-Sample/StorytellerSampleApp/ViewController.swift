@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Storyteller
+import StorytellerSDK
 import RxSwift
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
