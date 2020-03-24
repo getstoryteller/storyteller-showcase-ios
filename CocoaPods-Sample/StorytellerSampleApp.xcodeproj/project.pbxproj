@@ -101,8 +101,8 @@
 				B8E4426D23F2E32E0093A423 /* Sources */,
 				B8E4426E23F2E32E0093A423 /* Frameworks */,
 				B8E4426F23F2E32E0093A423 /* Resources */,
-				CDE2126A7F4D0A6C0EDF6574 /* [CP] Embed Pods Frameworks */,
-				935FD9846FA9C469200A0302 /* [CP] Copy Pods Resources */,
+				49ECDE7CBD83F42D8AA41910 /* [CP] Embed Pods Frameworks */,
+				DE86C9845B04F47C29A213D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,24 +182,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		935FD9846FA9C469200A0302 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CDE2126A7F4D0A6C0EDF6574 /* [CP] Embed Pods Frameworks */ = {
+		49ECDE7CBD83F42D8AA41910 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,6 +197,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE86C9845B04F47C29A213D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
