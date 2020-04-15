@@ -40,7 +40,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Storyteller.sharedInstance.initialize(with: .Production, apiKey: "[APIKEY]")
+        Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]")
             .subscribe(onCompleted: {
                 let userInput = UserInput(externalId: "user-id")
 
