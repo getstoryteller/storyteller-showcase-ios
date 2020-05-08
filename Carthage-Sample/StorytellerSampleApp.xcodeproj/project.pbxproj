@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5500E1D22466122F0072CAAF /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; };
-		5500E1D32466122F0072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5500E1D42466122F0072CAAF /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
-		5500E1D52466122F0072CAAF /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5500E1D62466122F0072CAAF /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; };
-		5500E1D72466122F0072CAAF /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5500E1D82466122F0072CAAF /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
-		5500E1D92466122F0072CAAF /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5500E1DA2466122F0072CAAF /* StorytellerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; };
-		5500E1DB2466122F0072CAAF /* StorytellerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1DD24661A800072CAAF /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
+		5500E1DE24661A800072CAAF /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E024661A830072CAAF /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; };
+		5500E1E124661A830072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E224661A850072CAAF /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
+		5500E1E324661A850072CAAF /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E424661A890072CAAF /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; };
+		5500E1E524661A890072CAAF /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E624661A8C0072CAAF /* StorytellerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; };
+		5500E1E724661A8C0072CAAF /* StorytellerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427423F2E32E0093A423 /* AppDelegate.swift */; };
 		B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427823F2E32E0093A423 /* ViewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
@@ -25,17 +25,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5500E1DC2466122F0072CAAF /* Embed Frameworks */ = {
+		5500E1DF24661A800072CAAF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5500E1D32466122F0072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */,
-				5500E1D72466122F0072CAAF /* PINOperation.framework in Embed Frameworks */,
-				5500E1DB2466122F0072CAAF /* StorytellerSDK.framework in Embed Frameworks */,
-				5500E1D92466122F0072CAAF /* PINRemoteImage.framework in Embed Frameworks */,
-				5500E1D52466122F0072CAAF /* PINCache.framework in Embed Frameworks */,
+				5500E1E324661A850072CAAF /* PINRemoteImage.framework in Embed Frameworks */,
+				5500E1DE24661A800072CAAF /* PINCache.framework in Embed Frameworks */,
+				5500E1E724661A8C0072CAAF /* StorytellerSDK.framework in Embed Frameworks */,
+				5500E1E524661A890072CAAF /* PINOperation.framework in Embed Frameworks */,
+				5500E1E124661A830072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,11 +68,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5500E1D22466122F0072CAAF /* AsyncDisplayKit.framework in Frameworks */,
-				5500E1D62466122F0072CAAF /* PINOperation.framework in Frameworks */,
-				5500E1DA2466122F0072CAAF /* StorytellerSDK.framework in Frameworks */,
-				5500E1D82466122F0072CAAF /* PINRemoteImage.framework in Frameworks */,
-				5500E1D42466122F0072CAAF /* PINCache.framework in Frameworks */,
+				5500E1E224661A850072CAAF /* PINRemoteImage.framework in Frameworks */,
+				5500E1DD24661A800072CAAF /* PINCache.framework in Frameworks */,
+				5500E1E624661A8C0072CAAF /* StorytellerSDK.framework in Frameworks */,
+				5500E1E424661A890072CAAF /* PINOperation.framework in Frameworks */,
+				5500E1E024661A830072CAAF /* AsyncDisplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,7 @@
 				B8E4426D23F2E32E0093A423 /* Sources */,
 				B8E4426E23F2E32E0093A423 /* Frameworks */,
 				B8E4426F23F2E32E0093A423 /* Resources */,
-				5500E1DC2466122F0072CAAF /* Embed Frameworks */,
+				5500E1DF24661A800072CAAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
