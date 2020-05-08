@@ -7,28 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8634A56244735C20019C432 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F522242A2C9000BAF2E6 /* Alamofire.framework */; };
-		B8634A57244735C20019C432 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F522242A2C9000BAF2E6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A58244735C20019C432 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; };
-		B8634A59244735C20019C432 /* AsyncDisplayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A5A244735C20019C432 /* DeepDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */; };
-		B8634A5B244735C20019C432 /* DeepDiff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A5C244735C20019C432 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
-		B8634A5D244735C20019C432 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A5E244735C20019C432 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; };
-		B8634A5F244735C20019C432 /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A60244735C20019C432 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
-		B8634A61244735C30019C432 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A62244735C30019C432 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B84B5A112447319E003B1BC6 /* RxBlocking.framework */; };
-		B8634A63244735C30019C432 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B84B5A112447319E003B1BC6 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A64244735C30019C432 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F520242A2C9000BAF2E6 /* RxCocoa.framework */; };
-		B8634A65244735C30019C432 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F520242A2C9000BAF2E6 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A66244735C30019C432 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F523242A2C9000BAF2E6 /* RxRelay.framework */; };
-		B8634A67244735C30019C432 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F523242A2C9000BAF2E6 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A68244735C30019C432 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F521242A2C9000BAF2E6 /* RxSwift.framework */; };
-		B8634A69244735C30019C432 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F521242A2C9000BAF2E6 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8634A6A244735C30019C432 /* StorytellerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; };
-		B8634A6B244735C30019C432 /* StorytellerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1DD24661A800072CAAF /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
+		5500E1DE24661A800072CAAF /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E024661A830072CAAF /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; };
+		5500E1E124661A830072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E224661A850072CAAF /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
+		5500E1E324661A850072CAAF /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E424661A890072CAAF /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; };
+		5500E1E524661A890072CAAF /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F528242A2C9000BAF2E6 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5500E1E624661A8C0072CAAF /* StorytellerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; };
+		5500E1E724661A8C0072CAAF /* StorytellerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427423F2E32E0093A423 /* AppDelegate.swift */; };
 		B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427823F2E32E0093A423 /* ViewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
@@ -37,23 +25,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B8634A6C244735C30019C432 /* Embed Frameworks */ = {
+		5500E1DF24661A800072CAAF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B8634A69244735C30019C432 /* RxSwift.framework in Embed Frameworks */,
-				B8634A63244735C30019C432 /* RxBlocking.framework in Embed Frameworks */,
-				B8634A61244735C30019C432 /* PINRemoteImage.framework in Embed Frameworks */,
-				B8634A67244735C30019C432 /* RxRelay.framework in Embed Frameworks */,
-				B8634A5F244735C20019C432 /* PINOperation.framework in Embed Frameworks */,
-				B8634A57244735C20019C432 /* Alamofire.framework in Embed Frameworks */,
-				B8634A65244735C30019C432 /* RxCocoa.framework in Embed Frameworks */,
-				B8634A5D244735C20019C432 /* PINCache.framework in Embed Frameworks */,
-				B8634A5B244735C20019C432 /* DeepDiff.framework in Embed Frameworks */,
-				B8634A59244735C20019C432 /* AsyncDisplayKit.framework in Embed Frameworks */,
-				B8634A6B244735C30019C432 /* StorytellerSDK.framework in Embed Frameworks */,
+				5500E1E324661A850072CAAF /* PINRemoteImage.framework in Embed Frameworks */,
+				5500E1DE24661A800072CAAF /* PINCache.framework in Embed Frameworks */,
+				5500E1E724661A8C0072CAAF /* StorytellerSDK.framework in Embed Frameworks */,
+				5500E1E524661A890072CAAF /* PINOperation.framework in Embed Frameworks */,
+				5500E1E124661A830072CAAF /* AsyncDisplayKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,17 +68,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8634A68244735C30019C432 /* RxSwift.framework in Frameworks */,
-				B8634A62244735C30019C432 /* RxBlocking.framework in Frameworks */,
-				B8634A60244735C20019C432 /* PINRemoteImage.framework in Frameworks */,
-				B8634A66244735C30019C432 /* RxRelay.framework in Frameworks */,
-				B8634A5E244735C20019C432 /* PINOperation.framework in Frameworks */,
-				B8634A56244735C20019C432 /* Alamofire.framework in Frameworks */,
-				B8634A64244735C30019C432 /* RxCocoa.framework in Frameworks */,
-				B8634A5C244735C20019C432 /* PINCache.framework in Frameworks */,
-				B8634A5A244735C20019C432 /* DeepDiff.framework in Frameworks */,
-				B8634A58244735C20019C432 /* AsyncDisplayKit.framework in Frameworks */,
-				B8634A6A244735C30019C432 /* StorytellerSDK.framework in Frameworks */,
+				5500E1E224661A850072CAAF /* PINRemoteImage.framework in Frameworks */,
+				5500E1DD24661A800072CAAF /* PINCache.framework in Frameworks */,
+				5500E1E624661A8C0072CAAF /* StorytellerSDK.framework in Frameworks */,
+				5500E1E424661A890072CAAF /* PINOperation.framework in Frameworks */,
+				5500E1E024661A830072CAAF /* AsyncDisplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +137,7 @@
 				B8E4426D23F2E32E0093A423 /* Sources */,
 				B8E4426E23F2E32E0093A423 /* Frameworks */,
 				B8E4426F23F2E32E0093A423 /* Resources */,
-				B8634A6C244735C30019C432 /* Embed Frameworks */,
+				5500E1DF24661A800072CAAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

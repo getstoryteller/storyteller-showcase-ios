@@ -8,7 +8,6 @@
 
 import UIKit
 import StorytellerSDK
-import RxSwift
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
        
@@ -16,7 +15,6 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
     
     var refresher: UIRefreshControl?
-    let disposables = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +38,17 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]")
-            .subscribe(onCompleted: {
+        Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]", onComplete: {
                 let userInput = UserInput(externalId: "user-id")
 
-                Storyteller.sharedInstance.setUserDetails(userInput: userInput)
-                    .subscribe(onCompleted: {
+                Storyteller.sharedInstance.setUserDetails(userInput: userInput, onComplete: {
                         self.storytellerRowView.reloadData()
                     }, onError: { error in
                         // Handle the error
-                    }).disposed(by: self.disposables)
+                    })
             }, onError: { error in
                 // Handle the error
-            }).disposed(by: disposables)
+            })
     }
 
     override func viewDidAppear(_ animated: Bool) {
