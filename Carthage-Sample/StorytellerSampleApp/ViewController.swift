@@ -8,7 +8,6 @@
 
 import UIKit
 import StorytellerSDK
-import RxSwift
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
        
