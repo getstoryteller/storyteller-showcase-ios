@@ -8,7 +8,6 @@
 
 import UIKit
 import StorytellerSDK
-import RxSwift
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
        
@@ -16,8 +15,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
     
     var refresher: UIRefreshControl?
-    let disposables = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,19 +38,18 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]")
-            .subscribe(onCompleted: {
-                let userInput = UserInput(externalId: "user-id")
 
-                Storyteller.sharedInstance.setUserDetails(userInput: userInput)
-                    .subscribe(onCompleted: {
-                        self.storytellerRowView.reloadData()
-                    }, onError: { error in
-                        // Handle the error
-                    }).disposed(by: self.disposables)
-            }, onError: { error in
+        Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]", onComplete: {
+            let userInput = UserInput(externalId: "user-id")
+
+            Storyteller.sharedInstance.setUserDetails(userInput: userInput, onComplete: {
+                self.storytellerRowView.reloadData()
+            }) { error in
                 // Handle the error
-            }).disposed(by: disposables)
+            }
+        }) { error in
+            // Handle the error
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -65,8 +62,10 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     }
     
     func onChannelsDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        NSLog("onChannelsDataLoadComplete success \(success), error \(error), dataCount \(dataCount)")
-        refresher?.endRefreshing()
+        NSLog("onChannelsDataLoadComplete success \(success), error \(String(describing: error)), dataCount \(dataCount)")
+        DispatchQueue.main.async {
+            self.refresher?.endRefreshing()
+        }
     }
     
     func onChannelDismissed() {

@@ -39,16 +39,16 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Storyteller.sharedInstance.initialize(apiKey: "[APIKEY]", onComplete: {
-                let userInput = UserInput(externalId: "user-id")
+            let userInput = UserInput(externalId: "user-id")
 
-                Storyteller.sharedInstance.setUserDetails(userInput: userInput, onComplete: {
-                        self.storytellerRowView.reloadData()
-                    }, onError: { error in
-                        // Handle the error
-                    })
-            }, onError: { error in
-                // Handle the error
-            })
+            Storyteller.sharedInstance.setUserDetails(userInput: userInput, onComplete: {
+                self.storytellerRowView.reloadData()
+            }) { error in
+                // Handle error
+            }
+        }) { error in
+            // Handle error
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,7 +62,9 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     
     func onChannelsDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         NSLog("onChannelsDataLoadComplete success \(success), error \(error), dataCount \(dataCount)")
-        refresher?.endRefreshing()
+        DispatchQueue.main.async {
+            refresher?.endRefreshing()
+        }
     }
     
     func onChannelDismissed() {
