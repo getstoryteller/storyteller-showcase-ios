@@ -1,0 +1,341 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.2 effective-4.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name StorytellerSDK
+import AVFoundation
+import AVKit
+import AsyncDisplayKit
+import Foundation
+import PINRemoteImage
+import Photos
+@_exported import StorytellerSDK
+import Swift
+import UIKit
+import WebKit
+public protocol StorytellerRowViewDelegate {
+  func onChannelsDataLoadStarted()
+  func onChannelsDataLoadComplete(success: Swift.Bool, error: Swift.Error?, dataCount: Swift.Int)
+  func onChannelDismissed()
+}
+public struct Channel {
+  public var title: Swift.String?
+  public var id: Swift.String?
+  public var initialPage: Swift.Int?
+  public var profilePictureUrl: Swift.String?
+  public var status: StorytellerSDK.Status?
+  public var isRead: Swift.Bool {
+    get
+  }
+  public var pages: [StorytellerSDK.Page]
+  public var isPlaceholder: Swift.Bool
+}
+extension Channel : StorytellerSDK.DiffAware {
+  public typealias DiffId = Swift.String
+  public var diffId: StorytellerSDK.Channel.DiffId {
+    get
+  }
+  public static func compareContent(_ a: StorytellerSDK.Channel, _ b: StorytellerSDK.Channel) -> Swift.Bool
+}
+extension Channel : StorytellerSDK.Serializable {
+  public init?(json: StorytellerSDK.JSON)
+  public func serialize() -> StorytellerSDK.JSON?
+}
+extension Channel : Swift.Equatable {
+  public static func == (lhs: StorytellerSDK.Channel, rhs: StorytellerSDK.Channel) -> Swift.Bool
+}
+extension String {
+  public func camelCased() -> Swift.String
+}
+public struct UserInput {
+  public var externalId: Swift.String?
+  public init(externalId: Swift.String? = nil)
+}
+extension UserInput : StorytellerSDK.Serializable {
+  public init?(json: StorytellerSDK.JSON)
+  public func serialize() -> StorytellerSDK.JSON?
+}
+extension UserInput : Swift.Equatable {
+  public static func == (lhs: StorytellerSDK.UserInput, rhs: StorytellerSDK.UserInput) -> Swift.Bool
+}
+public typealias JSON = [Swift.String : Any]
+public protocol Serializable {
+  init?(json: StorytellerSDK.JSON)
+  func serialize() -> StorytellerSDK.JSON?
+}
+extension Serializable {
+  public func serialize() -> StorytellerSDK.JSON?
+}
+public enum StorytellerRowViewCellType : Swift.String {
+  case Square
+  case Round
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StorytellerRowViewStyle : Swift.String {
+  case Auto
+  case Light
+  case Dark
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class StorytellerRowView : UIKit.UIView {
+  public var delegate: StorytellerSDK.StorytellerRowViewDelegate?
+  @objc @IBInspectable public var uiStyle: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var cellType: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var cellScale: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var cellSpacing: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var leftInset: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var rightInset: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var primaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var secondaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public func prepareForInterfaceBuilder()
+  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect, for formatter: UIKit.UIViewPrintFormatter)
+  public func openChannel(id: Swift.String = "", animated: Swift.Bool = true)
+  @objc public func reloadData()
+  @objc deinit
+}
+public enum Environment : Swift.String {
+  case Dev
+  case Staging
+  case Production
+  public static let allRawValues: [Swift.String]
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public typealias VoidCompletion = () -> Swift.Void
+public typealias ErrorCompletion = (Swift.Error) -> Swift.Void
+public typealias ImageCompletion = (UIKit.UIImage?) -> Swift.Void
+public class Storyteller {
+  public static var screenAspectRatio: CoreGraphics.CGFloat {
+    get
+  }
+  public static var isScreenStandardPortrait: Swift.Bool {
+    get
+  }
+  public static var currentEnvironment: StorytellerSDK.Environment? {
+    get
+  }
+  public static var currentUserId: Swift.String? {
+    get
+  }
+  public static var currentApiKey: Swift.String? {
+    get
+  }
+  public static var version: Swift.String? {
+    get
+  }
+  public static let sharedInstance: StorytellerSDK.Storyteller
+  public func initialize(apiKey: Swift.String, onComplete: () -> Swift.Void, onError: (Swift.Error) -> Swift.Void)
+  public func setUserDetails(userInput: StorytellerSDK.UserInput, onComplete: @escaping StorytellerSDK.VoidCompletion, onError: @escaping StorytellerSDK.ErrorCompletion)
+  public func logout(onComplete: () -> Swift.Void)
+  required public init()
+  @objc deinit
+}
+public enum Status : Swift.String {
+  case Read
+  case Unread
+  public static let allRawValues: [Swift.String]
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Page {
+  public var mediaType: StorytellerSDK.PageType?
+  public var duration: Swift.Int?
+  public var url: Swift.String?
+  public var swipeUpText: Swift.String?
+  public var swipeUpUrl: Swift.String?
+  public var showSwipeUpUI: Swift.Bool?
+  public var playcardUrl: Swift.String?
+  public var sortOrder: Swift.Int?
+  public var id: Swift.String?
+  public var status: StorytellerSDK.Status?
+  public var isRead: Swift.Bool {
+    get
+  }
+  public var isSkippable: Swift.Bool?
+  public var isVideo: Swift.Bool {
+    get
+  }
+  public var isImage: Swift.Bool {
+    get
+  }
+}
+extension Page : StorytellerSDK.Serializable {
+  public init?(json: StorytellerSDK.JSON)
+  public func serialize() -> StorytellerSDK.JSON?
+}
+extension Page : Swift.Equatable {
+  public static func == (lhs: StorytellerSDK.Page, rhs: StorytellerSDK.Page) -> Swift.Bool
+}
+public enum PageType : Swift.String {
+  case Image
+  case Video
+  public static let allRawValues: [Swift.String]
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Branding {
+  public var primaryColor: Swift.String?
+  public var secondaryColor: Swift.String?
+  public init(primaryColor: Swift.String? = nil, secondaryColor: Swift.String? = nil)
+}
+extension Branding : StorytellerSDK.Serializable {
+  public init?(json: StorytellerSDK.JSON)
+  public func serialize() -> StorytellerSDK.JSON?
+}
+extension Branding : Swift.Equatable {
+  public static func == (lhs: StorytellerSDK.Branding, rhs: StorytellerSDK.Branding) -> Swift.Bool
+}
+extension UICollectionView {
+  public func reload<T>(changes: [StorytellerSDK.Change<T>], section: Swift.Int = 0, updateData: () -> Swift.Void, completion: ((Swift.Bool) -> Swift.Void)? = nil) where T : StorytellerSDK.DiffAware
+}
+public struct ChangeWithIndexPath {
+  public let inserts: [Foundation.IndexPath]
+  public let deletes: [Foundation.IndexPath]
+  public let replaces: [Foundation.IndexPath]
+  public let moves: [(from: Foundation.IndexPath, to: Foundation.IndexPath)]
+  public init(inserts: [Foundation.IndexPath], deletes: [Foundation.IndexPath], replaces: [Foundation.IndexPath], moves: [(from: Foundation.IndexPath, to: Foundation.IndexPath)])
+}
+public class IndexPathConverter {
+  public init()
+  public func convert<T>(changes: [StorytellerSDK.Change<T>], section: Swift.Int) -> StorytellerSDK.ChangeWithIndexPath
+  @objc deinit
+}
+public struct Insert<T> {
+  public let item: T
+  public let index: Swift.Int
+}
+public struct Delete<T> {
+  public let item: T
+  public let index: Swift.Int
+}
+public struct Replace<T> {
+  public let oldItem: T
+  public let newItem: T
+  public let index: Swift.Int
+}
+public struct Move<T> {
+  public let item: T
+  public let fromIndex: Swift.Int
+  public let toIndex: Swift.Int
+}
+public enum Change<T> {
+  case insert(StorytellerSDK.Insert<T>)
+  case delete(StorytellerSDK.Delete<T>)
+  case replace(StorytellerSDK.Replace<T>)
+  case move(StorytellerSDK.Move<T>)
+  public var insert: StorytellerSDK.Insert<T>? {
+    get
+  }
+  public var delete: StorytellerSDK.Delete<T>? {
+    get
+  }
+  public var replace: StorytellerSDK.Replace<T>? {
+    get
+  }
+  public var move: StorytellerSDK.Move<T>? {
+    get
+  }
+}
+public protocol DiffAware {
+  associatedtype DiffId : Swift.Hashable
+  var diffId: Self.DiffId { get }
+  static func compareContent(_ a: Self, _ b: Self) -> Swift.Bool
+}
+extension DiffAware where Self : Swift.Hashable {
+  public var diffId: Self {
+    get
+  }
+  public static func compareContent(_ a: Self, _ b: Self) -> Swift.Bool
+}
+extension Int : StorytellerSDK.DiffAware {
+  public typealias DiffId = Swift.Int
+}
+extension String : StorytellerSDK.DiffAware {
+  public typealias DiffId = Swift.String
+}
+extension Character : StorytellerSDK.DiffAware {
+  public typealias DiffId = Swift.Character
+}
+extension UUID : StorytellerSDK.DiffAware {
+  public typealias DiffId = Foundation.UUID
+}
+extension Array {
+  public func executeIfPresent(_ closure: ([Element]) -> Swift.Void)
+}
+public func diff<T>(old: [T], new: [T]) -> [StorytellerSDK.Change<T>] where T : StorytellerSDK.DiffAware
+@_hasMissingDesignatedInitializers final public class Heckel<T> where T : StorytellerSDK.DiffAware {
+  final public func diff(old: [T], new: [T]) -> [StorytellerSDK.Change<T>]
+  @objc deinit
+}
+public struct DemoData {
+  public var topContentImageUrl: Swift.String?
+  public var bottomContentImageUrl: Swift.String?
+  public var tabBarImageUrl: Swift.String?
+  public var themeColor: UIKit.UIColor?
+  public var apiKey: Swift.String?
+  public var title: Swift.String?
+  public var appStoreIdentifier: Swift.String?
+  public var id: Swift.String?
+  public var platform: Swift.String?
+}
+extension DemoData : StorytellerSDK.Serializable {
+  public init?(json: StorytellerSDK.JSON)
+  public func serialize() -> StorytellerSDK.JSON?
+}
+extension DemoData : Swift.Equatable {
+  public static func == (lhs: StorytellerSDK.DemoData, rhs: StorytellerSDK.DemoData) -> Swift.Bool
+}
+extension StorytellerSDK.StorytellerRowViewCellType : Swift.Equatable {}
+extension StorytellerSDK.StorytellerRowViewCellType : Swift.Hashable {}
+extension StorytellerSDK.StorytellerRowViewCellType : Swift.RawRepresentable {}
+extension StorytellerSDK.StorytellerRowViewStyle : Swift.Equatable {}
+extension StorytellerSDK.StorytellerRowViewStyle : Swift.Hashable {}
+extension StorytellerSDK.StorytellerRowViewStyle : Swift.RawRepresentable {}
+extension StorytellerSDK.Environment : Swift.Equatable {}
+extension StorytellerSDK.Environment : Swift.Hashable {}
+extension StorytellerSDK.Environment : Swift.RawRepresentable {}
+extension StorytellerSDK.Status : Swift.Equatable {}
+extension StorytellerSDK.Status : Swift.Hashable {}
+extension StorytellerSDK.Status : Swift.RawRepresentable {}
+extension StorytellerSDK.PageType : Swift.Equatable {}
+extension StorytellerSDK.PageType : Swift.Hashable {}
+extension StorytellerSDK.PageType : Swift.RawRepresentable {}
