@@ -1,0 +1,11 @@
+framework module StorytellerSDK {
+  umbrella header "StorytellerSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module StorytellerSDK.Swift {
+    header "StorytellerSDK-Swift.h"
+    requires objc
+}

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE66716A2472BFED00A2B702 /* StorytellerSDK-iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6671692472BFED00A2B702 /* StorytellerSDK-iOS.xcframework */; };
 		AE6671732472CEE000A2B702 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE66716F2472CEDF00A2B702 /* AsyncDisplayKit.xcframework */; };
 		AE6671742472CEE000A2B702 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6671702472CEE000A2B702 /* PINCache.xcframework */; };
 		AE6671752472CEE000A2B702 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6671712472CEE000A2B702 /* PINRemoteImage.xcframework */; };
 		AE6671762472CEE000A2B702 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6671722472CEE000A2B702 /* PINOperation.xcframework */; };
+		AE66718224731E5C00A2B702 /* StorytellerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE66718124731E5C00A2B702 /* StorytellerSDK.xcframework */; };
 		B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427423F2E32E0093A423 /* AppDelegate.swift */; };
 		B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427823F2E32E0093A423 /* ViewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
@@ -20,11 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE6671692472BFED00A2B702 /* StorytellerSDK-iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "StorytellerSDK-iOS.xcframework"; sourceTree = "<group>"; };
 		AE66716F2472CEDF00A2B702 /* AsyncDisplayKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AsyncDisplayKit.xcframework; sourceTree = "<group>"; };
 		AE6671702472CEE000A2B702 /* PINCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PINCache.xcframework; sourceTree = "<group>"; };
 		AE6671712472CEE000A2B702 /* PINRemoteImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PINRemoteImage.xcframework; sourceTree = "<group>"; };
 		AE6671722472CEE000A2B702 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PINOperation.xcframework; sourceTree = "<group>"; };
+		AE66718124731E5C00A2B702 /* StorytellerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = StorytellerSDK.xcframework; sourceTree = "<group>"; };
 		B84B5A112447319E003B1BC6 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeepDiff.framework; path = Carthage/Build/iOS/DeepDiff.framework; sourceTree = "<group>"; };
 		B881F520242A2C9000BAF2E6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -53,8 +53,8 @@
 				AE6671732472CEE000A2B702 /* AsyncDisplayKit.xcframework in Frameworks */,
 				AE6671762472CEE000A2B702 /* PINOperation.xcframework in Frameworks */,
 				AE6671742472CEE000A2B702 /* PINCache.xcframework in Frameworks */,
-				AE66716A2472BFED00A2B702 /* StorytellerSDK-iOS.xcframework in Frameworks */,
 				AE6671752472CEE000A2B702 /* PINRemoteImage.xcframework in Frameworks */,
+				AE66718224731E5C00A2B702 /* StorytellerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 		AE66716E2472CECB00A2B702 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				AE6671692472BFED00A2B702 /* StorytellerSDK-iOS.xcframework */,
+				AE66718124731E5C00A2B702 /* StorytellerSDK.xcframework */,
 				AE66716F2472CEDF00A2B702 /* AsyncDisplayKit.xcframework */,
 				AE6671702472CEE000A2B702 /* PINCache.xcframework */,
 				AE6671722472CEE000A2B702 /* PINOperation.xcframework */,
