@@ -55,27 +55,16 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
         storytellerRowView.reloadData()
     }
     
-    func onChannelsDataLoadStarted() {
-        NSLog("onChannelsDataLoadStarted")
-    }
-    
-    func onChannelsDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        NSLog("onChannelsDataLoadComplete success \(success), error \(error), dataCount \(dataCount)")
-        DispatchQueue.main.async {
-            self.refresher?.endRefreshing()
-        }
-    }
-    
-    func onChannelDismissed() {
-        NSLog("onChannelDismissed")
-    }
-
     func onStoriesDataLoadStarted() {
         NSLog("onStoriesDataLoadStarted")
     }
 
     func onStoriesDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         NSLog("onStoriesDataLoadStarted - sucess: \(success), error: \(error), dataCount: \(dataCount).")
+
+        DispatchQueue.main.async {
+            self.refresher?.endRefreshing()
+        }
     }
 
     func onStoryDismissed() {
