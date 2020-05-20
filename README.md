@@ -24,7 +24,7 @@ This sample app uses our [Carthage](https://github.com/Carthage/Carthage) integr
 ## XCFrameworks-Sample
 
 This sample app uses our XCFrameworks integration (`Storyteller`), so you must:
-1. Download zipped binaries from the URL we provided ((please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#xcframeworks) for more details))
+1. Download zipped binaries from the URL provided (please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#xcframeworks) for more details)
 2. Copy them to `Libraries` folder. Path should look like: `Libraries/StorytellerSDK.xcframework`, `Libraries/AsyncDisplayKit.xcframework`, etc.
 3. Open the `StorytellerSampleApp.xcodeproj` to open the project.
 4. Ensure the frameworks are listed under `Libraries` group.
