@@ -10,7 +10,6 @@ import UIKit
 import StorytellerSDK
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
-       
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
     
@@ -56,20 +55,25 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
         super.viewDidAppear(animated)
         storytellerRowView.reloadData()
     }
-    
-    func onChannelsDataLoadStarted() {
-        NSLog("onChannelsDataLoadStarted")
+
+    func onStoriesDataLoadStarted() {
+        NSLog("onStoriesDataLoadStarted")
     }
-    
-    func onChannelsDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        NSLog("onChannelsDataLoadComplete success \(success), error \(String(describing: error)), dataCount \(dataCount)")
+
+    func onStoriesDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
+        NSLog("onStoriesDataLoadStarted - sucess: \(success), error: \(error), dataCount: \(dataCount).")
+
         DispatchQueue.main.async {
             self.refresher?.endRefreshing()
         }
     }
-    
-    func onChannelDismissed() {
-        NSLog("onChannelDismissed")
+
+    func onStoryDismissed() {
+        NSLog("onStoryDismissed")
+    }
+
+    func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
+        NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
     }
     
 }
