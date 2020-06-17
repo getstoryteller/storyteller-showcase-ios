@@ -1,2 +1,2 @@
-binary "[CARTHAGEFEEDURL]" ~> 3.3.0
+binary "[CARTHAGEFEEDURL]" ~> 3.4.0
 github "stormideas/Texture" == 2.8.2
