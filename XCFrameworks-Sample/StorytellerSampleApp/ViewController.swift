@@ -72,7 +72,11 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     }
 
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
+        NSLog("onUserActivityOccurred - type: \(type), data: \(data.openedReason).")
+    }
+
+    func userSwipedUpToApp(swipeUpUrl: String) {
+        NSLog("userSwipedUpToApp")
     }
 }
 
