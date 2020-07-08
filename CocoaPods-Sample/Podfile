@@ -9,5 +9,6 @@ target 'StorytellerSampleApp' do
   use_frameworks!
 
   # Pods for StorytellerSampleApp
+  pod 'Texture', :git => 'https://github.com/stormideas/Texture.git', :tag => '2.8.3'
   pod 'StorytellerSDK',  '~> 3.7.2'
 end
