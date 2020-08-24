@@ -10,7 +10,6 @@ import UIKit
 import StorytellerSDK
 
 class ViewController: UIViewController, StorytellerRowViewDelegate {
-       
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
     
@@ -39,8 +38,8 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        Storyteller.sharedInstance.initialize(apiKey: "<apiKey>")
-        Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: "user-id"), onComplete: {
+        Storyteller.sharedInstance.initialize(apiKey: "e787e359-4d61-41c6-a09a-b222c4c83506", onComplete: {
+            Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: "user-id"))
             self.storytellerRowView.reloadData()
         }) { error in
             // Handle error
@@ -74,6 +73,10 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
 
     func userSwipedUpToApp(swipeUpUrl: String) {
         NSLog("userSwipedUpToApp")
+    }
+
+    func tileBecameVisible(index: Int) {
+        NSLog("tileBecameVisible: \(index)")
     }
 }
 
