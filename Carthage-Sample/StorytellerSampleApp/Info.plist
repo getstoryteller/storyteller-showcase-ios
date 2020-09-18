@@ -41,7 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Photo Library Access</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library Access</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>
