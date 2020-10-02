@@ -43,7 +43,5 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library Access</string>
-	<key>UIRequiresFullScreen</key>
-	<true/>
 </dict>
 </plist>
