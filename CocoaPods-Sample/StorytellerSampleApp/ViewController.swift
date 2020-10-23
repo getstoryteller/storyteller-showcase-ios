@@ -38,7 +38,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        Storyteller.sharedInstance.initialize(apiKey: "e787e359-4d61-41c6-a09a-b222c4c83506", onComplete: {
+        Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", onComplete: {
             Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: "user-id"))
             self.storytellerRowView.reloadData()
         }) { error in
