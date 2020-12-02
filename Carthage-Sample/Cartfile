@@ -1,2 +1,2 @@
-binary "[CARTHAGEFEEDURL]" ~> 3.17.1
+binary "[CARTHAGEFEEDURL]" ~> 3.17.2
 github "stormideas/Texture" "3.0.0-rc.2"
