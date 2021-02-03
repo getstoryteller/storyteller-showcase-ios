@@ -22,7 +22,7 @@ Use this repo as a reference for integrating Storyteller in your iOS App.
 [Storyteller is also available for Android](https://github.com/stormideas/storyteller-sample-android).
 ## CocoaPods-Sample
 
-**To use the [Cocoapods](https://cocoapods.org) integration for `Storyteller`**
+**To use the [Cocoapods](https://cocoapods.org) integration for `Storyteller`:**
 
 1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
 2. Supply your SDK license key in the `Podfile` by replacing `[LICENSEKEY]` with the correct value (please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#cocoapods) for more details)
@@ -32,7 +32,7 @@ Use this repo as a reference for integrating Storyteller in your iOS App.
 
 ## Carthage-Sample
 
-**To use the [Carthage](https://github.com/Carthage/Carthage) integration for `Storyteller`**
+**To use the [Carthage](https://github.com/Carthage/Carthage) integration for `Storyteller`:**
 1. [Install Carthage](https://github.com/Carthage/Carthage#installing-carthage)
 2. Supply your Carthage feed URL in the `Cartfile` by replacing `[CARTHAGEFEEDURL]` with the correct value (please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#carthage) for more details)
 3. Run `carthage update` in the `Carthage-Sample` directory
@@ -42,7 +42,7 @@ Use this repo as a reference for integrating Storyteller in your iOS App.
 
 ## XCFrameworks-Sample
 
-**To use the XCFrameworks integration for `Storyteller`**
+**To use the XCFrameworks integration for `Storyteller`:**
 1. Download zipped binaries from the URL provided (please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#xcframeworks) for more details)
 2. Copy them to `Libraries` folder. Path should look like: `Libraries/StorytellerSDK.xcframework`, `Libraries/AsyncDisplayKit.xcframework`, etc.
 3. Open the `StorytellerSampleApp.xcodeproj` to open the project.
