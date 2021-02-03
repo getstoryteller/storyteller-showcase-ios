@@ -1,3 +1,5 @@
+[https://getstoryteller.com]([!Storyteller integration examples for iOS, from getstoryteller.com](img/readme-cover.png))
+
 # Storyteller iOS
 
 This repo contains sample apps integrating the Storyteller SDK in various ways.
