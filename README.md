@@ -1,4 +1,9 @@
-[https://getstoryteller.com]([!Storyteller integration examples for iOS, from getstoryteller.com](img/readme-cover.png))
+<a href="https://getstoryteller.com" target="_blank" rel="noopener noreferrer">
+  <img alt="Storyteller integration examples for iOS, from getstoryteller.com" src="img/readme-cover.png">
+</a>
+
+
+[https://getstoryteller.com]([!](img/readme-cover.png))
 
 # Storyteller iOS
 
