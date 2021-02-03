@@ -4,15 +4,15 @@
 
 # Storyteller iOS Sample App
 
-[![Cocoapods](https://img.shields.io/badge/Cocoapods-%3E1.2.3-green?logo=cocoapods)
-[![Carthage](https://img.shields.io/badge/Carthage-%3E1.2.3-green)
-[![XCFrameworks](https://img.shields.io/badge/XCFrameworks-Compatible-green)
+![Cocoapods](https://img.shields.io/badge/Cocoapods-%3E1.2.3-green?logo=cocoapods)
+![Carthage](https://img.shields.io/badge/Carthage-%3E1.2.3-green)
+![XCFrameworks](https://img.shields.io/badge/XCFrameworks-Compatible-green)
 
-<a href="https://getstoryteller.com" target="_blank">
-  <img alt="Learn more about Storyteller" src="img/learn-more-btn.png" width="400" height="48">
+<a href="https://getstoryteller.com" target="_blank" style="margin-right: 40px;">
+  <img alt="What is Storyteller?" src="img/what-is-storyteller-btn.png" width="302" height="48">
 </a>
 <a href="https://docs.getstoryteller.com/documents/ios-sdk" target="_blank">
-  <img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="412" height="48">
+  <img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="272" height="48">
 </a>
 
 ## CocoaPods-Sample
