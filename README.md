@@ -1,13 +1,19 @@
-<a href="https://getstoryteller.com" target="_blank" rel="noopener noreferrer">
+<a href="https://getstoryteller.com" target="_blank">
   <img alt="Storyteller integration examples for iOS, from getstoryteller.com" src="img/readme-cover.png">
 </a>
 
+# Storyteller iOS Sample App
 
-[https://getstoryteller.com]([!](img/readme-cover.png))
+[![Cocoapods](https://img.shields.io/badge/Cocoapods-%3E1.2.3-green?logo=cocoapods)
+[![Carthage](https://img.shields.io/badge/Carthage-%3E1.2.3-green)
+[![XCFrameworks](https://img.shields.io/badge/XCFrameworks-Compatible-green)
 
-# Storyteller iOS
-
-This repo contains sample apps integrating the Storyteller SDK in various ways.
+<a href="https://getstoryteller.com" target="_blank">
+  <img alt="Learn more about Storyteller" src="img/learn-more-btn.png" width="400" height="48">
+</a>
+<a href="https://docs.getstoryteller.com/documents/ios-sdk" target="_blank">
+  <img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="412" height="48">
+</a>
 
 ## CocoaPods-Sample
 
