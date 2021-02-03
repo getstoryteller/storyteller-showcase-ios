@@ -4,9 +4,9 @@
   <img alt="Storyteller integration examples for iOS, from getstoryteller.com" src="img/readme-cover.png">
 </a>
 
-![Cocoapods](https://img.shields.io/badge/Cocoapods-Compatible-green?logo=cocoapods)
-![Carthage](https://img.shields.io/badge/Carthage-Compatible-green)
-![XCFrameworks](https://img.shields.io/badge/XCFrameworks-Compatible-green)
+![Cocoapods Compatible](https://img.shields.io/badge/Cocoapods-Compatible-green?logo=cocoapods)
+![Carthage Compatible](https://img.shields.io/badge/Carthage-Compatible-green)
+![XCFrameworks Compatible](https://img.shields.io/badge/XCFrameworks-Compatible-green)
 
 <p>
   <a href="https://getstoryteller.com" target="_blank"><img alt="What is Storyteller?" src="img/what-is-storyteller-btn.png" width="302" height="48"></a>&nbsp;&nbsp;&nbsp;
