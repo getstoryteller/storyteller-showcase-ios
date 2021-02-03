@@ -9,12 +9,8 @@
 ![XCFrameworks](https://img.shields.io/badge/XCFrameworks-Compatible-green)
 
 <p>
-  <a href="https://getstoryteller.com" target="_blank">
-    <img alt="What is Storyteller?" src="img/what-is-storyteller-btn.png" width="302" height="48">
-  </a>&nbsp;&nbsp;&nbsp;
-  <a href="https://docs.getstoryteller.com/documents/ios-sdk" target="_blank">
-    <img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="272" height="48">
-  </a>
+  <a href="https://getstoryteller.com" target="_blank"><img alt="What is Storyteller?" src="img/what-is-storyteller-btn.png" width="302" height="48"></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://docs.getstoryteller.com/documents/ios-sdk" target="_blank"><img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="272" height="48"></a>
 </p>
 
 Use this repo as a reference for integrating Storyteller in your iOS App.
