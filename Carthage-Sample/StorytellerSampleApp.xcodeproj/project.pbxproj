@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF44FD6925C898C4009ED4B7 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */; };
-		AF44FD6A25C898C4009ED4B7 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6825C898C4009ED4B7 /* PINOperation.xcframework */; };
+		AEA93A6325CC3AC500244255 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6825C898C4009ED4B7 /* PINOperation.xcframework */; };
+		AEA93A6425CC3AC500244255 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6825C898C4009ED4B7 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEA93A6525CC3AC600244255 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */; };
+		AEA93A6625CC3AC600244255 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8634A5C244735C20019C432 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
 		B8634A5D244735C20019C432 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8634A60244735C20019C432 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
@@ -31,7 +33,9 @@
 			files = (
 				B8634A61244735C30019C432 /* PINRemoteImage.framework in Embed Frameworks */,
 				B8634A5D244735C20019C432 /* PINCache.framework in Embed Frameworks */,
+				AEA93A6625CC3AC600244255 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				B8634A6B244735C30019C432 /* StorytellerSDK.framework in Embed Frameworks */,
+				AEA93A6425CC3AC500244255 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,9 +63,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8634A60244735C20019C432 /* PINRemoteImage.framework in Frameworks */,
-				AF44FD6A25C898C4009ED4B7 /* PINOperation.xcframework in Frameworks */,
+				AEA93A6325CC3AC500244255 /* PINOperation.xcframework in Frameworks */,
+				AEA93A6525CC3AC600244255 /* AsyncDisplayKit.xcframework in Frameworks */,
 				B8634A5C244735C20019C432 /* PINCache.framework in Frameworks */,
-				AF44FD6925C898C4009ED4B7 /* AsyncDisplayKit.xcframework in Frameworks */,
 				B8634A6A244735C30019C432 /* StorytellerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
