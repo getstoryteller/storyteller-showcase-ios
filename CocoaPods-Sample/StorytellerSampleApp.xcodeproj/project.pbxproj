@@ -237,6 +237,7 @@
 				B8E4427B23F2E32E0093A423 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../../Shared;
 			sourceTree = "<group>";
 		};
 		B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */ = {
@@ -245,6 +246,7 @@
 				B8E4428023F2E32E0093A423 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../../Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
