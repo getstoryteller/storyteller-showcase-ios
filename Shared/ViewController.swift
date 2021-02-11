@@ -50,6 +50,16 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
         super.viewDidAppear(animated)
         storytellerRowView.reloadData()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeeplinkPreview",
+           let controller = segue.destination as? DeeplinkPreviewController,
+           let url = sender as? String {
+            controller.deeplinkUrl = url
+        }
+    }
+
+    // MARK: - StorytellerRowViewDelegate methods
     
     func onStoriesDataLoadStarted() {
         NSLog("onStoriesDataLoadStarted")
@@ -72,7 +82,10 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     }
 
     func userSwipedUpToApp(swipeUpUrl: String) {
-        NSLog("userSwipedUpToApp")
+        // Open another module in the app and pass given url as param.
+        storytellerRowView.dismissStoryView(animated: true, dismissReason: nil) {
+            self.performSegue(withIdentifier: "showDeeplinkPreview", sender: swipeUpUrl)
+        }
     }
 
     func tileBecameVisible(index: Int) {
