@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA125D35267000A9127 /* ViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
+		AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		AEBB2EA125D35267000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
+		AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeeplinkPreviewController.swift; path = ../../Shared/DeeplinkPreviewController.swift; sourceTree = "<group>"; };
 		B84B5A112447319E003B1BC6 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeepDiff.framework; path = Carthage/Build/iOS/DeepDiff.framework; sourceTree = "<group>"; };
 		B881F520242A2C9000BAF2E6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				AE119DE4247566850092DC66 /* Libraries */,
 				AEBB2EA225D35267000A9127 /* AppDelegate.swift */,
 				AEBB2EA125D35267000A9127 /* ViewController.swift */,
+				AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */,
 				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					B8E4427023F2E32E0093A423 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -188,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */,
+				AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */,
 				AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVDW6P765R;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -348,6 +354,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
 				PRODUCT_NAME = StorytellerSampleApp;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -357,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVDW6P765R;
 				FRAMEWORK_SEARCH_PATHS = (
