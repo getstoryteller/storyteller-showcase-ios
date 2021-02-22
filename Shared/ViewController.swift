@@ -55,6 +55,14 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
         storytellerRowView.reloadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeeplinkPreview",
+           let controller = segue.destination as? DeeplinkPreviewController,
+           let url = sender as? String {
+            controller.deeplinkUrl = url
+        }
+    }
+  
     private func setRandomUser() {
         // If you use login in your app and wish to allow users to logout and log back in as a new user
         // (or proceed as an anonymous user) then when a user logs out you should call setUserDetails
@@ -77,7 +85,9 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
 
         present(controller, animated: true, completion: nil)
     }
-    
+
+  
+    // MARK: - StorytellerRowViewDelegate methods    
     func onStoriesDataLoadStarted() {
         NSLog("onStoriesDataLoadStarted")
     }
@@ -99,7 +109,10 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     }
 
     func userSwipedUpToApp(swipeUpUrl: String) {
-        NSLog("userSwipedUpToApp")
+        // Open another module in the app and pass given url as param.
+        storytellerRowView.dismissStoryView(animated: true, dismissReason: nil) {
+            self.performSegue(withIdentifier: "showDeeplinkPreview", sender: swipeUpUrl)
+        }
     }
 
     func tileBecameVisible(index: Int) {
