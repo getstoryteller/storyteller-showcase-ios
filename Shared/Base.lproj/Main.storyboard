@@ -27,12 +27,25 @@
                                             <constraint firstAttribute="height" constant="210" id="FYY-nE-VZ9"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWq-dD-CGc">
+                                        <rect key="frame" x="163.5" y="218" width="87" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Vwu-5c-lTC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="qiu-JD-qRg"/>
+                                        </constraints>
+                                        <state key="normal" title="Change user"/>
+                                        <connections>
+                                            <action selector="changeUserTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="5YF-hX-gOe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rWq-dD-CGc" firstAttribute="centerX" secondItem="XgV-K8-Ym6" secondAttribute="centerX" id="1z4-d5-Lrh"/>
                                     <constraint firstAttribute="bottom" secondItem="t9E-wV-Dxi" secondAttribute="bottom" id="D5r-dE-hEK"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" id="OVT-1s-C2o"/>
                                     <constraint firstAttribute="trailing" secondItem="t9E-wV-Dxi" secondAttribute="trailing" id="cNU-oq-cpr"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="top" secondItem="XgV-K8-Ym6" secondAttribute="top" id="mnD-VU-MdV"/>
+                                    <constraint firstItem="rWq-dD-CGc" firstAttribute="top" secondItem="t9E-wV-Dxi" secondAttribute="bottom" constant="8" symbolic="YES" id="qQy-He-b3H"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
