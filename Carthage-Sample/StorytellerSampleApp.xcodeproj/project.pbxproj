@@ -11,14 +11,14 @@
 		AEA93A6425CC3AC500244255 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6825C898C4009ED4B7 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEA93A6525CC3AC600244255 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */; };
 		AEA93A6625CC3AC600244255 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEBB2EB125D35379000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EAF25D35379000A9127 /* AppDelegate.swift */; };
+		AEBB2EB225D35379000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EB025D35379000A9127 /* ViewController.swift */; };
 		B8634A5C244735C20019C432 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; };
 		B8634A5D244735C20019C432 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F526242A2C9000BAF2E6 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8634A60244735C20019C432 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; };
 		B8634A61244735C30019C432 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8634A6A244735C30019C432 /* StorytellerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; };
 		B8634A6B244735C30019C432 /* StorytellerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427423F2E32E0093A423 /* AppDelegate.swift */; };
-		B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E4427823F2E32E0093A423 /* ViewController.swift */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -43,14 +43,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AEBB2EAF25D35379000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
+		AEBB2EB025D35379000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
 		AF44FD6725C898C4009ED4B7 /* AsyncDisplayKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AsyncDisplayKit.xcframework; path = Carthage/Build/AsyncDisplayKit.xcframework; sourceTree = "<group>"; };
 		AF44FD6825C898C4009ED4B7 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
 		B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		B881F526242A2C9000BAF2E6 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StorytellerSDK.framework; path = Carthage/Build/iOS/StorytellerSDK.framework; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E4427423F2E32E0093A423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8E4427823F2E32E0093A423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				B8E4427423F2E32E0093A423 /* AppDelegate.swift */,
-				B8E4427823F2E32E0093A423 /* ViewController.swift */,
+				AEBB2EAF25D35379000A9127 /* AppDelegate.swift */,
+				AEBB2EB025D35379000A9127 /* ViewController.swift */,
 				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
@@ -187,8 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8E4427923F2E32E0093A423 /* ViewController.swift in Sources */,
-				B8E4427523F2E32E0093A423 /* AppDelegate.swift in Sources */,
+				AEBB2EB225D35379000A9127 /* ViewController.swift in Sources */,
+				AEBB2EB125D35379000A9127 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +201,7 @@
 				B8E4427B23F2E32E0093A423 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../../Shared;
 			sourceTree = "<group>";
 		};
 		B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */ = {
@@ -209,6 +210,7 @@
 				B8E4428023F2E32E0093A423 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../../Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -348,6 +350,7 @@
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -371,6 +374,7 @@
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};

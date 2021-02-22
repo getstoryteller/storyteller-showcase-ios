@@ -34,6 +34,10 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     @objc func onPullToRefresh() {
         storytellerRowView.reloadData()
     }
+
+    @IBAction func changeUserTapped() {
+        setRandomUser()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,6 +53,29 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         storytellerRowView.reloadData()
+    }
+
+    private func setRandomUser() {
+        // If you use login in your app and wish to allow users to logout and log back in as a new user
+        // (or proceed as an anonymous user) then when a user logs out you should call setUserDetails
+        // again specifying a new externalId. Note that this will reset the local store of which pages the user has viewed.
+        // For more info, see - https://docs.getstoryteller.com/documents/ios-sdk/Users
+        let newIdentifier = UUID().uuidString
+        Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: newIdentifier))
+        self.storytellerRowView.reloadData()
+
+        showAlert(message: "New user with ID: \(newIdentifier).")
+    }
+
+    private func showAlert(message: String) {
+        let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            controller.dismiss(animated: true, completion: nil)
+        }
+        controller.addAction(okAction)
+
+        present(controller, animated: true, completion: nil)
     }
     
     func onStoriesDataLoadStarted() {
@@ -68,7 +95,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
     }
 
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        NSLog("onUserActivityOccurred - type: \(type), data: \(data.openedReason).")
+        NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
     }
 
     func userSwipedUpToApp(swipeUpUrl: String) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,37 +12,50 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StorytellerSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="StorytellerSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-K8-Ym6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-K8-Ym6">
                                 <rect key="frame" x="0.0" y="20" width="414" height="876"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-wV-Dxi" customClass="StorytellerRowView" customModule="StorytellerSDK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="210" id="LJA-rk-8Mp"/>
+                                            <constraint firstAttribute="height" constant="210" id="FYY-nE-VZ9"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWq-dD-CGc">
+                                        <rect key="frame" x="163.5" y="218" width="87" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Vwu-5c-lTC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="qiu-JD-qRg"/>
+                                        </constraints>
+                                        <state key="normal" title="Change user"/>
+                                        <connections>
+                                            <action selector="changeUserTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="5YF-hX-gOe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rWq-dD-CGc" firstAttribute="centerX" secondItem="XgV-K8-Ym6" secondAttribute="centerX" id="1z4-d5-Lrh"/>
+                                    <constraint firstAttribute="bottom" secondItem="t9E-wV-Dxi" secondAttribute="bottom" id="D5r-dE-hEK"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" id="OVT-1s-C2o"/>
-                                    <constraint firstAttribute="bottom" secondItem="t9E-wV-Dxi" secondAttribute="bottom" id="UdV-ys-EpD"/>
-                                    <constraint firstAttribute="trailing" secondItem="t9E-wV-Dxi" secondAttribute="trailing" id="kZS-SP-BRC"/>
+                                    <constraint firstAttribute="trailing" secondItem="t9E-wV-Dxi" secondAttribute="trailing" id="cNU-oq-cpr"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="top" secondItem="XgV-K8-Ym6" secondAttribute="top" id="mnD-VU-MdV"/>
+                                    <constraint firstItem="rWq-dD-CGc" firstAttribute="top" secondItem="t9E-wV-Dxi" secondAttribute="bottom" constant="8" symbolic="YES" id="qQy-He-b3H"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XgV-K8-Ym6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5uj-50-ZTc"/>
-                            <constraint firstItem="XgV-K8-Ym6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F2K-y2-Ovg"/>
+                            <constraint firstItem="XgV-K8-Ym6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5uj-50-ZTc"/>
+                            <constraint firstItem="t9E-wV-Dxi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="8R9-rN-oDB"/>
+                            <constraint firstItem="XgV-K8-Ym6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="F2K-y2-Ovg"/>
                             <constraint firstAttribute="bottom" secondItem="XgV-K8-Ym6" secondAttribute="bottom" id="PCj-cP-Pgg"/>
-                            <constraint firstItem="t9E-wV-Dxi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YdK-Ps-BAl"/>
                             <constraint firstItem="XgV-K8-Ym6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="bzP-b4-PaE"/>
                         </constraints>
                     </view>
