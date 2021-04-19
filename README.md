@@ -15,7 +15,7 @@
 
 Use this repo as a reference for integrating Storyteller in your iOS App.
 
-[Storyteller is also available for Android](https://github.com/stormideas/storyteller-sample-android).
+[Storyteller is also available for Android](https://github.com/getstoryteller/storyteller-sample-android).
 
 For help with Storyteller, please check our [Documentation and User Guide](https://docs.getstoryteller.com/documents/) or contact [support@getstoryteller.com](mailto:support@getstoryteller.com?Subject=iOS%20Sample%20App).
 ## CocoaPods-Sample
