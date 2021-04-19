@@ -1,2 +1,2 @@
 binary "[CARTHAGEFEEDURL]" ~> 4.1.3
-git "https://github.com/stormideas/Texture.git" "3.0.0-rc.2"
+git "https://github.com/getstoryteller/Texture.git" "3.0.0-rc.2"

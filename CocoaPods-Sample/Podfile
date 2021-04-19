@@ -1,4 +1,4 @@
-source 'https://[LICENSEKEY]@github.com/stormideas/storyteller-sdk-podspec.git'
+source 'https://github.com/getstoryteller/storyteller-sdk-podspec.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 # Uncomment the next line to define a global platform for your project
@@ -9,6 +9,6 @@ target 'StorytellerSampleApp' do
   use_frameworks!
 
   # Pods for StorytellerSampleApp
-  pod 'Texture', :git => 'https://github.com/stormideas/Texture.git', :branch => '3.0.0-rc.2'
+  pod 'Texture', :git => 'https://github.com/getstoryteller/Texture.git', :branch => '3.0.0-rc.2'
   pod 'StorytellerSDK',  '~> 4.1.3'
 end
