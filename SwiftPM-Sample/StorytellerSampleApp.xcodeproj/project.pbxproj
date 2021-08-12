@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA125D35267000A9127 /* ViewController.swift */; };
+		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
+		AEDE45AC26C528E700D8A4F1 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = AEDE45AB26C528E700D8A4F1 /* StorytellerSDK */; };
+		AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */; };
+		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
+		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
+		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE3D832B247677D40020801C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AEBB2EA125D35267000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
+		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
+		AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeeplinkPreviewController.swift; path = ../../Shared/DeeplinkPreviewController.swift; sourceTree = "<group>"; };
+		B84B5A112447319E003B1BC6 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeepDiff.framework; path = Carthage/Build/iOS/DeepDiff.framework; sourceTree = "<group>"; };
+		B881F520242A2C9000BAF2E6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B881F521242A2C9000BAF2E6 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		B881F522242A2C9000BAF2E6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		B881F523242A2C9000BAF2E6 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
+		B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
+		B881F526242A2C9000BAF2E6 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
+		B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StorytellerSDK.framework; path = Carthage/Build/iOS/StorytellerSDK.framework; sourceTree = "<group>"; };
+		B881F528242A2C9000BAF2E6 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
+		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8E4426E23F2E32E0093A423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEDE45AC26C528E700D8A4F1 /* StorytellerSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B871CF7323F6D48E00FAF2B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B84B5A112447319E003B1BC6 /* RxBlocking.framework */,
+				B881F522242A2C9000BAF2E6 /* Alamofire.framework */,
+				B881F525242A2C9000BAF2E6 /* AsyncDisplayKit.framework */,
+				B881F51F242A2C9000BAF2E6 /* DeepDiff.framework */,
+				B881F526242A2C9000BAF2E6 /* PINCache.framework */,
+				B881F528242A2C9000BAF2E6 /* PINOperation.framework */,
+				B881F524242A2C9000BAF2E6 /* PINRemoteImage.framework */,
+				B881F520242A2C9000BAF2E6 /* RxCocoa.framework */,
+				B881F523242A2C9000BAF2E6 /* RxRelay.framework */,
+				B881F521242A2C9000BAF2E6 /* RxSwift.framework */,
+				B881F527242A2C9000BAF2E6 /* StorytellerSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8E4426823F2E32D0093A423 = {
+			isa = PBXGroup;
+			children = (
+				B8E4427323F2E32E0093A423 /* StorytellerSampleApp */,
+				B8E4427223F2E32E0093A423 /* Products */,
+				B871CF7323F6D48E00FAF2B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B8E4427223F2E32E0093A423 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB2EA225D35267000A9127 /* AppDelegate.swift */,
+				AEBB2EA125D35267000A9127 /* ViewController.swift */,
+				AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */,
+				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
+				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
+				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
+				B8E4428223F2E32E0093A423 /* Info.plist */,
+			);
+			path = StorytellerSampleApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8E4427023F2E32E0093A423 /* StorytellerSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8E4428523F2E32E0093A423 /* Build configuration list for PBXNativeTarget "StorytellerSampleApp" */;
+			buildPhases = (
+				B8E4426D23F2E32E0093A423 /* Sources */,
+				B8E4426E23F2E32E0093A423 /* Frameworks */,
+				B8E4426F23F2E32E0093A423 /* Resources */,
+				AE3D832B247677D40020801C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorytellerSampleApp;
+			packageProductDependencies = (
+				AEDE45AB26C528E700D8A4F1 /* StorytellerSDK */,
+			);
+			productName = StorytellerSampleApp;
+			productReference = B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8E4426923F2E32D0093A423 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Storm Ideas";
+				TargetAttributes = {
+					B8E4427023F2E32E0093A423 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = B8E4426C23F2E32D0093A423 /* Build configuration list for PBXProject "StorytellerSampleApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B8E4426823F2E32D0093A423;
+			packageReferences = (
+				AEDE45AA26C528E600D8A4F1 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
+			);
+			productRefGroup = B8E4427223F2E32E0093A423 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8E4427023F2E32E0093A423 /* StorytellerSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8E4426F23F2E32E0093A423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */,
+				B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */,
+				B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8E4426D23F2E32E0093A423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */,
+				AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */,
+				AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B8E4427A23F2E32E0093A423 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8E4427B23F2E32E0093A423 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ../../Shared;
+			sourceTree = "<group>";
+		};
+		B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8E4428023F2E32E0093A423 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ../../Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8E4428323F2E32E0093A423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B8E4428423F2E32E0093A423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8E4428623F2E32E0093A423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BVDW6P765R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = StorytellerSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
+				PRODUCT_NAME = StorytellerSampleApp;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8E4428723F2E32E0093A423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BVDW6P765R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = StorytellerSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
+				PRODUCT_NAME = StorytellerSampleApp;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8E4426C23F2E32D0093A423 /* Build configuration list for PBXProject "StorytellerSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8E4428323F2E32E0093A423 /* Debug */,
+				B8E4428423F2E32E0093A423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8E4428523F2E32E0093A423 /* Build configuration list for PBXNativeTarget "StorytellerSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8E4428623F2E32E0093A423 /* Debug */,
+				B8E4428723F2E32E0093A423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AEDE45AA26C528E600D8A4F1 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEDE45AB26C528E700D8A4F1 /* StorytellerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEDE45AA26C528E600D8A4F1 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */;
+			productName = StorytellerSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B8E4426923F2E32D0093A423 /* Project object */;
+}
