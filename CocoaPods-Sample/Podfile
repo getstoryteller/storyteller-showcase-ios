@@ -1,4 +1,4 @@
-source 'https://[LICENSEKEY]@github.com/getstoryteller/storyteller-sdk-podspec.git'
+source 'https://github.com/getstoryteller/storyteller-sdk-ios-podspec.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 # Uncomment the next line to define a global platform for your project
@@ -10,5 +10,5 @@ target 'StorytellerSampleApp' do
 
   # Pods for StorytellerSampleApp
   pod 'Texture', :git => 'https://github.com/getstoryteller/Texture.git', :branch => '3.0.0-rc.2'
-  pod 'StorytellerSDK',  '~> 4.2.0'
+  pod 'StorytellerSDK',  '~> 4.5.2'
 end
