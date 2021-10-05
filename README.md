@@ -5,8 +5,8 @@
 </a>
 
 ![Cocoapods Compatible](https://img.shields.io/badge/Cocoapods-Compatible-green?logo=cocoapods)
-![Carthage Compatible](https://img.shields.io/badge/Carthage-Compatible-green)
 ![XCFrameworks Compatible](https://img.shields.io/badge/XCFrameworks-Compatible-green)
+![Swift Package Manager Compatible](https://img.shields.io/badge/Swift-Package-Manager-Compatible-green)
 
 <p>
   <a href="https://getstoryteller.com" target="_blank"><img alt="What is Storyteller?" src="img/what-is-storyteller-btn.png" width="302" height="48"></a>&nbsp;&nbsp;&nbsp;
