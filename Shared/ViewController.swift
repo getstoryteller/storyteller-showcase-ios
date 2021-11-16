@@ -47,12 +47,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
 
         // SDK initialization requires providing api key.
         // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#sdk-initialization
-        Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", onComplete: {
-
-            // Authenticate a user by setting details containing an UUID.
-            // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/Users
-            Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: "user-id"))
-
+        Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: "user-id"), onComplete: {
             // Reload data with the params set above.
             // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#reloaddata
             self.storytellerRowView.reloadData()
@@ -77,12 +72,20 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
   
     private func setRandomUser() {
         // If you use login in your app and wish to allow users to logout and log back in as a new user
-        // (or proceed as an anonymous user) then when a user logs out you should call setUserDetails
+        // (or proceed as an anonymous user) then when a user logs out you should initialize SDK
         // again specifying a new externalId. Note that this will reset the local store of which pages the user has viewed.
         // For more info, see - https://docs.getstoryteller.com/documents/ios-sdk/Users
         let newIdentifier = UUID().uuidString
-        Storyteller.sharedInstance.setUserDetails(userInput: UserInput(externalId: newIdentifier))
-        self.storytellerRowView.reloadData()
+        
+        // SDK initialization requires providing api key.
+        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#sdk-initialization
+        Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: newIdentifier), onComplete: {
+            // Reload data with the params set above.
+            // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#reloaddata
+            self.storytellerRowView.reloadData()
+        }) { error in
+            // Handle error
+        }
 
         showAlert(message: "New user with ID: \(newIdentifier).")
     }

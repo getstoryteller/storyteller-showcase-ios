@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA125D35267000A9127 /* ViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
 		AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */; };
+		AF27D26627444E240090509E /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = AF27D26527444E240090509E /* StorytellerSDK */; };
 		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF27D26627444E240090509E /* StorytellerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 			);
 			name = StorytellerSampleApp;
 			packageProductDependencies = (
+				AF27D26527444E240090509E /* StorytellerSDK */,
 			);
 			productName = StorytellerSampleApp;
 			productReference = B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */;
@@ -137,6 +140,7 @@
 			);
 			mainGroup = B8E4426823F2E32D0093A423;
 			packageReferences = (
+				AF27D26427444E240090509E /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
 			);
 			productRefGroup = B8E4427223F2E32E0093A423 /* Products */;
 			projectDirPath = "";
@@ -380,6 +384,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF27D26427444E240090509E /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF27D26527444E240090509E /* StorytellerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF27D26427444E240090509E /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */;
+			productName = StorytellerSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8E4426923F2E32D0093A423 /* Project object */;
 }
