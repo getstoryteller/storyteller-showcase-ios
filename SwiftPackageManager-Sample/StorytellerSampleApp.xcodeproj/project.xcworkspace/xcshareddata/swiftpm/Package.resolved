@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/getstoryteller/storyteller-sdk-swift-package.git",
         "state": {
           "branch": null,
-          "revision": "d16a74e63ba2867ab684238116143b47c39103af",
-          "version": "4.6.0"
+          "revision": "e350600b891fe55d4614715b8b7a929a657111f8",
+          "version": "5.0.0"
         }
       }
     ]
