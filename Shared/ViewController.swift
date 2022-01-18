@@ -9,15 +9,15 @@
 import UIKit
 import StorytellerSDK
 
-class ViewController: UIViewController, StorytellerRowViewDelegate {
+class ViewController: UIViewController, StorytellerListViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
+    @IBOutlet weak var storytellerGridView: StorytellerGridView!
     
     var refresher: UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         refresher = UIRefreshControl()
         refresher?.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -27,21 +27,24 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
         }
 
         // Set current class as Storyteller delegate.
+        storytellerRowView.insetStart = 4.0
         storytellerRowView.delegate = self
+        storytellerGridView.delegate = self
 
         // Set thumbnail shape.
         // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#storytellerrowviewcelltype
-        storytellerRowView.cellType = StorytellerRowViewCellType.Square.rawValue
+        storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
     }
     
     @objc func onPullToRefresh() {
         storytellerRowView.reloadData()
+        storytellerGridView.reloadData()
     }
 
     @IBAction func changeUserTapped() {
         setRandomUser()
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -51,6 +54,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
             // Reload data with the params set above.
             // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#reloaddata
             self.storytellerRowView.reloadData()
+            self.storytellerGridView.reloadData()
         }) { error in
             // Handle error
         }
@@ -83,6 +87,7 @@ class ViewController: UIViewController, StorytellerRowViewDelegate {
             // Reload data with the params set above.
             // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#reloaddata
             self.storytellerRowView.reloadData()
+            self.storytellerGridView.reloadData()
         }) { error in
             // Handle error
         }

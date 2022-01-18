@@ -391,7 +391,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 6.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
