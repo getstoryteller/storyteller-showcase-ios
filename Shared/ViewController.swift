@@ -23,20 +23,20 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         scrollView.refreshControl = refresher
         
         // Set current class for StorytellerDelegate.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerDelegate#howToUse
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#HowToUse
         Storyteller.sharedInstance.delegate = self
               
         // Set current class for StorytellerListViewDelegates.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListViewDelegate#howToUse
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#HowToUse
         storytellerRowView.delegate = self
         storytellerGridView.delegate = self
 
         // Set thumbnail shape.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListView#Attributes
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
         storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
         
         // Set left inset value.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#Attributes
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-row-view#Attributes
         storytellerRowView.insetStart = 4.0
     }
     
@@ -53,10 +53,10 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         super.viewWillAppear(animated)
 
         // SDK initialization requires providing api key.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#SDKInitialization
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization
         Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: "user-id"), onComplete: {
             // Reload data with the params set above.
-            // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListView#reloadData
+            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#reloadData
             self.storytellerRowView.reloadData()
             self.storytellerGridView.reloadData()
         }) { error in
@@ -82,14 +82,14 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         // If you use login in your app and wish to allow users to logout and log back in as a new user
         // (or proceed as an anonymous user) then when a user logs out you should initialize SDK
         // again specifying a new externalId. Note that this will reset the local store of which pages the user has viewed.
-        // For more info, see - https://docs.getstoryteller.com/documents/ios-sdk/Users
+        // For more info, see - https://www.getstoryteller.com/documentation/ios/users
         let newIdentifier = UUID().uuidString
         
         // SDK initialization requires providing api key.
-        // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#SDKInitialization
+        // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization
         Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: newIdentifier), onComplete: {
             // Reload data with the params set above.
-            // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListView#reloadData
+            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#reloadData
             self.storytellerRowView.reloadData()
             self.storytellerGridView.reloadData()
         }) { error in
@@ -118,7 +118,7 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
     }
 
     // Called when data loading is finished.
-    // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListViewDelegate#ErrorHandling
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#ErrorHandling
     func onStoriesDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         NSLog("onStoriesDataLoadStarted - sucess: \(success), error: \(error), dataCount: \(dataCount).")
 
@@ -133,13 +133,13 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
     }
 
     // Called when analytics event occurs.
-    // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerDelegate#analytics
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#Analytics
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
         NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
     }
 
     // Called when user swipes up on story's page.
-    // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerDelegate#SwipingUpToTheIntegratingApp
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#SwipingUpToTheIntegratingApp
     func userSwipedUpToApp(swipeUpUrl: String) {
         // Open another module in the app and pass given url as param.
         Storyteller.dismissStoryView(animated: true, dismissReason: nil) {
@@ -148,13 +148,13 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
     }
 
     // Called when tile with given index becomes visible.
-    // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerListViewDelegate#TileVisibility
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#TileVisibility
     func tileBecameVisible(index: Int) {
         NSLog("tileBecameVisible: \(index)")
     }
 
     // Called when tenant is configured to use ads from the containing app.
-    // For more info, see: https://docs.getstoryteller.com/documents/ios-sdk/StorytellerDelegate#ClientAds
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#ClientAds
     func getAdsForRow(stories: [ClientStory], onComplete: @escaping ([ClientAd?]) -> Void, onError: @escaping (Error) -> Void) {
         onComplete([])
     }
