@@ -56,7 +56,7 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization
         Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: "user-id"), onComplete: {
             // Reload data with the params set above.
-            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#reloadData
+            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Methods
             self.storytellerRowView.reloadData()
             self.storytellerGridView.reloadData()
         }) { error in
@@ -89,7 +89,7 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization
         Storyteller.sharedInstance.initialize(apiKey: "<apiKey>", userInput: UserInput(externalId: newIdentifier), onComplete: {
             // Reload data with the params set above.
-            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#reloadData
+            // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Methods
             self.storytellerRowView.reloadData()
             self.storytellerGridView.reloadData()
         }) { error in
