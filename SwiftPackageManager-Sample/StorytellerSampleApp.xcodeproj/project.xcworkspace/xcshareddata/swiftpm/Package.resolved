@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "storyteller-sdk-package",
-        "repositoryURL": "https://github.com/getstoryteller/storyteller-sdk-swift-package.git",
-        "state": {
-          "branch": null,
-          "revision": "057a5eaa865d0aae4815938b14b7440934bfe95a",
-          "version": "6.1.1"
-        }
+  "pins" : [
+    {
+      "identity" : "storyteller-sdk-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getstoryteller/storyteller-sdk-swift-package.git",
+      "state" : {
+        "revision" : "be6c6a36d89d83228e11662e4132c71435894135",
+        "version" : "7.0.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

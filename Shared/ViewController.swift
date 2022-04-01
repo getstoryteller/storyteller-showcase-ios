@@ -34,10 +34,6 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
         // Set thumbnail shape.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
         storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
-        
-        // Set left inset value.
-        // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-row-view#Attributes
-        storytellerRowView.insetStart = 4.0
     }
     
     @objc func onPullToRefresh() {
