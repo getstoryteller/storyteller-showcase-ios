@@ -109,14 +109,14 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
     // MARK: - StorytellerRowViewDelegate methods
   
     // Called when the network request to load data for all stories has started.
-    func onStoriesDataLoadStarted() {
-        NSLog("onStoriesDataLoadStarted")
+    func onDataLoadStarted() {
+        NSLog("onDataLoadStarted")
     }
 
     // Called when data loading is finished.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#ErrorHandling
-    func onStoriesDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        NSLog("onStoriesDataLoadStarted - sucess: \(success), error: \(error), dataCount: \(dataCount).")
+    func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
+        NSLog("onDataLoadComplete - sucess: \(success), error: \(error), dataCount: \(dataCount).")
 
         DispatchQueue.main.async {
             self.refresher?.endRefreshing()
@@ -124,8 +124,8 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
     }
 
     // Called when any story has been dismissed.
-    func onStoryDismissed() {
-        NSLog("onStoryDismissed")
+    func onPlayerDismissed() {
+        NSLog("onPlayerDismissed")
     }
 
     // Called when analytics event occurs.
@@ -136,17 +136,17 @@ class ViewController: UIViewController, StorytellerListViewDelegate, Storyteller
 
     // Called when user swipes up on story's page.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#SwipingUpToTheIntegratingApp
-    func userSwipedUpToApp(swipeUpUrl: String) {
+    func userNavigatedToApp(url: String) {
         // Open another module in the app and pass given url as param.
         Storyteller.dismissStoryView(animated: true, dismissReason: nil) {
-            self.performSegue(withIdentifier: "showDeeplinkPreview", sender: swipeUpUrl)
+            self.performSegue(withIdentifier: "showDeeplinkPreview", sender: url)
         }
     }
 
     // Called when tile with given index becomes visible.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#TileVisibility
-    func tileBecameVisible(index: Int) {
-        NSLog("tileBecameVisible: \(index)")
+    func tileBecameVisible(contentIndex: Int) {
+        NSLog("tileBecameVisible: \(contentIndex)")
     }
 
     // Called when tenant is configured to use ads from the containing app.

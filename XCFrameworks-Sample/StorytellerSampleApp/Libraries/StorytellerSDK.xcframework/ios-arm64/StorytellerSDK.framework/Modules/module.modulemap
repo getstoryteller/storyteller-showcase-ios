@@ -1,0 +1,4 @@
+framework module StorytellerSDK {
+  header "StorytellerSDK-Swift.h"
+  requires objc
+}

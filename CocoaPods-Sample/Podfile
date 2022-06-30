@@ -9,5 +9,5 @@ target 'StorytellerSampleApp' do
   use_frameworks!
 
   # Pods for StorytellerSampleApp
-  pod 'StorytellerSDK',  '~> 7.1.0'
+  pod 'StorytellerSDK',  '~> 8.0.1'
 end
