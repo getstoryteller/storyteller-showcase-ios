@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E9DA743288ACFF400FD9DCC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9DA742288ACFF400FD9DCC /* HomeController.swift */; };
 		4EFA6447281ADCF600CE43FD /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4EFA6446281ADCF600CE43FD /* StorytellerSDK */; };
 		AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA125D35267000A9127 /* ViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E9DA742288ACFF400FD9DCC /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = ../../Shared/HomeController.swift; sourceTree = "<group>"; };
 		AEBB2EA125D35267000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
 		AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeeplinkPreviewController.swift; path = ../../Shared/DeeplinkPreviewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				AEBB2EA225D35267000A9127 /* AppDelegate.swift */,
 				AEBB2EA125D35267000A9127 /* ViewController.swift */,
 				AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */,
+				4E9DA742288ACFF400FD9DCC /* HomeController.swift */,
 				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9DA743288ACFF400FD9DCC /* HomeController.swift in Sources */,
 				AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */,
 				AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */,
 				AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */,
@@ -391,7 +395,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.1;
+				minimumVersion = 8.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

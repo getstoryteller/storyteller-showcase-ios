@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,24 +54,36 @@
                                         <rect key="frame" x="0.0" y="378" width="414" height="210"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOr-S9-gKx">
+                                        <rect key="frame" x="163.5" y="678" width="87" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="LtI-2R-JYm"/>
+                                            <constraint firstAttribute="height" constant="30" id="fkY-tj-9zQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Open Home"/>
+                                        <connections>
+                                            <segue destination="C8q-Rz-3Ob" kind="presentation" identifier="showStorytellerHome" id="eIn-u3-Q9j"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rWq-dD-CGc" firstAttribute="centerX" secondItem="XgV-K8-Ym6" secondAttribute="centerX" id="1z4-d5-Lrh"/>
                                     <constraint firstItem="cvx-sN-CN2" firstAttribute="top" secondItem="1SH-6c-30j" secondAttribute="bottom" constant="31.5" id="9Mi-Da-zHP"/>
                                     <constraint firstItem="pCA-hM-SYY" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" constant="8" id="C5x-vs-Ko1"/>
+                                    <constraint firstItem="YOr-S9-gKx" firstAttribute="top" secondItem="rWq-dD-CGc" secondAttribute="bottom" constant="18" id="F54-h3-yj4"/>
                                     <constraint firstItem="rWq-dD-CGc" firstAttribute="top" secondItem="cvx-sN-CN2" secondAttribute="bottom" constant="42" id="FEo-kX-92T"/>
                                     <constraint firstItem="1SH-6c-30j" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" constant="8" id="HF0-h7-wvo"/>
                                     <constraint firstItem="pCA-hM-SYY" firstAttribute="top" secondItem="XgV-K8-Ym6" secondAttribute="top" constant="56" id="OKC-KV-gRX"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" id="OVT-1s-C2o"/>
                                     <constraint firstAttribute="trailing" secondItem="1SH-6c-30j" secondAttribute="trailing" constant="8" id="V7k-Fj-L1J"/>
-                                    <constraint firstAttribute="bottom" secondItem="rWq-dD-CGc" secondAttribute="bottom" constant="224" id="Xyw-Zp-PBC"/>
+                                    <constraint firstAttribute="bottom" secondItem="YOr-S9-gKx" secondAttribute="bottom" constant="144" id="YZe-hF-Xhd"/>
                                     <constraint firstAttribute="trailing" secondItem="pCA-hM-SYY" secondAttribute="trailing" constant="8" id="aSE-AN-uT3"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rWq-dD-CGc" secondAttribute="bottom" constant="44" id="aej-oK-NIL"/>
                                     <constraint firstAttribute="trailing" secondItem="t9E-wV-Dxi" secondAttribute="trailing" id="cNU-oq-cpr"/>
                                     <constraint firstItem="1SH-6c-30j" firstAttribute="top" secondItem="t9E-wV-Dxi" secondAttribute="bottom" constant="28" id="eFX-cI-J0P"/>
                                     <constraint firstItem="cvx-sN-CN2" firstAttribute="leading" secondItem="XgV-K8-Ym6" secondAttribute="leading" id="iPE-7z-UUV"/>
                                     <constraint firstAttribute="trailing" secondItem="cvx-sN-CN2" secondAttribute="trailing" id="m6E-c7-kFO"/>
                                     <constraint firstItem="t9E-wV-Dxi" firstAttribute="top" secondItem="pCA-hM-SYY" secondAttribute="bottom" constant="11.5" id="qXe-Pv-Ghn"/>
+                                    <constraint firstItem="YOr-S9-gKx" firstAttribute="centerX" secondItem="XgV-K8-Ym6" secondAttribute="centerX" id="vYs-Vd-6ss"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -105,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-HZ-YZh">
-                                <rect key="frame" x="352" y="20" width="39" height="30"/>
+                                <rect key="frame" x="352" y="64" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="crG-EY-g6I"/>
                                     <constraint firstAttribute="height" constant="30" id="zyj-dW-TkP"/>
@@ -116,7 +128,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uw-9b-w8S">
-                                <rect key="frame" x="20" y="393.5" width="374" height="21"/>
+                                <rect key="frame" x="20" y="432.5" width="374" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5VP-I4-o0p"/>
                                 </constraints>
@@ -142,6 +154,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pke-WK-YGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="85.714285714285708"/>
+        </scene>
+        <!--Home Controller-->
+        <scene sceneID="vMS-cW-hew">
+            <objects>
+                <viewController id="C8q-Rz-3Ob" customClass="HomeController" customModule="StorytellerSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xdS-UJ-chE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blV-Iw-7GJ" customClass="StorytellerHomeView" customModule="StorytellerSDK">
+                                <rect key="frame" x="0.0" y="85" width="414" height="757"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAn-1l-8P1">
+                                <rect key="frame" x="330" y="54" width="61" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                <connections>
+                                    <action selector="close:" destination="C8q-Rz-3Ob" eventType="touchUpInside" id="Gaa-7f-LlA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="paO-ma-Ins"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="blV-Iw-7GJ" firstAttribute="trailing" secondItem="xdS-UJ-chE" secondAttribute="trailing" id="1M5-gb-NiN"/>
+                            <constraint firstAttribute="bottom" secondItem="blV-Iw-7GJ" secondAttribute="bottom" id="6oe-QT-lRV"/>
+                            <constraint firstItem="blV-Iw-7GJ" firstAttribute="leading" secondItem="xdS-UJ-chE" secondAttribute="leading" id="8lG-WE-5YJ"/>
+                            <constraint firstItem="blV-Iw-7GJ" firstAttribute="top" secondItem="paO-ma-Ins" secondAttribute="top" constant="41" id="Isc-CP-NsS"/>
+                            <constraint firstItem="YAn-1l-8P1" firstAttribute="top" secondItem="xdS-UJ-chE" secondAttribute="topMargin" constant="10" id="M2w-9H-j38"/>
+                            <constraint firstItem="paO-ma-Ins" firstAttribute="trailing" secondItem="YAn-1l-8P1" secondAttribute="trailing" constant="23" id="ePZ-le-0tT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="home" destination="blV-Iw-7GJ" id="iM7-jv-ih9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhD-zH-8yZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.8840579710145" y="834.375"/>
         </scene>
     </scenes>
     <resources>

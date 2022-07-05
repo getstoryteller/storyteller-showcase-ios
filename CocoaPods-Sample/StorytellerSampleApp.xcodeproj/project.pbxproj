@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E9DA741288ACDEB00FD9DCC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9DA740288ACDEB00FD9DCC /* HomeController.swift */; };
 		863976D8D65CB56E7EB9675E /* Pods_StorytellerSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */; };
 		AEBB2EBE25D35516000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EBC25D35516000A9127 /* ViewController.swift */; };
 		AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EBD25D35516000A9127 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		0AE053130A26CC1FE93B2421 /* Pods-StorytellerSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4E9DA740288ACDEB00FD9DCC /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = ../../Shared/HomeController.swift; sourceTree = "<group>"; };
 		AEBB2EBC25D35516000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
 		AEBB2EBD25D35516000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
 		AEEC915A25D4830A006A935B /* DeeplinkPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeeplinkPreviewController.swift; path = ../../Shared/DeeplinkPreviewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				AEEC915A25D4830A006A935B /* DeeplinkPreviewController.swift */,
 				AEBB2EBD25D35516000A9127 /* AppDelegate.swift */,
 				AEBB2EBC25D35516000A9127 /* ViewController.swift */,
+				4E9DA740288ACDEB00FD9DCC /* HomeController.swift */,
 				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9DA741288ACDEB00FD9DCC /* HomeController.swift in Sources */,
 				AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */,
 				AEEC915B25D4830A006A935B /* DeeplinkPreviewController.swift in Sources */,
 				AEBB2EBE25D35516000A9127 /* ViewController.swift in Sources */,
