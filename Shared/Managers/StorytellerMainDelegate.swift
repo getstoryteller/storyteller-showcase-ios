@@ -1,0 +1,34 @@
+import Foundation
+import StorytellerSDK
+
+class StorytellerMainDelegate: StorytellerDelegate {
+    // MARK: Lifecycle
+
+    // MARK: Internal
+
+    enum Action {
+        case navigatedToApp(url: String)
+    }
+
+    var actionHandler: (Action) -> Void = { _ in }
+
+    // Called when analytics event occurs.
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#Analytics
+    func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
+        NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
+    }
+
+    // Called when tenant is configured to use ads from the containing app.
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#ClientAds
+    func getAdsForList(stories: [ClientStory], onComplete: @escaping ([ClientAd?]) -> Void, onError: @escaping (Error) -> Void) {
+        onComplete([])
+    }
+
+    // Called when user swipes up on story's page.
+    // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#SwipingUpToTheIntegratingApp
+    func userNavigatedToApp(url: String) {
+        // Open another module in the app and pass given url as param.
+        Storyteller.dismissStoryView(animated: true)
+        actionHandler(.navigatedToApp(url: url))
+    }
+}
