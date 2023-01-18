@@ -12,8 +12,7 @@ enum MainViewElement {
 final class MainViewModel {
     // MARK: Lifecycle
 
-    init(storytellerManager: StorytellerManager)
-    {
+    init(storytellerManager: StorytellerManager) {
         self.storytellerManager = storytellerManager
 
         storytellerManager.storytellerDelegate.actionHandler = { [weak self] action in

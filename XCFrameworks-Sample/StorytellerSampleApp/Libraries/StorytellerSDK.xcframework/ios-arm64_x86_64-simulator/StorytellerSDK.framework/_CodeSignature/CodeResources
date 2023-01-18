@@ -6,63 +6,39 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		DXctzw7hdzxqxJzN6/RBqBZpoL0=
+		mIMWDV8hm2pL9QJ+ML2PdzdWF0U=
 		</data>
 		<key>Headers/StorytellerSDK-Swift.h</key>
 		<data>
-		YodtDjZdKPX5+x0h9q7xbT54UaM=
+		QIZSGi/XvZU3TMwbEUs5IA18pI0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gBK/FaJ7m6QccvCvnECVbUVahAg=
+		Ny6T6KLLW50IGg29TN6Jo74h+ac=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		YGN16w2fohf403Rm1V61Ze4Ew3I=
+		SZqKzx21WHH2wnHEoVIx8wdBFcs=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		EzQBMK9HioNkMJfhGk02o9KxAeQ=
+		8HuuXTk4fMyd5hrp07jQO6wPuAQ=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		fyt5ONcbMQsbEDpxYHApmHEVZRc=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		YGN16w2fohf403Rm1V61Ze4Ew3I=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		EzQBMK9HioNkMJfhGk02o9KxAeQ=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		fyt5ONcbMQsbEDpxYHApmHEVZRc=
+		UeVWS1wrTQAnC/X5+aM26sn/+YQ=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		hpW4VAuNFOrxENaJ3FmDGekRGM4=
+		2GJmf5Z41UOr0+dsTpuhI101CgI=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		8EWCx43VGtgegJm5j5pqsqQZnO0=
+		4Wy9Tz+PTnwQ3g0JUpgAnoON4q8=
 		</data>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		n7EcWqXQIB4HVvAq9EKqfUq6Mj8=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		hpW4VAuNFOrxENaJ3FmDGekRGM4=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftinterface</key>
-		<data>
-		8EWCx43VGtgegJm5j5pqsqQZnO0=
-		</data>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		n7EcWqXQIB4HVvAq9EKqfUq6Mj8=
+		I8iXmAHotlP1klQf/TdPBJ9bwfU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -70,15 +46,19 @@
 		</data>
 		<key>StorytellerGridView.nib</key>
 		<data>
-		0bb1jOTtgTuXD2AiMAf15lAojwE=
+		8bu3D/nhDOmVn4KqcJkZ88z7mcA=
+		</data>
+		<key>StorytellerHomeView.nib</key>
+		<data>
+		P7gaaz5tIc23pK3fCh6qV/H/0Ig=
 		</data>
 		<key>StorytellerRowView.nib</key>
 		<data>
-		zAFI9dXFMIdeu8N8HjjoF8clZwc=
+		iSQP50ernHTBA+7PmDEPr4gQtN4=
 		</data>
-		<key>mute.aiff</key>
+		<key>mute.caf</key>
 		<data>
-		xrLmOHGKRkA1PdlxjX8QdhUlYC8=
+		9/WuItRu3IhvvOCTYtQ+U/PeIJ0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -87,98 +67,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V0YVeufM5JSwleabb8xkXu6b6WYUS2DfgQDbNqDypFg=
+			hcf0cesYYOf7pIDwcUfwlNXzLp+akeTQ+oWIylf5bTE=
 			</data>
 		</dict>
 		<key>Headers/StorytellerSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pCAw+N3h79x3sjoN3rV+03C0Sh9Zs9PV2oY+3Yi2/6c=
+			tnd5owAqdcBjMPofSWmQ3CM0iEhIYAos1zkJpjZAw30=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aoFF5Ggi/arM1PaUU65gehlFYjFdT6NJS8oQP7SsOR0=
+			vCSFmsuFqMyz1gylf1PtpJUMhhKxu+Maqk/+xypTaZM=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ep7oRrG3ahYMVyVAwJacMAQ7OaJxPSWJTTzWS1w9Ndk=
+			dezMEd6laPStyYL3BwtTUHAQXAFa845sirp4J/bD5u8=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MWc9Vitt1pJkAtuUyKMSBtxP7vpWHqtKqfDCVIpiuOM=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			aoFF5Ggi/arM1PaUU65gehlFYjFdT6NJS8oQP7SsOR0=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Ep7oRrG3ahYMVyVAwJacMAQ7OaJxPSWJTTzWS1w9Ndk=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			MWc9Vitt1pJkAtuUyKMSBtxP7vpWHqtKqfDCVIpiuOM=
+			4sH6Ozhl608ZOSFCK5jKQ4b2XSdZnEgHi3h4Z3bSLrc=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gZz6a+NNemk7A0P8FrYdrwEUb3kv4vYDebFP54kKEhU=
+			5iO8DpAMz6teraUhVIgtI67/g3mNcRUoE0SawvB56co=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ymeyb+k8SKOo8wcz6C/VehkZ1S29ViLXatSQOErl4hU=
+			aKGE2AI7Un5HSyldrZOf0d+yTd1fOJFKIFCMUHBBDfU=
 			</data>
 		</dict>
 		<key>Modules/StorytellerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PdXisEDAR17eqSpAVzAap27so0mviCwkwYO+V/XOPHM=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			gZz6a+NNemk7A0P8FrYdrwEUb3kv4vYDebFP54kKEhU=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ymeyb+k8SKOo8wcz6C/VehkZ1S29ViLXatSQOErl4hU=
-			</data>
-		</dict>
-		<key>Modules/StorytellerSDK.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			PdXisEDAR17eqSpAVzAap27so0mviCwkwYO+V/XOPHM=
+			1vq2t1LCsv6GvbzKPcAPBQJLBchYua5Rl1w2Z+PfMRU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -192,21 +130,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WzMfg2ngR94zFhunb29698kzIb6xc/vYvZ6BFuKIh94=
+			xDYwS4Xu4ldT7uV5iCTe+yOA4SOFpCG9cG5G5ubMw/g=
+			</data>
+		</dict>
+		<key>StorytellerHomeView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			enkvuWF0M85SvLhWAb35J+x0VI8pGqjo6nPdpSl2/Hc=
 			</data>
 		</dict>
 		<key>StorytellerRowView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6XFpGInYiGEFpwlbu7luTXoLASykdiH1gKa8KcwJxz8=
+			rbnDismb9PPPcfx+MrMf9o0WRQeIhYjhqxyu/9QQzSc=
 			</data>
 		</dict>
-		<key>mute.aiff</key>
+		<key>mute.caf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WUTtOynoFPERt7tbMpqwDPv3YX9EfZjQDLz1X3hRVww=
+			L29NheAp7DQcNKSN7jQ5NgoSrbDcEuuvZcT68kQDrao=
 			</data>
 		</dict>
 	</dict>

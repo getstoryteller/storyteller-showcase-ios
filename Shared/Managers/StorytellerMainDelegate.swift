@@ -2,9 +2,6 @@ import Foundation
 import StorytellerSDK
 
 class StorytellerMainDelegate: StorytellerDelegate {
-    // MARK: Lifecycle
-
-    // MARK: Internal
 
     enum Action {
         case navigatedToApp(url: String)
@@ -28,7 +25,7 @@ class StorytellerMainDelegate: StorytellerDelegate {
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#SwipingUpToTheIntegratingApp
     func userNavigatedToApp(url: String) {
         // Open another module in the app and pass given url as param.
-        Storyteller.dismissStoryView(animated: true)
+        Storyteller.dismissPlayer(animated: true)
         actionHandler(.navigatedToApp(url: url))
     }
 }

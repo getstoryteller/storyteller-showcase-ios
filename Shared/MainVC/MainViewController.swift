@@ -65,11 +65,17 @@ final class MainViewController: UIViewController {
             case .showError(let error):
                 self.handle(error: error)
             case .initialize(let elements):
-                (self.view as? MainView)?.setupView(with: elements)
+                DispatchQueue.main.async {
+                    (self.view as? MainView)?.setupView(with: elements)
+                }
             case .reload:
-                (self.view as? MainView)?.reload()
+                DispatchQueue.main.async {
+                    (self.view as? MainView)?.reload()
+                }
             case .finishRefreshing:
-                (self.view as? MainView)?.finishRefreshing()
+                DispatchQueue.main.async {
+                    (self.view as? MainView)?.finishRefreshing()
+                }
             case .displayNavigatedToApp(let url):
                 self.presentUserNavigatedToApp(with: url)
             }
