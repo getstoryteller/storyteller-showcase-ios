@@ -8,6 +8,7 @@ final class MainView: UIView {
     enum Action {
         case changeUserTap
         case multipleListsTap
+        case swiftUITap(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
         case refresh
     }
     
@@ -60,6 +61,8 @@ final class MainView: UIView {
                 addChangeUserButton()
             case .multipleListsButton:
                 addMultipleListsButton()
+            case let .swiftUIButton(cellType, delegate):
+                addSwiftUIButton(cellType: cellType, delegate: delegate)
             }
         }
         stackView.addArrangedSubview(UIView())
@@ -123,12 +126,27 @@ final class MainView: UIView {
         stackView.addArrangedSubview(button)
     }
     
+    private func addSwiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
+        let button = SubclassedUIButton()
+        button.cellType = cellType
+        button.delegate = delegate
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle("SwiftUI", for: .normal)
+        button.addTarget(self, action: #selector(didTapSwiftUI), for: .touchUpInside)
+        stackView.addArrangedSubview(button)
+    }
+    
     @objc private func didTapChangeUser() {
         actionHandler(.changeUserTap)
     }
     
     @objc private func didTapMultipleLists() {
         actionHandler(.multipleListsTap)
+    }
+    
+    @objc private func didTapSwiftUI(sender: SubclassedUIButton) {
+        guard let cellType = sender.cellType, let delegate = sender.delegate else { return }
+        actionHandler(.swiftUITap(cellType: cellType, delegate: delegate))
     }
 
     private func setupView() {
@@ -162,4 +180,9 @@ final class MainView: UIView {
             self.actionHandler(.refresh)
         }
     }
+}
+
+class SubclassedUIButton: UIButton {
+    var cellType: StorytellerListViewCellType?
+    weak var delegate: StorytellerListDelegate?
 }

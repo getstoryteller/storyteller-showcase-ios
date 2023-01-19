@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import StorytellerSDK
+import SwiftUI
 
 final class MainFlowController {
     // MARK: Lifecycle
@@ -29,6 +30,8 @@ final class MainFlowController {
             switch action {
             case .moveToMultipleLists:
                 self?.navigateToMultipleLists()
+            case let .moveToSwiftUI(cellType, delegate):
+                self?.navigateToSwiftUI(cellType: cellType, delegate: delegate)
             }
         }
         mainVC = vc
@@ -39,6 +42,14 @@ final class MainFlowController {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "MultipleLists", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MultipleListsViewController") as! MultipleListsViewController
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func navigateToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
+        let swiftUIModel = SwiftUIView.SwiftUIModel()
+        swiftUIModel.cellType = cellType
+        swiftUIModel.delegate = delegate
+        let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
+        self.navigationController?.pushViewController(swiftUIViewController, animated: true)
     }
 
     // MARK: Private

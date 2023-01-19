@@ -18,6 +18,8 @@
 		AF43A5462976C11D0026F090 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5452976C11D0026F090 /* UIViewController.swift */; };
 		AF43A5482976C1CD0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5472976C1CD0026F090 /* MainViewModel.swift */; };
 		AF43A54A2976C33D0026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5492976C33D0026F090 /* MainView.swift */; };
+		AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF08297979E900BD433E /* SwiftUIView.swift */; };
+		AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */; };
 		B8E4427C23F2E32E0093A423 /* MultipleLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* MultipleLists.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -36,6 +38,8 @@
 		AF43A5472976C1CD0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AF43A5492976C33D0026F090 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		AF5BBF08297979E900BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesRowView.swift; sourceTree = "<group>"; };
 		B8D9B28023F6D81200C81B11 /* Storyteller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Storyteller.framework; path = "../../storyteller-sdk-swift/Carthage/Build/Storyteller-1.0.6-iOS-xcode-11.1/Storyteller.framework"; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MultipleLists.storyboard; sourceTree = "<group>"; };
@@ -98,6 +102,16 @@
 			path = ../../Shared/MultipleLists;
 			sourceTree = "<group>";
 		};
+		AF5BBF0A2979844500BD433E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BBF08297979E900BD433E /* SwiftUIView.swift */,
+				AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */,
+			);
+			name = SwiftUI;
+			path = ../../Shared/SwiftUI;
+			sourceTree = "<group>";
+		};
 		B8E4426823F2E32D0093A423 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +142,7 @@
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
 				B8E4428223F2E32E0093A423 /* Info.plist */,
 				AF43A5402976BF1E0026F090 /* MainFlowController.swift */,
+				AF5BBF0A2979844500BD433E /* SwiftUI */,
 			);
 			path = StorytellerSampleApp;
 			sourceTree = "<group>";
@@ -268,6 +283,7 @@
 			files = (
 				AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */,
 				AF43A5462976C11D0026F090 /* UIViewController.swift in Sources */,
+				AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */,
 				AF43A53F2976BE5A0026F090 /* StorytellerListDelegate.swift in Sources */,
 				AF43A53C2976BD240026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF43A5482976C1CD0026F090 /* MainViewModel.swift in Sources */,
@@ -276,6 +292,7 @@
 				AF43A5412976BF1E0026F090 /* MainFlowController.swift in Sources */,
 				AF43A53A2976BC4D0026F090 /* StorytellerManager.swift in Sources */,
 				AF43A5432976BFBB0026F090 /* MainViewController.swift in Sources */,
+				AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVDW6P765R;
 				INFOPLIST_FILE = StorytellerSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,7 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BVDW6P765R;
 				INFOPLIST_FILE = StorytellerSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

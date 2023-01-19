@@ -30,6 +30,8 @@ final class MainViewController: UIViewController {
                 self?.viewModel.handle(action: .changeUser)
             case .multipleListsTap:
                 self?.actionHandler(.moveToMultipleLists)
+            case let .swiftUITap(cellType, delegate):
+                self?.actionHandler(.moveToSwiftUI(cellType: cellType, delegate: delegate))
             case .refresh:
                 self?.viewModel.handle(action: .pullToRefresh)
             }
@@ -45,6 +47,7 @@ final class MainViewController: UIViewController {
 
     enum Action {
         case moveToMultipleLists
+        case moveToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
     
     var actionHandler: (Action) -> Void = { _ in }
