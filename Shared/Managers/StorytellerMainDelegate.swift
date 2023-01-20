@@ -12,7 +12,7 @@ class StorytellerMainDelegate: StorytellerDelegate {
     // Called when analytics event occurs.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#Analytics
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        NSLog("onUserActivityOccurred - type: \(type), data: \(data).")
+        print("onUserActivityOccurred - type: \(type), data: \(data).")
     }
 
     // Called when tenant is configured to use ads from the containing app.

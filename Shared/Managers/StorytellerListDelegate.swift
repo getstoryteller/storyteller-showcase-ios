@@ -12,25 +12,25 @@ class StorytellerListDelegate: StorytellerListViewDelegate {
     // Called when tile with given index becomes visible.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#TileVisibility
     func tileBecameVisible(contentIndex: Int) {
-        NSLog("tileBecameVisible: \(contentIndex)")
+        print("tileBecameVisible: \(contentIndex)")
     }
 
     // Called when data loading is finished.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#ErrorHandling
     func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        NSLog("onDataLoadComplete - sucess: \(success), error: \(error), dataCount: \(dataCount).")
+        print("onDataLoadComplete - sucess: \(success), error: \(error), dataCount: \(dataCount).")
 
         actionHandler(.didLoadData)
     }
     
     // Called when the network request to load data for all stories has started.
     func onDataLoadStarted() {
-        NSLog("onDataLoadStarted")
+        print("onDataLoadStarted")
     }
 
 
     // Called when any story has been dismissed.
     func onPlayerDismissed() {
-        NSLog("onPlayerDismissed")
+        print("onPlayerDismissed")
     }
 }
