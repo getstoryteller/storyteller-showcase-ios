@@ -18,6 +18,9 @@ Use this repo as a reference for integrating Storyteller in your iOS App.
 Storyteller is also available for [Android](https://github.com/getstoryteller/storyteller-sample-android), [React Native](https://github.com/getstoryteller/storyteller-sdk-react-native) and [Web](https://github.com/getstoryteller/storyteller-sample-web).
 
 For help with Storyteller, please check our [Documentation and User Guide](https://docs.getstoryteller.com/documents/) or contact [support@getstoryteller.com](mailto:support@getstoryteller.com?Subject=iOS%20Sample%20App).
+
+Remark that because of the SwiftUI integration example minimum deployment version of the sample app is iOS 15. The minimum deployment version of SDK is iOS 11.
+
 ## CocoaPods-Sample
 
 **To use the [Cocoapods](https://cocoapods.org) integration for `Storyteller`:**

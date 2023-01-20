@@ -7,6 +7,7 @@ enum MainViewElement {
     case storyRow(cellType: StorytellerListViewCellType, height: CGFloat?, delegate: StorytellerListDelegate)
     case changeUserButton
     case multipleListsButton
+    case swiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
 }
 
 final class MainViewModel {
@@ -79,7 +80,8 @@ final class MainViewModel {
             .label(text: "Row Square View"),
             .storyRow(cellType: .square, height: 220, delegate: storytellerDelegate),
             .changeUserButton,
-            .multipleListsButton
+            .multipleListsButton,
+            .swiftUIButton(cellType: .square, delegate: storytellerDelegate)
         ]))
     }
 }
