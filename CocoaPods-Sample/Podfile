@@ -1,5 +1,5 @@
 source 'https://github.com/getstoryteller/storyteller-sdk-ios-podspec.git'
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
@@ -9,5 +9,5 @@ target 'StorytellerSampleApp' do
   use_frameworks!
 
   # Pods for StorytellerSampleApp
-  pod 'StorytellerSDK',  '~> 8.0.1'
+  pod 'StorytellerSDK',  '~> 8.4.0'
 end

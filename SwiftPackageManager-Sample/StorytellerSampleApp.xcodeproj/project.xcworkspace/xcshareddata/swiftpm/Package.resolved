@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getstoryteller/storyteller-sdk-swift-package",
       "state" : {
-        "revision" : "feb8776e2334548eb09939a4292d09b7ad04fffe",
-        "version" : "8.0.1"
+        "revision" : "bd21c6900b963a524b971141a927ee736b6b6d7d",
+        "version" : "8.4.0"
       }
     }
   ],

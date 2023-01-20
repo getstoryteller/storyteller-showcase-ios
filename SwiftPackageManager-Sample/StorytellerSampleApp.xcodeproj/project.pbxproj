@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4EFA6447281ADCF600CE43FD /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4EFA6446281ADCF600CE43FD /* StorytellerSDK */; };
-		AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA125D35267000A9127 /* ViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
-		AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */; };
-		B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* Main.storyboard */; };
+		AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5862978061A0026F090 /* MainFlowController.swift */; };
+		AF43A5902978065C0026F090 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5882978065C0026F090 /* MainViewController.swift */; };
+		AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5892978065C0026F090 /* MainViewModel.swift */; };
+		AF43A5922978065C0026F090 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58A2978065C0026F090 /* UIViewController.swift */; };
+		AF43A5932978065C0026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58B2978065C0026F090 /* MainView.swift */; };
+		AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */; };
+		AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58D2978065C0026F090 /* StorytellerManager.swift */; };
+		AF43A5962978065C0026F090 /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58E2978065C0026F090 /* MultipleListsViewController.swift */; };
+		AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */; };
+		AF43A5C029780C340026F090 /* MultipleLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF43A5BE29780C340026F090 /* MultipleLists.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -30,11 +37,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AEBB2EA125D35267000A9127 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Shared/ViewController.swift; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
-		AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeeplinkPreviewController.swift; path = ../../Shared/DeeplinkPreviewController.swift; sourceTree = "<group>"; };
+		AF43A5702978003D0026F090 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../Shared/MultipleLists/Base.lproj; sourceTree = "<group>"; };
+		AF43A5862978061A0026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
+		AF43A5882978065C0026F090 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Shared/MainVC/MainViewController.swift; sourceTree = "<group>"; };
+		AF43A5892978065C0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../Shared/MainVC/MainViewModel.swift; sourceTree = "<group>"; };
+		AF43A58A2978065C0026F090 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = ../Shared/Extension/UIViewController.swift; sourceTree = "<group>"; };
+		AF43A58B2978065C0026F090 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../Shared/MainVC/MainView.swift; sourceTree = "<group>"; };
+		AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerMainDelegate.swift; path = ../Shared/Managers/StorytellerMainDelegate.swift; sourceTree = "<group>"; };
+		AF43A58D2978065C0026F090 /* StorytellerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerManager.swift; path = ../Shared/Managers/StorytellerManager.swift; sourceTree = "<group>"; };
+		AF43A58E2978065C0026F090 /* MultipleListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsViewController.swift; path = ../Shared/MultipleLists/MultipleListsViewController.swift; sourceTree = "<group>"; };
+		AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerListDelegate.swift; path = ../Shared/Managers/StorytellerListDelegate.swift; sourceTree = "<group>"; };
+		AF43A5BF29780C340026F090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Shared/MultipleLists/Base.lproj/MultipleLists.storyboard; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +67,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF43A5982978078B0026F090 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AF43A58A2978065C0026F090 /* UIViewController.swift */,
+			);
+			name = Extension;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		AF43A599297807B70026F090 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AF43A58D2978065C0026F090 /* StorytellerManager.swift */,
+				AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */,
+				AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */,
+			);
+			name = Managers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		AF43A59A297807CB0026F090 /* MultipleLists */ = {
+			isa = PBXGroup;
+			children = (
+				AF43A58E2978065C0026F090 /* MultipleListsViewController.swift */,
+			);
+			name = MultipleLists;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		AF43A59B297807DA0026F090 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF43A58B2978065C0026F090 /* MainView.swift */,
+				AF43A5882978065C0026F090 /* MainViewController.swift */,
+				AF43A5892978065C0026F090 /* MainViewModel.swift */,
+			);
+			name = MainViewController;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		B871CF7323F6D48E00FAF2B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +117,8 @@
 		B8E4426823F2E32D0093A423 = {
 			isa = PBXGroup;
 			children = (
+				AF43A5BE29780C340026F090 /* MultipleLists.storyboard */,
+				AF43A5702978003D0026F090 /* Base.lproj */,
 				B8E4427323F2E32E0093A423 /* StorytellerSampleApp */,
 				B8E4427223F2E32E0093A423 /* Products */,
 				B871CF7323F6D48E00FAF2B3 /* Frameworks */,
@@ -79,10 +136,12 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF43A59A297807CB0026F090 /* MultipleLists */,
+				AF43A599297807B70026F090 /* Managers */,
+				AF43A5982978078B0026F090 /* Extension */,
 				AEBB2EA225D35267000A9127 /* AppDelegate.swift */,
-				AEBB2EA125D35267000A9127 /* ViewController.swift */,
-				AEEC915825D47FD1006A935B /* DeeplinkPreviewController.swift */,
-				B8E4427A23F2E32E0093A423 /* Main.storyboard */,
+				AF43A5862978061A0026F090 /* MainFlowController.swift */,
+				AF43A59B297807DA0026F090 /* MainViewController */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
 				B8E4428223F2E32E0093A423 /* Info.plist */,
@@ -156,9 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF43A5C029780C340026F090 /* MultipleLists.storyboard in Resources */,
 				B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */,
 				B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */,
-				B8E4427C23F2E32E0093A423 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,22 +228,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF43A5902978065C0026F090 /* MainViewController.swift in Sources */,
+				AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */,
+				AF43A5922978065C0026F090 /* UIViewController.swift in Sources */,
+				AF43A5932978065C0026F090 /* MainView.swift in Sources */,
+				AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */,
+				AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */,
+				AF43A5962978065C0026F090 /* MultipleListsViewController.swift in Sources */,
+				AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */,
+				AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */,
 				AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */,
-				AEEC915925D47FD1006A935B /* DeeplinkPreviewController.swift in Sources */,
-				AEBB2EA325D35267000A9127 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8E4427A23F2E32E0093A423 /* Main.storyboard */ = {
+		AF43A5BE29780C340026F090 /* MultipleLists.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B8E4427B23F2E32E0093A423 /* Base */,
+				AF43A5BF29780C340026F090 /* Base */,
 			);
-			name = Main.storyboard;
-			path = ../../Shared;
+			name = MultipleLists.storyboard;
 			sourceTree = "<group>";
 		};
 		B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */ = {

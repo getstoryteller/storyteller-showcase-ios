@@ -13,27 +13,20 @@ import StorytellerSDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var storytellerRowView: StorytellerRowView?
+    var appFlowController: MainFlowController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.makeKeyAndVisible()
         
-        let mainstoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewcontroller: ViewController = mainstoryboard.instantiateViewController(withIdentifier: "mainViewController") as! ViewController
-        window?.rootViewController = newViewcontroller
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
 
-        storytellerRowView = newViewcontroller.storytellerRowView
+        let navigationController = UINavigationController()
+        window.rootViewController = navigationController
+        appFlowController = MainFlowController()
+        appFlowController?.present(in: navigationController)
+        self.window = window
         
         return true
-    }
-
-    private func handle(url: URL) {
-        // If your app needs to open specific story or page e.g. when opening an activity from a deep link,
-        // then you should call openStory(storyId) or openPage(pageId).
-        // For more info, see - https://docs.getstoryteller.com/documents/ios-sdk/StorytellerRowView#openstory-id-string-animated-bool-true-onerror-storytellerrowvie
-        let pageId = url.lastPathComponent
-        storytellerRowView?.openPage(id: pageId)
     }
 }
 
