@@ -30,10 +30,10 @@ final class MainViewController: UIViewController {
                 self?.viewModel.handle(action: .changeUser)
             case .multipleListsTap:
                 self?.actionHandler(.moveToMultipleLists)
+            case .storyboardExampleTap:
+                self?.actionHandler(.moveToStoryboardExample)
             case let .swiftUITap(cellType, delegate):
                 self?.actionHandler(.moveToSwiftUI(cellType: cellType, delegate: delegate))
-            case .refresh:
-                self?.viewModel.handle(action: .pullToRefresh)
             }
         }
 
@@ -47,6 +47,7 @@ final class MainViewController: UIViewController {
 
     enum Action {
         case moveToMultipleLists
+        case moveToStoryboardExample
         case moveToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
     
@@ -80,27 +81,12 @@ final class MainViewController: UIViewController {
                     (self.view as? MainView)?.finishRefreshing()
                 }
             case .displayNavigatedToApp(let url):
-                self.presentUserNavigatedToApp(with: url)
+                self.showAlert(message: "User navigated to app \(url)")
             }
         }
     }
 
     private func bindViewEvents() {
         (view as? MainView)?.refresher.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
-    }
-
-    private func presentUserNavigatedToApp(with url: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(
-                title: "User navigated to app",
-                message: url,
-                preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(
-                title: "OK",
-                style: .default))
-
-            self.present(alert, animated: true)
-        }
     }
 }

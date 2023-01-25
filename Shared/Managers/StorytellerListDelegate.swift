@@ -4,7 +4,7 @@ import StorytellerSDK
 class StorytellerListDelegate: StorytellerListViewDelegate {
     
     enum Action {
-        case didLoadData
+        case didLoadData(dataCount: Int)
     }
     
     var actionHandler: (Action) -> Void = { _ in }
@@ -20,7 +20,7 @@ class StorytellerListDelegate: StorytellerListViewDelegate {
     func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         print("onDataLoadComplete - sucess: \(success), error: \(error), dataCount: \(dataCount).")
 
-        actionHandler(.didLoadData)
+        actionHandler(.didLoadData(dataCount: dataCount))
     }
     
     // Called when the network request to load data for all stories has started.

@@ -6,6 +6,7 @@ enum MainViewElement {
     case label(text: String)
     case storyRow(cellType: StorytellerListViewCellType, height: CGFloat?, delegate: StorytellerListDelegate)
     case changeUserButton
+    case storyboardExampleButton
     case multipleListsButton
     case swiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
 }
@@ -15,13 +16,6 @@ final class MainViewModel {
 
     init(storytellerManager: StorytellerManager) {
         self.storytellerManager = storytellerManager
-
-        storytellerManager.storytellerDelegate.actionHandler = { [weak self] action in
-            switch action {
-            case .navigatedToApp(let url):
-                self?.outputActionHandler(.displayNavigatedToApp(url))
-            }
-        }
         
         storytellerDelegate.actionHandler = { [weak self] action in
             switch action {
@@ -80,6 +74,7 @@ final class MainViewModel {
             .label(text: "Row Square View"),
             .storyRow(cellType: .square, height: 220, delegate: storytellerDelegate),
             .changeUserButton,
+            .storyboardExampleButton,
             .multipleListsButton,
             .swiftUIButton(cellType: .square, delegate: storytellerDelegate)
         ]))

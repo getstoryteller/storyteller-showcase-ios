@@ -1,15 +1,7 @@
-//
-//  ViewController.swift
-//  StorytellerSampleApp
-//
-//  Created by Jason Xie on 11/02/2020.
-//  Copyright © 2020 Storm Ideas. All rights reserved.
-//
-
 import UIKit
 import StorytellerSDK
 
-class MultipleListsViewController: UIViewController {
+class StoryboardViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storytellerRowViewRound: StorytellerRowView!
     @IBOutlet weak var storytellerRowView: StorytellerRowView!
