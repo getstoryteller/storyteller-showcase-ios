@@ -146,7 +146,8 @@
 				AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */,
 				AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */,
 			);
-			path = MultipleLists;
+			name = MultipleLists;
+			path = ../../Shared/MultipleLists;
 			sourceTree = "<group>";
 		};
 		AF5BBF2429800BC400BD433E /* TableView */ = {
