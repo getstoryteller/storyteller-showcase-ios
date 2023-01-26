@@ -1,87 +1,78 @@
-//
-//  ViewController.swift
-//  StorytellerSampleApp
-//
-//  Created by Jason Xie on 11/02/2020.
-//  Copyright © 2020 Storm Ideas. All rights reserved.
-//
-
-import UIKit
+import Foundation
 import StorytellerSDK
+import UIKit
 
-class MultipleListsViewController: UIViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var storytellerRowViewRound: StorytellerRowView!
-    @IBOutlet weak var storytellerRowView: StorytellerRowView!
-    @IBOutlet weak var storytellerGridView: StorytellerGridView!
-    @IBOutlet weak var storytellerClipsRowViewContainer: UIView!
-    @IBOutlet weak var storytellerClipsGridViewContainer: UIView!
-    
-    private let storytellerClipsRowView = StorytellerClipsRowView()
-    private let storytellerClipsGridView = StorytellerClipsGridView()
-    
-    var refresher: UIRefreshControl?
-    
-    private let storytellerListDelegate = StorytellerListDelegate()
-    
+
+final class MultipleListsViewController: UIViewController {
+    // MARK: Lifecycle
+
+    init(viewModel: MultipleListsViewModel, dataSource: MultipleListsDataSource) {
+        self.viewModel = viewModel
+        self.dataSource = dataSource
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func loadView() {
+        view = MultipleListsView()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        refresher = UIRefreshControl()
-        refresher?.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
-        scrollView.refreshControl = refresher
         
-        storytellerListDelegate.actionHandler = { [weak self] action in
+        setupTableView()
+        
+        bindViewModel()
+        bindViewEvents()
+        
+        viewModel.handle(action: .getData)
+    }
+    
+    // MARK: Internal
+    
+    @objc
+    func onPullToRefresh() {
+        viewModel.handle(action: .getData)
+    }
+
+    // MARK: Private
+
+    private let viewModel: MultipleListsViewModel
+    private let dataSource: MultipleListsDataSource
+
+    private func setupTableView() {
+        guard let multipleListsView = self.view as? MultipleListsView else { return }
+        
+        multipleListsView.tableView.register(StoriesRowCell.self, forCellReuseIdentifier: StoriesRowCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(StoriesGridCell.self, forCellReuseIdentifier: StoriesGridCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(ClipsRowCell.self, forCellReuseIdentifier: ClipsRowCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(ClipsGridCell.self, forCellReuseIdentifier: ClipsGridCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(LabelCell.self, forCellReuseIdentifier: LabelCell.cellReuseIdentifier)
+        
+        multipleListsView.tableView.dataSource = dataSource
+    }
+    
+    private func bindViewModel() {
+        viewModel.outputActionHandler = { [weak self] action in
+            guard let self = self else { return }
             switch action {
-            case .didLoadData:
+            case .showError(let error):
+                self.handle(error: error)
+            case .reload(let data):
+                self.dataSource.storytellerListsData = data
                 DispatchQueue.main.async {
-                    self?.refresher?.endRefreshing()
+                    (self.view as? MultipleListsView)?.finishRefreshing()
+                    (self.view as? MultipleListsView)?.tableView.reloadData()
                 }
             }
         }
-              
-        storytellerRowViewRound.delegate = storytellerListDelegate
-        storytellerRowView.delegate = storytellerListDelegate
-        storytellerGridView.delegate = storytellerListDelegate
-        storytellerClipsRowView.delegate = storytellerListDelegate
-        storytellerClipsGridView.delegate = storytellerListDelegate
-
-        storytellerRowViewRound.cellType = StorytellerListViewCellType.round.rawValue
-        storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
-        
-        storytellerClipsRowView.collectionId = "clipssample"
-        storytellerClipsGridView.collectionId = "clipssample"
-        
-        storytellerClipsRowViewContainer.addSubview(storytellerClipsRowView)
-        storytellerClipsRowView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            storytellerClipsRowView.topAnchor.constraint(equalTo: storytellerClipsRowViewContainer.topAnchor),
-            storytellerClipsRowView.leftAnchor.constraint(equalTo: storytellerClipsRowViewContainer.leftAnchor),
-            storytellerClipsRowView.rightAnchor.constraint(equalTo: storytellerClipsRowViewContainer.rightAnchor),
-            storytellerClipsRowView.bottomAnchor.constraint(equalTo: storytellerClipsRowViewContainer.bottomAnchor)
-        ])
-        
-        storytellerClipsGridViewContainer.addSubview(storytellerClipsGridView)
-        storytellerClipsGridView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            storytellerClipsGridView.topAnchor.constraint(equalTo: storytellerClipsGridViewContainer.topAnchor),
-            storytellerClipsGridView.leftAnchor.constraint(equalTo: storytellerClipsGridViewContainer.leftAnchor),
-            storytellerClipsGridView.rightAnchor.constraint(equalTo: storytellerClipsGridViewContainer.rightAnchor),
-            storytellerClipsGridView.bottomAnchor.constraint(equalTo: storytellerClipsGridViewContainer.bottomAnchor)
-        ])
-    }
-    
-    @objc func onPullToRefresh() {
-        storytellerRowViewRound.reloadData()
-        storytellerRowView.reloadData()
-        storytellerGridView.reloadData()
-        storytellerClipsRowView.reloadData()
-        storytellerClipsGridView.reloadData()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        onPullToRefresh()
+    private func bindViewEvents() {
+        (view as? MultipleListsView)?.refresher.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
     }
 }
-

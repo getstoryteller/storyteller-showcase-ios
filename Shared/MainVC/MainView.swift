@@ -7,9 +7,9 @@ final class MainView: UIView {
     
     enum Action {
         case changeUserTap
+        case storyboardExampleTap
         case multipleListsTap
         case swiftUITap(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
-        case refresh
     }
     
     var actionHandler: (Action) -> Void = { _ in }
@@ -61,6 +61,8 @@ final class MainView: UIView {
                 addChangeUserButton()
             case .multipleListsButton:
                 addMultipleListsButton()
+            case .storyboardExampleButton:
+                addStoryboardExampleButton()
             case let .swiftUIButton(cellType, delegate):
                 addSwiftUIButton(cellType: cellType, delegate: delegate)
             }
@@ -126,6 +128,14 @@ final class MainView: UIView {
         stackView.addArrangedSubview(button)
     }
     
+    private func addStoryboardExampleButton() {
+        let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle("Storyboard Example", for: .normal)
+        button.addTarget(self, action: #selector(didTapStoryboardExample), for: .touchUpInside)
+        stackView.addArrangedSubview(button)
+    }
+    
     private func addSwiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
         let button = SubclassedUIButton()
         button.cellType = cellType
@@ -144,6 +154,10 @@ final class MainView: UIView {
         actionHandler(.multipleListsTap)
     }
     
+    @objc private func didTapStoryboardExample() {
+        actionHandler(.storyboardExampleTap)
+    }
+    
     @objc private func didTapSwiftUI(sender: SubclassedUIButton) {
         guard let cellType = sender.cellType, let delegate = sender.delegate else { return }
         actionHandler(.swiftUITap(cellType: cellType, delegate: delegate))
@@ -158,11 +172,7 @@ final class MainView: UIView {
         
         addSubview(scrollView)
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.layoutToEdges(of: self)
 
         scrollView.addSubview(stackView)
 
@@ -172,13 +182,6 @@ final class MainView: UIView {
         stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
         
         scrollView.refreshControl = refresher
-        scrollView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    }
-    
-    @objc private func refresh() {
-        DispatchQueue.main.async {
-            self.actionHandler(.refresh)
-        }
     }
 }
 

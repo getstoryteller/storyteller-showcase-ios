@@ -30,6 +30,8 @@ final class MainFlowController {
             switch action {
             case .moveToMultipleLists:
                 self?.navigateToMultipleLists()
+            case .moveToStoryboardExample:
+                self?.navigateToStoryboardExample()
             case let .moveToSwiftUI(cellType, delegate):
                 self?.navigateToSwiftUI(cellType: cellType, delegate: delegate)
             }
@@ -39,8 +41,13 @@ final class MainFlowController {
     }
     
     func navigateToMultipleLists() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "MultipleLists", bundle: nil)
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MultipleListsViewController") as! MultipleListsViewController
+        let vc = MultipleListsViewController(viewModel: multipleListsViewModel, dataSource: multipleListsDataSource)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func navigateToStoryboardExample() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "StoryboardExample", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "StoryboardViewController") as! StoryboardViewController
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -62,5 +69,11 @@ final class MainFlowController {
     }()
     private lazy var mainViewModel: MainViewModel = {
         MainViewModel(storytellerManager: self.storytellerManager)
+    }()
+    private lazy var multipleListsViewModel: MultipleListsViewModel = {
+        MultipleListsViewModel(storytellerManager: self.storytellerManager)
+    }()
+    private lazy var multipleListsDataSource: MultipleListsDataSource = {
+        MultipleListsDataSource()
     }()
 }

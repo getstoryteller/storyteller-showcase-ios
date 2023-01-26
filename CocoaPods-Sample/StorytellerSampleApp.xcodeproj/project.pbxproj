@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		863976D8D65CB56E7EB9675E /* Pods_StorytellerSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */; };
-		AEBB2EBE25D35516000A9127 /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EBC25D35516000A9127 /* MultipleListsViewController.swift */; };
+		AEBB2EBE25D35516000A9127 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EBC25D35516000A9127 /* StoryboardViewController.swift */; };
 		AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EBD25D35516000A9127 /* AppDelegate.swift */; };
 		AF43A53A2976BC4D0026F090 /* StorytellerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5392976BC4D0026F090 /* StorytellerManager.swift */; };
 		AF43A53C2976BD240026F090 /* StorytellerMainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A53B2976BD240026F090 /* StorytellerMainDelegate.swift */; };
@@ -20,14 +20,26 @@
 		AF43A54A2976C33D0026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5492976C33D0026F090 /* MainView.swift */; };
 		AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF08297979E900BD433E /* SwiftUIView.swift */; };
 		AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */; };
-		B8E4427C23F2E32E0093A423 /* MultipleLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* MultipleLists.storyboard */; };
+		AF5BBF1F297FE63E00BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF1E297FE63E00BD433E /* MultipleListsViewController.swift */; };
+		AF5BBF21297FE64C00BD433E /* MultipleListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */; };
+		AF5BBF23297FEF8200BD433E /* MultipleListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */; };
+		AF5BBF2629800BE600BD433E /* ClipsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2529800BE600BD433E /* ClipsRowCell.swift */; };
+		AF5BBF2829800C6100BD433E /* ClipsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2729800C6100BD433E /* ClipsGridCell.swift */; };
+		AF5BBF2A29800E3400BD433E /* StoriesRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2929800E3400BD433E /* StoriesRowCell.swift */; };
+		AF5BBF2C29800ED900BD433E /* StoriesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2B29800ED900BD433E /* StoriesGridCell.swift */; };
+		AF5BBF2E298010A000BD433E /* MultipleListsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2D298010A000BD433E /* MultipleListsDataSource.swift */; };
+		AF5BBF302980111100BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2F2980111100BD433E /* UITableView.swift */; };
+		AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */; };
+		AF5BBF342980178800BD433E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF332980178800BD433E /* LabelCell.swift */; };
+		AF5BBF382982BC5500BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF372982BC5500BD433E /* UIView.swift */; };
+		B8E4427C23F2E32E0093A423 /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0AE053130A26CC1FE93B2421 /* Pods-StorytellerSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
-		AEBB2EBC25D35516000A9127 /* MultipleListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleListsViewController.swift; sourceTree = "<group>"; };
+		AEBB2EBC25D35516000A9127 /* StoryboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
 		AEBB2EBD25D35516000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
 		AF43A5392976BC4D0026F090 /* StorytellerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerManager.swift; sourceTree = "<group>"; };
 		AF43A53B2976BD240026F090 /* StorytellerMainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerMainDelegate.swift; sourceTree = "<group>"; };
@@ -40,9 +52,21 @@
 		AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		AF5BBF08297979E900BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesRowView.swift; sourceTree = "<group>"; };
+		AF5BBF1E297FE63E00BD433E /* MultipleListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsViewController.swift; sourceTree = "<group>"; };
+		AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsView.swift; sourceTree = "<group>"; };
+		AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsViewModel.swift; sourceTree = "<group>"; };
+		AF5BBF2529800BE600BD433E /* ClipsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsRowCell.swift; sourceTree = "<group>"; };
+		AF5BBF2729800C6100BD433E /* ClipsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsGridCell.swift; sourceTree = "<group>"; };
+		AF5BBF2929800E3400BD433E /* StoriesRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesRowCell.swift; sourceTree = "<group>"; };
+		AF5BBF2B29800ED900BD433E /* StoriesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesGridCell.swift; sourceTree = "<group>"; };
+		AF5BBF2D298010A000BD433E /* MultipleListsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsDataSource.swift; sourceTree = "<group>"; };
+		AF5BBF2F2980111100BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualGridViewDelegate.swift; sourceTree = "<group>"; };
+		AF5BBF332980178800BD433E /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		AF5BBF372982BC5500BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8D9B28023F6D81200C81B11 /* Storyteller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Storyteller.framework; path = "../../storyteller-sdk-swift/Carthage/Build/Storyteller-1.0.6-iOS-xcode-11.1/Storyteller.framework"; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MultipleLists.storyboard; sourceTree = "<group>"; };
+		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoryboardExample.storyboard; sourceTree = "<group>"; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				AF43A5452976C11D0026F090 /* UIViewController.swift */,
+				AF5BBF2F2980111100BD433E /* UITableView.swift */,
+				AF5BBF372982BC5500BD433E /* UIView.swift */,
 			);
 			name = Extension;
 			path = ../../Shared/Extension;
@@ -92,14 +118,14 @@
 			path = ../../Shared/MainVC;
 			sourceTree = "<group>";
 		};
-		AF43A54C2977EFDD0026F090 /* MultipleLists */ = {
+		AF43A54C2977EFDD0026F090 /* StoryboardExample */ = {
 			isa = PBXGroup;
 			children = (
-				AEBB2EBC25D35516000A9127 /* MultipleListsViewController.swift */,
-				B8E4427A23F2E32E0093A423 /* MultipleLists.storyboard */,
+				AEBB2EBC25D35516000A9127 /* StoryboardViewController.swift */,
+				B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */,
 			);
-			name = MultipleLists;
-			path = ../../Shared/MultipleLists;
+			name = StoryboardExample;
+			path = ../../Shared/StoryboardExample;
 			sourceTree = "<group>";
 		};
 		AF5BBF0A2979844500BD433E /* SwiftUI */ = {
@@ -110,6 +136,32 @@
 			);
 			name = SwiftUI;
 			path = ../../Shared/SwiftUI;
+			sourceTree = "<group>";
+		};
+		AF5BBF1D297FE62300BD433E /* MultipleLists */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BBF2429800BC400BD433E /* TableView */,
+				AF5BBF1E297FE63E00BD433E /* MultipleListsViewController.swift */,
+				AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */,
+				AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */,
+			);
+			name = MultipleLists;
+			path = ../../Shared/MultipleLists;
+			sourceTree = "<group>";
+		};
+		AF5BBF2429800BC400BD433E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BBF2529800BE600BD433E /* ClipsRowCell.swift */,
+				AF5BBF2B29800ED900BD433E /* StoriesGridCell.swift */,
+				AF5BBF2929800E3400BD433E /* StoriesRowCell.swift */,
+				AF5BBF2729800C6100BD433E /* ClipsGridCell.swift */,
+				AF5BBF332980178800BD433E /* LabelCell.swift */,
+				AF5BBF2D298010A000BD433E /* MultipleListsDataSource.swift */,
+				AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		B8E4426823F2E32D0093A423 = {
@@ -134,8 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				AEBB2EBD25D35516000A9127 /* AppDelegate.swift */,
+				AF5BBF1D297FE62300BD433E /* MultipleLists */,
 				AF43A53D2976BE3A0026F090 /* Managers */,
-				AF43A54C2977EFDD0026F090 /* MultipleLists */,
+				AF43A54C2977EFDD0026F090 /* StoryboardExample */,
 				AF43A5442976C10F0026F090 /* Extension */,
 				AF43A54B2976D3C20026F090 /* MainVC */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
@@ -228,7 +281,7 @@
 			files = (
 				B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */,
 				B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */,
-				B8E4427C23F2E32E0093A423 /* MultipleLists.storyboard in Resources */,
+				B8E4427C23F2E32E0093A423 /* StoryboardExample.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,30 +334,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5BBF2629800BE600BD433E /* ClipsRowCell.swift in Sources */,
+				AF5BBF2C29800ED900BD433E /* StoriesGridCell.swift in Sources */,
+				AF5BBF2829800C6100BD433E /* ClipsGridCell.swift in Sources */,
 				AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */,
 				AF43A5462976C11D0026F090 /* UIViewController.swift in Sources */,
+				AF5BBF2A29800E3400BD433E /* StoriesRowCell.swift in Sources */,
 				AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */,
 				AF43A53F2976BE5A0026F090 /* StorytellerListDelegate.swift in Sources */,
 				AF43A53C2976BD240026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF43A5482976C1CD0026F090 /* MainViewModel.swift in Sources */,
-				AEBB2EBE25D35516000A9127 /* MultipleListsViewController.swift in Sources */,
+				AF5BBF2E298010A000BD433E /* MultipleListsDataSource.swift in Sources */,
+				AF5BBF1F297FE63E00BD433E /* MultipleListsViewController.swift in Sources */,
+				AEBB2EBE25D35516000A9127 /* StoryboardViewController.swift in Sources */,
 				AF43A54A2976C33D0026F090 /* MainView.swift in Sources */,
 				AF43A5412976BF1E0026F090 /* MainFlowController.swift in Sources */,
+				AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */,
+				AF5BBF382982BC5500BD433E /* UIView.swift in Sources */,
 				AF43A53A2976BC4D0026F090 /* StorytellerManager.swift in Sources */,
+				AF5BBF23297FEF8200BD433E /* MultipleListsViewModel.swift in Sources */,
 				AF43A5432976BFBB0026F090 /* MainViewController.swift in Sources */,
+				AF5BBF21297FE64C00BD433E /* MultipleListsView.swift in Sources */,
 				AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */,
+				AF5BBF342980178800BD433E /* LabelCell.swift in Sources */,
+				AF5BBF302980111100BD433E /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8E4427A23F2E32E0093A423 /* MultipleLists.storyboard */ = {
+		B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B8E4427B23F2E32E0093A423 /* Base */,
 			);
-			name = MultipleLists.storyboard;
+			name = StoryboardExample.storyboard;
 			sourceTree = "<group>";
 		};
 		B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */ = {
