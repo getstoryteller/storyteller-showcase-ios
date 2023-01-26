@@ -1,7 +1,7 @@
 import UIKit
 
 extension UITableViewCell {
-    static var defaultCellReuseIdentifier: String {
+    static var cellReuseIdentifier: String {
         String(describing: self)
     }
 }

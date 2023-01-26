@@ -51,10 +51,6 @@ final class StoriesGridCell: UITableViewCell {
     private func setupConstraints() {
         contentView.addSubview(storytellerGrid)
 
-        storytellerGrid.translatesAutoresizingMaskIntoConstraints = false
-        storytellerGrid.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        storytellerGrid.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        storytellerGrid.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        storytellerGrid.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        storytellerGrid.layoutToEdges(of: contentView)
     }
 }

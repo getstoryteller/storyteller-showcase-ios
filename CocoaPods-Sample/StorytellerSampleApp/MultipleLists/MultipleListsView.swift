@@ -51,10 +51,6 @@ final class MultipleListsView: UIView {
         
         addSubview(tableView)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        tableView.layoutToEdges(of: self)
     }
 }

@@ -14,10 +14,8 @@ class IndividualGridViewDelegate: StorytellerGridViewDelegate {
 
     func contentSizeDidChange(_ size: CGSize) {
         DispatchQueue.main.async {
-            DispatchQueue.main.async {
-                self.tableView?.beginUpdates()
-                self.tableView?.endUpdates()
-            }
+            self.tableView?.beginUpdates()
+            self.tableView?.endUpdates()
         }
     }
 }

@@ -31,6 +31,7 @@
 		AF5BBF302980111100BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF2F2980111100BD433E /* UITableView.swift */; };
 		AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */; };
 		AF5BBF342980178800BD433E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF332980178800BD433E /* LabelCell.swift */; };
+		AF5BBF382982BC5500BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF372982BC5500BD433E /* UIView.swift */; };
 		B8E4427C23F2E32E0093A423 /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		AF5BBF2F2980111100BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualGridViewDelegate.swift; sourceTree = "<group>"; };
 		AF5BBF332980178800BD433E /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		AF5BBF372982BC5500BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8D9B28023F6D81200C81B11 /* Storyteller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Storyteller.framework; path = "../../storyteller-sdk-swift/Carthage/Build/Storyteller-1.0.6-iOS-xcode-11.1/Storyteller.framework"; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoryboardExample.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				AF43A5452976C11D0026F090 /* UIViewController.swift */,
 				AF5BBF2F2980111100BD433E /* UITableView.swift */,
+				AF5BBF372982BC5500BD433E /* UIView.swift */,
 			);
 			name = Extension;
 			path = ../../Shared/Extension;
@@ -346,6 +349,7 @@
 				AF43A54A2976C33D0026F090 /* MainView.swift in Sources */,
 				AF43A5412976BF1E0026F090 /* MainFlowController.swift in Sources */,
 				AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */,
+				AF5BBF382982BC5500BD433E /* UIView.swift in Sources */,
 				AF43A53A2976BC4D0026F090 /* StorytellerManager.swift in Sources */,
 				AF5BBF23297FEF8200BD433E /* MultipleListsViewModel.swift in Sources */,
 				AF43A5432976BFBB0026F090 /* MainViewController.swift in Sources */,

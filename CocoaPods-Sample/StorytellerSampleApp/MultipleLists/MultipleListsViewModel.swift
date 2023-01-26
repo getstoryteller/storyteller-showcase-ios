@@ -30,7 +30,6 @@ final class MultipleListsViewModel {
 
     enum InputAction {
         case getData
-        case pullToRefresh
     }
 
     enum OutputAction {
@@ -58,8 +57,6 @@ final class MultipleListsViewModel {
     func handle(action: InputAction) {
         switch action {
         case .getData:
-            initialize()
-        case .pullToRefresh:
             outputActionHandler(.reload(data))
         }
     }
@@ -68,8 +65,4 @@ final class MultipleListsViewModel {
 
     private let storytellerManager: StorytellerManager
     private let storytellerDelegate = StorytellerListDelegate()
-    
-    private func initialize() {
-        outputActionHandler(.reload(data))
-    }
 }

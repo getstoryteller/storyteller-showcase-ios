@@ -47,11 +47,7 @@ final class StoriesRowCell: UITableViewCell {
     private func setupConstraints() {
         contentView.addSubview(storytellerRow)
 
-        storytellerRow.translatesAutoresizingMaskIntoConstraints = false
-        storytellerRow.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        storytellerRow.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        storytellerRow.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        storytellerRow.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        storytellerRow.layoutToEdges(of: contentView)
         rowHeightConstraint = storytellerRow.heightAnchor.constraint(equalToConstant: 0)
         rowHeightConstraint?.isActive = true
     }

@@ -172,11 +172,7 @@ final class MainView: UIView {
         
         addSubview(scrollView)
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.layoutToEdges(of: self)
 
         scrollView.addSubview(stackView)
 

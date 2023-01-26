@@ -23,12 +23,11 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = storytellerListsData[indexPath.row]
-        self.tableView = tableView
 
         switch data {
         case let .label(text):
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: LabelCell.defaultCellReuseIdentifier,
+                withIdentifier: LabelCell.cellReuseIdentifier,
                 for: indexPath) as? LabelCell
             else {
                 fatalError("Proper cell was not found in UITableView")
@@ -37,12 +36,12 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
             return cell
         case let .storiesRow(cellType, categories, height):
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: StoriesRowCell.defaultCellReuseIdentifier,
+                withIdentifier: StoriesRowCell.cellReuseIdentifier,
                 for: indexPath) as? StoriesRowCell
             else {
                 fatalError("Proper cell was not found in UITableView")
             }
-            let listDelegate = createListDelegate(indexPath: indexPath)
+            let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 index: indexPath.row,
                 categories: categories,
@@ -53,13 +52,13 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
             return cell
         case let .storiesGrid(cellType, categories):
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: StoriesGridCell.defaultCellReuseIdentifier,
+                withIdentifier: StoriesGridCell.cellReuseIdentifier,
                 for: indexPath) as? StoriesGridCell
             else {
                 fatalError("Proper cell was not found in UITableView")
             }
-            let listDelegate = createListDelegate(indexPath: indexPath)
-            let gridDelegate = createGridDelegate(indexPath: indexPath)
+            let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
+            let gridDelegate = createGridDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 categories: categories,
                 cellType: cellType,
@@ -71,12 +70,12 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
             return cell
         case let .clipsRow(cellType, collectionId, height):
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ClipsRowCell.defaultCellReuseIdentifier,
+                withIdentifier: ClipsRowCell.cellReuseIdentifier,
                 for: indexPath) as? ClipsRowCell
             else {
                 fatalError("Proper cell was not found in UITableView")
             }
-            let listDelegate = createListDelegate(indexPath: indexPath)
+            let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 index: indexPath.row,
                 collectionId: collectionId,
@@ -87,13 +86,13 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
             return cell
         case let .clipsGrid(cellType, collectionId):
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ClipsGridCell.defaultCellReuseIdentifier,
+                withIdentifier: ClipsGridCell.cellReuseIdentifier,
                 for: indexPath) as? ClipsGridCell
             else {
                 fatalError("Proper cell was not found in UITableView")
             }
-            let listDelegate = createListDelegate(indexPath: indexPath)
-            let gridDelegate = createGridDelegate(indexPath: indexPath)
+            let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
+            let gridDelegate = createGridDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 collectionId: collectionId,
                 cellType: cellType,
@@ -116,16 +115,14 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
 
     // MARK: Private
 
-    private var tableView: UITableView?
-
-    private func createGridDelegate(indexPath: IndexPath) -> StorytellerGridViewDelegate {
+    private func createGridDelegate(indexPath: IndexPath, tableView: UITableView) -> StorytellerGridViewDelegate {
         let delegate = IndividualGridViewDelegate(indexPath: indexPath)
         delegate.tableView = tableView
         individualDelegates[indexPath.item] = delegate
         return delegate
     }
     
-    private func createListDelegate(indexPath: IndexPath) -> StorytellerListDelegate {
+    private func createListDelegate(indexPath: IndexPath, tableView: UITableView) -> StorytellerListDelegate {
         let delegate = StorytellerListDelegate()
         delegate.actionHandler = { [weak self] action in
             switch action {
@@ -133,10 +130,9 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
                 guard dataCount == 0 else { return }
                 DispatchQueue.main.async {
                     let labelIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
-                    self?.storytellerListsData.remove(at: labelIndexPath.item)
-                    self?.storytellerListsData.remove(at: labelIndexPath.item)
                     //remove row with Storyteller component and it's label
-                    self?.tableView?.deleteRows(at: [labelIndexPath, indexPath], with: .none)
+                    self?.storytellerListsData.remove(atOffsets: [labelIndexPath.item, indexPath.item])
+                    tableView.deleteRows(at: [labelIndexPath, indexPath], with: .none)
                 }
             }
         }

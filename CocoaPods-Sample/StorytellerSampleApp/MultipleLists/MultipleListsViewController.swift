@@ -36,7 +36,7 @@ final class MultipleListsViewController: UIViewController {
     
     @objc
     func onPullToRefresh() {
-        viewModel.handle(action: .pullToRefresh)
+        viewModel.handle(action: .getData)
     }
 
     // MARK: Private
@@ -45,13 +45,15 @@ final class MultipleListsViewController: UIViewController {
     private let dataSource: MultipleListsDataSource
 
     private func setupTableView() {
-        (self.view as? MultipleListsView)?.tableView.register(StoriesRowCell.self, forCellReuseIdentifier: StoriesRowCell.defaultCellReuseIdentifier)
-        (self.view as? MultipleListsView)?.tableView.register(StoriesGridCell.self, forCellReuseIdentifier: StoriesGridCell.defaultCellReuseIdentifier)
-        (self.view as? MultipleListsView)?.tableView.register(ClipsRowCell.self, forCellReuseIdentifier: ClipsRowCell.defaultCellReuseIdentifier)
-        (self.view as? MultipleListsView)?.tableView.register(ClipsGridCell.self, forCellReuseIdentifier: ClipsGridCell.defaultCellReuseIdentifier)
-        (self.view as? MultipleListsView)?.tableView.register(LabelCell.self, forCellReuseIdentifier: LabelCell.defaultCellReuseIdentifier)
+        guard let multipleListsView = self.view as? MultipleListsView else { return }
         
-        (self.view as? MultipleListsView)?.tableView.dataSource = dataSource
+        multipleListsView.tableView.register(StoriesRowCell.self, forCellReuseIdentifier: StoriesRowCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(StoriesGridCell.self, forCellReuseIdentifier: StoriesGridCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(ClipsRowCell.self, forCellReuseIdentifier: ClipsRowCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(ClipsGridCell.self, forCellReuseIdentifier: ClipsGridCell.cellReuseIdentifier)
+        multipleListsView.tableView.register(LabelCell.self, forCellReuseIdentifier: LabelCell.cellReuseIdentifier)
+        
+        multipleListsView.tableView.dataSource = dataSource
     }
     
     private func bindViewModel() {

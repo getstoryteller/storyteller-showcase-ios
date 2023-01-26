@@ -48,11 +48,7 @@ final class ClipsRowCell: UITableViewCell {
     private func setupConstraints() {
         contentView.addSubview(storytellerClipRow)
 
-        storytellerClipRow.translatesAutoresizingMaskIntoConstraints = false
-        storytellerClipRow.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        storytellerClipRow.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        storytellerClipRow.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        storytellerClipRow.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        storytellerClipRow.layoutToEdges(of: contentView)
         rowHeightConstraint = storytellerClipRow.heightAnchor.constraint(equalToConstant: 0)
         rowHeightConstraint?.isActive = true
     }
