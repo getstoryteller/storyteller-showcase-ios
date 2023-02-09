@@ -30,14 +30,20 @@ final class MultipleListsViewModel {
 
     enum InputAction {
         case getData
+        case viewWillDisappear
     }
 
     enum OutputAction {
         case showError(Error)
         case reload([CellData])
     }
+    
+    enum OutputNavigationAction {
+        case viewWillDisappear
+    }
 
     var outputActionHandler: (MultipleListsViewModel.OutputAction) -> Void = { _ in }
+    var outputNavigationActionHandler: (MultipleListsViewModel.OutputNavigationAction) -> Void = { _ in }
     
     lazy var data: [CellData] = [
         .label(text: "Storyteller Row View Round"),
@@ -58,6 +64,8 @@ final class MultipleListsViewModel {
         switch action {
         case .getData:
             outputActionHandler(.reload(data))
+        case .viewWillDisappear:
+            outputNavigationActionHandler(.viewWillDisappear)
         }
     }
 

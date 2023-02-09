@@ -26,6 +26,14 @@ final class StorytellerManager {
         
         setupBackendSettings(userInput: userInput, onError: { _ in }, onComplete: onComplete)
     }
+    
+    func resetToDefaultStorytellerDelegate() {
+        Storyteller.sharedInstance.delegate = storytellerDelegate
+    }
+    
+    func setGoogleAdsIntegrationDelegate() {
+        Storyteller.sharedInstance.delegate = StorytellerAdsDelegate()
+    }
 
     func setupBackendSettings(userInput: UserInput? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         let apiKey = "6a0ea73b-7b5d-42ab-bbf9-0584a696d9bb"

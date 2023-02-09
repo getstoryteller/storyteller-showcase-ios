@@ -8,6 +8,7 @@ enum MainViewElement {
     case changeUserButton
     case storyboardExampleButton
     case multipleListsButton
+    case googleAdsIntegrationButton
     case swiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
 }
 
@@ -76,6 +77,7 @@ final class MainViewModel {
             .changeUserButton,
             .storyboardExampleButton,
             .multipleListsButton,
+            .googleAdsIntegrationButton,
             .swiftUIButton(cellType: .square, delegate: storytellerDelegate)
         ]))
     }

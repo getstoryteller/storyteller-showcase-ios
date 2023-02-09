@@ -32,6 +32,8 @@ final class MainViewController: UIViewController {
                 self?.actionHandler(.moveToMultipleLists)
             case .storyboardExampleTap:
                 self?.actionHandler(.moveToStoryboardExample)
+            case .googleAdsIntergationTap:
+                self?.actionHandler(.moveToGoogleAdsIntegrationExample)
             case let .swiftUITap(cellType, delegate):
                 self?.actionHandler(.moveToSwiftUI(cellType: cellType, delegate: delegate))
             }
@@ -48,6 +50,7 @@ final class MainViewController: UIViewController {
     enum Action {
         case moveToMultipleLists
         case moveToStoryboardExample
+        case moveToGoogleAdsIntegrationExample
         case moveToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
     

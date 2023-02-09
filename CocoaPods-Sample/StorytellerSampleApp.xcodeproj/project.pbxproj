@@ -32,6 +32,11 @@
 		AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */; };
 		AF5BBF342980178800BD433E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF332980178800BD433E /* LabelCell.swift */; };
 		AF5BBF382982BC5500BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF372982BC5500BD433E /* UIView.swift */; };
+		AF82186329953BBD00DE31BE /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82185E29953BBD00DE31BE /* TrackingManager.swift */; };
+		AF82186429953BBD00DE31BE /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82185F29953BBD00DE31BE /* AdManager.swift */; };
+		AF82186529953BBD00DE31BE /* StorytellerAdsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186029953BBD00DE31BE /* StorytellerAdsDelegate.swift */; };
+		AF82186629953BBD00DE31BE /* NativeAdsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186129953BBD00DE31BE /* NativeAdsRequest.swift */; };
+		AF82186729953BBD00DE31BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186229953BBD00DE31BE /* Constants.swift */; };
 		B8E4427C23F2E32E0093A423 /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
@@ -64,6 +69,11 @@
 		AF5BBF312980113700BD433E /* IndividualGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualGridViewDelegate.swift; sourceTree = "<group>"; };
 		AF5BBF332980178800BD433E /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		AF5BBF372982BC5500BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AF82185E29953BBD00DE31BE /* TrackingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrackingManager.swift; path = ../Shared/Ads/TrackingManager.swift; sourceTree = "<group>"; };
+		AF82185F29953BBD00DE31BE /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ../Shared/Ads/AdManager.swift; sourceTree = "<group>"; };
+		AF82186029953BBD00DE31BE /* StorytellerAdsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerAdsDelegate.swift; path = ../Shared/Ads/StorytellerAdsDelegate.swift; sourceTree = "<group>"; };
+		AF82186129953BBD00DE31BE /* NativeAdsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NativeAdsRequest.swift; path = ../Shared/Ads/NativeAdsRequest.swift; sourceTree = "<group>"; };
+		AF82186229953BBD00DE31BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Shared/Ads/Constants.swift; sourceTree = "<group>"; };
 		B8D9B28023F6D81200C81B11 /* Storyteller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Storyteller.framework; path = "../../storyteller-sdk-swift/Carthage/Build/Storyteller-1.0.6-iOS-xcode-11.1/Storyteller.framework"; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427B23F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoryboardExample.storyboard; sourceTree = "<group>"; };
@@ -164,6 +174,19 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		AF82186829953BD300DE31BE /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				AF82185E29953BBD00DE31BE /* TrackingManager.swift */,
+				AF82185F29953BBD00DE31BE /* AdManager.swift */,
+				AF82186229953BBD00DE31BE /* Constants.swift */,
+				AF82186129953BBD00DE31BE /* NativeAdsRequest.swift */,
+				AF82186029953BBD00DE31BE /* StorytellerAdsDelegate.swift */,
+			);
+			name = Ads;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		B8E4426823F2E32D0093A423 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBB2EBD25D35516000A9127 /* AppDelegate.swift */,
+				AF82186829953BD300DE31BE /* Ads */,
 				AF5BBF1D297FE62300BD433E /* MultipleLists */,
 				AF43A53D2976BE3A0026F090 /* Managers */,
 				AF43A54C2977EFDD0026F090 /* StoryboardExample */,
@@ -334,6 +358,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF82186329953BBD00DE31BE /* TrackingManager.swift in Sources */,
+				AF82186429953BBD00DE31BE /* AdManager.swift in Sources */,
+				AF82186529953BBD00DE31BE /* StorytellerAdsDelegate.swift in Sources */,
+				AF82186629953BBD00DE31BE /* NativeAdsRequest.swift in Sources */,
+				AF82186729953BBD00DE31BE /* Constants.swift in Sources */,
 				AF5BBF2629800BE600BD433E /* ClipsRowCell.swift in Sources */,
 				AF5BBF2C29800ED900BD433E /* StoriesGridCell.swift in Sources */,
 				AF5BBF2829800C6100BD433E /* ClipsGridCell.swift in Sources */,

@@ -33,6 +33,12 @@
 		AF5BBF542982D37500BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF522982D37500BD433E /* UITableView.swift */; };
 		AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF552982D3B200BD433E /* StoryboardViewController.swift */; };
 		AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF492982D2D400BD433E /* MultipleListsViewController.swift */; };
+		AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186929953F5500DE31BE /* NativeAdsRequest.swift */; };
+		AF82186F29953F5500DE31BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186A29953F5500DE31BE /* Constants.swift */; };
+		AF82187029953F5500DE31BE /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186B29953F5500DE31BE /* AdManager.swift */; };
+		AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */; };
+		AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186D29953F5500DE31BE /* TrackingManager.swift */; };
+		AF8218762995408900DE31BE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AF8218752995408900DE31BE /* GoogleMobileAds */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -76,6 +82,11 @@
 		AF5BBF512982D37500BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AF5BBF522982D37500BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		AF5BBF552982D3B200BD433E /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardViewController.swift; path = ../Shared/StoryboardExample/StoryboardViewController.swift; sourceTree = "<group>"; };
+		AF82186929953F5500DE31BE /* NativeAdsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeAdsRequest.swift; path = ../Shared/Ads/NativeAdsRequest.swift; sourceTree = "<group>"; };
+		AF82186A29953F5500DE31BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Shared/Ads/Constants.swift; sourceTree = "<group>"; };
+		AF82186B29953F5500DE31BE /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ../Shared/Ads/AdManager.swift; sourceTree = "<group>"; };
+		AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorytellerAdsDelegate.swift; path = ../Shared/Ads/StorytellerAdsDelegate.swift; sourceTree = "<group>"; };
+		AF82186D29953F5500DE31BE /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackingManager.swift; path = ../Shared/Ads/TrackingManager.swift; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8218762995408900DE31BE /* GoogleMobileAds in Frameworks */,
 				4EFA6447281ADCF600CE43FD /* StorytellerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +184,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		AF82187329953F5B00DE31BE /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				AF82186B29953F5500DE31BE /* AdManager.swift */,
+				AF82186A29953F5500DE31BE /* Constants.swift */,
+				AF82186929953F5500DE31BE /* NativeAdsRequest.swift */,
+				AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */,
+				AF82186D29953F5500DE31BE /* TrackingManager.swift */,
+			);
+			name = Ads;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		B871CF7323F6D48E00FAF2B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +225,7 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF82187329953F5B00DE31BE /* Ads */,
 				AF5BBF572982D3B700BD433E /* StoryboardExample */,
 				AF5BBF4D2982D2DB00BD433E /* MultipleLists */,
 				AF43A599297807B70026F090 /* Managers */,
@@ -234,6 +260,7 @@
 			name = StorytellerSampleApp;
 			packageProductDependencies = (
 				4EFA6446281ADCF600CE43FD /* StorytellerSDK */,
+				AF8218752995408900DE31BE /* GoogleMobileAds */,
 			);
 			productName = StorytellerSampleApp;
 			productReference = B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */;
@@ -266,6 +293,7 @@
 			mainGroup = B8E4426823F2E32D0093A423;
 			packageReferences = (
 				4EFA6445281ADCF600CE43FD /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
+				AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = B8E4427223F2E32E0093A423 /* Products */;
 			projectDirPath = "";
@@ -301,7 +329,10 @@
 				AF5BBF4C2982D2D400BD433E /* MultipleListsViewModel.swift in Sources */,
 				AF5BBF402982D2A600BD433E /* IndividualGridViewDelegate.swift in Sources */,
 				AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */,
+				AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */,
+				AF82186F29953F5500DE31BE /* Constants.swift in Sources */,
 				AF5BBF422982D2A600BD433E /* StoriesGridCell.swift in Sources */,
+				AF82187029953F5500DE31BE /* AdManager.swift in Sources */,
 				AF5BBF432982D2A600BD433E /* ClipsRowCell.swift in Sources */,
 				AF5BBF442982D2A600BD433E /* StoriesRowCell.swift in Sources */,
 				AF5BBF452982D2A600BD433E /* MultipleListsDataSource.swift in Sources */,
@@ -313,6 +344,8 @@
 				AF43A5932978065C0026F090 /* MainView.swift in Sources */,
 				AF5BBF0F297A896A00BD433E /* StoriesRowView.swift in Sources */,
 				AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */,
+				AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */,
+				AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */,
 				AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */,
 				AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */,
@@ -475,6 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -500,6 +534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_VERSION = 5.0;
@@ -539,6 +574,14 @@
 				minimumVersion = 8.0.1;
 			};
 		};
+		AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -546,6 +589,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4EFA6445281ADCF600CE43FD /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */;
 			productName = StorytellerSDK;
+		};
+		AF8218752995408900DE31BE /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
