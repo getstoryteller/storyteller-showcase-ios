@@ -32,6 +32,11 @@ final class MultipleListsViewController: UIViewController {
         viewModel.handle(action: .getData)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.handle(action: .viewWillDisappear)
+    }
+    
     // MARK: Internal
     
     @objc

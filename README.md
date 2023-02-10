@@ -21,29 +21,19 @@ For help with Storyteller, please check our [Documentation and User Guide](https
 
 Remark that because of the SwiftUI integration example minimum deployment version of the sample app is iOS 15. The minimum deployment version of SDK is iOS 11.
 
-## CocoaPods-Sample
+# Integration Examples
 
-**To use the [Cocoapods](https://cocoapods.org) integration for `Storyteller`:**
+Table represents different integration types with links to examples inside this repository.
 
-1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
-2. Run `pod install` in the `Cocoapods-Sample` directory
-3. Open the `StorytellerSampleApp.xcworkspace` to open the project.
-4. Supply your app's API Key in `ViewController.swift` by replacing `[APIKEY]` with the correct value (please refer to our guide on [Initializing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#sdk-initialization) for more details)
-
-## XCFrameworks-Sample
-
-**To use the XCFrameworks integration for `Storyteller`:**
-1. Download zipped binaries from the URL provided (please refer to our guide to [Referencing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#xcframeworks) for more details)
-2. Copy them to `Libraries` folder. Path should look like: `Libraries/StorytellerSDK.xcframework`, `Libraries/AsyncDisplayKit.xcframework`, etc.
-3. Open the `StorytellerSampleApp.xcodeproj` to open the project.
-4. Ensure the frameworks are listed under `Libraries` group.
-5. Supply your app's API Key in `ViewController.swift` by replacing `[APIKEY]` with the correct value (please refer to our guide on [Initializing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#sdk-initialization) for more details)
+| Integration type | Example |
+|----------|-------------------------|
+| CocoaPods | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/CocoaPods-Sample) |
+| XCFrameworks | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/XCFrameworks-Sample) | 
+| SwiftPackageManager | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/SwiftPackageManager-Sample) |
 
 
-## SwiftPackageManager-Sample
+# Google Ads Integration Example
 
-**To use the Swift Package Manager integration for `Storyteller`:**
-1. Open `StorytellerSampleApp.xcodeproj`
-2. Click `File -> Swift Packages -> Add Package Dependency`
-3. On newly prompt screen paste link https://github.com/getstoryteller/storyteller-sdk-swift-package. After some loading time SDK will appear as new dependency in `Swift Package Dependencies` section inside `Project Navigator`
-4. Supply your app's API Key in `ViewController.swift` by replacing `[APIKEY]` with the correct value (please refer to our guide on [Initializing the SDK](https://docs.getstoryteller.com/documents/ios-sdk/GettingStarted#sdk-initialization) for more details)
+You can find examples of integrating Google Ads dependencies in three different ways mentioned in the previous paragraph.
+
+All the files along with instruction to integrate Google Ads you can find [here](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/Shared/Ads)

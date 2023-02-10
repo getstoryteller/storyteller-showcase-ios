@@ -32,6 +32,8 @@ final class MainFlowController {
                 self?.navigateToMultipleLists()
             case .moveToStoryboardExample:
                 self?.navigateToStoryboardExample()
+            case .moveToGoogleAdsIntegrationExample:
+                self?.navigateToGoogleAdsIntegration()
             case let .moveToSwiftUI(cellType, delegate):
                 self?.navigateToSwiftUI(cellType: cellType, delegate: delegate)
             }
@@ -49,6 +51,19 @@ final class MainFlowController {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "StoryboardExample", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "StoryboardViewController") as! StoryboardViewController
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func navigateToGoogleAdsIntegration() {
+        multipleListsViewModel.outputNavigationActionHandler = { [weak self] action in
+            switch action {
+            case .viewWillDisappear:
+                self?.storytellerManager.resetToDefaultStorytellerDelegate()
+                self?.multipleListsViewModel.outputNavigationActionHandler = { _ in }
+            }
+        }
+        storytellerManager.setGoogleAdsIntegrationDelegate()
+        let vc = MultipleListsViewController(viewModel: multipleListsViewModel, dataSource: multipleListsDataSource)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func navigateToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {

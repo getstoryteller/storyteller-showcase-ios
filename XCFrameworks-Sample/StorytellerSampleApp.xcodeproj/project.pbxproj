@@ -33,6 +33,18 @@
 		AF5BBF762982D4CE00BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF742982D4CE00BD433E /* UIView.swift */; };
 		AF5BBF772982D4CE00BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF752982D4CE00BD433E /* UITableView.swift */; };
 		AF5BBF792982D52B00BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF6D2982D47200BD433E /* MultipleListsViewController.swift */; };
+		AF82187E2995446100DE31BE /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218772995445F00DE31BE /* nanopb.xcframework */; };
+		AF82187F2995446100DE31BE /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */; };
+		AF8218802995446100DE31BE /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */; };
+		AF8218812995446100DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		AF8218822995446100DE31BE /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */; };
+		AF8218832995446100DE31BE /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187C2995446000DE31BE /* PromisesObjC.xcframework */; };
+		AF8218842995446100DE31BE /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */; };
+		AF82188A299544AB00DE31BE /* StorytellerAdsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */; };
+		AF82188B299544AB00DE31BE /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821886299544AB00DE31BE /* TrackingManager.swift */; };
+		AF82188C299544AB00DE31BE /* NativeAdsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821887299544AB00DE31BE /* NativeAdsRequest.swift */; };
+		AF82188D299544AB00DE31BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821888299544AB00DE31BE /* Constants.swift */; };
+		AF82188E299544AB00DE31BE /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821889299544AB00DE31BE /* AdManager.swift */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -77,6 +89,18 @@
 		AF5BBF712982D4A900BD433E /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardViewController.swift; path = ../Shared/StoryboardExample/StoryboardViewController.swift; sourceTree = "<group>"; };
 		AF5BBF742982D4CE00BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = ../Shared/Extension/UIView.swift; sourceTree = "<group>"; };
 		AF5BBF752982D4CE00BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = ../Shared/Extension/UITableView.swift; sourceTree = "<group>"; };
+		AF8218772995445F00DE31BE /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
+		AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		AF82187C2995446000DE31BE /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
+		AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorytellerAdsDelegate.swift; path = ../Shared/Ads/StorytellerAdsDelegate.swift; sourceTree = "<group>"; };
+		AF821886299544AB00DE31BE /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackingManager.swift; path = ../Shared/Ads/TrackingManager.swift; sourceTree = "<group>"; };
+		AF821887299544AB00DE31BE /* NativeAdsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeAdsRequest.swift; path = ../Shared/Ads/NativeAdsRequest.swift; sourceTree = "<group>"; };
+		AF821888299544AB00DE31BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Shared/Ads/Constants.swift; sourceTree = "<group>"; };
+		AF821889299544AB00DE31BE /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ../Shared/Ads/AdManager.swift; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +113,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF2329C1286E29840047AB98 /* StorytellerSDK.xcframework in Frameworks */,
+				AF8218822995446100DE31BE /* GoogleMobileAds.xcframework in Frameworks */,
+				AF8218812995446100DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				AF8218832995446100DE31BE /* PromisesObjC.xcframework in Frameworks */,
+				AF82187F2995446100DE31BE /* UserMessagingPlatform.xcframework in Frameworks */,
+				AF82187E2995446100DE31BE /* nanopb.xcframework in Frameworks */,
+				AF8218842995446100DE31BE /* GoogleAppMeasurement.xcframework in Frameworks */,
+				AF8218802995446100DE31BE /* GoogleUtilities.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +130,13 @@
 			isa = PBXGroup;
 			children = (
 				AF2329C0286E29840047AB98 /* StorytellerSDK.xcframework */,
+				AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */,
+				AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */,
+				AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */,
+				AF8218772995445F00DE31BE /* nanopb.xcframework */,
+				AF82187C2995446000DE31BE /* PromisesObjC.xcframework */,
+				AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -181,6 +219,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		AF82188F299544AF00DE31BE /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				AF821889299544AB00DE31BE /* AdManager.swift */,
+				AF821888299544AB00DE31BE /* Constants.swift */,
+				AF821887299544AB00DE31BE /* NativeAdsRequest.swift */,
+				AF821886299544AB00DE31BE /* TrackingManager.swift */,
+				AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */,
+			);
+			name = Ads;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		B871CF7323F6D48E00FAF2B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +260,7 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF82188F299544AF00DE31BE /* Ads */,
 				AF5BBF732982D4AC00BD433E /* StoryboardExample */,
 				AF5BBF702982D47C00BD433E /* MultipleLists */,
 				AE119DE4247566850092DC66 /* Libraries */,
@@ -299,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5BBF762982D4CE00BD433E /* UIView.swift in Sources */,
+				AF82188E299544AB00DE31BE /* AdManager.swift in Sources */,
 				AF5BBF772982D4CE00BD433E /* UITableView.swift in Sources */,
 				AF5BBF722982D4A900BD433E /* StoryboardViewController.swift in Sources */,
 				AF5BBF6E2982D47200BD433E /* MultipleListsViewModel.swift in Sources */,
@@ -309,12 +362,16 @@
 				AF5BBF662982D45700BD433E /* MultipleListsDataSource.swift in Sources */,
 				AF5BBF672982D45700BD433E /* IndividualGridViewDelegate.swift in Sources */,
 				AF5BBF682982D45700BD433E /* StoriesGridCell.swift in Sources */,
+				AF82188D299544AB00DE31BE /* Constants.swift in Sources */,
+				AF82188A299544AB00DE31BE /* StorytellerAdsDelegate.swift in Sources */,
+				AF82188B299544AB00DE31BE /* TrackingManager.swift in Sources */,
 				AF5BBF692982D45700BD433E /* ClipsGridCell.swift in Sources */,
 				AF43A5A5297808650026F090 /* MainView.swift in Sources */,
 				AF43A5A6297808650026F090 /* StorytellerListDelegate.swift in Sources */,
 				AF5BBF15297A8EA700BD433E /* SwiftUIView.swift in Sources */,
 				AF43A5A7297808650026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF5BBF14297A8EA700BD433E /* StoriesRowView.swift in Sources */,
+				AF82188C299544AB00DE31BE /* NativeAdsRequest.swift in Sources */,
 				AF43A5A9297808650026F090 /* MainViewModel.swift in Sources */,
 				AF5BBF792982D52B00BD433E /* MultipleListsViewController.swift in Sources */,
 				AF43A5AA297808650026F090 /* MainViewController.swift in Sources */,
@@ -479,6 +536,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -504,6 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stormideas.StorytellerSampleApp;
 				PRODUCT_NAME = StorytellerSampleApp;
 				SWIFT_VERSION = 5.0;

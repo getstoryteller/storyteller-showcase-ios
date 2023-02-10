@@ -8,6 +8,7 @@ final class MainView: UIView {
     enum Action {
         case changeUserTap
         case storyboardExampleTap
+        case googleAdsIntergationTap
         case multipleListsTap
         case swiftUITap(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
@@ -63,6 +64,8 @@ final class MainView: UIView {
                 addMultipleListsButton()
             case .storyboardExampleButton:
                 addStoryboardExampleButton()
+            case .googleAdsIntegrationButton:
+                addGoogleAdsIntegrationButton()
             case let .swiftUIButton(cellType, delegate):
                 addSwiftUIButton(cellType: cellType, delegate: delegate)
             }
@@ -136,6 +139,14 @@ final class MainView: UIView {
         stackView.addArrangedSubview(button)
     }
     
+    private func addGoogleAdsIntegrationButton() {
+        let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle("Google Ads Integration", for: .normal)
+        button.addTarget(self, action: #selector(didTapGoogleAdsIntegrationExample), for: .touchUpInside)
+        stackView.addArrangedSubview(button)
+    }
+    
     private func addSwiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
         let button = SubclassedUIButton()
         button.cellType = cellType
@@ -156,6 +167,10 @@ final class MainView: UIView {
     
     @objc private func didTapStoryboardExample() {
         actionHandler(.storyboardExampleTap)
+    }
+    
+    @objc private func didTapGoogleAdsIntegrationExample() {
+        actionHandler(.googleAdsIntergationTap)
     }
     
     @objc private func didTapSwiftUI(sender: SubclassedUIButton) {

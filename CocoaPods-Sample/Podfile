@@ -10,4 +10,5 @@ target 'StorytellerSampleApp' do
 
   # Pods for StorytellerSampleApp
   pod 'StorytellerSDK',  '~> 8.4.0'
+  pod 'Google-Mobile-Ads-SDK'
 end
