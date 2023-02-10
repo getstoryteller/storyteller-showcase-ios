@@ -27,7 +27,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
         case .AdActionButtonTapped:
             trackingManager.trackClick(ad: ad)
             
-        case .DismissedStory, .DismissedAd, .DismissedClip:
+        case .DismissedStory, .DismissedAd:
             clearAdList()
         
         default: break
