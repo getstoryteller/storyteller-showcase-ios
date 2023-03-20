@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4EFA6447281ADCF600CE43FD /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4EFA6446281ADCF600CE43FD /* StorytellerSDK */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
+		AED0777529C8785D005C10A6 /* StoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0777429C8785D005C10A6 /* StoriesGridView.swift */; };
+		AED0777729C87CA9005C10A6 /* StoriesDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0777629C87CA9005C10A6 /* StoriesDelegateWrapper.swift */; };
 		AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5862978061A0026F090 /* MainFlowController.swift */; };
 		AF43A5902978065C0026F090 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5882978065C0026F090 /* MainViewController.swift */; };
 		AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5892978065C0026F090 /* MainViewModel.swift */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
+		AED0777429C8785D005C10A6 /* StoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesGridView.swift; sourceTree = "<group>"; };
+		AED0777629C87CA9005C10A6 /* StoriesDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDelegateWrapper.swift; sourceTree = "<group>"; };
 		AF43A5862978061A0026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
 		AF43A5882978065C0026F090 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Shared/MainVC/MainViewController.swift; sourceTree = "<group>"; };
 		AF43A5892978065C0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../Shared/MainVC/MainViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				AF5BBF0E297A891600BD433E /* StoriesRowView.swift */,
 				AF5BBF0D297A891600BD433E /* SwiftUIView.swift */,
+				AED0777429C8785D005C10A6 /* StoriesGridView.swift */,
+				AED0777629C87CA9005C10A6 /* StoriesDelegateWrapper.swift */,
 			);
 			name = SwiftUI;
 			path = ../../Shared/SwiftUI;
@@ -322,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED0777529C8785D005C10A6 /* StoriesGridView.swift in Sources */,
 				AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */,
 				AF5BBF532982D37500BD433E /* UIView.swift in Sources */,
 				AF5BBF542982D37500BD433E /* UITableView.swift in Sources */,
@@ -343,6 +350,7 @@
 				AF43A5922978065C0026F090 /* UIViewController.swift in Sources */,
 				AF43A5932978065C0026F090 /* MainView.swift in Sources */,
 				AF5BBF0F297A896A00BD433E /* StoriesRowView.swift in Sources */,
+				AED0777729C87CA9005C10A6 /* StoriesDelegateWrapper.swift in Sources */,
 				AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */,
 				AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */,
 				AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */,
