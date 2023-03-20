@@ -1,11 +1,3 @@
-//
-//  StoriesGridView.swift
-//  StorytellerSampleApp
-//
-//  Created by Michał on 20/03/2023.
-//  Copyright © 2023 Storm Ideas. All rights reserved.
-//
-
 import Combine
 import Foundation
 import StorytellerSDK
