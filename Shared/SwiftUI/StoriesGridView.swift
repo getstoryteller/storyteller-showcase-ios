@@ -6,16 +6,16 @@
 //  Copyright © 2023 Storm Ideas. All rights reserved.
 //
 
-import Foundation
-import SwiftUI
-import StorytellerSDK
 import Combine
+import Foundation
+import StorytellerSDK
+import SwiftUI
 
 struct StoriesGridView: UIViewRepresentable, StorytellerCallbackable {
     var reloadDataSubject: PassthroughSubject<Void, Never>
     let callback: (StorytellerCallbackAction) -> Void
     @State var cancellable: AnyCancellable? = nil
-  
+
     func makeUIView(context: Context) -> StorytellerGridView {
         let view = StorytellerGridView()
         view.delegate = context.coordinator
@@ -23,15 +23,15 @@ struct StoriesGridView: UIViewRepresentable, StorytellerCallbackable {
         return view
     }
 
-    func updateUIView(_ uiView: StorytellerGridView, context: Context) {
+    func updateUIView(_ uiView: StorytellerGridView, context _: Context) {
         DispatchQueue.main.async {
-            self.cancellable = reloadDataSubject.sink { text in
+            self.cancellable = reloadDataSubject.sink { _ in
                 uiView.reloadData()
             }
         }
         uiView.reloadData()
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
     }

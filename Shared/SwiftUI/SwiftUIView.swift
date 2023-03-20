@@ -1,16 +1,16 @@
-import SwiftUI
-import StorytellerSDK
 import Combine
+import StorytellerSDK
+import SwiftUI
 
 struct SwiftUIView: View {
     class SwiftUIModel: ObservableObject {
         @Published var cellType: StorytellerListViewCellType = .square
         @Published var delegate: StorytellerListDelegate? = nil
     }
-    
+
     @ObservedObject var model: SwiftUIModel
     @State var gridHeight: CGFloat = 0
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -18,16 +18,16 @@ struct SwiftUIView: View {
                     .padding(.leading, 8)
                 StoriesRowView(cellType: model.cellType, delegate: model.delegate, reloadDataSubject: reloadDataSubject)
                     .frame(height: 240)
-                
+
                 Text("SwiftUI GridView")
                     .padding(.leading, 8)
                 StoriesGridView(reloadDataSubject: reloadDataSubject) { action in
-                    if case .contentDidChange(let cGSize) = action {
+                    if case let .contentDidChange(cGSize) = action {
                         gridHeight = cGSize.height
                     }
                 }
                 .frame(height: gridHeight)
-                
+
                 Spacer()
             }
             .listRowInsets(EdgeInsets())
@@ -38,7 +38,7 @@ struct SwiftUIView: View {
         }
         .padding(.top, 16)
     }
-    
+
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
 }
 
