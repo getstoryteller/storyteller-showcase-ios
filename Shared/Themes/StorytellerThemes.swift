@@ -1,8 +1,6 @@
 import StorytellerSDK
 import UIKit
 
-import Foundation
-
 /**
  https://www.getstoryteller.com/documentation/ios/themes
  */
@@ -11,7 +9,7 @@ class StorytellerThemes{
     static let globalTheme: UITheme = {
         var theme = UITheme()
         
-        theme.light.colors.primary = UIColor(hexString: "#0000FF")
+        theme.light.colors.primary = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont
         theme.light.primitives.cornerRadius = 4
         theme.light.lists.row.tileSpacing = 8
@@ -30,7 +28,7 @@ class StorytellerThemes{
     static let customTheme: UITheme = {
         var theme = UITheme()
         
-        theme.light.colors.primary = UIColor(hexString: "#FF00FF")
+        theme.light.colors.primary = UIColor(red: 1, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont
         theme.light.primitives.cornerRadius = 4
         theme.light.lists.row.tileSpacing = 8
@@ -45,10 +43,10 @@ class StorytellerThemes{
         
         return theme
     }()
-    
+
     /*
      Use if you want to set custom font
-     
+
      private var customFont: FontProvider {
             class CustomFont: FontProvider {
                 override func font(weight: StorytellerFontWeight, size: CGFloat) -> UIFont? {
@@ -65,26 +63,4 @@ class StorytellerThemes{
             return CustomFont()
         }
      */
-
-}
-
-extension UIColor{
-    convenience init(hexString: String, alpha: CGFloat = 1.0) {
-        let hexInt = Int(UIColor.intFromHexString(hexStr: hexString))
-        let red = CGFloat((hexInt & 0xff0000) >> 16) / 255.0
-        let green = CGFloat((hexInt & 0xff00) >> 8) / 255.0
-        let blue = CGFloat((hexInt & 0xff) >> 0) / 255.0
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
-    }
-    
-    private static func intFromHexString(hexStr: String) -> UInt32 {
-        var hexInt: UInt32 = 0
-        // Create scanner
-        let scanner = Scanner(string: hexStr)
-        // Tell scanner to skip the # character
-        scanner.charactersToBeSkipped = CharacterSet(charactersIn: "#")
-        // Scan hex value
-        scanner.scanHexInt32(&hexInt)
-        return hexInt
-    }
 }
