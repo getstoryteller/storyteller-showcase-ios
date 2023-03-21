@@ -14,15 +14,15 @@ final class MainFlowController {
             }
         }
     }
-
+    
     // MARK: Internal
-
+    
     func present(in navigationController: UINavigationController) {
         self.navigationController = navigationController
         let vc = createMainVC()
         self.navigationController?.pushViewController(vc, animated: false)
     }
-
+    
     func createMainVC() -> MainViewController {
         let vc = MainViewController(viewModel: mainViewModel)
         vc.title = "Storyteller"
@@ -73,14 +73,14 @@ final class MainFlowController {
         let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
         self.navigationController?.pushViewController(swiftUIViewController, animated: true)
     }
-
+    
     // MARK: Private
-
+    
     private var navigationController: UINavigationController?
     private var mainVC: MainViewController?
     private let storytellerMainDelegate = StorytellerMainDelegate()
     private lazy var storytellerManager: StorytellerManager = {
-        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate)
+        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate,uiTheme: StorytellerThemes.globalTheme)
     }()
     private lazy var mainViewModel: MainViewModel = {
         MainViewModel(storytellerManager: self.storytellerManager)

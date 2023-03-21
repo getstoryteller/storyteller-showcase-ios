@@ -43,6 +43,7 @@
 		AF8218762995408900DE31BE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AF8218752995408900DE31BE /* GoogleMobileAds */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
+		DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +96,7 @@
 		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorytellerThemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				DC4A8CF229C9E93900DE026D /* Themes */,
 				AF82187329953F5B00DE31BE /* Ads */,
 				AF5BBF572982D3B700BD433E /* StoryboardExample */,
 				AF5BBF4D2982D2DB00BD433E /* MultipleLists */,
@@ -245,6 +248,15 @@
 				B8E4428223F2E32E0093A423 /* Info.plist */,
 			);
 			path = StorytellerSampleApp;
+			sourceTree = "<group>";
+		};
+		DC4A8CF229C9E93900DE026D /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */,
+			);
+			name = Themes;
+			path = ../../Shared/Themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED0777529C8785D005C10A6 /* StoriesGridView.swift in Sources */,
+				DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */,
 				AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */,
 				AF5BBF532982D37500BD433E /* UIView.swift in Sources */,
 				AF5BBF542982D37500BD433E /* UITableView.swift in Sources */,
