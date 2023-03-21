@@ -1,0 +1,14 @@
+# options
+--self remove # redundantSelf
+--importgrouping testable-last # sortedImports
+--trimwhitespace always # trailingSpace
+--indent 4 #indent
+--ifdef no-indent #indent
+--swiftversion 5.7
+--elseposition same-line
+--header strip
+--exclude DerivedData
+
+
+# rules
+--rules redundantParens,redundantReturn,redundantSelf,sortedImports,strongifiedSelf,trailingSpace,indent,duplicateImports,redundantType,fileHeader,preferKeyPath,redundantBackticks,redundantBreak,redundantGet,redundantInit,redundantLet,redundantLetError,redundantNilInit,redundantObjc,redundantPattern,redundantVoidReturnType,spaceAroundBraces,spaceAroundGenerics,spaceAroundOperators,spaceAroundParens,spaceInsideBraces,spaceInsideGenerics,spaceInsideParens,trailingClosures,typeSugar

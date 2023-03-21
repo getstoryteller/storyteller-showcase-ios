@@ -17,7 +17,7 @@ struct StoriesGridView: UIViewRepresentable, StorytellerCallbackable {
 
     func updateUIView(_ uiView: StorytellerGridView, context _: Context) {
         DispatchQueue.main.async {
-            self.cancellable = reloadDataSubject.sink { _ in
+            cancellable = reloadDataSubject.sink { _ in
                 uiView.reloadData()
             }
         }

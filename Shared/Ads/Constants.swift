@@ -11,16 +11,16 @@ enum Ads {
     static let clickTypeKey = "ClickType"
     static let appStoreIdKey = "AppStoreId"
     static let clickThroughCTAKey = "ClickThroughCTA"
-    
+
     static let displayType = "display"
     static let videoType = "video"
-    
+
     static let impressionKey = "impression"
-    
+
     static let webKey = "web"
     static let inAppKey = "inApp"
     static let storeKey = "store"
-    
+
     static let storytellerStoryId = "storytellerStoryId"
     static let storytellerCategories = "storytellerCategories"
     static let storytellerCurrentCategory = "storytellerCurrentCategory"

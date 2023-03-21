@@ -17,7 +17,7 @@ struct StoriesRowView: UIViewRepresentable {
         uiView.cellType = cellType.rawValue
         uiView.delegate = delegate
         DispatchQueue.main.async {
-            self.cancellable = reloadDataSubject.sink { _ in
+            cancellable = reloadDataSubject.sink { _ in
                 uiView.reloadData()
             }
         }

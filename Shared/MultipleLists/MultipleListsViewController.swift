@@ -23,22 +23,22 @@ final class MultipleListsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupTableView()
-        
+
         bindViewModel()
         bindViewEvents()
-        
+
         viewModel.handle(action: .getData)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         viewModel.handle(action: .viewWillDisappear)
     }
-    
+
     // MARK: Internal
-    
+
     @objc
     func onPullToRefresh() {
         viewModel.handle(action: .getData)
@@ -50,17 +50,17 @@ final class MultipleListsViewController: UIViewController {
     private let dataSource: MultipleListsDataSource
 
     private func setupTableView() {
-        guard let multipleListsView = self.view as? MultipleListsView else { return }
-        
+        guard let multipleListsView = view as? MultipleListsView else { return }
+
         multipleListsView.tableView.register(StoriesRowCell.self, forCellReuseIdentifier: StoriesRowCell.cellReuseIdentifier)
         multipleListsView.tableView.register(StoriesGridCell.self, forCellReuseIdentifier: StoriesGridCell.cellReuseIdentifier)
         multipleListsView.tableView.register(ClipsRowCell.self, forCellReuseIdentifier: ClipsRowCell.cellReuseIdentifier)
         multipleListsView.tableView.register(ClipsGridCell.self, forCellReuseIdentifier: ClipsGridCell.cellReuseIdentifier)
         multipleListsView.tableView.register(LabelCell.self, forCellReuseIdentifier: LabelCell.cellReuseIdentifier)
-        
+
         multipleListsView.tableView.dataSource = dataSource
     }
-    
+
     private func bindViewModel() {
         viewModel.outputActionHandler = { [weak self] action in
             guard let self = self else { return }

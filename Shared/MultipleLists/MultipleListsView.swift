@@ -4,11 +4,11 @@ import WebKit
 
 final class MultipleListsView: UIView {
     // MARK: Lifecycle
-    
+
     enum Action {
         case refresh
     }
-    
+
     var actionHandler: (Action) -> Void = { _ in }
 
     convenience init() {
@@ -35,7 +35,7 @@ final class MultipleListsView: UIView {
     }()
 
     let refresher = UIRefreshControl()
-    
+
     func finishRefreshing() {
         DispatchQueue.main.async {
             self.refresher.endRefreshing()
@@ -48,9 +48,9 @@ final class MultipleListsView: UIView {
             backgroundColor = traitCollection.userInterfaceStyle == .light ? .white : .black
         }
         self.backgroundColor = backgroundColor
-        
+
         addSubview(tableView)
-        
+
         tableView.layoutToEdges(of: self)
     }
 }

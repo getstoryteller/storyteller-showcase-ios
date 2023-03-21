@@ -2,13 +2,13 @@ import Foundation
 import StorytellerSDK
 
 class StorytellerListDelegate: StorytellerListViewDelegate {
-    
+
     enum Action {
         case didLoadData(dataCount: Int)
     }
-    
+
     var actionHandler: (Action) -> Void = { _ in }
-    
+
     // Called when tile with given index becomes visible.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#TileVisibility
     func tileBecameVisible(contentIndex: Int) {
@@ -22,7 +22,7 @@ class StorytellerListDelegate: StorytellerListViewDelegate {
 
         actionHandler(.didLoadData(dataCount: dataCount))
     }
-    
+
     // Called when the network request to load data for all stories has started.
     func onDataLoadStarted() {
         print("onDataLoadStarted")

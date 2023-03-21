@@ -15,7 +15,7 @@ extension UIViewController {
             self.present(alert, animated: true)
         }
     }
-    
+
     func showAlert(message: String) {
         let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
 

@@ -4,11 +4,11 @@ import UIKit
 /**
  https://www.getstoryteller.com/documentation/ios/themes
  */
-class StorytellerThemes{
-    
+class StorytellerThemes {
+
     static let globalTheme: UITheme = {
         var theme = UITheme()
-        
+
         theme.light.colors.primary = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont
         theme.light.primitives.cornerRadius = 4
@@ -19,15 +19,15 @@ class StorytellerThemes{
         theme.light.buttons.cornerRadius = 4
         theme.light.instructions.show = true
         theme.light.engagementUnits.poll.showVoteCount = true
-        
+
         theme.dark = theme.light
-        
+
         return theme
     }()
-    
+
     static let customTheme: UITheme = {
         var theme = UITheme()
-        
+
         theme.light.colors.primary = UIColor(red: 1, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont
         theme.light.primitives.cornerRadius = 4
@@ -38,9 +38,9 @@ class StorytellerThemes{
         theme.light.buttons.cornerRadius = 4
         theme.light.instructions.show = true
         theme.light.engagementUnits.poll.showVoteCount = true
-        
+
         theme.dark = theme.light
-        
+
         return theme
     }()
 

@@ -17,14 +17,14 @@ final class MainViewModel {
 
     init(storytellerManager: StorytellerManager) {
         self.storytellerManager = storytellerManager
-        
+
         storytellerDelegate.actionHandler = { [weak self] action in
             switch action {
             case .didLoadData:
                 self?.outputActionHandler(.finishRefreshing)
             }
         }
-        
+
         if !storytellerManager.isInitalised {
             storytellerManager.setupBackendSettings { error in
                 print("[Error] \(error)")
@@ -59,7 +59,7 @@ final class MainViewModel {
         case .pullToRefresh:
             outputActionHandler(.reload)
         case .changeUser:
-            storytellerManager.changeUser { [weak self] in 
+            storytellerManager.changeUser { [weak self] in
                 self?.outputActionHandler(.reload)
             }
         }
@@ -69,7 +69,7 @@ final class MainViewModel {
 
     private let storytellerManager: StorytellerManager
     private let storytellerDelegate = StorytellerListDelegate()
-    
+
     private func initialize() {
         outputActionHandler(.initialize([
             .label(text: "Row Square View"),

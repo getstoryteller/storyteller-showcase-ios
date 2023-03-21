@@ -7,11 +7,11 @@ import UIKit
 final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Internal
-    
+
     var storytellerListsData: [CellData] = []
     var individualDelegates: [Int: IndividualGridViewDelegate] = [:]
     var individualListDelegates: [Int: StorytellerListDelegate] = [:]
-    
+
 
     func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -121,7 +121,7 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
         individualDelegates[indexPath.item] = delegate
         return delegate
     }
-    
+
     private func createListDelegate(indexPath: IndexPath, tableView: UITableView) -> StorytellerListDelegate {
         let delegate = StorytellerListDelegate()
         delegate.actionHandler = { [weak self] action in
