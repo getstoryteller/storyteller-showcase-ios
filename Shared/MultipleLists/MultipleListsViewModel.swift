@@ -15,7 +15,7 @@ final class MultipleListsViewModel {
 
     init(storytellerManager: StorytellerManager) {
         self.storytellerManager = storytellerManager
-        
+
         if !storytellerManager.isInitalised {
             storytellerManager.setupBackendSettings { error in
                 print("[Error] \(error)")
@@ -37,14 +37,14 @@ final class MultipleListsViewModel {
         case showError(Error)
         case reload([CellData])
     }
-    
+
     enum OutputNavigationAction {
         case viewWillDisappear
     }
 
     var outputActionHandler: (MultipleListsViewModel.OutputAction) -> Void = { _ in }
     var outputNavigationActionHandler: (MultipleListsViewModel.OutputNavigationAction) -> Void = { _ in }
-    
+
     lazy var data: [CellData] = [
         .label(text: "Storyteller Row View Round"),
         .storiesRow(cellType: .round, categories: [], height: 110),

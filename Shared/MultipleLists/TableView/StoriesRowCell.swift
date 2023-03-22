@@ -36,6 +36,8 @@ final class StoriesRowCell: UITableViewCell {
         storytellerRow.delegate = delegate
         storytellerRow.cellType = cellType.rawValue
         rowHeightConstraint?.constant = height
+        // Set custom theme for this view instead of using global one
+        storytellerRow.theme = StorytellerThemes.customTheme
         storytellerRow.reloadData()
     }
 

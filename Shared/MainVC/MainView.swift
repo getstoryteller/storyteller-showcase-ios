@@ -4,7 +4,7 @@ import WebKit
 
 final class MainView: UIView {
     // MARK: Lifecycle
-    
+
     enum Action {
         case changeUserTap
         case storyboardExampleTap
@@ -12,7 +12,7 @@ final class MainView: UIView {
         case multipleListsTap
         case swiftUITap(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
-    
+
     var actionHandler: (Action) -> Void = { _ in }
 
     convenience init() {
@@ -39,7 +39,7 @@ final class MainView: UIView {
         stackView.alignment = .center
         return stackView
     }()
-    
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -47,7 +47,7 @@ final class MainView: UIView {
     }()
 
     let refresher = UIRefreshControl()
-    
+
     func setupView(with elements: [MainViewElement]) {
         stackView.arrangedSubviews.forEach {
             $0.removeFromSuperview()
@@ -72,21 +72,21 @@ final class MainView: UIView {
         }
         stackView.addArrangedSubview(UIView())
     }
-    
+
     func reload() {
         stackView.arrangedSubviews.forEach {
             ($0 as? StorytellerListView)?.reloadData()
         }
     }
-    
+
     func finishRefreshing() {
         DispatchQueue.main.async {
             self.refresher.endRefreshing()
         }
     }
-    
+
     // MARK: Private
-    
+
     private func addLabel(text: String) {
         let label = UILabel()
         label.text = text
@@ -94,18 +94,18 @@ final class MainView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8).isActive = true
     }
-    
+
     private func addStorytellerRow(cellType: StorytellerListViewCellType, height: CGFloat?, delegate: StorytellerListDelegate) {
         let row = StorytellerRowView()
-        
+
         // Set thumbnail shape.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
         row.cellType = cellType.rawValue
-        
+
         // Set delegate to use.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#HowToUse
         row.delegate = delegate
-        
+
         row.translatesAutoresizingMaskIntoConstraints = false
         if let height = height {
             row.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -114,7 +114,7 @@ final class MainView: UIView {
         stackView.setCustomSpacing(24, after: row)
         row.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
     }
-    
+
     private func addChangeUserButton() {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
@@ -122,7 +122,7 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapChangeUser), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
-    
+
     private func addMultipleListsButton() {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
@@ -130,7 +130,7 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapMultipleLists), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
-    
+
     private func addStoryboardExampleButton() {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
@@ -138,7 +138,7 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapStoryboardExample), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
-    
+
     private func addGoogleAdsIntegrationButton() {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
@@ -146,7 +146,7 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapGoogleAdsIntegrationExample), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
-    
+
     private func addSwiftUIButton(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
         let button = SubclassedUIButton()
         button.cellType = cellType
@@ -156,23 +156,23 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapSwiftUI), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
-    
+
     @objc private func didTapChangeUser() {
         actionHandler(.changeUserTap)
     }
-    
+
     @objc private func didTapMultipleLists() {
         actionHandler(.multipleListsTap)
     }
-    
+
     @objc private func didTapStoryboardExample() {
         actionHandler(.storyboardExampleTap)
     }
-    
+
     @objc private func didTapGoogleAdsIntegrationExample() {
         actionHandler(.googleAdsIntergationTap)
     }
-    
+
     @objc private func didTapSwiftUI(sender: SubclassedUIButton) {
         guard let cellType = sender.cellType, let delegate = sender.delegate else { return }
         actionHandler(.swiftUITap(cellType: cellType, delegate: delegate))
@@ -184,9 +184,9 @@ final class MainView: UIView {
             backgroundColor = traitCollection.userInterfaceStyle == .light ? .white : .black
         }
         self.backgroundColor = backgroundColor
-        
+
         addSubview(scrollView)
-        
+
         scrollView.layoutToEdges(of: self)
 
         scrollView.addSubview(stackView)
@@ -195,7 +195,7 @@ final class MainView: UIView {
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
-        
+
         scrollView.refreshControl = refresher
     }
 }

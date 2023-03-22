@@ -3,34 +3,37 @@ import StorytellerSDK
 
 final class StorytellerManager {
     // MARK: Lifecycle
-    
+
     init(
         storyteller: Storyteller,
-        storytellerDelegate: StorytellerMainDelegate
+        storytellerDelegate: StorytellerMainDelegate,
+        uiTheme: UITheme
     ) {
         self.storyteller = storyteller
         self.storytellerDelegate = storytellerDelegate
-        
+
         // Set current class for StorytellerDelegate.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#HowToUse
         Storyteller.sharedInstance.delegate = storytellerDelegate
+        // Set global theme
+        Storyteller.theme = uiTheme
     }
 
     // MARK: Internal
-    
+
     var isInitalised: Bool = false
     let storytellerDelegate: StorytellerMainDelegate
-    
+
     func changeUser(onComplete: @escaping () -> Void) {
         let userInput = UserInput(externalId: UUID().uuidString)
-        
+
         setupBackendSettings(userInput: userInput, onError: { _ in }, onComplete: onComplete)
     }
-    
+
     func resetToDefaultStorytellerDelegate() {
         Storyteller.sharedInstance.delegate = storytellerDelegate
     }
-    
+
     func setGoogleAdsIntegrationDelegate() {
         Storyteller.sharedInstance.delegate = StorytellerAdsDelegate()
     }
@@ -47,7 +50,7 @@ final class StorytellerManager {
             onError(error)
         }
     }
-    
+
     // MARK: Private
 
     private let storyteller: Storyteller

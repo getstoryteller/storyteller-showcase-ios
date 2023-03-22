@@ -18,8 +18,6 @@
 		AF43A5462976C11D0026F090 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5452976C11D0026F090 /* UIViewController.swift */; };
 		AF43A5482976C1CD0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5472976C1CD0026F090 /* MainViewModel.swift */; };
 		AF43A54A2976C33D0026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5492976C33D0026F090 /* MainView.swift */; };
-		AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF08297979E900BD433E /* SwiftUIView.swift */; };
-		AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */; };
 		AF5BBF1F297FE63E00BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF1E297FE63E00BD433E /* MultipleListsViewController.swift */; };
 		AF5BBF21297FE64C00BD433E /* MultipleListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */; };
 		AF5BBF23297FEF8200BD433E /* MultipleListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */; };
@@ -40,6 +38,11 @@
 		B8E4427C23F2E32E0093A423 /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427A23F2E32E0093A423 /* StoryboardExample.storyboard */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
+		DC4A8CF729C9EA0C00DE026D /* StorytellerThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CF629C9EA0C00DE026D /* StorytellerThemes.swift */; };
+		DC4A8CFD29C9EA5900DE026D /* StoriesDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CF929C9EA5900DE026D /* StoriesDelegateWrapper.swift */; };
+		DC4A8CFE29C9EA5900DE026D /* StoriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CFA29C9EA5900DE026D /* StoriesRowView.swift */; };
+		DC4A8CFF29C9EA5900DE026D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CFB29C9EA5900DE026D /* SwiftUIView.swift */; };
+		DC4A8D0029C9EA5900DE026D /* StoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CFC29C9EA5900DE026D /* StoriesGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +58,6 @@
 		AF43A5472976C1CD0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AF43A5492976C33D0026F090 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
-		AF5BBF08297979E900BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesRowView.swift; sourceTree = "<group>"; };
 		AF5BBF1E297FE63E00BD433E /* MultipleListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsViewController.swift; sourceTree = "<group>"; };
 		AF5BBF20297FE64C00BD433E /* MultipleListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsView.swift; sourceTree = "<group>"; };
 		AF5BBF22297FEF8200BD433E /* MultipleListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleListsViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +82,11 @@
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA57827391B3770C233B1FF /* Pods_StorytellerSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorytellerSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4A8CF629C9EA0C00DE026D /* StorytellerThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorytellerThemes.swift; sourceTree = "<group>"; };
+		DC4A8CF929C9EA5900DE026D /* StoriesDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesDelegateWrapper.swift; sourceTree = "<group>"; };
+		DC4A8CFA29C9EA5900DE026D /* StoriesRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesRowView.swift; sourceTree = "<group>"; };
+		DC4A8CFB29C9EA5900DE026D /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		DC4A8CFC29C9EA5900DE026D /* StoriesGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,16 +142,6 @@
 			);
 			name = StoryboardExample;
 			path = ../../Shared/StoryboardExample;
-			sourceTree = "<group>";
-		};
-		AF5BBF0A2979844500BD433E /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				AF5BBF08297979E900BD433E /* SwiftUIView.swift */,
-				AF5BBF0B2979848C00BD433E /* StoriesRowView.swift */,
-			);
-			name = SwiftUI;
-			path = ../../Shared/SwiftUI;
 			sourceTree = "<group>";
 		};
 		AF5BBF1D297FE62300BD433E /* MultipleLists */ = {
@@ -208,6 +204,8 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				DC4A8CF829C9EA5900DE026D /* SwiftUI */,
+				DC4A8CF529C9EA0C00DE026D /* Themes */,
 				AEBB2EBD25D35516000A9127 /* AppDelegate.swift */,
 				AF82186829953BD300DE31BE /* Ads */,
 				AF5BBF1D297FE62300BD433E /* MultipleLists */,
@@ -219,7 +217,6 @@
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
 				B8E4428223F2E32E0093A423 /* Info.plist */,
 				AF43A5402976BF1E0026F090 /* MainFlowController.swift */,
-				AF5BBF0A2979844500BD433E /* SwiftUI */,
 			);
 			path = StorytellerSampleApp;
 			sourceTree = "<group>";
@@ -231,6 +228,27 @@
 				AF5978081AFD6BFF0050D0F6 /* Pods-StorytellerSampleApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC4A8CF529C9EA0C00DE026D /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8CF629C9EA0C00DE026D /* StorytellerThemes.swift */,
+			);
+			name = Themes;
+			path = ../../Shared/Themes;
+			sourceTree = "<group>";
+		};
+		DC4A8CF829C9EA5900DE026D /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8CF929C9EA5900DE026D /* StoriesDelegateWrapper.swift */,
+				DC4A8CFA29C9EA5900DE026D /* StoriesRowView.swift */,
+				DC4A8CFB29C9EA5900DE026D /* SwiftUIView.swift */,
+				DC4A8CFC29C9EA5900DE026D /* StoriesGridView.swift */,
+			);
+			name = SwiftUI;
+			path = ../../Shared/SwiftUI;
 			sourceTree = "<group>";
 		};
 		E94D869BBD7EBA5344C28169 /* Frameworks */ = {
@@ -360,31 +378,34 @@
 			files = (
 				AF82186329953BBD00DE31BE /* TrackingManager.swift in Sources */,
 				AF82186429953BBD00DE31BE /* AdManager.swift in Sources */,
+				DC4A8CFF29C9EA5900DE026D /* SwiftUIView.swift in Sources */,
 				AF82186529953BBD00DE31BE /* StorytellerAdsDelegate.swift in Sources */,
 				AF82186629953BBD00DE31BE /* NativeAdsRequest.swift in Sources */,
 				AF82186729953BBD00DE31BE /* Constants.swift in Sources */,
 				AF5BBF2629800BE600BD433E /* ClipsRowCell.swift in Sources */,
 				AF5BBF2C29800ED900BD433E /* StoriesGridCell.swift in Sources */,
+				DC4A8CF729C9EA0C00DE026D /* StorytellerThemes.swift in Sources */,
 				AF5BBF2829800C6100BD433E /* ClipsGridCell.swift in Sources */,
 				AEBB2EBF25D35516000A9127 /* AppDelegate.swift in Sources */,
 				AF43A5462976C11D0026F090 /* UIViewController.swift in Sources */,
+				DC4A8CFE29C9EA5900DE026D /* StoriesRowView.swift in Sources */,
 				AF5BBF2A29800E3400BD433E /* StoriesRowCell.swift in Sources */,
-				AF5BBF09297979E900BD433E /* SwiftUIView.swift in Sources */,
 				AF43A53F2976BE5A0026F090 /* StorytellerListDelegate.swift in Sources */,
 				AF43A53C2976BD240026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF43A5482976C1CD0026F090 /* MainViewModel.swift in Sources */,
 				AF5BBF2E298010A000BD433E /* MultipleListsDataSource.swift in Sources */,
 				AF5BBF1F297FE63E00BD433E /* MultipleListsViewController.swift in Sources */,
+				DC4A8D0029C9EA5900DE026D /* StoriesGridView.swift in Sources */,
 				AEBB2EBE25D35516000A9127 /* StoryboardViewController.swift in Sources */,
 				AF43A54A2976C33D0026F090 /* MainView.swift in Sources */,
 				AF43A5412976BF1E0026F090 /* MainFlowController.swift in Sources */,
 				AF5BBF322980113700BD433E /* IndividualGridViewDelegate.swift in Sources */,
+				DC4A8CFD29C9EA5900DE026D /* StoriesDelegateWrapper.swift in Sources */,
 				AF5BBF382982BC5500BD433E /* UIView.swift in Sources */,
 				AF43A53A2976BC4D0026F090 /* StorytellerManager.swift in Sources */,
 				AF5BBF23297FEF8200BD433E /* MultipleListsViewModel.swift in Sources */,
 				AF43A5432976BFBB0026F090 /* MainViewController.swift in Sources */,
 				AF5BBF21297FE64C00BD433E /* MultipleListsView.swift in Sources */,
-				AF5BBF0C2979848C00BD433E /* StoriesRowView.swift in Sources */,
 				AF5BBF342980178800BD433E /* LabelCell.swift in Sources */,
 				AF5BBF302980111100BD433E /* UITableView.swift in Sources */,
 			);

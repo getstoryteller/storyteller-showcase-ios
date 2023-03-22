@@ -38,8 +38,10 @@ final class StoriesGridCell: UITableViewCell {
         storytellerGrid.delegate = delegate
         storytellerGrid.cellType = cellType.rawValue
         storytellerGrid.gridDelegate = gridDelegate
+        // Set custom theme for this view instead of using global one
+        storytellerGrid.theme = StorytellerThemes.customTheme
     }
-    
+
     func reloadData() {
         storytellerGrid.reloadData()
     }

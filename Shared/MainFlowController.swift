@@ -1,11 +1,11 @@
 import Foundation
-import UIKit
 import StorytellerSDK
 import SwiftUI
+import UIKit
 
 final class MainFlowController {
     // MARK: Lifecycle
-    
+
     init() {
         storytellerMainDelegate.actionHandler = { [weak self] action in
             switch action {
@@ -41,18 +41,18 @@ final class MainFlowController {
         mainVC = vc
         return vc
     }
-    
+
     func navigateToMultipleLists() {
         let vc = MultipleListsViewController(viewModel: multipleListsViewModel, dataSource: multipleListsDataSource)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     func navigateToStoryboardExample() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "StoryboardExample", bundle: nil)
+        let mainStoryboard = UIStoryboard(name: "StoryboardExample", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "StoryboardViewController") as! StoryboardViewController
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func navigateToGoogleAdsIntegration() {
         multipleListsViewModel.outputNavigationActionHandler = { [weak self] action in
             switch action {
@@ -65,13 +65,13 @@ final class MainFlowController {
         let vc = MultipleListsViewController(viewModel: multipleListsViewModel, dataSource: multipleListsDataSource)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     func navigateToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
         let swiftUIModel = SwiftUIView.SwiftUIModel()
         swiftUIModel.cellType = cellType
         swiftUIModel.delegate = delegate
         let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
-        self.navigationController?.pushViewController(swiftUIViewController, animated: true)
+        navigationController?.pushViewController(swiftUIViewController, animated: true)
     }
 
     // MARK: Private
@@ -80,7 +80,7 @@ final class MainFlowController {
     private var mainVC: MainViewController?
     private let storytellerMainDelegate = StorytellerMainDelegate()
     private lazy var storytellerManager: StorytellerManager = {
-        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate)
+        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate, uiTheme: StorytellerThemes.globalTheme)
     }()
     private lazy var mainViewModel: MainViewModel = {
         MainViewModel(storytellerManager: self.storytellerManager)

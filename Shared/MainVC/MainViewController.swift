@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         (view as? MainView)?.actionHandler = { [weak self]  action in
             switch action {
             case .changeUserTap:
@@ -41,10 +41,10 @@ final class MainViewController: UIViewController {
 
         bindViewModel()
         bindViewEvents()
-        
+
         viewModel.handle(action: .getData)
     }
-    
+
     // MARK: Internal
 
     enum Action {
@@ -53,9 +53,9 @@ final class MainViewController: UIViewController {
         case moveToGoogleAdsIntegrationExample
         case moveToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
     }
-    
+
     var actionHandler: (Action) -> Void = { _ in }
-    
+
     @objc
     func onPullToRefresh() {
         viewModel.handle(action: .pullToRefresh)

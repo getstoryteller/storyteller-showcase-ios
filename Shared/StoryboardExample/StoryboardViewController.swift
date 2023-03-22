@@ -1,5 +1,5 @@
-import UIKit
 import StorytellerSDK
+import UIKit
 
 class StoryboardViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -8,20 +8,20 @@ class StoryboardViewController: UIViewController {
     @IBOutlet weak var storytellerGridView: StorytellerGridView!
     @IBOutlet weak var storytellerClipsRowViewContainer: UIView!
     @IBOutlet weak var storytellerClipsGridViewContainer: UIView!
-    
+
     private let storytellerClipsRowView = StorytellerClipsRowView()
     private let storytellerClipsGridView = StorytellerClipsGridView()
-    
+
     var refresher: UIRefreshControl?
-    
+
     private let storytellerListDelegate = StorytellerListDelegate()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         refresher = UIRefreshControl()
         refresher?.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
         scrollView.refreshControl = refresher
-        
+
         storytellerListDelegate.actionHandler = { [weak self] action in
             switch action {
             case .didLoadData:
@@ -30,7 +30,7 @@ class StoryboardViewController: UIViewController {
                 }
             }
         }
-              
+
         storytellerRowViewRound.delegate = storytellerListDelegate
         storytellerRowView.delegate = storytellerListDelegate
         storytellerGridView.delegate = storytellerListDelegate
@@ -39,10 +39,10 @@ class StoryboardViewController: UIViewController {
 
         storytellerRowViewRound.cellType = StorytellerListViewCellType.round.rawValue
         storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
-        
+
         storytellerClipsRowView.collectionId = "clipssample"
         storytellerClipsGridView.collectionId = "clipssample"
-        
+
         storytellerClipsRowViewContainer.addSubview(storytellerClipsRowView)
         storytellerClipsRowView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -51,7 +51,7 @@ class StoryboardViewController: UIViewController {
             storytellerClipsRowView.rightAnchor.constraint(equalTo: storytellerClipsRowViewContainer.rightAnchor),
             storytellerClipsRowView.bottomAnchor.constraint(equalTo: storytellerClipsRowViewContainer.bottomAnchor)
         ])
-        
+
         storytellerClipsGridViewContainer.addSubview(storytellerClipsGridView)
         storytellerClipsGridView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -61,7 +61,7 @@ class StoryboardViewController: UIViewController {
             storytellerClipsGridView.bottomAnchor.constraint(equalTo: storytellerClipsGridViewContainer.bottomAnchor)
         ])
     }
-    
+
     @objc func onPullToRefresh() {
         storytellerRowViewRound.reloadData()
         storytellerRowView.reloadData()

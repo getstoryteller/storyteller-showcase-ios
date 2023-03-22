@@ -9,7 +9,7 @@ class IndividualGridViewDelegate: StorytellerGridViewDelegate {
     init(indexPath: IndexPath) {
         self.indexPath = indexPath
     }
-    
+
     var lastSize: CGSize = .zero
 
     func contentSizeDidChange(_ size: CGSize) {
