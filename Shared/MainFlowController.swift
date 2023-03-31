@@ -68,8 +68,6 @@ final class MainFlowController {
 
     func navigateToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
         let swiftUIModel = SwiftUIView.SwiftUIModel()
-        swiftUIModel.cellType = cellType
-        swiftUIModel.delegate = delegate
         let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
         navigationController?.pushViewController(swiftUIViewController, animated: true)
     }
