@@ -51,7 +51,6 @@ struct SwiftUIView: View {
                 Text("SwiftUI Clips RowView")
                     .padding(.leading, 8)
                 StorytellerClipsRow(configuration: model.clipsRowConfiguration) { _ in
-                    
                 }
                 .frame(height: 240)
                 
