@@ -45,12 +45,7 @@ enum StorytellerCellType: String, Codable {
 ///
 struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerStoriesConfiguration
-    let callback: (StorytellerAction) -> Void
-    
-    init(configuration: StorytellerStoriesConfiguration, callback: @escaping (StorytellerAction) -> Void) {
-        self.configuration = configuration
-        self.callback = callback
-    }
+    var callback: ((StorytellerAction) -> Void)? = nil
     
     func makeUIView(context: Context) -> StorytellerGridView {
         let view = StorytellerGridView()
@@ -81,12 +76,7 @@ struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerClipsConfiguration
-    let callback: (StorytellerAction) -> Void
-    
-    init(configuration: StorytellerClipsConfiguration, callback: @escaping (StorytellerAction) -> Void) {
-        self.configuration = configuration
-        self.callback = callback
-    }
+    var callback: ((StorytellerAction) -> Void)? = nil
     
     func makeUIView(context: Context) -> StorytellerClipsGridView {
         let view = StorytellerClipsGridView()
@@ -118,7 +108,7 @@ struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerStoriesConfiguration
-    let callback: (StorytellerAction) -> Void
+    var callback: ((StorytellerAction) -> Void)? = nil
     
     func makeUIView(context: Context) -> StorytellerRowView {
         let view = StorytellerRowView()
@@ -148,7 +138,7 @@ struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerClipsConfiguration
-    let callback: (StorytellerAction) -> Void
+    var callback: ((StorytellerAction) -> Void)? = nil
     
     func makeUIView(context: Context) -> StorytellerClipsRowView {
         let view = StorytellerClipsRowView()
@@ -170,7 +160,7 @@ struct StorytellerClipsRow: UIViewRepresentable, StorytellerCallbackable {
 }
 
 protocol StorytellerCallbackable {
-    var callback: (StorytellerAction) -> Void { get }
+    var callback: ((StorytellerAction) -> Void)? { get }
 }
 
 class StorytellerDelegateWrapped: NSObject, StorytellerListViewDelegate, StorytellerGridViewDelegate {
@@ -179,23 +169,23 @@ class StorytellerDelegateWrapped: NSObject, StorytellerListViewDelegate, Storyte
     }
     
     func contentSizeDidChange(_ size: CGSize) {
-        view.callback(.contentDidChange(size))
+        view.callback?(.contentDidChange(size))
     }
     
     func onDataLoadStarted() {
-        view.callback(.onDataLoadStarted)
+        view.callback?(.onDataLoadStarted)
     }
     
     func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
-        view.callback(.onDataLoadComplete(success: success, error: error, dataCount: dataCount))
+        view.callback?(.onDataLoadComplete(success: success, error: error, dataCount: dataCount))
     }
     
     func onPlayerDismissed() {
-        view.callback(.onPlayerDismissed)
+        view.callback?(.onPlayerDismissed)
     }
     
     func tileBecameVisible(contentIndex: Int) {
-        view.callback(.tileBecameVisible(contentIndex: contentIndex))
+        view.callback?(.tileBecameVisible(contentIndex: contentIndex))
     }
     
     private var view: StorytellerCallbackable

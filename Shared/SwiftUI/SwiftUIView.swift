@@ -34,36 +34,34 @@ struct SwiftUIView: View {
                 Text("SwiftUI Stories RowView")
                     .padding(.leading, 8)
                 
-                StorytellerStoriesRow(configuration: model.storiesRowConfiguration) { _ in
-                }
-                .frame(height: 240)
+                StorytellerStoriesRow(configuration: model.storiesRowConfiguration)
+                    .frame(height: 240)
 
                 Text("SwiftUI Stories GridView")
                     .padding(.leading, 8)
-                
+
                 StorytellerStoriesGrid(configuration: model.storiesGridConfiguration, callback: { action in
                     if case let .contentDidChange(cGSize) = action {
                         storiesGridHeight = cGSize.height
                     }
                 })
                 .frame(height: storiesGridHeight)
-                
+
                 Text("SwiftUI Clips RowView")
                     .padding(.leading, 8)
-                StorytellerClipsRow(configuration: model.clipsRowConfiguration) { _ in
-                }
-                .frame(height: 240)
-                
+                StorytellerClipsRow(configuration: model.clipsRowConfiguration)
+                    .frame(height: 240)
+
                 Text("SwiftUI Clips GridView")
                     .padding(.leading, 8)
-                
+
                 StorytellerClipsGrid(configuration: model.clipsGridConfiguration, callback: { action in
                     if case let .contentDidChange(cGSize) = action {
                         clipsGridHeight = cGSize.height
                     }
                 })
                 .frame(height: clipsGridHeight)
-                
+
                 Spacer()
             }
             .listRowInsets(EdgeInsets())
