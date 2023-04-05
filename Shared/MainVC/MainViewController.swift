@@ -34,8 +34,8 @@ final class MainViewController: UIViewController {
                 self?.actionHandler(.moveToStoryboardExample)
             case .googleAdsIntergationTap:
                 self?.actionHandler(.moveToGoogleAdsIntegrationExample)
-            case let .swiftUITap(cellType, delegate):
-                self?.actionHandler(.moveToSwiftUI(cellType: cellType, delegate: delegate))
+            case .swiftUITap:
+                self?.actionHandler(.moveToSwiftUI)
             }
         }
 
@@ -51,7 +51,7 @@ final class MainViewController: UIViewController {
         case moveToMultipleLists
         case moveToStoryboardExample
         case moveToGoogleAdsIntegrationExample
-        case moveToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
+        case moveToSwiftUI
     }
 
     var actionHandler: (Action) -> Void = { _ in }
