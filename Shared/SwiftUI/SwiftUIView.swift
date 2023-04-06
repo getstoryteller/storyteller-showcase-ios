@@ -4,29 +4,63 @@ import SwiftUI
 
 struct SwiftUIView: View {
     class SwiftUIModel: ObservableObject {
-        @Published var cellType: StorytellerListViewCellType = .square
-        @Published var delegate: StorytellerListDelegate? = nil
+        @Published var storiesRowConfiguration: StorytellerStoriesConfiguration
+        @Published var storiesGridConfiguration: StorytellerStoriesConfiguration
+        @Published var clipsRowConfiguration: StorytellerClipsConfiguration
+        @Published var clipsGridConfiguration: StorytellerClipsConfiguration
+        
+        init() {
+            storiesRowConfiguration = StorytellerStoriesConfiguration.default
+            storiesGridConfiguration = StorytellerStoriesConfiguration.default
+            clipsRowConfiguration = StorytellerClipsConfiguration.default
+            clipsGridConfiguration = StorytellerClipsConfiguration.default
+            
+            clipsRowConfiguration.collectionId = "clipssample"
+            clipsGridConfiguration.collectionId = "clipssample"
+        }
+        
+        func reloadData() {
+            objectWillChange.send()
+        }
     }
 
-    @ObservedObject var model: SwiftUIModel
-    @State var gridHeight: CGFloat = 0
+    @StateObject var model: SwiftUIModel
+    @State var storiesGridHeight: CGFloat = 0
+    @State var clipsGridHeight: CGFloat = 0
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("SwiftUI RowView")
+                Text("SwiftUI Stories RowView")
                     .padding(.leading, 8)
-                StoriesRowView(cellType: model.cellType, delegate: model.delegate, reloadDataSubject: reloadDataSubject)
+                
+                StorytellerStoriesRow(configuration: model.storiesRowConfiguration)
                     .frame(height: 240)
 
-                Text("SwiftUI GridView")
+                Text("SwiftUI Stories GridView")
                     .padding(.leading, 8)
-                StoriesGridView(reloadDataSubject: reloadDataSubject) { action in
+
+                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration, callback: { action in
                     if case let .contentDidChange(cGSize) = action {
-                        gridHeight = cGSize.height
+                        storiesGridHeight = cGSize.height
                     }
-                }
-                .frame(height: gridHeight)
+                })
+                .frame(height: storiesGridHeight)
+
+                Text("SwiftUI Clips RowView")
+                    .padding(.leading, 8)
+                StorytellerClipsRow(configuration: model.clipsRowConfiguration)
+                    .frame(height: 240)
+
+                Text("SwiftUI Clips GridView")
+                    .padding(.leading, 8)
+
+                StorytellerClipsGrid(configuration: model.clipsGridConfiguration, callback: { action in
+                    if case let .contentDidChange(cGSize) = action {
+                        clipsGridHeight = cGSize.height
+                    }
+                })
+                .frame(height: clipsGridHeight)
 
                 Spacer()
             }
@@ -34,12 +68,10 @@ struct SwiftUIView: View {
             .listRowSeparator(.hidden)
         }
         .refreshable {
-            reloadDataSubject.send()
+            model.reloadData()
         }
         .padding(.top, 16)
     }
-
-    private let reloadDataSubject = PassthroughSubject<Void, Never>()
 }
 
 struct SwiftUIView_Previews: PreviewProvider {

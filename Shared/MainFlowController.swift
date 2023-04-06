@@ -34,8 +34,8 @@ final class MainFlowController {
                 self?.navigateToStoryboardExample()
             case .moveToGoogleAdsIntegrationExample:
                 self?.navigateToGoogleAdsIntegration()
-            case let .moveToSwiftUI(cellType, delegate):
-                self?.navigateToSwiftUI(cellType: cellType, delegate: delegate)
+            case .moveToSwiftUI:
+                self?.navigateToSwiftUI()
             }
         }
         mainVC = vc
@@ -66,10 +66,8 @@ final class MainFlowController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    func navigateToSwiftUI(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?) {
+    func navigateToSwiftUI() {
         let swiftUIModel = SwiftUIView.SwiftUIModel()
-        swiftUIModel.cellType = cellType
-        swiftUIModel.delegate = delegate
         let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
         navigationController?.pushViewController(swiftUIViewController, animated: true)
     }
