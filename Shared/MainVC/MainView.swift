@@ -96,11 +96,11 @@ final class MainView: UIView {
     }
 
     private func addStorytellerRow(cellType: StorytellerListViewCellType, height: CGFloat?, delegate: StorytellerListDelegate) {
-        let row = StorytellerRowView()
+        let row = StorytellerStoriesRowView()
 
         // Set thumbnail shape.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
-        row.cellType = cellType.rawValue
+        row.cellType = cellType
 
         // Set delegate to use.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#HowToUse

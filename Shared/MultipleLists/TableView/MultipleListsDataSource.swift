@@ -9,7 +9,6 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
     // MARK: Internal
 
     var storytellerListsData: [CellData] = []
-    var individualDelegates: [Int: IndividualGridViewDelegate] = [:]
     var individualListDelegates: [Int: StorytellerListDelegate] = [:]
 
 
@@ -58,12 +57,10 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
                 fatalError("Proper cell was not found in UITableView")
             }
             let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
-            let gridDelegate = createGridDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 categories: categories,
                 cellType: cellType,
-                delegate: listDelegate,
-                gridDelegate: gridDelegate)
+                delegate: listDelegate)
             cell.reloadData()
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
@@ -92,12 +89,10 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
                 fatalError("Proper cell was not found in UITableView")
             }
             let listDelegate = createListDelegate(indexPath: indexPath, tableView: tableView)
-            let gridDelegate = createGridDelegate(indexPath: indexPath, tableView: tableView)
             cell.bind(
                 collectionId: collectionId,
                 cellType: cellType,
-                delegate: listDelegate,
-                gridDelegate: gridDelegate)
+                delegate: listDelegate)
             cell.reloadData()
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
@@ -114,13 +109,6 @@ final class MultipleListsDataSource: NSObject, UITableViewDataSource, UITableVie
     }
 
     // MARK: Private
-
-    private func createGridDelegate(indexPath: IndexPath, tableView: UITableView) -> StorytellerGridViewDelegate {
-        let delegate = IndividualGridViewDelegate(indexPath: indexPath)
-        delegate.tableView = tableView
-        individualDelegates[indexPath.item] = delegate
-        return delegate
-    }
 
     private func createListDelegate(indexPath: IndexPath, tableView: UITableView) -> StorytellerListDelegate {
         let delegate = StorytellerListDelegate()

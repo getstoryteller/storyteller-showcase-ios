@@ -19,7 +19,6 @@
 		AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58D2978065C0026F090 /* StorytellerManager.swift */; };
 		AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */; };
 		AF5BBF10297A896A00BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF0D297A891600BD433E /* SwiftUIView.swift */; };
-		AF5BBF402982D2A600BD433E /* IndividualGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF392982D2A500BD433E /* IndividualGridViewDelegate.swift */; };
 		AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3A2982D2A500BD433E /* ClipsGridCell.swift */; };
 		AF5BBF422982D2A600BD433E /* StoriesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */; };
 		AF5BBF432982D2A600BD433E /* ClipsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3C2982D2A600BD433E /* ClipsRowCell.swift */; };
@@ -69,7 +68,6 @@
 		AF43A58D2978065C0026F090 /* StorytellerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerManager.swift; path = ../Shared/Managers/StorytellerManager.swift; sourceTree = "<group>"; };
 		AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerListDelegate.swift; path = ../Shared/Managers/StorytellerListDelegate.swift; sourceTree = "<group>"; };
 		AF5BBF0D297A891600BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		AF5BBF392982D2A500BD433E /* IndividualGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IndividualGridViewDelegate.swift; path = ../Shared/MultipleLists/TableView/IndividualGridViewDelegate.swift; sourceTree = "<group>"; };
 		AF5BBF3A2982D2A500BD433E /* ClipsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsGridCell.swift; path = ../Shared/MultipleLists/TableView/ClipsGridCell.swift; sourceTree = "<group>"; };
 		AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoriesGridCell.swift; path = ../Shared/MultipleLists/TableView/StoriesGridCell.swift; sourceTree = "<group>"; };
 		AF5BBF3C2982D2A600BD433E /* ClipsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsRowCell.swift; path = ../Shared/MultipleLists/TableView/ClipsRowCell.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 		AF5BBF472982D2AF00BD433E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF392982D2A500BD433E /* IndividualGridViewDelegate.swift */,
 				AF5BBF3F2982D2A600BD433E /* LabelCell.swift */,
 				AF5BBF3E2982D2A600BD433E /* MultipleListsDataSource.swift */,
 				AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */,
@@ -340,7 +337,6 @@
 				AF5BBF542982D37500BD433E /* UITableView.swift in Sources */,
 				AF5BBF4B2982D2D400BD433E /* MultipleListsView.swift in Sources */,
 				AF5BBF4C2982D2D400BD433E /* MultipleListsViewModel.swift in Sources */,
-				AF5BBF402982D2A600BD433E /* IndividualGridViewDelegate.swift in Sources */,
 				AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */,
 				AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */,
 				AF82186F29953F5500DE31BE /* Constants.swift in Sources */,
@@ -584,7 +580,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.4.3;
+				minimumVersion = 9.0.0;
 			};
 		};
 		AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {

@@ -3,14 +3,14 @@ import UIKit
 
 class StoryboardViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var storytellerRowViewRound: StorytellerRowView!
-    @IBOutlet weak var storytellerRowView: StorytellerRowView!
-    @IBOutlet weak var storytellerGridView: StorytellerGridView!
+    @IBOutlet weak var storytellerRowViewRound: StorytellerStoriesRowView!
+    @IBOutlet weak var storytellerRowView: StorytellerStoriesRowView!
+    @IBOutlet weak var storytellerGridView: StorytellerStoriesGridView!
     @IBOutlet weak var storytellerClipsRowViewContainer: UIView!
     @IBOutlet weak var storytellerClipsGridViewContainer: UIView!
 
     private let storytellerClipsRowView = StorytellerClipsRowView()
-    private let storytellerClipsGridView = StorytellerClipsGridView()
+    private let storytellerClipsGridView = StorytellerClipsGridView(isScrollable: false)
 
     var refresher: UIRefreshControl?
 
@@ -37,8 +37,8 @@ class StoryboardViewController: UIViewController {
         storytellerClipsRowView.delegate = storytellerListDelegate
         storytellerClipsGridView.delegate = storytellerListDelegate
 
-        storytellerRowViewRound.cellType = StorytellerListViewCellType.round.rawValue
-        storytellerRowView.cellType = StorytellerListViewCellType.square.rawValue
+        storytellerRowViewRound.cellType = StorytellerListViewCellType.round
+        storytellerRowView.cellType = StorytellerListViewCellType.square
 
         storytellerClipsRowView.collectionId = "clipssample"
         storytellerClipsGridView.collectionId = "clipssample"

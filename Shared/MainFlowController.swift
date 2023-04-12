@@ -78,7 +78,7 @@ final class MainFlowController {
     private var mainVC: MainViewController?
     private let storytellerMainDelegate = StorytellerMainDelegate()
     private lazy var storytellerManager: StorytellerManager = {
-        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate, uiTheme: StorytellerThemes.globalTheme)
+        StorytellerManager(storyteller: Storyteller.sharedInstance, storytellerDelegate: self.storytellerMainDelegate, storytellerTheme: StorytellerThemes.globalTheme)
     }()
     private lazy var mainViewModel: MainViewModel = {
         MainViewModel(storytellerManager: self.storytellerManager)

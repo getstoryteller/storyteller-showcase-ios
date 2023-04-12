@@ -25,8 +25,6 @@ struct SwiftUIView: View {
     }
 
     @StateObject var model: SwiftUIModel
-    @State var storiesGridHeight: CGFloat = 0
-    @State var clipsGridHeight: CGFloat = 0
 
     var body: some View {
         ScrollView {
@@ -40,12 +38,7 @@ struct SwiftUIView: View {
                 Text("SwiftUI Stories GridView")
                     .padding(.leading, 8)
 
-                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration, callback: { action in
-                    if case let .contentDidChange(cGSize) = action {
-                        storiesGridHeight = cGSize.height
-                    }
-                })
-                .frame(height: storiesGridHeight)
+                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration)
 
                 Text("SwiftUI Clips RowView")
                     .padding(.leading, 8)
@@ -55,12 +48,7 @@ struct SwiftUIView: View {
                 Text("SwiftUI Clips GridView")
                     .padding(.leading, 8)
 
-                StorytellerClipsGrid(configuration: model.clipsGridConfiguration, callback: { action in
-                    if case let .contentDidChange(cGSize) = action {
-                        clipsGridHeight = cGSize.height
-                    }
-                })
-                .frame(height: clipsGridHeight)
+                StorytellerClipsGrid(configuration: model.clipsGridConfiguration)
 
                 Spacer()
             }

@@ -7,7 +7,7 @@ final class StorytellerManager {
     init(
         storyteller: Storyteller,
         storytellerDelegate: StorytellerMainDelegate,
-        uiTheme: UITheme
+        storytellerTheme: StorytellerTheme
     ) {
         self.storyteller = storyteller
         self.storytellerDelegate = storytellerDelegate
@@ -16,7 +16,7 @@ final class StorytellerManager {
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#HowToUse
         Storyteller.sharedInstance.delegate = storytellerDelegate
         // Set global theme
-        Storyteller.theme = uiTheme
+        Storyteller.theme = storytellerTheme
     }
 
     // MARK: Internal

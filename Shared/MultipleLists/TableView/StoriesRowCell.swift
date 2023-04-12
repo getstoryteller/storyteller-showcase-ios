@@ -22,7 +22,6 @@ final class StoriesRowCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         storytellerRow.delegate = nil
-        storytellerRow.prepareForReuse()
     }
 
     func bind(
@@ -34,7 +33,7 @@ final class StoriesRowCell: UITableViewCell {
     {
         storytellerRow.categories = categories
         storytellerRow.delegate = delegate
-        storytellerRow.cellType = cellType.rawValue
+        storytellerRow.cellType = cellType
         rowHeightConstraint?.constant = height
         // Set custom theme for this view instead of using global one
         storytellerRow.theme = StorytellerThemes.customTheme
@@ -43,7 +42,7 @@ final class StoriesRowCell: UITableViewCell {
 
     // MARK: Private
 
-    private var storytellerRow = StorytellerRowView()
+    private var storytellerRow = StorytellerStoriesRowView()
     private var rowHeightConstraint: NSLayoutConstraint?
 
     private func setupConstraints() {

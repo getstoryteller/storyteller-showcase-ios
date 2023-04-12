@@ -14,14 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="StoryboardViewController" id="BYZ-38-t0r" customClass="StoryboardViewController" customModule="StorytellerSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-K8-Ym6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-K8-Ym6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-UK-XGl" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-UK-XGl" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1021"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storyteller Row View Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rO3-Uv-Fgj" userLabel="Storyteller Label Row View Round">
                                                 <rect key="frame" x="8" y="10" width="398" height="20"/>
@@ -32,7 +32,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cts-FD-hbO" customClass="StorytellerRowView" customModule="StorytellerSDK">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cts-FD-hbO" customClass="StorytellerStoriesRowView" customModule="StorytellerSDK">
                                                 <rect key="frame" x="0.0" y="40" width="414" height="110"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -48,7 +48,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-wV-Dxi" userLabel="Storyteller Row View Square" customClass="StorytellerRowView" customModule="StorytellerSDK">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-wV-Dxi" userLabel="Storyteller Row View Square" customClass="StorytellerStoriesRowView" customModule="StorytellerSDK">
                                                 <rect key="frame" x="0.0" y="204" width="414" height="210"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -64,8 +64,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" misplaced="YES" text="Storyteller Clips Row View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-UT-awv" userLabel="Storyteller Label Clips Row View">
-                                                <rect key="frame" x="7" y="576" width="398" height="44"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Storyteller Clips Row View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-UT-awv" userLabel="Storyteller Label Clips Row View">
+                                                <rect key="frame" x="8" y="587" width="398" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="ezL-Et-Lvj"/>
                                                 </constraints>
@@ -73,15 +73,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waF-2h-gUI">
-                                                <rect key="frame" x="0.0" y="628" width="414" height="210"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waF-2h-gUI">
+                                                <rect key="frame" x="0.0" y="617" width="414" height="210"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="210" id="JFA-tl-mcj"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Storyteller Clips Grid View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-7E-nuG" userLabel="Storyteller Clips Label Grid View">
-                                                <rect key="frame" x="0.0" y="846" width="400" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storyteller Clips Grid View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKy-7E-nuG" userLabel="Storyteller Clips Label Grid View">
+                                                <rect key="frame" x="6" y="851" width="400" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="beJ-rX-qQh"/>
                                                 </constraints>
@@ -89,11 +89,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-XS-Rvy">
-                                                <rect key="frame" x="0.0" y="916" width="414" height="100"/>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-XS-Rvy">
+                                                <rect key="frame" x="0.0" y="881" width="414" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cvx-sN-CN2" customClass="StorytellerGridView" customModule="StorytellerSDK">
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="cvx-sN-CN2" customClass="StorytellerStoriesGridView" customModule="StorytellerSDK">
                                                 <rect key="frame" x="0.0" y="468" width="414" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -154,7 +154,7 @@
                             <constraint firstItem="XgV-K8-Ym6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="raG-Ch-nmN"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1400"/>
+                    <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="scrollView" destination="XgV-K8-Ym6" id="tH7-LS-bpz"/>
                         <outlet property="storytellerClipsGridViewContainer" destination="JzL-XS-Rvy" id="yD8-DP-bQv"/>
