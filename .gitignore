@@ -47,14 +47,12 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 CocoaPods-Sample/Pods/
-CocoaPods-Sample/Podfile.lock
 
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 Carthage-Sample/Carthage/Checkouts
 Carthage-Sample/Carthage/Build
-Carthage-Sample/Cartfile.resolved
 
 # fastlane
 #
