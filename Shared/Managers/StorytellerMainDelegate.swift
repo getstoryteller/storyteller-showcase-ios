@@ -17,7 +17,7 @@ class StorytellerMainDelegate: StorytellerDelegate {
 
     // Called when tenant is configured to use ads from the containing app.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#ClientAds
-    func getAdsForList(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String : ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+    func getAdsForList(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
         onComplete([:])
     }
 

@@ -50,7 +50,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         var count = 0
 
         for story in stories {
-            let storyCategories = story.categories.map { $0.externalId }.joined(separator: ",")
+            let storyCategories = story.categories.map(\.externalId).joined(separator: ",")
             let viewCategories = categories.joined(separator: ",")
 
             let keyValues: [String: String] = [

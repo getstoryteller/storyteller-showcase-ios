@@ -1,6 +1,6 @@
 import Foundation
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 enum StorytellerAction {
     case onDataLoadStarted
@@ -21,7 +21,7 @@ struct CommonConfiguration {
 struct StoriesConfiguration {
     var categories: [String] = .init()
     var common = CommonConfiguration()
-    
+
     static var `default`: StoriesConfiguration {
         StoriesConfiguration()
     }
@@ -45,8 +45,8 @@ struct ClipsConfiguration {
 ///
 struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StoriesConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerStoriesGridView {
         let view = StorytellerStoriesGridView(isScrollable: false)
         view.delegate = context.coordinator
@@ -54,11 +54,11 @@ struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
 
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerStoriesGridView, context: Context) {
         updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
     }
@@ -80,8 +80,8 @@ struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: ClipsConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerClipsGridView {
         let view = StorytellerClipsGridView(isScrollable: false)
         view.delegate = context.coordinator
@@ -89,11 +89,11 @@ struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
 
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerClipsGridView, context: Context) {
         updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
     }
@@ -115,8 +115,8 @@ struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StoriesConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerStoriesRowView {
         let view = StorytellerStoriesRowView()
         view.delegate = context.coordinator
@@ -124,11 +124,11 @@ struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
 
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerStoriesRowView, context: Context) {
         updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
     }
@@ -150,20 +150,20 @@ struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: ClipsConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerClipsRowView {
         let view = StorytellerClipsRowView()
         view.delegate = context.coordinator
         updateAndReloadView(view)
-        
+
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerClipsRowView, context: Context) {
         updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
     }
@@ -189,11 +189,11 @@ class StorytellerDelegateWrapped: NSObject, StorytellerListViewDelegate {
     func onDataLoadStarted() {
         view.callback?(.onDataLoadStarted)
     }
-    
+
     func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         view.callback?(.onDataLoadComplete(success: success, error: error, dataCount: dataCount))
     }
-    
+
     func onPlayerDismissed() {
         view.callback?(.onPlayerDismissed)
     }

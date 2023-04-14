@@ -9,17 +9,17 @@ struct SwiftUIView: View {
         @Published var clipsRowConfiguration: ClipsConfiguration
         @Published var clipsGridConfiguration: ClipsConfiguration
         private var cancellable: AnyCancellable?
-        
+
         init() {
             storiesRowConfiguration = StoriesConfiguration.default
             storiesGridConfiguration = StoriesConfiguration.default
             clipsRowConfiguration = ClipsConfiguration.default
             clipsGridConfiguration = ClipsConfiguration.default
-            
+
             clipsRowConfiguration.collectionId = "clipssample"
             clipsGridConfiguration.collectionId = "clipssample"
         }
-        
+
         func reloadData() {
             storiesRowConfiguration.common.triggerReload.toggle()
             storiesGridConfiguration.common.triggerReload.toggle()
