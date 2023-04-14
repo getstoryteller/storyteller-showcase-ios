@@ -54,9 +54,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="210" id="vnM-NF-Har"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="yes" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Storyteller Stories Grid View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SH-6c-30j" userLabel="Storyteller Label Grid View">
                                                 <rect key="frame" x="8" y="438" width="398" height="20"/>
