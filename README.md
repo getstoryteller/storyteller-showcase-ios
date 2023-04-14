@@ -29,7 +29,7 @@ Table represents different integration types with links to examples inside this 
 |----------|-------------------------|
 | CocoaPods | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/CocoaPods-Sample) |
 | XCFrameworks | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/XCFrameworks-Sample) | 
-| SwiftPackageManager | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/SwiftPackageManager-Sample) |
+| Swift Package Manager | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/SwiftPackageManager-Sample) |
 
 
 # Google Ads Integration Example

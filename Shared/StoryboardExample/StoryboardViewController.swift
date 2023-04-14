@@ -3,14 +3,11 @@ import UIKit
 
 class StoryboardViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var storytellerRowViewRound: StorytellerStoriesRowView!
-    @IBOutlet weak var storytellerRowView: StorytellerStoriesRowView!
-    @IBOutlet weak var storytellerGridView: StorytellerStoriesGridView!
-    @IBOutlet weak var storytellerClipsRowViewContainer: UIView!
-    @IBOutlet weak var storytellerClipsGridViewContainer: UIView!
-
-    private let storytellerClipsRowView = StorytellerClipsRowView()
-    private let storytellerClipsGridView = StorytellerClipsGridView(isScrollable: false)
+    @IBOutlet weak var storytellerStoriesRowViewRound: StorytellerStoriesRowView!
+    @IBOutlet weak var storytellerStoriesRowViewSquare: StorytellerStoriesRowView!
+    @IBOutlet weak var storytellerStoriesGridView: StorytellerStoriesGridView!
+    @IBOutlet weak var storytellerClipsRowView: StorytellerClipsRowView!
+    @IBOutlet weak var storytellerClipsGridView: StorytellerClipsGridView!
 
     var refresher: UIRefreshControl?
 
@@ -31,41 +28,23 @@ class StoryboardViewController: UIViewController {
             }
         }
 
-        storytellerRowViewRound.delegate = storytellerListDelegate
-        storytellerRowView.delegate = storytellerListDelegate
-        storytellerGridView.delegate = storytellerListDelegate
+        storytellerStoriesRowViewRound.delegate = storytellerListDelegate
+        storytellerStoriesRowViewSquare.delegate = storytellerListDelegate
+        storytellerStoriesGridView.delegate = storytellerListDelegate
         storytellerClipsRowView.delegate = storytellerListDelegate
         storytellerClipsGridView.delegate = storytellerListDelegate
 
-        storytellerRowViewRound.cellType = StorytellerListViewCellType.round
-        storytellerRowView.cellType = StorytellerListViewCellType.square
+        storytellerStoriesRowViewRound.cellType = StorytellerListViewCellType.round
+        storytellerStoriesRowViewSquare.cellType = StorytellerListViewCellType.square
 
         storytellerClipsRowView.collectionId = "clipssample"
         storytellerClipsGridView.collectionId = "clipssample"
-
-        storytellerClipsRowViewContainer.addSubview(storytellerClipsRowView)
-        storytellerClipsRowView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            storytellerClipsRowView.topAnchor.constraint(equalTo: storytellerClipsRowViewContainer.topAnchor),
-            storytellerClipsRowView.leftAnchor.constraint(equalTo: storytellerClipsRowViewContainer.leftAnchor),
-            storytellerClipsRowView.rightAnchor.constraint(equalTo: storytellerClipsRowViewContainer.rightAnchor),
-            storytellerClipsRowView.bottomAnchor.constraint(equalTo: storytellerClipsRowViewContainer.bottomAnchor)
-        ])
-
-        storytellerClipsGridViewContainer.addSubview(storytellerClipsGridView)
-        storytellerClipsGridView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            storytellerClipsGridView.topAnchor.constraint(equalTo: storytellerClipsGridViewContainer.topAnchor),
-            storytellerClipsGridView.leftAnchor.constraint(equalTo: storytellerClipsGridViewContainer.leftAnchor),
-            storytellerClipsGridView.rightAnchor.constraint(equalTo: storytellerClipsGridViewContainer.rightAnchor),
-            storytellerClipsGridView.bottomAnchor.constraint(equalTo: storytellerClipsGridViewContainer.bottomAnchor)
-        ])
     }
 
     @objc func onPullToRefresh() {
-        storytellerRowViewRound.reloadData()
-        storytellerRowView.reloadData()
-        storytellerGridView.reloadData()
+        storytellerStoriesRowViewRound.reloadData()
+        storytellerStoriesRowViewSquare.reloadData()
+        storytellerStoriesGridView.reloadData()
         storytellerClipsRowView.reloadData()
         storytellerClipsGridView.reloadData()
     }
