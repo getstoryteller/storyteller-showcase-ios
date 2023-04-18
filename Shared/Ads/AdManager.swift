@@ -6,7 +6,7 @@ class AdManager: NSObject, GADAdLoaderDelegate, GADCustomNativeAdLoaderDelegate 
 
     static let sharedInstance = AdManager()
 
-    func getNativeAd(adUnitId: String, adIndex: Int, keyValues: [String: String], supportedCustomTemplateIds: [String], contentURLString: String, completion: @escaping (GADCustomNativeAd?, Error?) -> Void) {
+    func getNativeAd(adUnitId: String, keyValues: [String: String], supportedCustomTemplateIds: [String], contentURLString: String, completion: @escaping (GADCustomNativeAd?, Error?) -> Void) {
         let adLoader = GADAdLoader(
             adUnitID: adUnitId,
             rootViewController: nil,

@@ -8,44 +8,43 @@ struct SwiftUIView: View {
         @Published var storiesGridConfiguration: StorytellerStoriesConfiguration
         @Published var clipsRowConfiguration: StorytellerClipsConfiguration
         @Published var clipsGridConfiguration: StorytellerClipsConfiguration
-        
+        private var cancellable: AnyCancellable?
+
         init() {
             storiesRowConfiguration = StorytellerStoriesConfiguration.default
             storiesGridConfiguration = StorytellerStoriesConfiguration.default
             clipsRowConfiguration = StorytellerClipsConfiguration.default
             clipsGridConfiguration = StorytellerClipsConfiguration.default
-            
+
             clipsRowConfiguration.collectionId = "clipssample"
             clipsGridConfiguration.collectionId = "clipssample"
         }
-        
+
         func reloadData() {
-            objectWillChange.send()
+            storiesRowConfiguration.common.triggerReload.toggle()
+            storiesGridConfiguration.common.triggerReload.toggle()
+            clipsRowConfiguration.common.triggerReload.toggle()
+            clipsGridConfiguration.common.triggerReload.toggle()
         }
     }
 
     @StateObject var model: SwiftUIModel
-    @State var storiesGridHeight: CGFloat = 0
-    @State var clipsGridHeight: CGFloat = 0
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text("SwiftUI Stories RowView")
                     .padding(.leading, 8)
-                
-                StorytellerStoriesRow(configuration: model.storiesRowConfiguration)
-                    .frame(height: 240)
+                StorytellerStoriesRow(configuration: model.storiesRowConfiguration) { action in
+                    if case .onPlayerDismissed = action {
+                        print("Player dismissed")
+                    }
+                }
+                .frame(height: 240)
 
                 Text("SwiftUI Stories GridView")
                     .padding(.leading, 8)
-
-                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration, callback: { action in
-                    if case let .contentDidChange(cGSize) = action {
-                        storiesGridHeight = cGSize.height
-                    }
-                })
-                .frame(height: storiesGridHeight)
+                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration)
 
                 Text("SwiftUI Clips RowView")
                     .padding(.leading, 8)
@@ -54,15 +53,7 @@ struct SwiftUIView: View {
 
                 Text("SwiftUI Clips GridView")
                     .padding(.leading, 8)
-
-                StorytellerClipsGrid(configuration: model.clipsGridConfiguration, callback: { action in
-                    if case let .contentDidChange(cGSize) = action {
-                        clipsGridHeight = cGSize.height
-                    }
-                })
-                .frame(height: clipsGridHeight)
-
-                Spacer()
+                StorytellerClipsGrid(configuration: model.clipsGridConfiguration)
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)

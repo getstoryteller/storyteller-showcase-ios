@@ -6,8 +6,8 @@ import UIKit
  */
 class StorytellerThemes {
 
-    static let globalTheme: UITheme = {
-        var theme = UITheme()
+    static let globalTheme: StorytellerTheme = {
+        var theme = StorytellerTheme()
 
         theme.light.colors.primary = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont
@@ -25,8 +25,8 @@ class StorytellerThemes {
         return theme
     }()
 
-    static let customTheme: UITheme = {
-        var theme = UITheme()
+    static let customTheme: StorytellerTheme = {
+        var theme = StorytellerTheme()
 
         theme.light.colors.primary = UIColor(red: 1, green: 0, blue: 1, alpha: 1)
         //theme.font = customFont

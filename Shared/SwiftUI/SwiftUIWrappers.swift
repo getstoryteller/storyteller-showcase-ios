@@ -1,40 +1,40 @@
 import Foundation
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 enum StorytellerAction {
-    case contentDidChange(CGSize)
     case onDataLoadStarted
     case onDataLoadComplete(success: Bool, error: Error?, dataCount: Int)
     case onPlayerDismissed
-    case tileBecameVisible(contentIndex: Int)
 }
 
-class StorytellerConfiguration {
-    var theme: UITheme?
+// Every time you change one of these properties, the view will reload
+struct StorytellerCommonConfiguration {
+    var theme: StorytellerTheme?
     var displayLimit: Int?
-    var cellType: StorytellerCellType = .square
+    var cellType: StorytellerListViewCellType = .square
+    // Dummy var to trigger list reload
+    var triggerReload = false
 }
 
-class StorytellerStoriesConfiguration: StorytellerConfiguration {
+// Every time you change one of these properties, the view will reload
+struct StorytellerStoriesConfiguration {
     var categories: [String] = .init()
-    
+    var common = StorytellerCommonConfiguration()
+
     static var `default`: StorytellerStoriesConfiguration {
         StorytellerStoriesConfiguration()
     }
 }
 
-class StorytellerClipsConfiguration: StorytellerConfiguration {
+// Every time you change one of these properties, the view will reload
+struct StorytellerClipsConfiguration {
     var collectionId: String = .init()
-    
+    var common = StorytellerCommonConfiguration()
+
     static var `default`: StorytellerClipsConfiguration {
         StorytellerClipsConfiguration()
     }
-}
-
-enum StorytellerCellType: String, Codable {
-    case round = "Round"
-    case square = "Square"
 }
 
 /// Storyteller stories grid view wrapper.
@@ -45,26 +45,30 @@ enum StorytellerCellType: String, Codable {
 ///
 struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerStoriesConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
-    func makeUIView(context: Context) -> StorytellerGridView {
-        let view = StorytellerGridView()
-        view.categories = configuration.categories
-        view.displayLimit = configuration.displayLimit
+    var callback: ((StorytellerAction) -> Void)?
+
+    func makeUIView(context: Context) -> StorytellerStoriesGridView {
+        let view = StorytellerStoriesGridView(isScrollable: false)
         view.delegate = context.coordinator
-        view.gridDelegate = context.coordinator
-        view.theme = configuration.theme
-        view.cellType = configuration.cellType.rawValue
-        view.reloadData()
+        updateAndReloadView(view)
+
         return view
     }
-    
-    func updateUIView(_ uiView: StorytellerGridView, context: Context) {
-        uiView.reloadData()
+
+    func updateUIView(_ uiView: StorytellerStoriesGridView, context: Context) {
+        updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
+    }
+
+    func updateAndReloadView(_ view: StorytellerStoriesGridView) {
+        view.categories = configuration.categories
+        view.displayLimit = configuration.common.displayLimit
+        view.theme = configuration.common.theme
+        view.cellType = configuration.common.cellType
+        view.reloadData()
     }
 }
 
@@ -76,27 +80,30 @@ struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerClipsConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerClipsGridView {
-        let view = StorytellerClipsGridView()
-        view.collectionId = configuration.collectionId
-        view.displayLimit = configuration.displayLimit
+        let view = StorytellerClipsGridView(isScrollable: false)
         view.delegate = context.coordinator
-        view.gridDelegate = context.coordinator
-        view.theme = configuration.theme
-        view.cellType = configuration.cellType.rawValue
-        view.reloadData()
-        
+        updateAndReloadView(view)
+
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerClipsGridView, context: Context) {
-        uiView.reloadData()
+        updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
+    }
+
+    func updateAndReloadView(_ view: StorytellerClipsGridView) {
+        view.collectionId = configuration.collectionId
+        view.displayLimit = configuration.common.displayLimit
+        view.theme = configuration.common.theme
+        view.cellType = configuration.common.cellType
+        view.reloadData()
     }
 }
 
@@ -108,25 +115,30 @@ struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerStoriesConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
-    func makeUIView(context: Context) -> StorytellerRowView {
-        let view = StorytellerRowView()
+    var callback: ((StorytellerAction) -> Void)?
+
+    func makeUIView(context: Context) -> StorytellerStoriesRowView {
+        let view = StorytellerStoriesRowView()
         view.delegate = context.coordinator
-        view.categories = configuration.categories
-        view.cellType = configuration.cellType.rawValue
-        view.theme = configuration.theme
-        view.cellType = configuration.cellType.rawValue
-        view.reloadData()
+        updateAndReloadView(view)
+
         return view
     }
-    
-    func updateUIView(_ uiView: StorytellerRowView, context: Context) {
-        uiView.reloadData()
+
+    func updateUIView(_ uiView: StorytellerStoriesRowView, context: Context) {
+        updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
+    }
+
+    func updateAndReloadView(_ view: StorytellerStoriesRowView) {
+        view.categories = configuration.categories
+        view.displayLimit = configuration.common.displayLimit
+        view.theme = configuration.common.theme
+        view.cellType = configuration.common.cellType
+        view.reloadData()
     }
 }
 
@@ -138,24 +150,30 @@ struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
 ///
 struct StorytellerClipsRow: UIViewRepresentable, StorytellerCallbackable {
     let configuration: StorytellerClipsConfiguration
-    var callback: ((StorytellerAction) -> Void)? = nil
-    
+    var callback: ((StorytellerAction) -> Void)?
+
     func makeUIView(context: Context) -> StorytellerClipsRowView {
         let view = StorytellerClipsRowView()
         view.delegate = context.coordinator
-        view.collectionId = configuration.collectionId
-        view.theme = configuration.theme
-        view.cellType = configuration.cellType.rawValue
-        view.reloadData()
+        updateAndReloadView(view)
+
         return view
     }
-    
+
     func updateUIView(_ uiView: StorytellerClipsRowView, context: Context) {
-        uiView.reloadData()
+        updateAndReloadView(uiView)
     }
-    
+
     func makeCoordinator() -> StorytellerDelegateWrapped {
         StorytellerDelegateWrapped(self)
+    }
+
+    func updateAndReloadView(_ view: StorytellerClipsRowView) {
+        view.collectionId = configuration.collectionId
+        view.displayLimit = configuration.common.displayLimit
+        view.theme = configuration.common.theme
+        view.cellType = configuration.common.cellType
+        view.reloadData()
     }
 }
 
@@ -163,30 +181,22 @@ protocol StorytellerCallbackable {
     var callback: ((StorytellerAction) -> Void)? { get }
 }
 
-class StorytellerDelegateWrapped: NSObject, StorytellerListViewDelegate, StorytellerGridViewDelegate {
+class StorytellerDelegateWrapped: NSObject, StorytellerListViewDelegate {
     init(_ view: StorytellerCallbackable) {
         self.view = view
     }
-    
-    func contentSizeDidChange(_ size: CGSize) {
-        view.callback?(.contentDidChange(size))
-    }
-    
+
     func onDataLoadStarted() {
         view.callback?(.onDataLoadStarted)
     }
-    
+
     func onDataLoadComplete(success: Bool, error: Error?, dataCount: Int) {
         view.callback?(.onDataLoadComplete(success: success, error: error, dataCount: dataCount))
     }
-    
+
     func onPlayerDismissed() {
         view.callback?(.onPlayerDismissed)
     }
-    
-    func tileBecameVisible(contentIndex: Int) {
-        view.callback?(.tileBecameVisible(contentIndex: contentIndex))
-    }
-    
+
     private var view: StorytellerCallbackable
 }

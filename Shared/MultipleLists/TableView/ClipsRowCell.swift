@@ -22,7 +22,6 @@ final class ClipsRowCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         storytellerClipRow.delegate = nil
-        storytellerClipRow.prepareForReuse()
     }
 
     func bind(
@@ -34,7 +33,7 @@ final class ClipsRowCell: UITableViewCell {
     {
         storytellerClipRow.collectionId = collectionId
         storytellerClipRow.delegate = delegate
-        storytellerClipRow.cellType = cellType.rawValue
+        storytellerClipRow.cellType = cellType
         rowHeightConstraint?.constant = height
         storytellerClipRow.reloadData()
     }

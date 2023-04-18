@@ -22,20 +22,16 @@ final class ClipsGridCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         storytellerGrid.delegate = nil
-        storytellerGrid.gridDelegate = nil
-        storytellerGrid.prepareForReuse()
     }
 
     func bind(
         collectionId: String,
         cellType: StorytellerListViewCellType,
-        delegate: StorytellerListDelegate,
-        gridDelegate: StorytellerGridViewDelegate)
+        delegate: StorytellerListDelegate)
     {
         storytellerGrid.collectionId = collectionId
         storytellerGrid.delegate = delegate
-        storytellerGrid.gridDelegate = gridDelegate
-        storytellerGrid.cellType = cellType.rawValue
+        storytellerGrid.cellType = cellType
     }
 
     func reloadData() {
@@ -44,7 +40,7 @@ final class ClipsGridCell: UITableViewCell {
 
     // MARK: Private
 
-    private var storytellerGrid = StorytellerClipsGridView()
+    private var storytellerGrid = StorytellerClipsGridView(isScrollable: false)
 
     private func setupConstraints() {
         contentView.addSubview(storytellerGrid)

@@ -7,7 +7,7 @@ final class StorytellerManager {
     init(
         storyteller: Storyteller,
         storytellerDelegate: StorytellerMainDelegate,
-        uiTheme: UITheme
+        storytellerTheme: StorytellerTheme
     ) {
         self.storyteller = storyteller
         self.storytellerDelegate = storytellerDelegate
@@ -16,7 +16,7 @@ final class StorytellerManager {
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#HowToUse
         Storyteller.sharedInstance.delegate = storytellerDelegate
         // Set global theme
-        Storyteller.theme = uiTheme
+        Storyteller.theme = storytellerTheme
     }
 
     // MARK: Internal
@@ -39,7 +39,7 @@ final class StorytellerManager {
     }
 
     func setupBackendSettings(userInput: UserInput? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        let apiKey = "6a0ea73b-7b5d-42ab-bbf9-0584a696d9bb"
+        let apiKey = "c981b722-d7a5-499c-b5d7-64792412d40c"
 
         // SDK initialization requires providing api key.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization

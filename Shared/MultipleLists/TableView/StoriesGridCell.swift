@@ -24,20 +24,16 @@ final class StoriesGridCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         storytellerGrid.delegate = nil
-        storytellerGrid.gridDelegate = nil
-        storytellerGrid.prepareForReuse()
     }
 
     func bind(
         categories: [String],
         cellType: StorytellerListViewCellType,
-        delegate: StorytellerListDelegate,
-        gridDelegate: StorytellerGridViewDelegate)
+        delegate: StorytellerListDelegate)
     {
         storytellerGrid.categories = categories
         storytellerGrid.delegate = delegate
-        storytellerGrid.cellType = cellType.rawValue
-        storytellerGrid.gridDelegate = gridDelegate
+        storytellerGrid.cellType = cellType
         // Set custom theme for this view instead of using global one
         storytellerGrid.theme = StorytellerThemes.customTheme
     }
@@ -48,7 +44,7 @@ final class StoriesGridCell: UITableViewCell {
 
     // MARK: Private
 
-    private var storytellerGrid = StorytellerGridView()
+    private var storytellerGrid = StorytellerStoriesGridView(isScrollable: false)
 
     private func setupConstraints() {
         contentView.addSubview(storytellerGrid)

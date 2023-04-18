@@ -7,46 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3451D9B029E993CB00F5DCAF /* StorytellerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3451D9AE29E993BE00F5DCAF /* StorytellerSDK.xcframework */; };
+		3451D9B129E993CB00F5DCAF /* StorytellerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3451D9AE29E993BE00F5DCAF /* StorytellerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
-		AF2329C1286E29840047AB98 /* StorytellerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2329C0286E29840047AB98 /* StorytellerSDK.xcframework */; };
-		AF43A5A5297808650026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A59C297808650026F090 /* MainView.swift */; };
-		AF43A5A6297808650026F090 /* StorytellerListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A59D297808650026F090 /* StorytellerListDelegate.swift */; };
-		AF43A5A7297808650026F090 /* StorytellerMainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A59E297808650026F090 /* StorytellerMainDelegate.swift */; };
-		AF43A5A9297808650026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5A0297808650026F090 /* MainViewModel.swift */; };
-		AF43A5AA297808650026F090 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5A1297808650026F090 /* MainViewController.swift */; };
-		AF43A5AB297808650026F090 /* StorytellerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5A2297808650026F090 /* StorytellerManager.swift */; };
-		AF43A5AC297808650026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5A3297808650026F090 /* MainFlowController.swift */; };
-		AF43A5AD297808650026F090 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5A4297808650026F090 /* UIViewController.swift */; };
-		AF5BBF14297A8EA700BD433E /* StoriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF12297A8EA700BD433E /* StoriesRowView.swift */; };
-		AF5BBF15297A8EA700BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF13297A8EA700BD433E /* SwiftUIView.swift */; };
-		AF5BBF5B2982D44400BD433E /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5BBF592982D44400BD433E /* StoryboardExample.storyboard */; };
-		AF5BBF632982D45700BD433E /* StoriesRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF5C2982D45700BD433E /* StoriesRowCell.swift */; };
-		AF5BBF642982D45700BD433E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF5D2982D45700BD433E /* LabelCell.swift */; };
-		AF5BBF652982D45700BD433E /* ClipsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF5E2982D45700BD433E /* ClipsRowCell.swift */; };
-		AF5BBF662982D45700BD433E /* MultipleListsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF5F2982D45700BD433E /* MultipleListsDataSource.swift */; };
-		AF5BBF672982D45700BD433E /* IndividualGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF602982D45700BD433E /* IndividualGridViewDelegate.swift */; };
-		AF5BBF682982D45700BD433E /* StoriesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF612982D45700BD433E /* StoriesGridCell.swift */; };
-		AF5BBF692982D45700BD433E /* ClipsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF622982D45700BD433E /* ClipsGridCell.swift */; };
-		AF5BBF6E2982D47200BD433E /* MultipleListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF6B2982D47200BD433E /* MultipleListsViewModel.swift */; };
-		AF5BBF6F2982D47200BD433E /* MultipleListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF6C2982D47200BD433E /* MultipleListsView.swift */; };
-		AF5BBF722982D4A900BD433E /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF712982D4A900BD433E /* StoryboardViewController.swift */; };
-		AF5BBF762982D4CE00BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF742982D4CE00BD433E /* UIView.swift */; };
-		AF5BBF772982D4CE00BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF752982D4CE00BD433E /* UITableView.swift */; };
-		AF5BBF792982D52B00BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF6D2982D47200BD433E /* MultipleListsViewController.swift */; };
-		AF82187E2995446100DE31BE /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218772995445F00DE31BE /* nanopb.xcframework */; };
-		AF82187F2995446100DE31BE /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */; };
-		AF8218802995446100DE31BE /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */; };
-		AF8218812995446100DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */; };
-		AF8218822995446100DE31BE /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */; };
-		AF8218832995446100DE31BE /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187C2995446000DE31BE /* PromisesObjC.xcframework */; };
-		AF8218842995446100DE31BE /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */; };
-		AF82188A299544AB00DE31BE /* StorytellerAdsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */; };
-		AF82188B299544AB00DE31BE /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821886299544AB00DE31BE /* TrackingManager.swift */; };
-		AF82188C299544AB00DE31BE /* NativeAdsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821887299544AB00DE31BE /* NativeAdsRequest.swift */; };
-		AF82188D299544AB00DE31BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821888299544AB00DE31BE /* Constants.swift */; };
-		AF82188E299544AB00DE31BE /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF821889299544AB00DE31BE /* AdManager.swift */; };
+		AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */; };
+		AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5862978061A0026F090 /* MainFlowController.swift */; };
+		AF43A5902978065C0026F090 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5882978065C0026F090 /* MainViewController.swift */; };
+		AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5892978065C0026F090 /* MainViewModel.swift */; };
+		AF43A5922978065C0026F090 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58A2978065C0026F090 /* UIViewController.swift */; };
+		AF43A5932978065C0026F090 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58B2978065C0026F090 /* MainView.swift */; };
+		AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */; };
+		AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58D2978065C0026F090 /* StorytellerManager.swift */; };
+		AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */; };
+		AF5BBF10297A896A00BD433E /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF0D297A891600BD433E /* SwiftUIView.swift */; };
+		AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3A2982D2A500BD433E /* ClipsGridCell.swift */; };
+		AF5BBF422982D2A600BD433E /* StoriesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */; };
+		AF5BBF432982D2A600BD433E /* ClipsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3C2982D2A600BD433E /* ClipsRowCell.swift */; };
+		AF5BBF442982D2A600BD433E /* StoriesRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3D2982D2A600BD433E /* StoriesRowCell.swift */; };
+		AF5BBF452982D2A600BD433E /* MultipleListsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3E2982D2A600BD433E /* MultipleListsDataSource.swift */; };
+		AF5BBF462982D2A600BD433E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF3F2982D2A600BD433E /* LabelCell.swift */; };
+		AF5BBF4B2982D2D400BD433E /* MultipleListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF482982D2D400BD433E /* MultipleListsView.swift */; };
+		AF5BBF4C2982D2D400BD433E /* MultipleListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF4A2982D2D400BD433E /* MultipleListsViewModel.swift */; };
+		AF5BBF502982D35900BD433E /* StoryboardExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5BBF4E2982D35900BD433E /* StoryboardExample.storyboard */; };
+		AF5BBF532982D37500BD433E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF512982D37500BD433E /* UIView.swift */; };
+		AF5BBF542982D37500BD433E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF522982D37500BD433E /* UITableView.swift */; };
+		AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF552982D3B200BD433E /* StoryboardViewController.swift */; };
+		AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BBF492982D2D400BD433E /* MultipleListsViewController.swift */; };
+		AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186929953F5500DE31BE /* NativeAdsRequest.swift */; };
+		AF82186F29953F5500DE31BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186A29953F5500DE31BE /* Constants.swift */; };
+		AF82187029953F5500DE31BE /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186B29953F5500DE31BE /* AdManager.swift */; };
+		AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */; };
+		AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82186D29953F5500DE31BE /* TrackingManager.swift */; };
+		AF8218762995408900DE31BE /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AF8218752995408900DE31BE /* GoogleMobileAds */; };
 		B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427D23F2E32E0093A423 /* Assets.xcassets */; };
 		B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */; };
+		DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3451D9B129E993CB00F5DCAF /* StorytellerSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,48 +59,41 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3451D9AE29E993BE00F5DCAF /* StorytellerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StorytellerSDK.xcframework; path = StorytellerSampleApp/Libraries/StorytellerSDK.xcframework; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
-		AF2329C0286E29840047AB98 /* StorytellerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = StorytellerSDK.xcframework; sourceTree = "<group>"; };
-		AF43A59C297808650026F090 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		AF43A59D297808650026F090 /* StorytellerListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerListDelegate.swift; sourceTree = "<group>"; };
-		AF43A59E297808650026F090 /* StorytellerMainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerMainDelegate.swift; sourceTree = "<group>"; };
-		AF43A5A0297808650026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		AF43A5A1297808650026F090 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		AF43A5A2297808650026F090 /* StorytellerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerManager.swift; sourceTree = "<group>"; };
-		AF43A5A3297808650026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
-		AF43A5A4297808650026F090 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = ../Shared/Extension/UIViewController.swift; sourceTree = "<group>"; };
-		AF5BBF12297A8EA700BD433E /* StoriesRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesRowView.swift; sourceTree = "<group>"; };
-		AF5BBF13297A8EA700BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		AF5BBF5A2982D44400BD433E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Shared/StoryboardExample/Base.lproj/StoryboardExample.storyboard; sourceTree = "<group>"; };
-		AF5BBF5C2982D45700BD433E /* StoriesRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoriesRowCell.swift; path = ../Shared/MultipleLists/TableView/StoriesRowCell.swift; sourceTree = "<group>"; };
-		AF5BBF5D2982D45700BD433E /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelCell.swift; path = ../Shared/MultipleLists/TableView/LabelCell.swift; sourceTree = "<group>"; };
-		AF5BBF5E2982D45700BD433E /* ClipsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsRowCell.swift; path = ../Shared/MultipleLists/TableView/ClipsRowCell.swift; sourceTree = "<group>"; };
-		AF5BBF5F2982D45700BD433E /* MultipleListsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsDataSource.swift; path = ../Shared/MultipleLists/TableView/MultipleListsDataSource.swift; sourceTree = "<group>"; };
-		AF5BBF602982D45700BD433E /* IndividualGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IndividualGridViewDelegate.swift; path = ../Shared/MultipleLists/TableView/IndividualGridViewDelegate.swift; sourceTree = "<group>"; };
-		AF5BBF612982D45700BD433E /* StoriesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoriesGridCell.swift; path = ../Shared/MultipleLists/TableView/StoriesGridCell.swift; sourceTree = "<group>"; };
-		AF5BBF622982D45700BD433E /* ClipsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsGridCell.swift; path = ../Shared/MultipleLists/TableView/ClipsGridCell.swift; sourceTree = "<group>"; };
-		AF5BBF6B2982D47200BD433E /* MultipleListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsViewModel.swift; path = ../Shared/MultipleLists/MultipleListsViewModel.swift; sourceTree = "<group>"; };
-		AF5BBF6C2982D47200BD433E /* MultipleListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsView.swift; path = ../Shared/MultipleLists/MultipleListsView.swift; sourceTree = "<group>"; };
-		AF5BBF6D2982D47200BD433E /* MultipleListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsViewController.swift; path = ../Shared/MultipleLists/MultipleListsViewController.swift; sourceTree = "<group>"; };
-		AF5BBF712982D4A900BD433E /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardViewController.swift; path = ../Shared/StoryboardExample/StoryboardViewController.swift; sourceTree = "<group>"; };
-		AF5BBF742982D4CE00BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = ../Shared/Extension/UIView.swift; sourceTree = "<group>"; };
-		AF5BBF752982D4CE00BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = ../Shared/Extension/UITableView.swift; sourceTree = "<group>"; };
-		AF8218772995445F00DE31BE /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
-		AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
-		AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
-		AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
-		AF82187C2995446000DE31BE /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
-		AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
-		AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorytellerAdsDelegate.swift; path = ../Shared/Ads/StorytellerAdsDelegate.swift; sourceTree = "<group>"; };
-		AF821886299544AB00DE31BE /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackingManager.swift; path = ../Shared/Ads/TrackingManager.swift; sourceTree = "<group>"; };
-		AF821887299544AB00DE31BE /* NativeAdsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeAdsRequest.swift; path = ../Shared/Ads/NativeAdsRequest.swift; sourceTree = "<group>"; };
-		AF821888299544AB00DE31BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Shared/Ads/Constants.swift; sourceTree = "<group>"; };
-		AF821889299544AB00DE31BE /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ../Shared/Ads/AdManager.swift; sourceTree = "<group>"; };
+		AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWrappers.swift; sourceTree = "<group>"; };
+		AF43A5862978061A0026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
+		AF43A5882978065C0026F090 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Shared/MainVC/MainViewController.swift; sourceTree = "<group>"; };
+		AF43A5892978065C0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../Shared/MainVC/MainViewModel.swift; sourceTree = "<group>"; };
+		AF43A58A2978065C0026F090 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		AF43A58B2978065C0026F090 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../Shared/MainVC/MainView.swift; sourceTree = "<group>"; };
+		AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerMainDelegate.swift; path = ../Shared/Managers/StorytellerMainDelegate.swift; sourceTree = "<group>"; };
+		AF43A58D2978065C0026F090 /* StorytellerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerManager.swift; path = ../Shared/Managers/StorytellerManager.swift; sourceTree = "<group>"; };
+		AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorytellerListDelegate.swift; path = ../Shared/Managers/StorytellerListDelegate.swift; sourceTree = "<group>"; };
+		AF5BBF0D297A891600BD433E /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		AF5BBF3A2982D2A500BD433E /* ClipsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsGridCell.swift; path = ../Shared/MultipleLists/TableView/ClipsGridCell.swift; sourceTree = "<group>"; };
+		AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoriesGridCell.swift; path = ../Shared/MultipleLists/TableView/StoriesGridCell.swift; sourceTree = "<group>"; };
+		AF5BBF3C2982D2A600BD433E /* ClipsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipsRowCell.swift; path = ../Shared/MultipleLists/TableView/ClipsRowCell.swift; sourceTree = "<group>"; };
+		AF5BBF3D2982D2A600BD433E /* StoriesRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoriesRowCell.swift; path = ../Shared/MultipleLists/TableView/StoriesRowCell.swift; sourceTree = "<group>"; };
+		AF5BBF3E2982D2A600BD433E /* MultipleListsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsDataSource.swift; path = ../Shared/MultipleLists/TableView/MultipleListsDataSource.swift; sourceTree = "<group>"; };
+		AF5BBF3F2982D2A600BD433E /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelCell.swift; path = ../Shared/MultipleLists/TableView/LabelCell.swift; sourceTree = "<group>"; };
+		AF5BBF482982D2D400BD433E /* MultipleListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsView.swift; path = ../Shared/MultipleLists/MultipleListsView.swift; sourceTree = "<group>"; };
+		AF5BBF492982D2D400BD433E /* MultipleListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsViewController.swift; path = ../Shared/MultipleLists/MultipleListsViewController.swift; sourceTree = "<group>"; };
+		AF5BBF4A2982D2D400BD433E /* MultipleListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleListsViewModel.swift; path = ../Shared/MultipleLists/MultipleListsViewModel.swift; sourceTree = "<group>"; };
+		AF5BBF4F2982D35900BD433E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Shared/StoryboardExample/Base.lproj/StoryboardExample.storyboard; sourceTree = "<group>"; };
+		AF5BBF512982D37500BD433E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AF5BBF522982D37500BD433E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		AF5BBF552982D3B200BD433E /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardViewController.swift; path = ../Shared/StoryboardExample/StoryboardViewController.swift; sourceTree = "<group>"; };
+		AF82186929953F5500DE31BE /* NativeAdsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeAdsRequest.swift; path = ../Shared/Ads/NativeAdsRequest.swift; sourceTree = "<group>"; };
+		AF82186A29953F5500DE31BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Shared/Ads/Constants.swift; sourceTree = "<group>"; };
+		AF82186B29953F5500DE31BE /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = ../Shared/Ads/AdManager.swift; sourceTree = "<group>"; };
+		AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorytellerAdsDelegate.swift; path = ../Shared/Ads/StorytellerAdsDelegate.swift; sourceTree = "<group>"; };
+		AF82186D29953F5500DE31BE /* TrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackingManager.swift; path = ../Shared/Ads/TrackingManager.swift; sourceTree = "<group>"; };
 		B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorytellerSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8E4427D23F2E32E0093A423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Shared/Assets.xcassets; sourceTree = "<group>"; };
 		B8E4428023F2E32E0093A423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8E4428223F2E32E0093A423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorytellerThemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,121 +101,99 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF2329C1286E29840047AB98 /* StorytellerSDK.xcframework in Frameworks */,
-				AF8218822995446100DE31BE /* GoogleMobileAds.xcframework in Frameworks */,
-				AF8218812995446100DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
-				AF8218832995446100DE31BE /* PromisesObjC.xcframework in Frameworks */,
-				AF82187F2995446100DE31BE /* UserMessagingPlatform.xcframework in Frameworks */,
-				AF82187E2995446100DE31BE /* nanopb.xcframework in Frameworks */,
-				AF8218842995446100DE31BE /* GoogleAppMeasurement.xcframework in Frameworks */,
-				AF8218802995446100DE31BE /* GoogleUtilities.xcframework in Frameworks */,
+				3451D9B029E993CB00F5DCAF /* StorytellerSDK.xcframework in Frameworks */,
+				AF8218762995408900DE31BE /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE119DE4247566850092DC66 /* Libraries */ = {
+		AF43A5982978078B0026F090 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AF2329C0286E29840047AB98 /* StorytellerSDK.xcframework */,
-				AF82187D2995446100DE31BE /* GoogleAppMeasurement.xcframework */,
-				AF82187A2995445F00DE31BE /* GoogleAppMeasurementIdentitySupport.xcframework */,
-				AF82187B2995446000DE31BE /* GoogleMobileAds.xcframework */,
-				AF8218792995445F00DE31BE /* GoogleUtilities.xcframework */,
-				AF8218772995445F00DE31BE /* nanopb.xcframework */,
-				AF82187C2995446000DE31BE /* PromisesObjC.xcframework */,
-				AF8218782995445F00DE31BE /* UserMessagingPlatform.xcframework */,
+				AF5BBF522982D37500BD433E /* UITableView.swift */,
+				AF5BBF512982D37500BD433E /* UIView.swift */,
+				AF43A58A2978065C0026F090 /* UIViewController.swift */,
 			);
-			path = Libraries;
+			name = Extension;
+			path = ../../Shared/Extension;
 			sourceTree = "<group>";
 		};
-		AF43A5AE297808890026F090 /* MainViewController */ = {
+		AF43A599297807B70026F090 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				AF43A5A0297808650026F090 /* MainViewModel.swift */,
-				AF43A59C297808650026F090 /* MainView.swift */,
-				AF43A5A1297808650026F090 /* MainViewController.swift */,
-			);
-			name = MainViewController;
-			path = ../../Shared/MainVC;
-			sourceTree = "<group>";
-		};
-		AF43A5B0297809A60026F090 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				AF43A59E297808650026F090 /* StorytellerMainDelegate.swift */,
-				AF43A5A2297808650026F090 /* StorytellerManager.swift */,
-				AF43A59D297808650026F090 /* StorytellerListDelegate.swift */,
+				AF43A58D2978065C0026F090 /* StorytellerManager.swift */,
+				AF43A58F2978065C0026F090 /* StorytellerListDelegate.swift */,
+				AF43A58C2978065C0026F090 /* StorytellerMainDelegate.swift */,
 			);
 			name = Managers;
-			path = ../../Shared/Managers;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		AF5BBF16297A8EAD00BD433E /* SwiftUI */ = {
+		AF43A59B297807DA0026F090 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF12297A8EA700BD433E /* StoriesRowView.swift */,
-				AF5BBF13297A8EA700BD433E /* SwiftUIView.swift */,
+				AF43A58B2978065C0026F090 /* MainView.swift */,
+				AF43A5882978065C0026F090 /* MainViewController.swift */,
+				AF43A5892978065C0026F090 /* MainViewModel.swift */,
+			);
+			name = MainViewController;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		AF5BBF11297A896F00BD433E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BBF0D297A891600BD433E /* SwiftUIView.swift */,
+				AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */,
 			);
 			name = SwiftUI;
 			path = ../../Shared/SwiftUI;
 			sourceTree = "<group>";
 		};
-		AF5BBF6A2982D45B00BD433E /* TableView */ = {
+		AF5BBF472982D2AF00BD433E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF622982D45700BD433E /* ClipsGridCell.swift */,
-				AF5BBF5E2982D45700BD433E /* ClipsRowCell.swift */,
-				AF5BBF602982D45700BD433E /* IndividualGridViewDelegate.swift */,
-				AF5BBF5D2982D45700BD433E /* LabelCell.swift */,
-				AF5BBF5F2982D45700BD433E /* MultipleListsDataSource.swift */,
-				AF5BBF612982D45700BD433E /* StoriesGridCell.swift */,
-				AF5BBF5C2982D45700BD433E /* StoriesRowCell.swift */,
+				AF5BBF3F2982D2A600BD433E /* LabelCell.swift */,
+				AF5BBF3E2982D2A600BD433E /* MultipleListsDataSource.swift */,
+				AF5BBF3B2982D2A500BD433E /* StoriesGridCell.swift */,
+				AF5BBF3D2982D2A600BD433E /* StoriesRowCell.swift */,
+				AF5BBF3A2982D2A500BD433E /* ClipsGridCell.swift */,
+				AF5BBF3C2982D2A600BD433E /* ClipsRowCell.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
 		};
-		AF5BBF702982D47C00BD433E /* MultipleLists */ = {
+		AF5BBF4D2982D2DB00BD433E /* MultipleLists */ = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF6C2982D47200BD433E /* MultipleListsView.swift */,
-				AF5BBF6D2982D47200BD433E /* MultipleListsViewController.swift */,
-				AF5BBF6B2982D47200BD433E /* MultipleListsViewModel.swift */,
-				AF5BBF6A2982D45B00BD433E /* TableView */,
+				AF5BBF4A2982D2D400BD433E /* MultipleListsViewModel.swift */,
+				AF5BBF472982D2AF00BD433E /* TableView */,
+				AF5BBF482982D2D400BD433E /* MultipleListsView.swift */,
+				AF5BBF492982D2D400BD433E /* MultipleListsViewController.swift */,
 			);
 			name = MultipleLists;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		AF5BBF732982D4AC00BD433E /* StoryboardExample */ = {
+		AF5BBF572982D3B700BD433E /* StoryboardExample */ = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF712982D4A900BD433E /* StoryboardViewController.swift */,
+				AF5BBF552982D3B200BD433E /* StoryboardViewController.swift */,
 			);
 			name = StoryboardExample;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		AF5BBF782982D4DE00BD433E /* Extensions */ = {
+		AF82187329953F5B00DE31BE /* Ads */ = {
 			isa = PBXGroup;
 			children = (
-				AF43A5A4297808650026F090 /* UIViewController.swift */,
-				AF5BBF752982D4CE00BD433E /* UITableView.swift */,
-				AF5BBF742982D4CE00BD433E /* UIView.swift */,
-			);
-			name = Extensions;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		AF82188F299544AF00DE31BE /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				AF821889299544AB00DE31BE /* AdManager.swift */,
-				AF821888299544AB00DE31BE /* Constants.swift */,
-				AF821887299544AB00DE31BE /* NativeAdsRequest.swift */,
-				AF821886299544AB00DE31BE /* TrackingManager.swift */,
-				AF821885299544AB00DE31BE /* StorytellerAdsDelegate.swift */,
+				AF82186B29953F5500DE31BE /* AdManager.swift */,
+				AF82186A29953F5500DE31BE /* Constants.swift */,
+				AF82186929953F5500DE31BE /* NativeAdsRequest.swift */,
+				AF82186C29953F5500DE31BE /* StorytellerAdsDelegate.swift */,
+				AF82186D29953F5500DE31BE /* TrackingManager.swift */,
 			);
 			name = Ads;
 			path = ..;
@@ -235,6 +202,7 @@
 		B871CF7323F6D48E00FAF2B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3451D9AE29E993BE00F5DCAF /* StorytellerSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,7 +210,7 @@
 		B8E4426823F2E32D0093A423 = {
 			isa = PBXGroup;
 			children = (
-				AF5BBF592982D44400BD433E /* StoryboardExample.storyboard */,
+				AF5BBF4E2982D35900BD433E /* StoryboardExample.storyboard */,
 				B8E4427323F2E32E0093A423 /* StorytellerSampleApp */,
 				B8E4427223F2E32E0093A423 /* Products */,
 				B871CF7323F6D48E00FAF2B3 /* Frameworks */,
@@ -260,21 +228,30 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				AF82188F299544AF00DE31BE /* Ads */,
-				AF5BBF732982D4AC00BD433E /* StoryboardExample */,
-				AF5BBF702982D47C00BD433E /* MultipleLists */,
-				AE119DE4247566850092DC66 /* Libraries */,
+				DC4A8CF229C9E93900DE026D /* Themes */,
+				AF82187329953F5B00DE31BE /* Ads */,
+				AF5BBF572982D3B700BD433E /* StoryboardExample */,
+				AF5BBF4D2982D2DB00BD433E /* MultipleLists */,
+				AF43A599297807B70026F090 /* Managers */,
+				AF43A5982978078B0026F090 /* Extension */,
 				AEBB2EA225D35267000A9127 /* AppDelegate.swift */,
-				AF43A5A3297808650026F090 /* MainFlowController.swift */,
-				AF5BBF16297A8EAD00BD433E /* SwiftUI */,
-				AF43A5AE297808890026F090 /* MainViewController */,
-				AF5BBF782982D4DE00BD433E /* Extensions */,
-				AF43A5B0297809A60026F090 /* Managers */,
+				AF5BBF11297A896F00BD433E /* SwiftUI */,
+				AF43A5862978061A0026F090 /* MainFlowController.swift */,
+				AF43A59B297807DA0026F090 /* MainViewController */,
 				B8E4427D23F2E32E0093A423 /* Assets.xcassets */,
 				B8E4427F23F2E32E0093A423 /* LaunchScreen.storyboard */,
 				B8E4428223F2E32E0093A423 /* Info.plist */,
 			);
 			path = StorytellerSampleApp;
+			sourceTree = "<group>";
+		};
+		DC4A8CF229C9E93900DE026D /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8CF329C9E93900DE026D /* StorytellerThemes.swift */,
+			);
+			name = Themes;
+			path = ../../Shared/Themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +271,9 @@
 			dependencies = (
 			);
 			name = StorytellerSampleApp;
+			packageProductDependencies = (
+				AF8218752995408900DE31BE /* GoogleMobileAds */,
+			);
 			productName = StorytellerSampleApp;
 			productReference = B8E4427123F2E32E0093A423 /* StorytellerSampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -323,6 +303,9 @@
 				Base,
 			);
 			mainGroup = B8E4426823F2E32D0093A423;
+			packageReferences = (
+				AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = B8E4427223F2E32E0093A423 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,7 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF5BBF5B2982D44400BD433E /* StoryboardExample.storyboard in Resources */,
+				AF5BBF502982D35900BD433E /* StoryboardExample.storyboard in Resources */,
 				B8E4428123F2E32E0093A423 /* LaunchScreen.storyboard in Resources */,
 				B8E4427E23F2E32E0093A423 /* Assets.xcassets in Resources */,
 			);
@@ -350,34 +333,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF5BBF762982D4CE00BD433E /* UIView.swift in Sources */,
-				AF82188E299544AB00DE31BE /* AdManager.swift in Sources */,
-				AF5BBF772982D4CE00BD433E /* UITableView.swift in Sources */,
-				AF5BBF722982D4A900BD433E /* StoryboardViewController.swift in Sources */,
-				AF5BBF6E2982D47200BD433E /* MultipleListsViewModel.swift in Sources */,
-				AF5BBF6F2982D47200BD433E /* MultipleListsView.swift in Sources */,
-				AF5BBF632982D45700BD433E /* StoriesRowCell.swift in Sources */,
-				AF5BBF642982D45700BD433E /* LabelCell.swift in Sources */,
-				AF5BBF652982D45700BD433E /* ClipsRowCell.swift in Sources */,
-				AF5BBF662982D45700BD433E /* MultipleListsDataSource.swift in Sources */,
-				AF5BBF672982D45700BD433E /* IndividualGridViewDelegate.swift in Sources */,
-				AF5BBF682982D45700BD433E /* StoriesGridCell.swift in Sources */,
-				AF82188D299544AB00DE31BE /* Constants.swift in Sources */,
-				AF82188A299544AB00DE31BE /* StorytellerAdsDelegate.swift in Sources */,
-				AF82188B299544AB00DE31BE /* TrackingManager.swift in Sources */,
-				AF5BBF692982D45700BD433E /* ClipsGridCell.swift in Sources */,
-				AF43A5A5297808650026F090 /* MainView.swift in Sources */,
-				AF43A5A6297808650026F090 /* StorytellerListDelegate.swift in Sources */,
-				AF5BBF15297A8EA700BD433E /* SwiftUIView.swift in Sources */,
-				AF43A5A7297808650026F090 /* StorytellerMainDelegate.swift in Sources */,
-				AF5BBF14297A8EA700BD433E /* StoriesRowView.swift in Sources */,
-				AF82188C299544AB00DE31BE /* NativeAdsRequest.swift in Sources */,
-				AF43A5A9297808650026F090 /* MainViewModel.swift in Sources */,
-				AF5BBF792982D52B00BD433E /* MultipleListsViewController.swift in Sources */,
-				AF43A5AA297808650026F090 /* MainViewController.swift in Sources */,
-				AF43A5AB297808650026F090 /* StorytellerManager.swift in Sources */,
-				AF43A5AC297808650026F090 /* MainFlowController.swift in Sources */,
-				AF43A5AD297808650026F090 /* UIViewController.swift in Sources */,
+				DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */,
+				AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */,
+				AF5BBF532982D37500BD433E /* UIView.swift in Sources */,
+				AF5BBF542982D37500BD433E /* UITableView.swift in Sources */,
+				AF5BBF4B2982D2D400BD433E /* MultipleListsView.swift in Sources */,
+				AF5BBF4C2982D2D400BD433E /* MultipleListsViewModel.swift in Sources */,
+				AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */,
+				AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */,
+				AF82186F29953F5500DE31BE /* Constants.swift in Sources */,
+				AF5BBF422982D2A600BD433E /* StoriesGridCell.swift in Sources */,
+				AF82187029953F5500DE31BE /* AdManager.swift in Sources */,
+				AF5BBF432982D2A600BD433E /* ClipsRowCell.swift in Sources */,
+				AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */,
+				AF5BBF442982D2A600BD433E /* StoriesRowCell.swift in Sources */,
+				AF5BBF452982D2A600BD433E /* MultipleListsDataSource.swift in Sources */,
+				AF5BBF462982D2A600BD433E /* LabelCell.swift in Sources */,
+				AF43A5902978065C0026F090 /* MainViewController.swift in Sources */,
+				AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */,
+				AF5BBF10297A896A00BD433E /* SwiftUIView.swift in Sources */,
+				AF43A5922978065C0026F090 /* UIViewController.swift in Sources */,
+				AF43A5932978065C0026F090 /* MainView.swift in Sources */,
+				AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */,
+				AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */,
+				AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */,
+				AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */,
+				AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */,
+				AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */,
+				AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */,
 				AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,10 +368,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF5BBF592982D44400BD433E /* StoryboardExample.storyboard */ = {
+		AF5BBF4E2982D35900BD433E /* StoryboardExample.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AF5BBF5A2982D44400BD433E /* Base */,
+				AF5BBF4F2982D35900BD433E /* Base */,
 			);
 			name = StoryboardExample.storyboard;
 			sourceTree = "<group>";
@@ -592,6 +575,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF8218752995408900DE31BE /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8E4426923F2E32D0093A423 /* Project object */;
 }

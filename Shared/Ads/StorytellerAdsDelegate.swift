@@ -7,11 +7,13 @@ class StorytellerAdsDelegate: StorytellerDelegate {
 
     // Called when tenant is configured to use ads from the containing app.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#ClientAds
-    func getAdsForList(listDescriptor: ListDescriptor, stories: [ClientStory], onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+    func getAdsForList(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
         DispatchQueue.main.async { [weak self] in
-            self?.fetchAds(listDescriptor: listDescriptor, stories: stories) { ads in
+            self?.fetchAds(adRequestInfo: adRequestInfo, onComplete: { ads in
                 onComplete(ads)
-            }
+            }, onError: { error in
+                print(error)
+            })
         }
     }
 
@@ -34,25 +36,25 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         }
     }
 
-    private var nativeAds = [GADCustomNativeAd]()
+    private var nativeAds = [String: GADCustomNativeAd]()
     private let trackingManager = TrackingManager()
 
     private func clearAdList() {
-        nativeAds = []
+        nativeAds = [:]
     }
 
-    private func fetchAds(listDescriptor: ListDescriptor, stories: [ClientStory], onComplete: @escaping ([String: ClientAd]) -> Void) {
+    private func fetchAds(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+        guard case let .stories(placement, categories, stories) = adRequestInfo else { return }
 
-        var ads = [ClientAd?](repeating: nil, count: stories.count)
+        var ads: [String: ClientAd] = [:]
         var count = 0
 
-        for (index, story) in stories.enumerated() {
-            let categories = story.categories.map(\.externalId).joined(separator: ",")
-            let viewCategories = listDescriptor.categories.map { $0 }.joined(separator: ",")
-            let placement = listDescriptor.placement
+        for story in stories {
+            let storyCategories = story.categories.map(\.externalId).joined(separator: ",")
+            let viewCategories = categories.joined(separator: ",")
 
             let keyValues: [String: String] = [
-                Ads.storytellerCategories: categories,
+                Ads.storytellerCategories: storyCategories,
                 Ads.storytellerStoryId: story.id,
                 Ads.storytellerCurrentCategory: viewCategories,
                 Ads.storytellerPlacement: placement
@@ -60,7 +62,6 @@ class StorytellerAdsDelegate: StorytellerDelegate {
 
             AdManager.sharedInstance.getNativeAd(
                 adUnitId: AdUnits.adUnit,
-                adIndex: index,
                 keyValues: keyValues,
                 supportedCustomTemplateIds: [AdUnits.templateId],
                 contentURLString: "") { [weak self] ad, error in
@@ -68,25 +69,19 @@ class StorytellerAdsDelegate: StorytellerDelegate {
                     count += 1
 
                     if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerClientAd() {
-                        self?.nativeAds.append(nativeAd)
-                        ads[index] = storytellerAd
+                        self?.nativeAds[story.id] = nativeAd
+                        ads[story.id] = storytellerAd
                     }
 
                     if count == stories.count {
-
-                        var result = [String: ClientAd]()
-                        for (index, story) in stories.enumerated() {
-                            result[story.id] = ads[index]
-                        }
-
-                        onComplete(result)
+                        onComplete(ads)
                     }
                 }
         }
     }
 
     private func getMatchingAd(adID: String?) -> GADCustomNativeAd? {
-        nativeAds.first { ad -> Bool in ad.string(forKey: Ads.creativeIDKey) == adID }
+        adID.flatMap { nativeAds[$0] }
     }
 }
 

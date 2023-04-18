@@ -96,11 +96,11 @@ final class MainView: UIView {
     }
 
     private func addStorytellerRow(cellType: StorytellerListViewCellType, height: CGFloat?, delegate: StorytellerListDelegate) {
-        let row = StorytellerRowView()
+        let row = StorytellerStoriesRowView()
 
         // Set thumbnail shape.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
-        row.cellType = cellType.rawValue
+        row.cellType = cellType
 
         // Set delegate to use.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#HowToUse
@@ -186,15 +186,12 @@ final class MainView: UIView {
         self.backgroundColor = backgroundColor
 
         addSubview(scrollView)
-
         scrollView.layoutToEdges(of: self)
 
         scrollView.addSubview(stackView)
+        stackView.layoutToEdges(of: scrollView)
 
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
 
         scrollView.refreshControl = refresher
     }
