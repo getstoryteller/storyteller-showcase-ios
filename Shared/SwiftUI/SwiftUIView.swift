@@ -4,17 +4,17 @@ import SwiftUI
 
 struct SwiftUIView: View {
     class SwiftUIModel: ObservableObject {
-        @Published var storiesRowConfiguration: StoriesConfiguration
-        @Published var storiesGridConfiguration: StoriesConfiguration
-        @Published var clipsRowConfiguration: ClipsConfiguration
-        @Published var clipsGridConfiguration: ClipsConfiguration
+        @Published var storiesRowConfiguration: StorytellerStoriesConfiguration
+        @Published var storiesGridConfiguration: StorytellerStoriesConfiguration
+        @Published var clipsRowConfiguration: StorytellerClipsConfiguration
+        @Published var clipsGridConfiguration: StorytellerClipsConfiguration
         private var cancellable: AnyCancellable?
 
         init() {
-            storiesRowConfiguration = StoriesConfiguration.default
-            storiesGridConfiguration = StoriesConfiguration.default
-            clipsRowConfiguration = ClipsConfiguration.default
-            clipsGridConfiguration = ClipsConfiguration.default
+            storiesRowConfiguration = StorytellerStoriesConfiguration.default
+            storiesGridConfiguration = StorytellerStoriesConfiguration.default
+            clipsRowConfiguration = StorytellerClipsConfiguration.default
+            clipsGridConfiguration = StorytellerClipsConfiguration.default
 
             clipsRowConfiguration.collectionId = "clipssample"
             clipsGridConfiguration.collectionId = "clipssample"

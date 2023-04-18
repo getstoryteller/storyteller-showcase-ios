@@ -9,7 +9,7 @@ enum StorytellerAction {
 }
 
 // Every time you change one of these properties, the view will reload
-struct CommonConfiguration {
+struct StorytellerCommonConfiguration {
     var theme: StorytellerTheme?
     var displayLimit: Int?
     var cellType: StorytellerListViewCellType = .square
@@ -18,33 +18,33 @@ struct CommonConfiguration {
 }
 
 // Every time you change one of these properties, the view will reload
-struct StoriesConfiguration {
+struct StorytellerStoriesConfiguration {
     var categories: [String] = .init()
-    var common = CommonConfiguration()
+    var common = StorytellerCommonConfiguration()
 
-    static var `default`: StoriesConfiguration {
-        StoriesConfiguration()
+    static var `default`: StorytellerStoriesConfiguration {
+        StorytellerStoriesConfiguration()
     }
 }
 
 // Every time you change one of these properties, the view will reload
-struct ClipsConfiguration {
+struct StorytellerClipsConfiguration {
     var collectionId: String = .init()
-    var common = CommonConfiguration()
+    var common = StorytellerCommonConfiguration()
 
-    static var `default`: ClipsConfiguration {
-        ClipsConfiguration()
+    static var `default`: StorytellerClipsConfiguration {
+        StorytellerClipsConfiguration()
     }
 }
 
 /// Storyteller stories grid view wrapper.
 ///
 /// - Parameters:
-///   - configuration: `StoriesConfiguration` instance.
+///   - configuration: `StorytellerStoriesConfiguration` instance.
 ///   - callback: callback with `StorytellerCallbackAction` handler.
 ///
 struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
-    let configuration: StoriesConfiguration
+    let configuration: StorytellerStoriesConfiguration
     var callback: ((StorytellerAction) -> Void)?
 
     func makeUIView(context: Context) -> StorytellerStoriesGridView {
@@ -75,11 +75,11 @@ struct StorytellerStoriesGrid: UIViewRepresentable, StorytellerCallbackable {
 /// Storyteller clips grid view wrapper.
 ///
 /// - Parameters:
-///   - configuration: `ClipsConfiguration` instance.
+///   - configuration: `StorytellerClipsConfiguration` instance.
 ///   - callback: callback with `StorytellerCallbackAction` handler.
 ///
 struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
-    let configuration: ClipsConfiguration
+    let configuration: StorytellerClipsConfiguration
     var callback: ((StorytellerAction) -> Void)?
 
     func makeUIView(context: Context) -> StorytellerClipsGridView {
@@ -110,11 +110,11 @@ struct StorytellerClipsGrid: UIViewRepresentable, StorytellerCallbackable {
 /// Storyteller stories row view wrapper.
 ///
 /// - Parameters:
-///   - configuration: `StoriesConfiguration` instance.
+///   - configuration: `StorytellerStoriesConfiguration` instance.
 ///   - callback: callback with `StorytellerCallbackAction` handler.
 ///
 struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
-    let configuration: StoriesConfiguration
+    let configuration: StorytellerStoriesConfiguration
     var callback: ((StorytellerAction) -> Void)?
 
     func makeUIView(context: Context) -> StorytellerStoriesRowView {
@@ -145,11 +145,11 @@ struct StorytellerStoriesRow: UIViewRepresentable, StorytellerCallbackable {
 /// Storyteller clips row view wrapper.
 ///
 /// - Parameters:
-///   - configuration: `ClipsConfiguration` instance.
+///   - configuration: `StorytellerClipsConfiguration` instance.
 ///   - callback: callback with `StorytellerCallbackAction` handler.
 ///
 struct StorytellerClipsRow: UIViewRepresentable, StorytellerCallbackable {
-    let configuration: ClipsConfiguration
+    let configuration: StorytellerClipsConfiguration
     var callback: ((StorytellerAction) -> Void)?
 
     func makeUIView(context: Context) -> StorytellerClipsRowView {
