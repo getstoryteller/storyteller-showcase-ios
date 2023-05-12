@@ -21,10 +21,13 @@ enum Ads {
     static let inAppKey = "inApp"
     static let storeKey = "store"
 
-    static let storytellerStoryId = "storytellerStoryId"
-    static let storytellerCategories = "storytellerCategories"
-    static let storytellerCurrentCategory = "storytellerCurrentCategory"
-    static let storytellerPlacement = "storytellerPlacement"
+    static let storytellerStoryId = "stStoryId"
+    static let storytellerCategories = "stCategories"
+    static let storytellerCurrentCategory = "stCurrentCategory"
+    static let storytellerPlacement = "stPlacement"
+    static let storytellerClipId = "stClipId"
+    static let storytellerCollection = "stCollection"
+    static let storytellerClipCategories = "stClipCategories"
 }
 
 enum AdUnits {
