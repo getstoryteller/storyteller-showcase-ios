@@ -44,8 +44,16 @@ class StorytellerAdsDelegate: StorytellerDelegate {
     }
 
     private func fetchAds(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
-        guard case let .stories(placement, categories, stories) = adRequestInfo else { return }
-
+        
+        switch adRequestInfo {
+        case .stories(let placement, let categories, let stories):
+            handleStoryAds(placement: placement, categories: categories, stories: stories, onComplete: onComplete, onError: onError)
+        case .clips(let collection, let clips):
+            handleClipsAds(collection: collection, clips: clips, onComplete: onComplete, onError: onError)
+        }
+    }
+        
+    private func handleStoryAds(placement: String, categories: [String], stories: [StorytellerAdRequestInfo.StoryInfo], onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
         var ads: [String: ClientAd] = [:]
         var count = 0
 
@@ -74,6 +82,39 @@ class StorytellerAdsDelegate: StorytellerDelegate {
                     }
 
                     if count == stories.count {
+                        onComplete(ads)
+                    }
+                }
+        }
+    }
+    
+    private func handleClipsAds(collection: String, clips: [StorytellerAdRequestInfo.ClipInfo], onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+        var ads: [String: ClientAd] = [:]
+        var count = 0
+
+        for clip in clips {
+            let clipCategories = clip.categories.map(\.externalId).joined(separator: ",")
+            
+            let keyValues: [String: String] = [
+                Ads.storytellerClipId: clip.id,
+                Ads.storytellerCollection: collection,
+                Ads.storytellerClipCategories: clipCategories
+            ]
+
+            AdManager.sharedInstance.getNativeAd(
+                adUnitId: AdUnits.adUnit,
+                keyValues: keyValues,
+                supportedCustomTemplateIds: [AdUnits.templateId],
+                contentURLString: "") { [weak self] ad, error in
+
+                    count += 1
+
+                    if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerClientAd() {
+                        self?.nativeAds[clip.id] = nativeAd
+                        ads[clip.id] = storytellerAd
+                    }
+
+                    if count == clips.count {
                         onComplete(ads)
                     }
                 }
