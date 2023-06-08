@@ -46,11 +46,11 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.2.0)
-  - StorytellerSDK (9.1.6)
+  - StorytellerSDK (9.2.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
-  - StorytellerSDK (~> 9.1.6)
+  - StorytellerSDK (~> 9.2.0)
 
 SPEC REPOS:
   https://github.com/getstoryteller/storyteller-sdk-ios-podspec.git:
@@ -70,8 +70,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  StorytellerSDK: f1ba39879ac7d75ce846faf330717ec3571b3719
+  StorytellerSDK: 4c8bc01f6d4a2cc31422a6bf55b02d7ec453d399
 
-PODFILE CHECKSUM: 48e3aef715dbe2bd93b814abb9c9858a677ca4af
+PODFILE CHECKSUM: 4a38ff0965f02b0aeee1c961773c384214c93999
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

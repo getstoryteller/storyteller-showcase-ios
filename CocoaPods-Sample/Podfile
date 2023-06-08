@@ -9,6 +9,6 @@ target 'StorytellerSampleApp' do
   use_frameworks!
 
   # Pods for StorytellerSampleApp
-  pod 'StorytellerSDK',  '~> 9.1.6'
+  pod 'StorytellerSDK',  '~> 9.2.0'
   pod 'Google-Mobile-Ads-SDK'
 end

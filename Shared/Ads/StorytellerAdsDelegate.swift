@@ -151,12 +151,12 @@ extension GADCustomNativeAd {
     private func createAdSwipeUp(clickType: String, clickThroughURL: String, clickThroughCTA: String?, appStoreId: String?) -> ClientAdAction? {
         switch clickType {
         case Ads.webKey:
-            return ClientAdAction(urlOrStoreId: clickThroughURL, type: ClientAdActionKind.web, text: clickThroughCTA)
+            return ClientAdAction(urlOrStoreId: clickThroughURL, type: .web, text: clickThroughCTA)
         case Ads.inAppKey:
-            return ClientAdAction(urlOrStoreId: clickThroughURL, type: ClientAdActionKind.inApp, text: clickThroughCTA)
+            return ClientAdAction(urlOrStoreId: clickThroughURL, type: .inApp, text: clickThroughCTA)
         case Ads.storeKey:
             if let id = appStoreId {
-                return ClientAdAction(urlOrStoreId: id, type: ClientAdActionKind.store, text: clickThroughCTA)
+                return ClientAdAction(urlOrStoreId: id, type: .store, text: clickThroughCTA)
             } else {
                 return nil
             }
