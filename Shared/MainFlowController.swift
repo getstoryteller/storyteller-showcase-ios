@@ -36,6 +36,8 @@ final class MainFlowController {
                 self?.navigateToGoogleAdsIntegration()
             case .moveToSwiftUI:
                 self?.navigateToSwiftUI()
+            case .moveToEmbeddedClips:
+                self?.navigateToEmbeddedClips()
             }
         }
         mainVC = vc
@@ -70,6 +72,11 @@ final class MainFlowController {
         let swiftUIModel = SwiftUIView.SwiftUIModel()
         let swiftUIViewController = UIHostingController(rootView: SwiftUIView(model: swiftUIModel))
         navigationController?.pushViewController(swiftUIViewController, animated: true)
+    }
+  
+    func navigateToEmbeddedClips() {
+        let vc = ClipsTabViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: Private

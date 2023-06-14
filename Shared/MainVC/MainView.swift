@@ -11,6 +11,7 @@ final class MainView: UIView {
         case googleAdsIntergationTap
         case multipleListsTap
         case swiftUITap(cellType: StorytellerListViewCellType, delegate: StorytellerListDelegate?)
+        case embeddedClipsTap
     }
 
     var actionHandler: (Action) -> Void = { _ in }
@@ -68,6 +69,8 @@ final class MainView: UIView {
                 addGoogleAdsIntegrationButton()
             case let .swiftUIButton(cellType, delegate):
                 addSwiftUIButton(cellType: cellType, delegate: delegate)
+            case let .embeddedClipsButton:
+                addEmbeddedClipsButton()
             }
         }
         stackView.addArrangedSubview(UIView())
@@ -156,6 +159,14 @@ final class MainView: UIView {
         button.addTarget(self, action: #selector(didTapSwiftUI), for: .touchUpInside)
         stackView.addArrangedSubview(button)
     }
+    
+    private func addEmbeddedClipsButton() {
+        let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle("Embedded Clips", for: .normal)
+        button.addTarget(self, action: #selector(didTapEmbeddedClips), for: .touchUpInside)
+        stackView.addArrangedSubview(button)
+    }
 
     @objc private func didTapChangeUser() {
         actionHandler(.changeUserTap)
@@ -176,6 +187,10 @@ final class MainView: UIView {
     @objc private func didTapSwiftUI(sender: SubclassedUIButton) {
         guard let cellType = sender.cellType, let delegate = sender.delegate else { return }
         actionHandler(.swiftUITap(cellType: cellType, delegate: delegate))
+    }
+    
+    @objc private func didTapEmbeddedClips() {
+        actionHandler(.embeddedClipsTap)
     }
 
     private func setupView() {

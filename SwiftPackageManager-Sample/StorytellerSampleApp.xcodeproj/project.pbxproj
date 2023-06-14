@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4EFA6447281ADCF600CE43FD /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4EFA6446281ADCF600CE43FD /* StorytellerSDK */; };
+		55010F5F2A39BD5900E543A9 /* ClipsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F5B2A39BD5900E543A9 /* ClipsTabViewController.swift */; };
+		55010F602A39BD5900E543A9 /* EmbeddedClipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F5C2A39BD5900E543A9 /* EmbeddedClipsViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
 		AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */; };
 		AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5862978061A0026F090 /* MainFlowController.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55010F5B2A39BD5900E543A9 /* ClipsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipsTabViewController.swift; sourceTree = "<group>"; };
+		55010F5C2A39BD5900E543A9 /* EmbeddedClipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedClipsViewController.swift; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
 		AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWrappers.swift; sourceTree = "<group>"; };
 		AF43A5862978061A0026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55010F592A39BD5900E543A9 /* EmbeddedClips */ = {
+			isa = PBXGroup;
+			children = (
+				55010F5B2A39BD5900E543A9 /* ClipsTabViewController.swift */,
+				55010F5C2A39BD5900E543A9 /* EmbeddedClipsViewController.swift */,
+			);
+			name = EmbeddedClips;
+			path = ../../Shared/EmbeddedClips;
+			sourceTree = "<group>";
+		};
 		AF43A5982978078B0026F090 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +238,7 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				55010F592A39BD5900E543A9 /* EmbeddedClips */,
 				DC4A8CF229C9E93900DE026D /* Themes */,
 				AF82187329953F5B00DE31BE /* Ads */,
 				AF5BBF572982D3B700BD433E /* StoryboardExample */,
@@ -331,12 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55010F602A39BD5900E543A9 /* EmbeddedClipsViewController.swift in Sources */,
 				DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */,
 				AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */,
 				AF5BBF532982D37500BD433E /* UIView.swift in Sources */,
 				AF5BBF542982D37500BD433E /* UITableView.swift in Sources */,
 				AF5BBF4B2982D2D400BD433E /* MultipleListsView.swift in Sources */,
 				AF5BBF4C2982D2D400BD433E /* MultipleListsViewModel.swift in Sources */,
+				55010F5F2A39BD5900E543A9 /* ClipsTabViewController.swift in Sources */,
 				AF5BBF412982D2A600BD433E /* ClipsGridCell.swift in Sources */,
 				AF82187129953F5500DE31BE /* StorytellerAdsDelegate.swift in Sources */,
 				AF82186F29953F5500DE31BE /* Constants.swift in Sources */,
