@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55010F6A2A39D55D00E543A9 /* ClipsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F682A39D55C00E543A9 /* ClipsTabViewController.swift */; };
+		55010F6B2A39D55D00E543A9 /* EmbeddedClipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F692A39D55C00E543A9 /* EmbeddedClipsViewController.swift */; };
 		5F573406126663D685E00C86 /* Pods_StorytellerSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC70B0BEE345E4918538C35 /* Pods_StorytellerSampleApp.framework */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
 		AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		0BC70B0BEE345E4918538C35 /* Pods_StorytellerSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorytellerSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D1AAF348480FEDCCC41972F /* Pods-StorytellerSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.release.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		55010F682A39D55C00E543A9 /* ClipsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipsTabViewController.swift; sourceTree = "<group>"; };
+		55010F692A39D55C00E543A9 /* EmbeddedClipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedClipsViewController.swift; sourceTree = "<group>"; };
 		AD42F7C639DCE51248BBAFDF /* Pods-StorytellerSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-StorytellerSampleApp/Pods-StorytellerSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
 		AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWrappers.swift; sourceTree = "<group>"; };
@@ -107,6 +111,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55010F672A39D55C00E543A9 /* EmbeddedClips */ = {
+			isa = PBXGroup;
+			children = (
+				55010F682A39D55C00E543A9 /* ClipsTabViewController.swift */,
+				55010F692A39D55C00E543A9 /* EmbeddedClipsViewController.swift */,
+			);
+			name = EmbeddedClips;
+			path = ../../Shared/EmbeddedClips;
+			sourceTree = "<group>";
+		};
 		AF43A5982978078B0026F090 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +241,7 @@
 		B8E4427323F2E32E0093A423 /* StorytellerSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				55010F672A39D55C00E543A9 /* EmbeddedClips */,
 				DC4A8CF229C9E93900DE026D /* Themes */,
 				AF82187329953F5B00DE31BE /* Ads */,
 				AF5BBF572982D3B700BD433E /* StoryboardExample */,
@@ -250,7 +265,6 @@
 				AD42F7C639DCE51248BBAFDF /* Pods-StorytellerSampleApp.debug.xcconfig */,
 				3D1AAF348480FEDCCC41972F /* Pods-StorytellerSampleApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -380,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55010F6A2A39D55D00E543A9 /* ClipsTabViewController.swift in Sources */,
 				DC4A8CF429C9E93900DE026D /* StorytellerThemes.swift in Sources */,
 				AF5BBF562982D3B200BD433E /* StoryboardViewController.swift in Sources */,
 				AF5BBF532982D37500BD433E /* UIView.swift in Sources */,
@@ -404,6 +419,7 @@
 				AF5BBF582982D3D200BD433E /* MultipleListsViewController.swift in Sources */,
 				AF82186E29953F5500DE31BE /* NativeAdsRequest.swift in Sources */,
 				AF82187229953F5500DE31BE /* TrackingManager.swift in Sources */,
+				55010F6B2A39D55D00E543A9 /* EmbeddedClipsViewController.swift in Sources */,
 				AF43A5942978065C0026F090 /* StorytellerMainDelegate.swift in Sources */,
 				AF43A5952978065C0026F090 /* StorytellerManager.swift in Sources */,
 				AF43A5972978065C0026F090 /* StorytellerListDelegate.swift in Sources */,

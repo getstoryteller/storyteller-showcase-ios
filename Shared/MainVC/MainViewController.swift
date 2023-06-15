@@ -36,6 +36,8 @@ final class MainViewController: UIViewController {
                 self?.actionHandler(.moveToGoogleAdsIntegrationExample)
             case .swiftUITap:
                 self?.actionHandler(.moveToSwiftUI)
+            case .embeddedClipsTap:
+                self?.actionHandler(.moveToEmbeddedClips)
             }
         }
 
@@ -52,6 +54,7 @@ final class MainViewController: UIViewController {
         case moveToStoryboardExample
         case moveToGoogleAdsIntegrationExample
         case moveToSwiftUI
+        case moveToEmbeddedClips
     }
 
     var actionHandler: (Action) -> Void = { _ in }
