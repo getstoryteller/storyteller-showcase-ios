@@ -69,7 +69,7 @@ final class MainView: UIView {
                 addGoogleAdsIntegrationButton()
             case let .swiftUIButton(cellType, delegate):
                 addSwiftUIButton(cellType: cellType, delegate: delegate)
-            case let .embeddedClipsButton:
+            case .embeddedClipsButton:
                 addEmbeddedClipsButton()
             }
         }
@@ -103,7 +103,7 @@ final class MainView: UIView {
 
         // Set thumbnail shape.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view#Attributes
-        row.cellType = cellType
+        row.configuration = StorytellerStoriesListConfiguration(categories: [], cellType: cellType)
 
         // Set delegate to use.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-list-view-delegate#HowToUse

@@ -11,7 +11,6 @@
 		55010F5F2A39BD5900E543A9 /* ClipsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F5B2A39BD5900E543A9 /* ClipsTabViewController.swift */; };
 		55010F602A39BD5900E543A9 /* EmbeddedClipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010F5C2A39BD5900E543A9 /* EmbeddedClipsViewController.swift */; };
 		AEBB2EA425D35267000A9127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB2EA225D35267000A9127 /* AppDelegate.swift */; };
-		AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */; };
 		AF43A5872978061A0026F090 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5862978061A0026F090 /* MainFlowController.swift */; };
 		AF43A5902978065C0026F090 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5882978065C0026F090 /* MainViewController.swift */; };
 		AF43A5912978065C0026F090 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43A5892978065C0026F090 /* MainViewModel.swift */; };
@@ -62,7 +61,6 @@
 		55010F5B2A39BD5900E543A9 /* ClipsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipsTabViewController.swift; sourceTree = "<group>"; };
 		55010F5C2A39BD5900E543A9 /* EmbeddedClipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedClipsViewController.swift; sourceTree = "<group>"; };
 		AEBB2EA225D35267000A9127 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Shared/AppDelegate.swift; sourceTree = "<group>"; };
-		AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWrappers.swift; sourceTree = "<group>"; };
 		AF43A5862978061A0026F090 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainFlowController.swift; path = ../../Shared/MainFlowController.swift; sourceTree = "<group>"; };
 		AF43A5882978065C0026F090 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Shared/MainVC/MainViewController.swift; sourceTree = "<group>"; };
 		AF43A5892978065C0026F090 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ../Shared/MainVC/MainViewModel.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				AF5BBF0D297A891600BD433E /* SwiftUIView.swift */,
-				AEE669ED29D6F7A80027981F /* SwiftUIWrappers.swift */,
 			);
 			name = SwiftUI;
 			path = ../../Shared/SwiftUI;
@@ -360,7 +357,6 @@
 				AF5BBF422982D2A600BD433E /* StoriesGridCell.swift in Sources */,
 				AF82187029953F5500DE31BE /* AdManager.swift in Sources */,
 				AF5BBF432982D2A600BD433E /* ClipsRowCell.swift in Sources */,
-				AEE669EE29D6F7A80027981F /* SwiftUIWrappers.swift in Sources */,
 				AF5BBF442982D2A600BD433E /* StoriesRowCell.swift in Sources */,
 				AF5BBF452982D2A600BD433E /* MultipleListsDataSource.swift in Sources */,
 				AF5BBF462982D2A600BD433E /* LabelCell.swift in Sources */,
@@ -597,7 +593,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = exactVersion;
-				version = 9.2.1;
+				version = 9.3.0;
 			};
 		};
 		AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {

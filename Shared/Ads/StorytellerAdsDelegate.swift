@@ -7,7 +7,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
 
     // Called when tenant is configured to use ads from the containing app.
     // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#ClientAds
-    func getAdsForList(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+    func getAdsForList(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: StorytellerAd]) -> Void, onError: @escaping (Error) -> Void) {
         DispatchQueue.main.async { [weak self] in
             self?.fetchAds(adRequestInfo: adRequestInfo, onComplete: { ads in
                 onComplete(ads)
@@ -43,7 +43,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         nativeAds = [:]
     }
 
-    private func fetchAds(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
+    private func fetchAds(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping ([String: StorytellerAd]) -> Void, onError: @escaping (Error) -> Void) {
         
         switch adRequestInfo {
         case .stories(let placement, let categories, let stories):
@@ -53,8 +53,8 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         }
     }
         
-    private func handleStoryAds(placement: String, categories: [String], stories: [StorytellerAdRequestInfo.StoryInfo], onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
-        var ads: [String: ClientAd] = [:]
+    private func handleStoryAds(placement: String, categories: [String], stories: [StorytellerAdRequestInfo.StoryInfo], onComplete: @escaping ([String: StorytellerAd]) -> Void, onError: @escaping (Error) -> Void) {
+        var ads: [String: StorytellerAd] = [:]
         var count = 0
 
         for story in stories {
@@ -88,8 +88,8 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         }
     }
     
-    private func handleClipsAds(collection: String, clips: [StorytellerAdRequestInfo.ClipInfo], onComplete: @escaping ([String: ClientAd]) -> Void, onError: @escaping (Error) -> Void) {
-        var ads: [String: ClientAd] = [:]
+    private func handleClipsAds(collection: String, clips: [StorytellerAdRequestInfo.ClipInfo], onComplete: @escaping ([String: StorytellerAd]) -> Void, onError: @escaping (Error) -> Void) {
+        var ads: [String: StorytellerAd] = [:]
         var count = 0
 
         for clip in clips {
@@ -127,7 +127,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
 }
 
 extension GADCustomNativeAd {
-    func toStorytellerClientAd() -> ClientAd? {
+    func toStorytellerClientAd() -> StorytellerAd? {
         guard let adKey = string(forKey: Ads.creativeIDKey),
               let creativeType = string(forKey: Ads.creativeTypeKey),
               let clickURL = string(forKey: Ads.clickURLKey),
@@ -143,20 +143,20 @@ extension GADCustomNativeAd {
         let clickThroughCTA = string(forKey: Ads.clickThroughCTAKey)
         let swipeUp = createAdSwipeUp(clickType: clickType, clickThroughURL: clickURL, clickThroughCTA: clickThroughCTA, appStoreId: appStoreId)
 
-        let clientAd = ClientAd(id: adKey, advertiserName: advertiserName, image: image, video: video, playcardUrl: nil, duration: nil, trackingPixels: [ClientTrackingPixel(eventType: Ads.impressionKey, url: trackingURL)], action: swipeUp)
+        let clientAd = StorytellerAd(id: adKey, advertiserName: advertiserName, image: image, video: video, playcardUrl: nil, duration: nil, trackingPixels: [StorytellerAdTrackingPixel(eventType: Ads.impressionKey, url: trackingURL)], action: swipeUp)
 
         return clientAd
     }
 
-    private func createAdSwipeUp(clickType: String, clickThroughURL: String, clickThroughCTA: String?, appStoreId: String?) -> ClientAdAction? {
+    private func createAdSwipeUp(clickType: String, clickThroughURL: String, clickThroughCTA: String?, appStoreId: String?) -> StorytellerAdAction? {
         switch clickType {
         case Ads.webKey:
-            return ClientAdAction(urlOrStoreId: clickThroughURL, type: .web, text: clickThroughCTA)
+            return StorytellerAdAction(urlOrStoreId: clickThroughURL, type: .web, text: clickThroughCTA)
         case Ads.inAppKey:
-            return ClientAdAction(urlOrStoreId: clickThroughURL, type: .inApp, text: clickThroughCTA)
+            return StorytellerAdAction(urlOrStoreId: clickThroughURL, type: .inApp, text: clickThroughCTA)
         case Ads.storeKey:
             if let id = appStoreId {
-                return ClientAdAction(urlOrStoreId: id, type: .store, text: clickThroughCTA)
+                return StorytellerAdAction(urlOrStoreId: id, type: .store, text: clickThroughCTA)
             } else {
                 return nil
             }

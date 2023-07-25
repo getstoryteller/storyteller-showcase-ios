@@ -31,11 +31,10 @@ final class StoriesGridCell: UITableViewCell {
         cellType: StorytellerListViewCellType,
         delegate: StorytellerListDelegate)
     {
-        storytellerGrid.categories = categories
-        storytellerGrid.delegate = delegate
-        storytellerGrid.cellType = cellType
         // Set custom theme for this view instead of using global one
-        storytellerGrid.theme = StorytellerThemes.customTheme
+        let configuration = StorytellerStoriesListConfiguration(categories: categories, cellType: cellType, theme: StorytellerThemes.customTheme)
+        storytellerGrid.configuration = configuration
+        storytellerGrid.delegate = delegate
     }
 
     func reloadData() {
