@@ -29,9 +29,9 @@ final class ClipsGridCell: UITableViewCell {
         cellType: StorytellerListViewCellType,
         delegate: StorytellerListDelegate)
     {
-        storytellerGrid.collectionId = collectionId
+        let configuration = StorytellerClipsListConfiguration(collectionId: collectionId, cellType: cellType)
+        storytellerGrid.configuration = configuration
         storytellerGrid.delegate = delegate
-        storytellerGrid.cellType = cellType
     }
 
     func reloadData() {

@@ -31,12 +31,11 @@ final class StoriesRowCell: UITableViewCell {
         height: CGFloat,
         delegate: StorytellerListDelegate)
     {
-        storytellerRow.categories = categories
-        storytellerRow.delegate = delegate
-        storytellerRow.cellType = cellType
-        rowHeightConstraint?.constant = height
         // Set custom theme for this view instead of using global one
-        storytellerRow.theme = StorytellerThemes.customTheme
+        let configuration = StorytellerStoriesListConfiguration(categories: categories, cellType: cellType, theme: StorytellerThemes.customTheme)
+        storytellerRow.configuration = configuration
+        storytellerRow.delegate = delegate
+        rowHeightConstraint?.constant = height
         storytellerRow.reloadData()
     }
 

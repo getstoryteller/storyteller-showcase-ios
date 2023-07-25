@@ -34,11 +34,15 @@ class StoryboardViewController: UIViewController {
         storytellerClipsRowView.delegate = storytellerListDelegate
         storytellerClipsGridView.delegate = storytellerListDelegate
 
-        storytellerStoriesRowViewRound.cellType = StorytellerListViewCellType.round
-        storytellerStoriesRowViewSquare.cellType = StorytellerListViewCellType.square
+        let roundConfiguration = StorytellerStoriesListConfiguration(categories: [], cellType: .round)
+        let squareConfiguration = StorytellerStoriesListConfiguration(categories: [], cellType: .square)
+        let clipsConfiguration = StorytellerClipsListConfiguration(collectionId: "clipssample")
+        
+        storytellerStoriesRowViewRound.configuration = roundConfiguration
+        storytellerStoriesRowViewSquare.configuration = squareConfiguration
 
-        storytellerClipsRowView.collectionId = "clipssample"
-        storytellerClipsGridView.collectionId = "clipssample"
+        storytellerClipsRowView.configuration = clipsConfiguration
+        storytellerClipsGridView.configuration = clipsConfiguration
     }
 
     @objc func onPullToRefresh() {

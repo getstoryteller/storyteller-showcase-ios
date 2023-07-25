@@ -4,27 +4,24 @@ import SwiftUI
 
 struct SwiftUIView: View {
     class SwiftUIModel: ObservableObject {
-        @Published var storiesRowConfiguration: StorytellerStoriesConfiguration
-        @Published var storiesGridConfiguration: StorytellerStoriesConfiguration
-        @Published var clipsRowConfiguration: StorytellerClipsConfiguration
-        @Published var clipsGridConfiguration: StorytellerClipsConfiguration
+        @Published var storiesRowModel: StorytellerStoriesListModel
+        @Published var storiesGridModel: StorytellerStoriesListModel
+        @Published var clipsRowModel: StorytellerClipsListModel
+        @Published var clipsGridModel: StorytellerClipsListModel
         private var cancellable: AnyCancellable?
 
         init() {
-            storiesRowConfiguration = StorytellerStoriesConfiguration.default
-            storiesGridConfiguration = StorytellerStoriesConfiguration.default
-            clipsRowConfiguration = StorytellerClipsConfiguration.default
-            clipsGridConfiguration = StorytellerClipsConfiguration.default
-
-            clipsRowConfiguration.collectionId = "clipssample"
-            clipsGridConfiguration.collectionId = "clipssample"
+            storiesRowModel = StorytellerStoriesListModel(categories: [])
+            storiesGridModel = StorytellerStoriesListModel(categories: [])
+            clipsRowModel = StorytellerClipsListModel(collectionId: "clipssample")
+            clipsGridModel = StorytellerClipsListModel(collectionId: "clipssample")
         }
 
         func reloadData() {
-            storiesRowConfiguration.common.triggerReload.toggle()
-            storiesGridConfiguration.common.triggerReload.toggle()
-            clipsRowConfiguration.common.triggerReload.toggle()
-            clipsGridConfiguration.common.triggerReload.toggle()
+            storiesRowModel.reloadData()
+            storiesGridModel.reloadData()
+            clipsRowModel.reloadData()
+            clipsGridModel.reloadData()
         }
     }
 
@@ -35,7 +32,7 @@ struct SwiftUIView: View {
             VStack(alignment: .leading) {
                 Text("SwiftUI Stories RowView")
                     .padding(.leading, 8)
-                StorytellerStoriesRow(configuration: model.storiesRowConfiguration) { action in
+                StorytellerStoriesRow(model: model.storiesRowModel) { action in
                     if case .onPlayerDismissed = action {
                         print("Player dismissed")
                     }
@@ -44,16 +41,16 @@ struct SwiftUIView: View {
 
                 Text("SwiftUI Stories GridView")
                     .padding(.leading, 8)
-                StorytellerStoriesGrid(configuration: model.storiesGridConfiguration)
+                StorytellerStoriesGrid(model: model.storiesGridModel)
 
                 Text("SwiftUI Clips RowView")
                     .padding(.leading, 8)
-                StorytellerClipsRow(configuration: model.clipsRowConfiguration)
+                StorytellerClipsRow(model: model.clipsRowModel)
                     .frame(height: 240)
 
                 Text("SwiftUI Clips GridView")
                     .padding(.leading, 8)
-                StorytellerClipsGrid(configuration: model.clipsGridConfiguration)
+                StorytellerClipsGrid(model: model.clipsGridModel)
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)

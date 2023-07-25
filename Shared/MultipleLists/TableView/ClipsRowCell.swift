@@ -31,9 +31,9 @@ final class ClipsRowCell: UITableViewCell {
         height: CGFloat,
         delegate: StorytellerListDelegate)
     {
-        storytellerClipRow.collectionId = collectionId
+        let configuration = StorytellerClipsListConfiguration(collectionId: collectionId, cellType: cellType)
+        storytellerClipRow.configuration = configuration
         storytellerClipRow.delegate = delegate
-        storytellerClipRow.cellType = cellType
         rowHeightConstraint?.constant = height
         storytellerClipRow.reloadData()
     }
