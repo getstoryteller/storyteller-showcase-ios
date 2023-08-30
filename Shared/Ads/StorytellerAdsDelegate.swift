@@ -66,13 +66,11 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         ]
 
         AdManager.sharedInstance.getNativeAd(
-            adUnitId: AdUnits.adUnit,
+            adUnitId: AdUnits.storiesAdUnit,
             keyValues: keyValues,
-            supportedCustomTemplateIds: [AdUnits.templateId],
+            supportedCustomTemplateIds: [AdUnits.storyTemplateId],
             contentURLString: "") { [weak self] ad, error in
-
-
-                if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerClientAd() {
+                if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerAd() {
                     self?.nativeAds[story.id] = nativeAd
                     onComplete(storytellerAd)
                 } else if let error {
@@ -91,12 +89,11 @@ class StorytellerAdsDelegate: StorytellerDelegate {
         ]
 
         AdManager.sharedInstance.getNativeAd(
-            adUnitId: AdUnits.adUnit,
+            adUnitId: AdUnits.clipsAdUnit,
             keyValues: keyValues,
-            supportedCustomTemplateIds: [AdUnits.templateId],
+            supportedCustomTemplateIds: [AdUnits.clipTemplateId],
             contentURLString: "") { [weak self] ad, error in
-
-                if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerClientAd() {
+                if error == nil, let nativeAd = ad, let storytellerAd = nativeAd.toStorytellerAd() {
                     self?.nativeAds[clip.id] = nativeAd
                     onComplete(storytellerAd)
                 } else if let error {
@@ -111,9 +108,8 @@ class StorytellerAdsDelegate: StorytellerDelegate {
 }
 
 extension GADCustomNativeAd {
-    func toStorytellerClientAd() -> StorytellerAd? {
+    func toStorytellerAd() -> StorytellerAd? {
         guard let adKey = string(forKey: Ads.creativeIDKey),
-              let creativeType = string(forKey: Ads.creativeTypeKey),
               let clickURL = string(forKey: Ads.clickURLKey),
               let advertiserName = string(forKey: Ads.advertiserNameKey),
               let trackingURL = string(forKey: Ads.trackingURLKey),
@@ -121,18 +117,23 @@ extension GADCustomNativeAd {
             return nil
         }
 
-        let image = creativeType == Ads.displayType ? image(forKey: Ads.imageKey)?.imageURL?.absoluteString : nil
-        let video = creativeType == Ads.videoType ? string(forKey: Ads.videoKey) : nil
+        var image: String?
+        var video: String?
+        if string(forKey: Ads.creativeTypeKey) == Ads.displayType {
+            image = self.image(forKey: Ads.imageKey)?.imageURL?.absoluteString
+        } else {
+            video = string(forKey: Ads.videoKey)
+        }
         let appStoreId = string(forKey: Ads.appStoreIdKey)
         let clickThroughCTA = string(forKey: Ads.clickThroughCTAKey)
-        let swipeUp = createAdSwipeUp(clickType: clickType, clickThroughURL: clickURL, clickThroughCTA: clickThroughCTA, appStoreId: appStoreId)
+        let adAction = createAdAction(clickType: clickType, clickThroughURL: clickURL, clickThroughCTA: clickThroughCTA, appStoreId: appStoreId)
 
-        let clientAd = StorytellerAd(id: adKey, advertiserName: advertiserName, image: image, video: video, playcardUrl: nil, duration: nil, trackingPixels: [StorytellerAdTrackingPixel(eventType: Ads.impressionKey, url: trackingURL)], action: swipeUp)
+        let clientAd = StorytellerAd(id: adKey, advertiserName: advertiserName, image: image, video: video, playcardUrl: nil, duration: nil, trackingPixels: [StorytellerAdTrackingPixel(eventType: Ads.impressionKey, url: trackingURL)], action: adAction)
 
         return clientAd
     }
 
-    private func createAdSwipeUp(clickType: String, clickThroughURL: String, clickThroughCTA: String?, appStoreId: String?) -> StorytellerAdAction? {
+    private func createAdAction(clickType: String, clickThroughURL: String, clickThroughCTA: String?, appStoreId: String?) -> StorytellerAdAction? {
         switch clickType {
         case Ads.webKey:
             return StorytellerAdAction(urlOrStoreId: clickThroughURL, type: .web, text: clickThroughCTA)
