@@ -13,7 +13,6 @@ enum Ads {
     static let clickThroughCTAKey = "ClickThroughCTA"
 
     static let displayType = "display"
-    static let videoType = "video"
 
     static let impressionKey = "impression"
 
@@ -31,6 +30,9 @@ enum Ads {
 }
 
 enum AdUnits {
-    static let templateId = "12102683"
-    static let adUnit = "/33813572/stories-native-ad-unit"
+    static let storyTemplateId = "12102683"
+    static let storiesAdUnit = "/33813572/stories-native-ad-unit"
+
+    static let clipTemplateId = "12269089"
+    static let clipsAdUnit = "/33813572/clips-native-ad-unit"
 }
