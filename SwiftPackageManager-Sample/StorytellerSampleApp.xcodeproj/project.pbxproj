@@ -593,7 +593,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = exactVersion;
-				version = 9.7.0;
+				version = 9.7.1;
 			};
 		};
 		AF8218742995408900DE31BE /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
