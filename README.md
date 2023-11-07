@@ -13,27 +13,21 @@
   <a href="https://docs.getstoryteller.com/documents/ios-sdk" target="_blank"><img alt="Storyteller iOS Documentation" src="img/docs-btn.png" width="272" height="48"></a>
 </p>
 
-Use this repo as a reference for integrating Storyteller in your iOS App.
+## Documentation
+
+All of the documentation for our iOS SDK is [available on our website](https://www.getstoryteller.com/documentation/ios/quickstart)
+
+## Sample Apps
+
+This repo contains the following sample applications:
+
+- [Main Sample](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/main)
+- [Cocoapods Sample](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/cocoapods)
+
+## Other Platforms
 
 Storyteller is also available for [Android](https://github.com/getstoryteller/storyteller-sample-android), [React Native](https://github.com/getstoryteller/storyteller-sdk-react-native) and [Web](https://github.com/getstoryteller/storyteller-sample-web).
 
-For help with Storyteller, please check our [Documentation and User Guide](https://docs.getstoryteller.com/documents/) or contact [support@getstoryteller.com](mailto:support@getstoryteller.com?Subject=iOS%20Sample%20App).
+## Need Help?
 
-Remark that because of the SwiftUI integration example minimum deployment version of the sample app is iOS 15. The minimum deployment version of SDK is iOS 11.
-
-# Integration Examples
-
-Table represents different integration types with links to examples inside this repository.
-
-| Integration type | Example |
-|----------|-------------------------|
-| CocoaPods | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/CocoaPods-Sample) |
-| XCFrameworks | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/XCFrameworks-Sample) | 
-| Swift Package Manager | [Example](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/SwiftPackageManager-Sample) |
-
-
-# Google Ads Integration Example
-
-You can find examples of integrating Google Ads dependencies in three different ways mentioned in the previous paragraph.
-
-All the files along with instruction to integrate Google Ads you can find [here](https://github.com/getstoryteller/storyteller-sample-ios/tree/main/Shared/Ads)
+We're always available at [support@getstoryteller.com](mailto:support@getstoryteller.com?Subject=iOS%20Sample%20App) to provide help and assistance with integrating the Storyteller SDK into your iOS app.
