@@ -16,7 +16,7 @@ This is a UIKit based sample. The Storyteller SDK is installed using Cocoapods.
    ```
    
 2. Open the `.xcworkspace` file in XCode
-3. Replace the `[API-KEY]` placeholder in `Settings.swift` with your Storyteller API key.
+3. Replace the `[API-KEY]` placeholder in `AppStorage.swift` with your Storyteller API key.
 
    > [Get in touch](mailto:hello@getstoryteller.com) to request an API key
 

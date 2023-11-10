@@ -1,7 +1,7 @@
 import Foundation
 
 final class AppStorage {
-    let apiKey = "19299407-f8c4-4716-a713-b842cfd7e395"
+    let apiKey = "[API-KEY]"
     
     var selectedLanguage: String {
         get {
