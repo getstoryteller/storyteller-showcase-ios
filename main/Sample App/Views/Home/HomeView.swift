@@ -21,6 +21,16 @@ class HomeViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] tabs in
                 self?.tabs = tabs
+                self?.fetchTabData()
+            }
+            .store(in: &cancellables)
+        
+        dataService.$settings
+            .receive(on: RunLoop.main)
+            .sink { [weak self] settings in
+                if !settings.tabsEnabled {
+                    self?.fetchTabData()
+                }
             }
             .store(in: &cancellables)
     }
