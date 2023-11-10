@@ -26,14 +26,14 @@ struct AccountView: View {
                 if !viewModel.favoriteTeams.isEmpty {
                     Picker("Favorite Teams", selection: $viewModel.favoriteTeam) {
                         ForEach(viewModel.favoriteTeams) { team in
-                            Text(team.name)
+                            Text(team.name).tag(team.value)
                         }
                     }.pickerStyle(NavigationLinkPickerStyle())
                 }
                 if !viewModel.languages.isEmpty {
                     Picker("Language", selection: $viewModel.language) {
                         ForEach(viewModel.languages) { language in
-                            Text(language.name)
+                            Text(language.name).tag(language.value)
                         }
                     }.pickerStyle(NavigationLinkPickerStyle())
                 }
