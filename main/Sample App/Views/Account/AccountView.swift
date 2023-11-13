@@ -4,11 +4,11 @@ import StorytellerSDK
 struct AccountView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AccountViewModel
-
+    
     init(dataService: DataGateway) {
         self._viewModel = StateObject(wrappedValue: AccountViewModel(dataService: dataService))
     }
-
+    
     // This view demonstrates how to pass User Attributes to the Storyteller SDK
     // for the purposes of personalization and targeting of stories.
     // The corresponding code which interacts with the Storyteller SDK is
@@ -25,6 +25,7 @@ struct AccountView: View {
             Section("Personalisation") {
                 if !viewModel.favoriteTeams.isEmpty {
                     Picker("Favorite Teams", selection: $viewModel.favoriteTeam) {
+                        Text("Not Set").tag("")
                         ForEach(viewModel.favoriteTeams) { team in
                             Text(team.name).tag(team.value)
                         }
@@ -32,11 +33,16 @@ struct AccountView: View {
                 }
                 if !viewModel.languages.isEmpty {
                     Picker("Language", selection: $viewModel.language) {
+                        Text("Not Set").tag("")
                         ForEach(viewModel.languages) { language in
                             Text(language.name).tag(language.value)
                         }
                     }.pickerStyle(NavigationLinkPickerStyle())
                 }
+                Picker("Has Account", selection: $viewModel.hasAccount) {
+                    Text("No").tag("false")
+                    Text("Yes").tag("true")
+                }.pickerStyle(NavigationLinkPickerStyle())
             }
             Section("Settings") {
                 Picker("Allow Event Tracking", selection: $viewModel.allowEventTracking) {

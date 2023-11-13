@@ -43,11 +43,23 @@ class StorytellerService {
     // documentation here https://www.getstoryteller.com/documentation/ios/custom-attributes
 
     static func setLanguage(_ language: String) {
-        Storyteller.user.setCustomAttribute(key: "language", value: language)
+        if language != "" {
+            Storyteller.user.setCustomAttribute(key: "language", value: language)
+        } else {
+            Storyteller.user.removeCustomAttribute(key: "language")
+        }
     }
 
     static func setFavoriteTeam(_ favoriteTeam: String) {
-        Storyteller.user.setCustomAttribute(key: "favoriteTeam", value: favoriteTeam)
+        if favoriteTeam != "" {
+            Storyteller.user.setCustomAttribute(key: "favoriteTeam", value: favoriteTeam)
+        } else {
+            Storyteller.user.removeCustomAttribute(key: "favoriteTeam")
+        }
+    }
+    
+    static func setHasAccount(_ hasAccount: String) {
+        Storyteller.user.setCustomAttribute(key: "hasAccount", value: hasAccount)
     }
     
     // The code here shows to enable and disable event tracking for

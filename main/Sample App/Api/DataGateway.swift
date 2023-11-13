@@ -29,6 +29,14 @@ final class DataGateway: ObservableObject {
             }
         }
     }
+    @UserDefault("hasAccount", default: "") var hasAccount: String {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                self?.updateTabs()
+            }
+        }
+    }
+    
     @UserDefault("allowEventTracking", default: "") var allowEventTracking: String
 
     var code: String = "" {

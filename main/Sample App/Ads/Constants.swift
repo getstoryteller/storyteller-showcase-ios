@@ -52,6 +52,7 @@ enum Kvps {
     static let storytellerClipId = "stClipId"
     static let storytellerCollection = "stCollection"
     static let storytellerClipCategories = "stClipCategories"
+    static let storytellerApiKey = "stApiKey"
 }
 
 // These Ad Unit Identifiers should be replaced with Ad Units from your Google Ad Manager account

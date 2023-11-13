@@ -15,7 +15,7 @@ import StorytellerSDK
 
 class StorytellerInstanceDelegate : StorytellerDelegate {
     
-    let adsDelegate = StorytellerAdsDelegate()
+    let adsDelegate: StorytellerAdsDelegate
     let storytellerTracker: StorytellerTrackingDelegate
     
     var router: Router
@@ -23,6 +23,7 @@ class StorytellerInstanceDelegate : StorytellerDelegate {
     init(router: Router, dataService: DataGateway) {
         self.router = router
         self.storytellerTracker = StorytellerTrackingDelegate(dataService: dataService)
+        self.adsDelegate = StorytellerAdsDelegate(dataService: dataService)
     }
     
     func getAd(for adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
