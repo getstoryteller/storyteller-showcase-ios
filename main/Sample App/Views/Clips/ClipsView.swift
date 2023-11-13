@@ -7,7 +7,6 @@ class ClipsViewModel : ObservableObject {
     @Published var configuration: StorytellerClipsListConfiguration
     private var cancellables: Set<AnyCancellable> = []
 
-
     init(dataService: DataGateway) {
         self.dataService = dataService
         configuration = StorytellerClipsListConfiguration(collectionId: dataService.settings.topLevelClipsCollection)
@@ -37,6 +36,6 @@ struct ClipsView: View {
     var body: some View {
         VStack(spacing: 0) {
             StorytellerEmbedClipsView(configuration: viewModel.configuration)
-        }
+        }.ignoresSafeArea(.container, edges: .top)
     }
 }
