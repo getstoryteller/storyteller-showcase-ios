@@ -21,6 +21,11 @@ class StorytellerAdsDelegate : StorytellerDelegate {
     
     private var nativeAds = [String: GADCustomNativeAd]()
     private let trackingManager = AdTrackingManager()
+    private let dataService: DataGateway
+    
+    init(dataService: DataGateway) {
+        self.dataService = dataService
+    }
     
     func getAd(for adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         DispatchQueue.main.async {
@@ -50,6 +55,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
         }
     }
     
+    @MainActor
     private func fetchAds(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         
         switch adRequestInfo {
@@ -74,6 +80,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
     // information about which Story or Clip was shown directly before the ad.
     // This can be useful for ad targeting scenarios
     
+    @MainActor
     private func handleStoryAds(placement: String, categories: [String], story: StorytellerAdRequestInfo.ItemInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         let storyCategories = story.categories.map(\.externalId).joined(separator: ",")
         let viewCategories = categories.joined(separator: ",")
@@ -82,7 +89,8 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             Kvps.storytellerCategories: storyCategories,
             Kvps.storytellerStoryId: story.id,
             Kvps.storytellerCurrentCategory: viewCategories,
-            Kvps.storytellerPlacement: placement
+            Kvps.storytellerPlacement: placement,
+            Kvps.storytellerApiKey: dataService.settings.apiKey
         ]
         
         AdManager.sharedInstance.getNativeAd(
@@ -100,13 +108,15 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             }
     }
     
+    @MainActor
     private func handleClipsAds(collection: String, clip: StorytellerAdRequestInfo.ItemInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         let clipCategories = clip.categories.map(\.externalId).joined(separator: ",")
         
         let keyValues: [String: String] = [
             Kvps.storytellerClipId: clip.id,
             Kvps.storytellerCollection: collection,
-            Kvps.storytellerClipCategories: clipCategories
+            Kvps.storytellerClipCategories: clipCategories,
+            Kvps.storytellerApiKey: dataService.settings.apiKey
         ]
         
         AdManager.sharedInstance.getNativeAd(
