@@ -17,6 +17,13 @@ class AccountViewModel: ObservableObject {
         }
     }
     
+    @Published var hasAccount: String = "" {
+        didSet {
+            StorytellerService.setHasAccount(hasAccount)
+            dataService.hasAccount = hasAccount
+        }
+    }
+    
     @Published var allowEventTracking: String = "" {
         didSet {
             if allowEventTracking == "yes" {
@@ -33,6 +40,7 @@ class AccountViewModel: ObservableObject {
         self.favoriteTeam = dataService.favoriteTeam
         self.language = dataService.language
         self.allowEventTracking = dataService.allowEventTracking
+        self.hasAccount = dataService.hasAccount
     }
 
     var favoriteTeams: FavoriteTeams {
