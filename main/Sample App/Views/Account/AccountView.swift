@@ -3,11 +3,8 @@ import StorytellerSDK
 
 struct AccountView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var viewModel: AccountViewModel
-    
-    init(dataService: DataGateway) {
-        self._viewModel = StateObject(wrappedValue: AccountViewModel(dataService: dataService))
-    }
     
     // This view demonstrates how to pass User Attributes to the Storyteller SDK
     // for the purposes of personalization and targeting of stories.
@@ -19,7 +16,6 @@ struct AccountView: View {
     // The code here also shows to enable and disable event tracking for
     // the Storyteller SDK. The corresponding code which interacts with the
     // Storyteller SDK is visible in the StorytellerService class.
-    
     var body: some View {
         List {
             Section("Personalisation") {
@@ -50,10 +46,9 @@ struct AccountView: View {
                     Text("No").tag("no")
                 }.pickerStyle(NavigationLinkPickerStyle())
                 Button("Reset") {
-                    viewModel.reset()
+                    viewModel.resetUser()
                     dismiss()
-                }
-                .tint(.secondary)
+                }.tint(colorScheme == .dark ? .white : .black)
                 Button("Log Out") {
                     viewModel.logout()
                     dismiss()

@@ -22,11 +22,9 @@ class AccessCodeViewModel : ObservableObject {
             .store(in: &cancellables)
     }
 
-    var isAuthenticated: Bool { dataService.isAuthenticated }
-
     func verifyCode() {
         verificationInProgress = true
-        dataService.code = code
+        dataService.verifyCode(code)
     }
 }
 

@@ -63,8 +63,6 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             handleStoryAds(placement: placement, categories: categories, story: story, onComplete: onComplete, onError: onError)
         case .clips(let collection, let clip):
             handleClipsAds(collection: collection, clip: clip, onComplete: onComplete, onError: onError)
-        @unknown default:
-            onError(NoAdsError())
         }
     }
     
@@ -90,7 +88,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             Kvps.storytellerStoryId: story.id,
             Kvps.storytellerCurrentCategory: viewCategories,
             Kvps.storytellerPlacement: placement,
-            Kvps.storytellerApiKey: dataService.settings.apiKey
+            Kvps.storytellerApiKey: dataService.userStorage.settings.apiKey
         ]
         
         AdManager.sharedInstance.getNativeAd(
@@ -116,7 +114,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             Kvps.storytellerClipId: clip.id,
             Kvps.storytellerCollection: collection,
             Kvps.storytellerClipCategories: clipCategories,
-            Kvps.storytellerApiKey: dataService.settings.apiKey
+            Kvps.storytellerApiKey: dataService.userStorage.settings.apiKey
         ]
         
         AdManager.sharedInstance.getNativeAd(

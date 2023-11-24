@@ -12,12 +12,16 @@ class HomeViewModel: ObservableObject {
     }
     @Published var tabs: Tabs = []
     @Published var feed: FeedItems = []
+    let homeTabTapEvent: PassthroughSubject<Bool, Never>
+    let scrollToTopEvent = PassthroughSubject<Bool, Never>()
+    var scrollOffset: CGFloat = 0
     private var cancellables = Set<AnyCancellable>()
 
-    init(dataService: DataGateway) {
+    init(dataService: DataGateway, homeTabTapEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
+        self.homeTabTapEvent = homeTabTapEvent
 
-        dataService.$tabs
+        dataService.userStorage.$tabs
             .receive(on: RunLoop.main)
             .sink { [weak self] tabs in
                 self?.tabs = tabs
@@ -25,7 +29,7 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        dataService.$settings
+        dataService.userStorage.$settings
             .receive(on: RunLoop.main)
             .sink { [weak self] settings in
                 if !settings.tabsEnabled {
@@ -37,23 +41,36 @@ class HomeViewModel: ObservableObject {
     
     func fetchTabData() {
         Task {
-            if dataService.settings.tabsEnabled {
-                feed = await dataService.getTabFeed(withId: dataService.tabs.tabIDs[selectedTab])
-            } else {
+            if dataService.userStorage.settings.tabsEnabled {
+                guard !dataService.userStorage.tabs.isEmpty else { return }
+                feed = await dataService.getTabFeed(withId: dataService.userStorage.tabs.tabIDs[selectedTab])
+            } else if dataService.isAuthenticated == true {
                 feed = await dataService.getHomeFeed()
             }
         }
+    }
+
+    func handleHomeTabTap() {
+        if scrollOffset < 0 {
+            scrollToTopEvent.send(true)
+        } else if selectedTab > 0 {
+            self.selectedTab = 0
+        } else {
+            fetchTabData()
+        }
+    }
+    
+    func reset() {
+        tabs = []
+        feed = []
     }
 }
 
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
+    @EnvironmentObject var dataService: DataGateway
     @EnvironmentObject var router: Router
     @State var showSettings: Bool = false
-
-    init(dataService: DataGateway) {
-        self._viewModel = StateObject(wrappedValue: HomeViewModel(dataService: dataService))
-    }
     
     // The Storyteller SDK supports opening it's search experience using the
     // Storyteller.openSearch method. This can be triggered from wherever you
@@ -62,23 +79,41 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            ScrollView {
-                if !viewModel.tabs.isEmpty {
-                    HomeTabsView(tabs: viewModel.tabs.tabNames, tabChangeHandler: $viewModel.selectedTab)
-                }
-                if viewModel.feed.isEmpty {
-                    VStack {
-                        ProgressView()
-                            .progressViewStyle(.circular)
+            ScrollViewReader { reader in
+                ScrollView {
+                    offsetReader
+                    if !viewModel.tabs.isEmpty {
+                        HomeTabsView(viewModel: HomeTabsViewModel(tabs: viewModel.tabs.tabNames, tabChangeHandler: $viewModel.selectedTab)).id("HomeTabsView")
                     }
-                } else {
-                    FeedItemsView(feedItems: viewModel.feed, router: router)
+                    if viewModel.feed.isEmpty && viewModel.dataService.isAuthenticated == true {
+                        VStack {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                        }
+                    } else {
+                        FeedItemsView(viewModel: FeedItemsViewModel(feedItems: viewModel.feed, router: router))
+                    }
                 }
+                .onReceive(viewModel.scrollToTopEvent, perform: { _ in
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            reader.scrollTo("HomeTabsView", anchor: .bottom)
+                        }
+                    }
+                })
             }
-            .refreshable {
+            .onReceive(viewModel.homeTabTapEvent) { _ in
+                viewModel.handleHomeTabTap()
+            }
+            .onChange(of: dataService.userStorage.userId, { oldValue, newValue in
                 viewModel.fetchTabData()
-            }
-            .onAppear {
+            })
+            .onChange(of: dataService.isAuthenticated, { oldValue, newValue in
+                if newValue == false {
+                    viewModel.reset()
+                }
+            })
+            .refreshable {
                 viewModel.fetchTabData()
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -98,8 +133,28 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(isPresented: $showSettings) {
-                AccountView(dataService: viewModel.dataService)
+                AccountView(viewModel: AccountViewModel(dataService: dataService))
+            }
+            .coordinateSpace(name: "frameLayer")
+            .onPreferenceChange(OffsetPreferenceKey.self) { value in
+                viewModel.scrollOffset = value
             }
         }
     }
+    
+    var offsetReader: some View {
+        GeometryReader { proxy in
+          Color.clear
+            .preference(
+              key: OffsetPreferenceKey.self,
+              value: proxy.frame(in: .named("frameLayer")).minY
+            )
+        }
+        .frame(height: 0)
+      }
+}
+
+private struct OffsetPreferenceKey: PreferenceKey {
+  static var defaultValue: CGFloat = .zero
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
 }

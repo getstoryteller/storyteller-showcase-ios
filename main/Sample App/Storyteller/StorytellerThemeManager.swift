@@ -25,8 +25,6 @@ class StorytellerThemeManager {
                 
             case .bold, .heavy, .black:
                 return UIFont(name: "SFProText-Bold", size: size)
-            @unknown default:
-                return UIFont(name: "SFProText-Regular", size: size)
             }
         }
     }

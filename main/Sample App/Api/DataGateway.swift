@@ -1,4 +1,7 @@
 import Foundation
+import SwiftUI
+
+
 
 @MainActor
 final class DataGateway: ObservableObject {
@@ -8,85 +11,21 @@ final class DataGateway: ObservableObject {
         case incorrect
     }
 
-    private let api: API = API()
-    @UserDefault("userId", default: "") private var storedUserId: String {
-        didSet {
-            userId = storedUserId
-        }
-    }
-    @UserDefault("apiKey", default: "") private var apiKey: String
-    @UserDefault("favoriteTeam", default: "") var favoriteTeam: String {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-                self?.updateTabs()
-            }
-        }
-    }
-    @UserDefault("selectedLanguage", default: "") var language: String {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-                self?.updateTabs()
-            }
-        }
-    }
-    @UserDefault("hasAccount", default: "") var hasAccount: String {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-                self?.updateTabs()
-            }
-        }
-    }
-    
-    @UserDefault("allowEventTracking", default: "") var allowEventTracking: String
+    private lazy var api: API = {
+        API(userStorage: self.userStorage)
+    }()
 
-    var code: String = "" {
-        didSet {
-            if !code.isEmpty {
-                verifyCode(code)
-            } else {
-                logout()
-            }
-        }
-    }
-
-    @Published var isAuthenticated = false
-    @Published var userId = ""
+    @ObservedObject var userStorage = UserStorage()
     @Published var codeVerificationStatus: CodeVerificationStatus = .none
-    @Published var settings: TenantData = .empty
-    @Published var languages: Languages = []
-    @Published var favoriteTeams: FavoriteTeams = []
-    @Published var tabs: Tabs = []
-    private var originalTabs: Tabs = [] {
-        didSet {
-            updateTabs()
-        }
-    }
+    @Published var isAuthenticated: Bool? = nil
 
     func load() {
-        if !apiKey.isEmpty {
-            api.apiKey = apiKey
-            userId = storedUserId
-            isAuthenticated = true
-            getSettings()
+        guard !userStorage.apiKey.isEmpty else {
+            isAuthenticated = false
+            return
         }
-    }
-    
-    func resetUserId() {
-        storedUserId = generateUserId()
-    }
-
-    func refresh() {
-        Task {
-            do {
-                languages = try await api.call(forEndpoint: LanguagesEndpoint()).data
-                favoriteTeams = try await api.call(forEndpoint: TeamsEndpoint()).data
-                if settings.tabsEnabled {
-                    originalTabs = try await api.call(forEndpoint: TabsEndpoint()).data
-                }
-            } catch {
-                print("call failed with error: '\(error.localizedDescription)'")
-            }
-        }
+        isAuthenticated = true
+        getSettings()
     }
 
     func getHomeFeed() async -> FeedItems {
@@ -107,24 +46,13 @@ final class DataGateway: ObservableObject {
         return []
     }
 
-    func logout() {
-        isAuthenticated = false
-        apiKey = ""
-        settings = .empty
-        languages = []
-        favoriteTeams = []
-        tabs = []
-    }
-}
-
-private extension DataGateway {
     func verifyCode(_ code: String) {
         Task {
             do {
                 codeVerificationStatus = .verifying
-                settings = try await api.call(forEndpoint: ValidateCodeEndpoint(), params: EndpointParams(body: ["code": code])).data
-                apiKey = settings.apiKey
-                api.apiKey = apiKey
+                let settings = try await api.call(forEndpoint: ValidateCodeEndpoint(), params: EndpointParams(body: ["code": code])).data
+                userStorage.settings = settings
+                userStorage.apiKey = settings.apiKey
                 isAuthenticated = true
                 refresh()
             } catch {
@@ -138,26 +66,32 @@ private extension DataGateway {
     func getSettings() {
         Task {
             do {
-                settings = try await api.call(forEndpoint: SettingsEndpoint()).data
-                apiKey = settings.apiKey
-                api.apiKey = apiKey
-                isAuthenticated = true
+                let settings = try await api.call(forEndpoint: SettingsEndpoint()).data
+                userStorage.settings = settings
+                userStorage.apiKey = settings.apiKey
                 refresh()
             } catch {
                 print("getSettings call failed with error: '\(error.localizedDescription)'")
             }
         }
     }
-
-    func updateTabs() {
-        if !favoriteTeam.isEmpty, let favoriteTeam = favoriteTeams.team(withName: favoriteTeam) {
-            tabs = originalTabs.replacing(favoriteTeam: favoriteTeam)
-            return
-        }
-        tabs = originalTabs.removingFavorite()
+    
+    func logout() {
+        userStorage.logout()
+        isAuthenticated = false
     }
     
-    private func generateUserId() -> String {
-        return UUID().uuidString
+    private func refresh() {
+        Task {
+            do {
+                userStorage.languages = try await api.call(forEndpoint: LanguagesEndpoint()).data
+                userStorage.favoriteTeams = try await api.call(forEndpoint: TeamsEndpoint()).data
+                if userStorage.settings.tabsEnabled {
+                    userStorage.tabs = try await api.call(forEndpoint: TabsEndpoint()).data
+                }
+            } catch {
+                print("call failed with error: '\(error.localizedDescription)'")
+            }
+        }
     }
 }

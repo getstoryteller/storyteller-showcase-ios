@@ -7,27 +7,25 @@ import Combine
 class StorytellerService {
     private var cancellables = Set<AnyCancellable>()
 
-    @MainActor
-    func setup(withDataService dataService: DataGateway, router: Router) {     
-        dataService.$settings
+    func setup(withDataService dataService: DataGateway, router: Router) {
+        dataService.userStorage.$settings
             .sink { [weak self] data in
                 self?.setupStoryteller(withApiKey: data.apiKey, router: router, dataService: dataService)
             }
             .store(in: &cancellables)
         
-        dataService.$userId
+        dataService.userStorage.$userId
             .sink { [weak self] userId in
-                self?.setupStoryteller(withApiKey: dataService.settings.apiKey, router: router, dataService: dataService)
+                self?.setupStoryteller(withApiKey: dataService.userStorage.settings.apiKey, router: router, dataService: dataService)
             }
             .store(in: &cancellables)
     }
-    
-    @MainActor
+
     private func setupStoryteller(withApiKey apiKey: String, router: Router, dataService: DataGateway) {
         print("^ Setting up Storyteller with key: '\(apiKey)'")
         Storyteller.sharedInstance.initialize(
             apiKey: apiKey,
-            userInput: UserInput(externalId: dataService.userId),
+            userInput: UserInput(externalId: dataService.userStorage.userId),
             onComplete: {
                 Storyteller.sharedInstance.delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
                 Storyteller.theme = StorytellerThemeManager.squareTheme

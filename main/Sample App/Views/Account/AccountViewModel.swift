@@ -3,62 +3,77 @@ import Foundation
 @MainActor
 class AccountViewModel: ObservableObject {
     let dataService: DataGateway
-    @Published var favoriteTeam: String = "" {
-        didSet {
-            StorytellerService.setFavoriteTeam(favoriteTeam)
-            dataService.favoriteTeam = favoriteTeam
+
+    var favoriteTeam: String {
+        get {
+            dataService.userStorage.favoriteTeam
+        } set {
+            StorytellerService.setFavoriteTeam(newValue)
+            dataService.userStorage.favoriteTeam = newValue
+            self.objectWillChange.send()
         }
     }
     
-    @Published var language: String = "" {
-        didSet {
-            StorytellerService.setLanguage(language)
-            dataService.language = language
+    var language: String {
+        get {
+            dataService.userStorage.language
+        } set {
+            StorytellerService.setLanguage(newValue)
+            dataService.userStorage.language = newValue
+            self.objectWillChange.send()
         }
     }
     
-    @Published var hasAccount: String = "" {
-        didSet {
-            StorytellerService.setHasAccount(hasAccount)
-            dataService.hasAccount = hasAccount
+    var hasAccount: String {
+        get {
+            dataService.userStorage.hasAccount
+        } set {
+            StorytellerService.setHasAccount(newValue)
+            dataService.userStorage.hasAccount = newValue
+            self.objectWillChange.send()
         }
     }
     
-    @Published var allowEventTracking: String = "" {
-        didSet {
-            if allowEventTracking == "yes" {
+    var allowEventTracking: String {
+        get {
+            dataService.userStorage.allowEventTracking
+        } set {
+            if newValue == "yes" {
                 StorytellerService.enableEventTracking()
             } else {
                 StorytellerService.disableEventTracking()
             }
-            dataService.allowEventTracking = allowEventTracking
+            dataService.userStorage.allowEventTracking = newValue
+            self.objectWillChange.send()
         }
     }
 
     init(dataService: DataGateway) {
         self.dataService = dataService
-        self.favoriteTeam = dataService.favoriteTeam
-        self.language = dataService.language
-        self.allowEventTracking = dataService.allowEventTracking
-        self.hasAccount = dataService.hasAccount
     }
 
     var favoriteTeams: FavoriteTeams {
-        dataService.favoriteTeams
+        dataService.userStorage.favoriteTeams
     }
 
     var languages: Languages {
-        dataService.languages
+        dataService.userStorage.languages
     }
 
+    func resetUser() {
+        reset()
+    }
+    
     func logout() {
+        reset()
         dataService.logout()
     }
     
-    func reset() {
+    private func reset() {
         favoriteTeam = ""
         language = ""
+        hasAccount = ""
         allowEventTracking = "yes"
-        dataService.resetUserId()
+        dataService.userStorage.resetUser()
     }
 }

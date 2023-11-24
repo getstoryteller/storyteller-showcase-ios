@@ -14,19 +14,28 @@ struct SampleApp: App {
     // This happens inside the StorytellerService in this sample.
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) private var phase
     
     @StateObject var router = Router()
     @StateObject var dataService = DataGateway()
-    let storytellerService: StorytellerService = StorytellerService()
+    let storytellerService = StorytellerService()
 
     var body: some Scene {
         WindowGroup {
-            MainView(dataService: dataService)
+            MainView(viewModel: MainViewModel())
                 .environmentObject(router)
-                .onAppear {
-                    dataService.load()
-                    storytellerService.setup(withDataService: dataService, router: router)
-                }
+                .environmentObject(dataService)
+                .onChange(of: phase, { _, value in
+                    switch value {
+                    case .active:
+                        dataService.load()
+                        storytellerService.setup(withDataService: dataService, router: router)
+                    case .inactive, .background:
+                        break
+                    @unknown default:
+                        break
+                    }
+                })
         }
     }
 }
@@ -46,8 +55,8 @@ class AppDelegate : NSObject, UIApplicationDelegate {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
         
-        Amplitude.instance().initializeApiKey(AmplitudeSettings.ApiKey)
-        
+        Amplitude.instance().initializeApiKey(Settings.AmplitudeApiKey)
+
         return true
     }
 

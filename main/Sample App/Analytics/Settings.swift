@@ -4,6 +4,6 @@
 // have chosen Amplitude as the example here). The code to configure this is shown in the
 // StorytellerInstanceDelegate.swift and StorytellerTrackingDelegate classes.
 
-enum AmplitudeSettings {
-    static let ApiKey = ""
+class Settings {
+    public static let AmplitudeApiKey = ""
 }

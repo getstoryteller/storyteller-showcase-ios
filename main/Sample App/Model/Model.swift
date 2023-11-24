@@ -83,6 +83,7 @@ extension Tabs {
     var tabNames: [String] {
         map(\.name)
     }
+
     var tabIDs: [String] {
         map(\.value)
     }

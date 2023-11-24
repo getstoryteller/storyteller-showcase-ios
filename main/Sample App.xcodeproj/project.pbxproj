@@ -19,11 +19,12 @@
 		8C517C032AE1D9A000112045 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C517C022AE1D9A000112045 /* Model.swift */; };
 		8C517C062AE1E5FC00112045 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C517C052AE1E5FC00112045 /* NetworkError.swift */; };
 		8C95ED112AF52EC3005053B9 /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95ED102AF52EC3005053B9 /* UserDefaultPropertyWrapper.swift */; };
+		AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD901A2B0CDA5100E10866 /* UserStorage.swift */; };
 		FF4BEF332AB9D8B60094A501 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF4BEF322AB9D8B60094A501 /* StorytellerSDK */; };
 		FFA0FA4F2AA411920053DE0C /* StorytellerThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */; };
 		FFA0FA512AA4183C0053DE0C /* StorytellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA502AA4183C0053DE0C /* StorytellerService.swift */; };
 		FFA0FA5A2AA423A80053DE0C /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA592AA423A80053DE0C /* MoreView.swift */; };
-		FFA0FA5C2AA43BE70053DE0C /* AmplitudeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA5B2AA43BE70053DE0C /* AmplitudeSettings.swift */; };
+		FFA0FA5C2AA43BE70053DE0C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA5B2AA43BE70053DE0C /* Settings.swift */; };
 		FFA0FA5E2AA44F380053DE0C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA5D2AA44F380053DE0C /* Router.swift */; };
 		FFA0FA622AA456AD0053DE0C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA612AA456AD0053DE0C /* StringExtensions.swift */; };
 		FFB57B222AA161C000A17FE4 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB57B212AA161C000A17FE4 /* FeedItem.swift */; };
@@ -48,7 +49,6 @@
 		FFCD5B7E2AA00BA3000FA3C6 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = FFCD5B7D2AA00BA3000FA3C6 /* Amplitude */; };
 		FFCD5B812AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD5B802AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift */; };
 		FFCD5B852AA0130E000FA3C6 /* ClipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD5B842AA0130E000FA3C6 /* ClipsView.swift */; };
-		FFCD5B872AA0137B000FA3C6 /* StorytellerEmbedClipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD5B862AA0137B000FA3C6 /* StorytellerEmbedClipsView.swift */; };
 		FFCD5B8C2AA017B9000FA3C6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD5B8B2AA017B9000FA3C6 /* HomeView.swift */; };
 		FFCD5B8F2AA018C7000FA3C6 /* HomeTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD5B8E2AA018C7000FA3C6 /* HomeTabsView.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +79,7 @@
 		8C517C022AE1D9A000112045 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8C517C052AE1E5FC00112045 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8C95ED102AF52EC3005053B9 /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
+		AFDD901A2B0CDA5100E10866 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerThemeManager.swift; sourceTree = "<group>"; };
 		FFA0FA502AA4183C0053DE0C /* StorytellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerService.swift; sourceTree = "<group>"; };
 		FFA0FA542AA41FD90053DE0C /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -87,7 +88,7 @@
 		FFA0FA572AA41FD90053DE0C /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		FFA0FA582AA41FD90053DE0C /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		FFA0FA592AA423A80053DE0C /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
-		FFA0FA5B2AA43BE70053DE0C /* AmplitudeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeSettings.swift; sourceTree = "<group>"; };
+		FFA0FA5B2AA43BE70053DE0C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FFA0FA5D2AA44F380053DE0C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FFA0FA612AA456AD0053DE0C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		FFB57B212AA161C000A17FE4 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		FFCD5B802AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerTrackingDelegate.swift; sourceTree = "<group>"; };
 		FFCD5B822AA010D0000FA3C6 /* Sample App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sample App.entitlements"; sourceTree = "<group>"; };
 		FFCD5B842AA0130E000FA3C6 /* ClipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsView.swift; sourceTree = "<group>"; };
-		FFCD5B862AA0137B000FA3C6 /* StorytellerEmbedClipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerEmbedClipsView.swift; sourceTree = "<group>"; };
 		FFCD5B882AA016E0000FA3C6 /* Sample-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sample-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FFCD5B8B2AA017B9000FA3C6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFCD5B8E2AA018C7000FA3C6 /* HomeTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsView.swift; sourceTree = "<group>"; };
@@ -163,6 +163,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8C95ED122AFA77AF005053B9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FFA0FA522AA41F500053DE0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +207,7 @@
 				8C517BF32AE080E600112045 /* APIConfig.swift */,
 				8C517BFB2AE0814000112045 /* ResponseModels.swift */,
 				8C517C002AE0832400112045 /* Framework */,
+				AFDD901A2B0CDA5100E10866 /* UserStorage.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		FFCD5B652AA00749000FA3C6 /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				8C95ED122AFA77AF005053B9 /* Helpers */,
 				FFCD5B6A2AA00877000FA3C6 /* StorytellerInstanceDelegate.swift */,
 				FFCD5B6C2AA008CD000FA3C6 /* StorytellerAdsDelegate.swift */,
 				FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */,
@@ -275,7 +284,7 @@
 		FFCD5B7F2AA00BDB000FA3C6 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				FFA0FA5B2AA43BE70053DE0C /* AmplitudeSettings.swift */,
+				FFA0FA5B2AA43BE70053DE0C /* Settings.swift */,
 				FFCD5B802AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift */,
 			);
 			path = Analytics;
@@ -285,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				FFCD5B842AA0130E000FA3C6 /* ClipsView.swift */,
-				FFCD5B862AA0137B000FA3C6 /* StorytellerEmbedClipsView.swift */,
 			);
 			path = Clips;
 			sourceTree = "<group>";
@@ -412,12 +420,12 @@
 				FFCD5B6B2AA00877000FA3C6 /* StorytellerInstanceDelegate.swift in Sources */,
 				FFCD5B852AA0130E000FA3C6 /* ClipsView.swift in Sources */,
 				FFCD5B8C2AA017B9000FA3C6 /* HomeView.swift in Sources */,
-				FFCD5B872AA0137B000FA3C6 /* StorytellerEmbedClipsView.swift in Sources */,
 				8C517BF42AE080E600112045 /* APIConfig.swift in Sources */,
 				FFCD5B7B2AA00AA3000FA3C6 /* GADCustomNativeAdExtensions.swift in Sources */,
 				FFB57B242AA16D7B00A17FE4 /* FeedItemsView.swift in Sources */,
 				8C517BF12AE0735B00112045 /* API.swift in Sources */,
 				FFA0FA5A2AA423A80053DE0C /* MoreView.swift in Sources */,
+				AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */,
 				FFCD5B752AA00A0B000FA3C6 /* NativeAdRequest.swift in Sources */,
 				FFCD5B812AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift in Sources */,
 				FFCD5B732AA009EC000FA3C6 /* AdManager.swift in Sources */,
@@ -438,7 +446,7 @@
 				FFCD5B6D2AA008CD000FA3C6 /* StorytellerAdsDelegate.swift in Sources */,
 				8C517C062AE1E5FC00112045 /* NetworkError.swift in Sources */,
 				FFA0FA512AA4183C0053DE0C /* StorytellerService.swift in Sources */,
-				FFA0FA5C2AA43BE70053DE0C /* AmplitudeSettings.swift in Sources */,
+				FFA0FA5C2AA43BE70053DE0C /* Settings.swift in Sources */,
 				FFB57B222AA161C000A17FE4 /* FeedItem.swift in Sources */,
 				8C517BF02AE0735B00112045 /* Endpoint.swift in Sources */,
 			);
@@ -502,6 +510,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ld_classic";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -556,6 +565,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ld_classic";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -571,7 +581,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Sample App/Sample App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Sample App/Preview Content\"";
 				DEVELOPMENT_TEAM = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
@@ -588,8 +598,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.7.3;
-				OTHER_LDFLAGS = "-ObjC";
+				MARKETING_VERSION = 9.7.7;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Wl",
+					"-ld_classic",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.getstoryteller.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -609,7 +623,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Sample App/Sample App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Sample App/Preview Content\"";
 				DEVELOPMENT_TEAM = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
@@ -626,8 +640,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.7.3;
-				OTHER_LDFLAGS = "-ObjC";
+				MARKETING_VERSION = 9.7.7;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Wl",
+					"-ld_classic",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.getstoryteller.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -667,8 +685,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
-				kind = exactVersion;
-				version = 9.7.6;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.7.6;
 			};
 		};
 		FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {

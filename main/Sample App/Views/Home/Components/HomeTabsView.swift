@@ -14,22 +14,18 @@ struct HomeTabsView: View {
     @ObservedObject var viewModel: HomeTabsViewModel
     @Namespace var namespace
     
-    init(tabs: [String], tabChangeHandler: Binding<Int>) {
-        self._viewModel = ObservedObject(wrappedValue: HomeTabsViewModel(tabs: tabs, tabChangeHandler: tabChangeHandler))
-    }
-    
     var body: some View {
         ScrollViewReader { value in
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
+                HStack(spacing: 0) {
                     ForEach(Array(zip(self.viewModel.tabBarOptions.indices, self.viewModel.tabBarOptions)),
                             id: \.0,
                             content: {
                         index, name in
                         TabBarItem(currentTab: self.viewModel.tabHandler, namespace: namespace.self, tabBarItemName: name, tab: index)
+                            .padding(.horizontal, 10)
                     })
                 }
-                .padding(.horizontal)
             }
             .edgesIgnoringSafeArea(.all)
             .onChange(of: viewModel.tabHandler.wrappedValue) { _, tapped in

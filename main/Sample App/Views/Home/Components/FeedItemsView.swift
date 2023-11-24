@@ -3,18 +3,17 @@ import StorytellerSDK
 
 class FeedItemsViewModel: ObservableObject {
     @Published var feedItems: FeedItems
-    var router: Router
+    private let router: Router
     
     init(feedItems: FeedItems, router: Router) {
         self.feedItems = feedItems
         self.router = router
     }
-    
+
     // The StorytellerStoriesRow and StorytellerStoriesGrid views accept this configuration model
     // to determine how they look and behave.
     // For more information on the various properties which can be passed here, please see our public
     // documentation which is available here https://www.getstoryteller.com/documentation/ios/storyteller-list-views
-    
     func configuration(for item: FeedItem) -> StorytellerStoriesListModel {
         StorytellerStoriesListModel(
             categories: item.categories,
@@ -32,7 +31,7 @@ class FeedItemsViewModel: ObservableObject {
             displayLimit: item.count
         )
     }
-    
+
     // It is possible to connect the following Delegate to a Storyteller Row or
     // Grid view to receive notifications about how data loading is progressing
     // In this case, we show a common pattern which is hiding the relevant
@@ -40,7 +39,6 @@ class FeedItemsViewModel: ObservableObject {
     // render in the Storyteller row/grid.
     // For more information on this pattern, please see our public documentation here
     // https://www.getstoryteller.com/documentation/ios/storyteller-list-views
-    
     func storytellerListDelegate(item: FeedItem) -> (StorytellerSDK.StorytellerListAction) -> Void {
         { [weak self] action in
             switch(action) {
@@ -71,10 +69,7 @@ class FeedItemsViewModel: ObservableObject {
 
 struct FeedItemsView: View {
     @ObservedObject var viewModel: FeedItemsViewModel
-
-    init(feedItems: FeedItems, router: Router) {
-        self._viewModel = ObservedObject(wrappedValue: FeedItemsViewModel(feedItems: feedItems, router: router))
-    }
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 0) {

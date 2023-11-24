@@ -27,5 +27,3 @@ extension Endpoint {
     var extraPath: String { "" }
     var method: HTTPMethod { .GET }
 }
-
-
