@@ -100,9 +100,9 @@ struct AccessCodeField: View {
                 isCodeEntryFocused = true
             }
         }
-        .onChange(of: viewModel.code) { _, newValue in
+        .onChange(of: viewModel.code, perform: { value in
             viewModel.codeVerificationStatus = .none
-        }
+        })
     }
 
     var borderColor: Color {

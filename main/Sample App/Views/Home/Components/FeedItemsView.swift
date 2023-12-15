@@ -1,13 +1,29 @@
 import SwiftUI
 import StorytellerSDK
+import Combine
 
-class FeedItemsViewModel: ObservableObject {
+class FeedItemsViewModel: ObservableObject, Equatable {
+    
     @Published var feedItems: FeedItems
     private let router: Router
+    let scrollToTopOrSwitchTabToOrigintEvent: PassthroughSubject<Int, Never>
+    let scrollToTopEvent: PassthroughSubject<Int, Never>
+    var scrollOffset: CGFloat = 0
+    var isScrolling = false
+    var index: Int
+    var reloadList: () -> Void
     
-    init(feedItems: FeedItems, router: Router) {
+    init(index: Int, feedItems: FeedItems, router: Router, scrollToTopOrSwitchTabToOrigintEvent: PassthroughSubject<Int, Never>, scrollToTopEvent: PassthroughSubject<Int, Never>, reloadList: @escaping () -> Void) {
+        self.index = index
         self.feedItems = feedItems
         self.router = router
+        self.scrollToTopOrSwitchTabToOrigintEvent = scrollToTopOrSwitchTabToOrigintEvent
+        self.scrollToTopEvent = scrollToTopEvent
+        self.reloadList = reloadList
+    }
+    
+    func reload(items: FeedItems) {
+        feedItems = items
     }
 
     // The StorytellerStoriesRow and StorytellerStoriesGrid views accept this configuration model
@@ -46,6 +62,10 @@ class FeedItemsViewModel: ObservableObject {
                 if(error != nil || dataCount == 0) {
                     self?.hideList(id: item.id)
                 }
+            case .onPlayerDismissed:
+                if item.layout == .singleton {
+                    self?.reloadList()
+                }
             default:
                 break
             }
@@ -65,21 +85,81 @@ class FeedItemsViewModel: ObservableObject {
     func navigateToMoreClips(title: String, collection: String) {
         router.navigateToMore(title: title, collection: collection)
     }
+    
+    static func == (lhs: FeedItemsViewModel, rhs: FeedItemsViewModel) -> Bool {
+        lhs.feedItems == rhs.feedItems
+    }
 }
 
 struct FeedItemsView: View {
     @ObservedObject var viewModel: FeedItemsViewModel
     @EnvironmentObject var router: Router
+    var moveToOriginTab: () -> Void
+    var reload: () -> Void
     
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach(viewModel.feedItems, id: \.id) { item in
-                FeedItemView(for: item)
+        ScrollViewReader { reader in
+            Group {
+                if !viewModel.feedItems.isEmpty {
+                    ScrollView {
+                        offsetReader
+                        VStack(spacing: 0) {
+                            Spacer().id("HomeTabsView").frame(height: 1)
+                            ForEach(viewModel.feedItems, id: \.id) { item in
+                                FeedItemView(for: item)
+                            }
+                        }
+                    }
+                } else {
+                    Spacer()
+                    ProgressView().controlSize(.large).progressViewStyle(.circular)
+                    Spacer()
+                }
+            }
+            .onReceive(viewModel.scrollToTopOrSwitchTabToOrigintEvent, perform: { index in
+                guard self.viewModel.index == index else { return }
+                if viewModel.scrollOffset < 0 {
+                    viewModel.isScrolling = true
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            reader.scrollTo("HomeTabsView", anchor: .top)
+                        }
+                    }
+                } else {
+                    moveToOriginTab()
+                }
+            })
+            .onReceive(viewModel.scrollToTopEvent, perform: { index in
+                guard self.viewModel.index == index else { return }
+                if viewModel.scrollOffset < 0 {
+                    viewModel.isScrolling = true
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            reader.scrollTo("HomeTabsView", anchor: .top)
+                        }
+                    }
+                } else {
+                    reload()
+                }
+            })
+        }
+        .refreshable {
+            reload()
+        }
+        .animation(.default, value: viewModel.feedItems)
+        .coordinateSpace(name: "frameLayer")
+        .onPreferenceChange(OffsetPreferenceKey.self) { value in
+            viewModel.scrollOffset = value
+            if value == 0 && viewModel.isScrolling {
+                viewModel.isScrolling = false
+                reload()
             }
         }
         .navigationDestination(for: String.self, destination: { url in
             let queryItems = url.getQueryItems()
-            MoreView(props: MoreViewProps(title: queryItems["title"], category: queryItems["category"], collection: queryItems["collection"]))
+            MoreView(viewModel:
+                MoreViewModel(props: MoreViewProps(title: queryItems["title"], category: queryItems["category"], collection: queryItems["collection"]))
+            )
         })
     }
 
@@ -140,14 +220,28 @@ struct FeedItemsView: View {
             case .stories:
                 StorytellerStoriesRow(model: viewModel.configuration(for: item), action: viewModel.storytellerListDelegate(item: item))
                     .frame(height: item.getRowHeight())
-                    .padding(.leading, 12)
             case .clips:
                 StorytellerClipsRow(model: viewModel.configuration(for: item), action: viewModel.storytellerListDelegate(item: item))
                     .frame(height: item.getRowHeight())
-                    .padding(.leading, 12)
             }
         }
     }
+    
+    private var offsetReader: some View {
+        GeometryReader { proxy in
+          Color.clear
+            .preference(
+              key: OffsetPreferenceKey.self,
+              value: proxy.frame(in: .named("frameLayer")).minY
+            )
+        }
+        .frame(height: 0)
+      }
+}
+
+private struct OffsetPreferenceKey: PreferenceKey {
+  static var defaultValue: CGFloat = .zero
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
 }
 
 struct CellHeaderView: View {
@@ -163,13 +257,9 @@ struct CellHeaderView: View {
             
             if let moreButtonTitle = item.moreButtonTitle {
                 NavigationLink(value: "more?title=\(item.title ?? "")&category=\(item.categories.first ?? "")&collection=\(item.collection ?? "")") {
-                    HStack {
-                        CellHeaderMoreButton(text: moreButtonTitle)
-                        
-                        Image(systemName: "chevron.forward")
-                            .renderingMode(.template)
-                            .tint(.primary)
-                    }
+                    Text(moreButtonTitle)
+                        .foregroundColor(.primary)
+                        .font(.custom("SFProText-Light", size: 17))
                 }
             }
         }
@@ -186,15 +276,5 @@ struct CellHeaderTitle: View {
         Text(title)
             .foregroundColor(.primary)
             .font(.custom("SFProText-Semibold", size: 16))
-    }
-}
-
-struct CellHeaderMoreButton: View {
-    let text: String
-    
-    var body: some View {
-        Text(text)
-            .foregroundColor(.primary)
-            .font(.custom("SFProText-Semibold", size: 11))
     }
 }

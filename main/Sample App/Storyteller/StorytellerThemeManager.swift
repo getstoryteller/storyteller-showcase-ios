@@ -25,6 +25,9 @@ class StorytellerThemeManager {
                 
             case .bold, .heavy, .black:
                 return UIFont(name: "SFProText-Bold", size: size)
+
+            @unknown default:
+                return nil
             }
         }
     }
@@ -71,8 +74,8 @@ class StorytellerThemeManager {
         
         theme.light.customFont = CustomFontProvider()
         
-        theme.light.lists.row.startInset = 0
-        theme.light.lists.row.endInset = 0
+        theme.light.lists.row.startInset = 12
+        theme.light.lists.row.endInset = 12
         
         theme.dark = theme.light
         

@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 @MainActor
 class AccountViewModel: ObservableObject {
@@ -10,6 +11,7 @@ class AccountViewModel: ObservableObject {
         } set {
             StorytellerService.setFavoriteTeam(newValue)
             dataService.userStorage.favoriteTeam = newValue
+            latestTabEvent.send(true)
             self.objectWillChange.send()
         }
     }
@@ -20,6 +22,7 @@ class AccountViewModel: ObservableObject {
         } set {
             StorytellerService.setLanguage(newValue)
             dataService.userStorage.language = newValue
+            latestTabEvent.send(true)
             self.objectWillChange.send()
         }
     }
@@ -30,6 +33,7 @@ class AccountViewModel: ObservableObject {
         } set {
             StorytellerService.setHasAccount(newValue)
             dataService.userStorage.hasAccount = newValue
+            latestTabEvent.send(true)
             self.objectWillChange.send()
         }
     }
@@ -44,12 +48,16 @@ class AccountViewModel: ObservableObject {
                 StorytellerService.disableEventTracking()
             }
             dataService.userStorage.allowEventTracking = newValue
+            latestTabEvent.send(true)
             self.objectWillChange.send()
         }
     }
 
-    init(dataService: DataGateway) {
+    let latestTabEvent: PassthroughSubject<Bool, Never>
+    
+    init(dataService: DataGateway, latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
+        self.latestTabEvent = latestTabEvent
     }
 
     var favoriteTeams: FavoriteTeams {

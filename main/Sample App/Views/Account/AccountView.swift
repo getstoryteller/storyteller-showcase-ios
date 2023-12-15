@@ -2,9 +2,10 @@ import SwiftUI
 import StorytellerSDK
 
 struct AccountView: View {
-    @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var viewModel: AccountViewModel
+    @ObservedObject var viewModel: AccountViewModel
+    @Binding var isShowing: Bool
+    @State var showingAlert: Bool = false
     
     // This view demonstrates how to pass User Attributes to the Storyteller SDK
     // for the purposes of personalization and targeting of stories.
@@ -47,16 +48,30 @@ struct AccountView: View {
                 }.pickerStyle(NavigationLinkPickerStyle())
                 Button("Reset") {
                     viewModel.resetUser()
-                    dismiss()
+                    showingAlert = true
                 }.tint(colorScheme == .dark ? .white : .black)
                 Button("Log Out") {
+                    isShowing = false
                     viewModel.logout()
-                    dismiss()
                 }
                 .tint(Color(.activeRed))
+            }
+            Section("App Info") {
+                HStack {
+                    Text("Version")
+                    Spacer()
+                    Text(verbatim: AppVersionProvider.appVersion())
+                }
             }
         }
         .navigationTitle("Account")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Reset completed!", isPresented: $showingAlert) {
+            Button("OK", action: submit)
+        }
+    }
+    
+    func submit() {
+        showingAlert = false
     }
 }

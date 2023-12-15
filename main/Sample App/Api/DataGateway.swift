@@ -19,13 +19,12 @@ final class DataGateway: ObservableObject {
     @Published var codeVerificationStatus: CodeVerificationStatus = .none
     @Published var isAuthenticated: Bool? = nil
 
-    func load() {
+    init() {
         guard !userStorage.apiKey.isEmpty else {
             isAuthenticated = false
             return
         }
         isAuthenticated = true
-        getSettings()
     }
 
     func getHomeFeed() async -> FeedItems {
@@ -54,7 +53,7 @@ final class DataGateway: ObservableObject {
                 userStorage.settings = settings
                 userStorage.apiKey = settings.apiKey
                 isAuthenticated = true
-                refresh()
+                try await refresh()
             } catch {
                 print("verifyCode call failed with code '\(code)', error: '\(error.localizedDescription)'")
                 codeVerificationStatus = .incorrect
@@ -63,16 +62,23 @@ final class DataGateway: ObservableObject {
         }
     }
 
-    func getSettings() {
-        Task {
-            do {
-                let settings = try await api.call(forEndpoint: SettingsEndpoint()).data
-                userStorage.settings = settings
-                userStorage.apiKey = settings.apiKey
-                refresh()
-            } catch {
-                print("getSettings call failed with error: '\(error.localizedDescription)'")
-            }
+    func getSettings() async {
+        guard isAuthenticated == true else { return }
+        do {
+            let settings = try await api.call(forEndpoint: SettingsEndpoint()).data
+            userStorage.settings = settings
+            userStorage.apiKey = settings.apiKey
+            try await refresh()
+        } catch {
+            print("getSettings call failed with error: '\(error.localizedDescription)'")
+        }
+    }
+    
+    func reloadTabs() async throws {
+        if userStorage.settings.tabsEnabled {
+            userStorage.tabs = try await api.call(forEndpoint: TabsEndpoint()).data
+        } else {
+            userStorage.tabs = []
         }
     }
     
@@ -81,17 +87,9 @@ final class DataGateway: ObservableObject {
         isAuthenticated = false
     }
     
-    private func refresh() {
-        Task {
-            do {
-                userStorage.languages = try await api.call(forEndpoint: LanguagesEndpoint()).data
-                userStorage.favoriteTeams = try await api.call(forEndpoint: TeamsEndpoint()).data
-                if userStorage.settings.tabsEnabled {
-                    userStorage.tabs = try await api.call(forEndpoint: TabsEndpoint()).data
-                }
-            } catch {
-                print("call failed with error: '\(error.localizedDescription)'")
-            }
-        }
+    private func refresh() async throws {
+        userStorage.languages = try await api.call(forEndpoint: LanguagesEndpoint()).data
+        userStorage.favoriteTeams = try await api.call(forEndpoint: TeamsEndpoint()).data
+        try await reloadTabs()
     }
 }

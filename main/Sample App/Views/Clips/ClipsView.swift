@@ -6,15 +6,32 @@ class ClipsViewModel : ObservableObject {
     @ObservedObject var dataService: DataGateway
     @Published var clipsViewModel: StorytellerClipsModel
     let clipsTabTapEvent: PassthroughSubject<Bool, Never>
+    let didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>
+    var lastTimeAppeared = Date()
 
-    init(dataService: DataGateway, clipsTabTapEvent: PassthroughSubject<Bool, Never>) {
+    init(dataService: DataGateway, clipsTabTapEvent: PassthroughSubject<Bool, Never>, didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
         self.clipsTabTapEvent = clipsTabTapEvent
+        self.didFinishLoadingMomentsEvent = didFinishLoadingMomentsEvent
         self.clipsViewModel = StorytellerClipsModel(collectionId: dataService.userStorage.settings.topLevelClipsCollection)
     }
 
     func updateCollectionId() {
         self.clipsViewModel.collectionId = dataService.userStorage.settings.topLevelClipsCollection
+    }
+    
+    func reloadDataIfNeeded() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            //reload collection if it was more then 10 min (10 * 60) since last reload
+            if self.lastTimeAppeared.timeIntervalSinceNow.isLess(than: -(10*60)) {
+                self.reloadData()
+            }
+        }
+    }
+
+    func reloadData() {
+        self.clipsViewModel.reloadData()
+        self.lastTimeAppeared = Date()
     }
 }
 
@@ -26,13 +43,25 @@ struct ClipsView: View {
     @StateObject var viewModel: ClipsViewModel
 
     var body: some View {
-        StorytellerClipsView(model: viewModel.clipsViewModel)
+        StorytellerClipsView(model: viewModel.clipsViewModel, action: { action in
+            switch action {
+            case .onDataLoadComplete:
+                viewModel.didFinishLoadingMomentsEvent.send(true)
+            case .onDataLoadStarted: break
+            case .onTopLevelBackTapped: break
+            @unknown default: break
+            }
+        })
             .ignoresSafeArea(.container, edges: .top)
             .onAppear() {
                 viewModel.updateCollectionId()
+                viewModel.reloadDataIfNeeded()
+            }
+            .onDisappear() {
+                viewModel.lastTimeAppeared = Date()
             }
             .onReceive(viewModel.clipsTabTapEvent) { _ in
-                viewModel.clipsViewModel.reloadData()
+                viewModel.reloadData()
             }
     }
 }

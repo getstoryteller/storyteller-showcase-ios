@@ -9,7 +9,7 @@ extension FeedItem {
             case .medium: return 330
             case .large: return 440
             }
-        case .round: return 120
+        case .round: return 106
         }
     }
 }

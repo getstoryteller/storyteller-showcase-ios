@@ -3,6 +3,22 @@ import StorytellerSDK
 import GoogleMobileAds
 import Amplitude
 
+class AppViewModel: ObservableObject {
+    @ObservedObject var router = Router()
+    @ObservedObject var dataService = DataGateway()
+    let storytellerService = StorytellerService()
+    
+    init() {
+        Task {
+            storytellerService.setup(withDataService: dataService)
+        }
+    }
+    
+    func setStorytellerDelegate() {
+        storytellerService.setDelegate(dataService: dataService, router: router)
+    }
+}
+
 @main
 struct SampleApp: App {
 
@@ -15,21 +31,17 @@ struct SampleApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var phase
-    
-    @StateObject var router = Router()
-    @StateObject var dataService = DataGateway()
-    let storytellerService = StorytellerService()
+    @StateObject var viewModel = AppViewModel()
 
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: MainViewModel())
-                .environmentObject(router)
-                .environmentObject(dataService)
-                .onChange(of: phase, { _, value in
+                .environmentObject(viewModel.router)
+                .environmentObject(viewModel.dataService)
+                .onChange(of: phase, perform: { value in
                     switch value {
                     case .active:
-                        dataService.load()
-                        storytellerService.setup(withDataService: dataService, router: router)
+                        viewModel.setStorytellerDelegate()
                     case .inactive, .background:
                         break
                     @unknown default:

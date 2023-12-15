@@ -2,15 +2,14 @@ import Foundation
 import SwiftUI
 
 final class UserStorage: ObservableObject {
-    @AppStorage("apiKey") var apiKey: String = "" {
+    @PublishingAppStorage("apiKey") var apiKey: String = "" {
         didSet {
             self.objectWillChange.send()
         }
     }
     
-    @AppStorage("userId") var storedUserId: String = "" {
+    @PublishingAppStorage("userId") var userId: String = "sample-app-user-\(UUID())" {
         didSet {
-            userId = storedUserId
             self.objectWillChange.send()
         }
     }
@@ -36,14 +35,19 @@ final class UserStorage: ObservableObject {
         }
     }
     
-    @Published private(set) var userId: String = ""
-    @Published var settings: TenantData = .empty
+    @Published var settings: TenantData = .empty {
+        didSet {
+            if !settings.tabsEnabled {
+                tabs = []
+            }
+        }
+    }
     @Published var languages: Languages = []
     @Published var favoriteTeams: FavoriteTeams = []
     @Published var tabs: Tabs = []
     
     func resetUser() {
-        self.storedUserId = generateUserId()
+        self.userId = generateUserId()
     }
     
     func logout() {

@@ -2,16 +2,19 @@ import SwiftUI
 
 class HomeTabsViewModel: ObservableObject {
     let tabBarOptions: [String]
-    let tabHandler: Binding<Int>
+    let selectedTab: Binding<Int>
+    let selectedTabOnComplete: Binding<Int>
     
-    init(tabs: [String], tabChangeHandler: Binding<Int>) {
+    init(tabs: [String], selectedTab: Binding<Int>, selectedTabOnComplete: Binding<Int>) {
         self.tabBarOptions = tabs
-        self.tabHandler = tabChangeHandler
+        self.selectedTab = selectedTab
+        self.selectedTabOnComplete = selectedTabOnComplete
     }
 }
 
 struct HomeTabsView: View {
     @ObservedObject var viewModel: HomeTabsViewModel
+    @Binding var currentTabOnComplete: Int
     @Namespace var namespace
     
     var body: some View {
@@ -22,17 +25,26 @@ struct HomeTabsView: View {
                             id: \.0,
                             content: {
                         index, name in
-                        TabBarItem(currentTab: self.viewModel.tabHandler, namespace: namespace.self, tabBarItemName: name, tab: index)
+                        TabBarItem(currentTab: self.viewModel.selectedTab, namespace: namespace.self, tabBarItemName: name, tab: index)
                             .padding(.horizontal, 10)
                     })
                 }
             }
-            .edgesIgnoringSafeArea(.all)
-            .onChange(of: viewModel.tabHandler.wrappedValue) { _, tapped in
-                withAnimation {
-                    value.scrollTo(tapped, anchor: .leading)
+            .onChange(of: viewModel.selectedTab.wrappedValue, perform: { tapped in
+                Task {
+                    withAnimation {
+                        let tapped = max(tapped - 1, 0)
+                        withAnimation(.easeInOut(duration: 0.35)) {
+                            value.scrollTo(tapped, anchor: .leading)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                withAnimation {
+                                    self.currentTabOnComplete = viewModel.selectedTab.wrappedValue
+                                }
+                            }
+                        }
+                    }
                 }
-            }
+            })
         }
     }
 }
@@ -46,7 +58,9 @@ struct TabBarItem: View {
     
     var body: some View {
         Button {
-            self.currentTab = tab
+            withAnimation(.spring) {
+                self.currentTab = tab
+            }
         } label: {
             VStack(spacing: 5) {
                 Text(tabBarItemName)

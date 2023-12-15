@@ -63,6 +63,8 @@ class StorytellerAdsDelegate : StorytellerDelegate {
             handleStoryAds(placement: placement, categories: categories, story: story, onComplete: onComplete, onError: onError)
         case .clips(let collection, let clip):
             handleClipsAds(collection: collection, clip: clip, onComplete: onComplete, onError: onError)
+        @unknown default:
+            break
         }
     }
     

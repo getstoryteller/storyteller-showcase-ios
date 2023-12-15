@@ -6,28 +6,35 @@ import Combine
 
 class StorytellerService {
     private var cancellables = Set<AnyCancellable>()
+    
+    func setDelegate(dataService: DataGateway, router: Router) {
+        Storyteller.sharedInstance.delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
+    }
 
-    func setup(withDataService dataService: DataGateway, router: Router) {
-        dataService.userStorage.$settings
-            .sink { [weak self] data in
-                self?.setupStoryteller(withApiKey: data.apiKey, router: router, dataService: dataService)
+    func setup(withDataService dataService: DataGateway) {
+        setupStoryteller(withApiKey: dataService.userStorage.apiKey, userId: dataService.userStorage.userId, dataService: dataService)
+        
+        dataService.userStorage.$apiKey.publisher
+            .sink { [weak self] apiKey in
+                guard Storyteller.currentApiKey != apiKey else { return }
+                self?.setupStoryteller(withApiKey: apiKey, userId: dataService.userStorage.userId, dataService: dataService)
             }
             .store(in: &cancellables)
         
-        dataService.userStorage.$userId
+        dataService.userStorage.$userId.publisher
             .sink { [weak self] userId in
-                self?.setupStoryteller(withApiKey: dataService.userStorage.settings.apiKey, router: router, dataService: dataService)
+                self?.setupStoryteller(withApiKey: dataService.userStorage.settings.apiKey, userId: userId, dataService: dataService)
             }
             .store(in: &cancellables)
     }
 
-    private func setupStoryteller(withApiKey apiKey: String, router: Router, dataService: DataGateway) {
+    private func setupStoryteller(withApiKey apiKey: String, userId: String, dataService: DataGateway) {
         print("^ Setting up Storyteller with key: '\(apiKey)'")
+        print("^ userId: '\(userId)'")
         Storyteller.sharedInstance.initialize(
             apiKey: apiKey,
-            userInput: UserInput(externalId: dataService.userStorage.userId),
+            userInput: UserInput(externalId: userId),
             onComplete: {
-                Storyteller.sharedInstance.delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
                 Storyteller.theme = StorytellerThemeManager.squareTheme
             }
         )

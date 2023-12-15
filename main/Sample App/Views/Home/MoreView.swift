@@ -39,28 +39,19 @@ class MoreViewModel: ObservableObject {
 }
 
 struct MoreView: View {
-    
     @ObservedObject var viewModel: MoreViewModel
     @Environment(\.dismiss) var dismiss
     
-    init(props: MoreViewProps) {
-        self._viewModel = ObservedObject(wrappedValue: MoreViewModel(props: props))
-    }
-    
     var body: some View {
-        ScrollView {
-            VStack {
-                StorytellerGrid()
-                    .padding(.horizontal, 12)
+        StorytellerGrid()
+            .padding(.horizontal, 12)
+            .navigationTitle(viewModel.title)
+            .navigationBarBackButtonHidden()
+            .navigationBarItems(leading: BackButton(dismiss: self.dismiss))
+            .toolbar(.hidden, for: .tabBar)
+            .refreshable {
+                viewModel.reloadData()
             }
-        }
-        .navigationTitle(viewModel.title)
-        .navigationBarBackButtonHidden()
-        .navigationBarItems(leading: BackButton(dismiss: self.dismiss))
-        .toolbar(.hidden, for: .tabBar)
-        .refreshable {
-            viewModel.reloadData()
-        }
         
     }
     
@@ -68,9 +59,9 @@ struct MoreView: View {
     private func StorytellerGrid() -> some View {
         switch viewModel.videoType {
         case .stories:
-            StorytellerStoriesGrid(model: viewModel.storiesModel!)
+            StorytellerStoriesGrid(isScrollable: true, model: viewModel.storiesModel!)
         case .clips:
-            StorytellerClipsGrid(model: viewModel.clipsModel!)
+            StorytellerClipsGrid(isScrollable: true, model: viewModel.clipsModel!)
         }
     }
 }
