@@ -28,13 +28,18 @@ class API {
 
     func request(to endpoint: any Endpoint, params: EndpointParams) -> URLRequest {
         let queryParams = params.query.merging(["apiKey": userStorage.apiKey]){ $1 }
-        var request = URLRequest(url: assembleURL(base: APIConfig.baseURL, method: endpoint.method, path: endpoint.path.appending("/\(params.extraPath)"), getParameters: queryParams))
+        var finalPath = endpoint.path
+        if !params.extraPath.isEmpty {
+            finalPath.append("/\(params.extraPath)")
+        }
+        var request = URLRequest(url: assembleURL(base: APIConfig.baseURL, method: endpoint.method, path: finalPath, getParameters: queryParams))
         request.allHTTPHeaderFields = APIConfig.commonHeaders.merging(params.header) { $1 } //EndpointParam headers overwrite common headers of the same key
         params.header.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         request.httpMethod = endpoint.method.rawValue
         if !params.body.isEmpty {
             request.httpBody = try! JSONEncoder().encode(params.body)
         }
+
         return request
     }
 

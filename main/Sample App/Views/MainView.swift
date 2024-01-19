@@ -67,6 +67,20 @@ struct MainView: View {
                     }
                     .background(colorScheme == .dark ? .black : .white)
                     .frame(height: 50)
+                    .navigationDestination(for: Router.Destination.self, destination: { destination in
+                        switch destination {
+                        case .actionLink(let url):
+                            ActionLinkView(link: url)
+                        case .moreStories(let title, let category):
+                            MoreView(viewModel:
+                                MoreViewModel(title: title, category: category)
+                            )
+                        case .moreClips(let title, let collection):
+                            MoreView(viewModel:
+                                MoreViewModel(title: title, collection: collection)
+                            )
+                        }
+                    })
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(selectedTab.wrappedValue == 0 ? .visible : .hidden, for: .navigationBar)

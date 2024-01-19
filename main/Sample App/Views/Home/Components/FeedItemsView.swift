@@ -155,12 +155,6 @@ struct FeedItemsView: View {
                 reload()
             }
         }
-        .navigationDestination(for: String.self, destination: { url in
-            let queryItems = url.getQueryItems()
-            MoreView(viewModel:
-                MoreViewModel(props: MoreViewProps(title: queryItems["title"], category: queryItems["category"], collection: queryItems["collection"]))
-            )
-        })
     }
 
     // These methods take the FeedItem response from our sample API and uses
@@ -246,6 +240,7 @@ private struct OffsetPreferenceKey: PreferenceKey {
 
 struct CellHeaderView: View {
     let item: FeedItem
+    @EnvironmentObject var router: Router
     
     var body: some View {
         HStack(alignment: .bottom) {
@@ -256,7 +251,15 @@ struct CellHeaderView: View {
             Spacer()
             
             if let moreButtonTitle = item.moreButtonTitle {
-                NavigationLink(value: "more?title=\(item.title ?? "")&category=\(item.categories.first ?? "")&collection=\(item.collection ?? "")") {
+                Button {
+                    switch item.videoType {
+                    case .stories:
+                        router.navigateToMore(title: item.title ?? "", category: item.categories.first ?? "")
+                    case .clips:
+                        router.navigateToMore(title: item.title ?? "", collection: item.collection ?? "")
+                    }
+                    
+                } label: {
                     Text(moreButtonTitle)
                         .foregroundColor(.primary)
                         .font(.custom("SFProText-Light", size: 17))

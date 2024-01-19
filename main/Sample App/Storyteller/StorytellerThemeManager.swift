@@ -130,11 +130,11 @@ class StorytellerThemeManager {
             
             if item.layout == .singleton {
                 theme.light.lists.grid.columns = 1
-                theme.light.storyTiles.rectangularTile.chip.alignment = .end
+                theme.light.storyTiles.rectangularTile.chip.alignment = .start
                 theme.light.storyTiles.title.textSize = 21
                 theme.light.storyTiles.title.lineHeight = 24
                 theme.dark.lists.grid.columns = 1
-                theme.dark.storyTiles.rectangularTile.chip.alignment = .end
+                theme.dark.storyTiles.rectangularTile.chip.alignment = .start
                 theme.dark.storyTiles.title.textSize = 21
                 theme.dark.storyTiles.title.lineHeight = 24
             }

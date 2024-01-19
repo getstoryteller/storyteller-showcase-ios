@@ -21,6 +21,7 @@
 		8C95ED112AF52EC3005053B9 /* PublishingAppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */; };
 		AF2BF4C62B174C3D0021D05A /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */; };
 		AFAF65B52B19E10900C23704 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF65B42B19E10900C23704 /* PageView.swift */; };
+		AFB3C2512B4E95FF0082077C /* ActionLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */; };
 		AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD901A2B0CDA5100E10866 /* UserStorage.swift */; };
 		AFF789B22B21F6AA009B64CC /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */; };
 		FF4BEF332AB9D8B60094A501 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF4BEF322AB9D8B60094A501 /* StorytellerSDK */; };
@@ -29,7 +30,6 @@
 		FFA0FA5A2AA423A80053DE0C /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA592AA423A80053DE0C /* MoreView.swift */; };
 		FFA0FA5C2AA43BE70053DE0C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA5B2AA43BE70053DE0C /* Settings.swift */; };
 		FFA0FA5E2AA44F380053DE0C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA5D2AA44F380053DE0C /* Router.swift */; };
-		FFA0FA622AA456AD0053DE0C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA612AA456AD0053DE0C /* StringExtensions.swift */; };
 		FFB57B222AA161C000A17FE4 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB57B212AA161C000A17FE4 /* FeedItem.swift */; };
 		FFB57B242AA16D7B00A17FE4 /* FeedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB57B232AA16D7B00A17FE4 /* FeedItemsView.swift */; };
 		FFC29CE02AA611D90012DC41 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFA0FA552AA41FD90053DE0C /* SF-Pro-Text-Bold.otf */; };
@@ -84,6 +84,7 @@
 		8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishingAppStorage.swift; sourceTree = "<group>"; };
 		AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		AFAF65B42B19E10900C23704 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLinkView.swift; sourceTree = "<group>"; };
 		AFDD901A2B0CDA5100E10866 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 		FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerThemeManager.swift; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		FFA0FA592AA423A80053DE0C /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		FFA0FA5B2AA43BE70053DE0C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FFA0FA5D2AA44F380053DE0C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		FFA0FA612AA456AD0053DE0C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		FFB57B212AA161C000A17FE4 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		FFB57B232AA16D7B00A17FE4 /* FeedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsView.swift; sourceTree = "<group>"; };
 		FFCD5B512AA00571000FA3C6 /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +200,6 @@
 		FFA0FA5F2AA456970053DE0C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FFA0FA612AA456AD0053DE0C /* StringExtensions.swift */,
 				8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */,
 				AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */,
 			);
@@ -312,6 +311,7 @@
 				FFCD5B8D2AA018BD000FA3C6 /* Components */,
 				FFCD5B8B2AA017B9000FA3C6 /* HomeView.swift */,
 				FFA0FA592AA423A80053DE0C /* MoreView.swift */,
+				AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -424,10 +424,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFA0FA622AA456AD0053DE0C /* StringExtensions.swift in Sources */,
 				FFA0FA4F2AA411920053DE0C /* StorytellerThemeManager.swift in Sources */,
 				FFCD5B6B2AA00877000FA3C6 /* StorytellerInstanceDelegate.swift in Sources */,
 				FFCD5B852AA0130E000FA3C6 /* ClipsView.swift in Sources */,
+				AFB3C2512B4E95FF0082077C /* ActionLinkView.swift in Sources */,
 				FFCD5B8C2AA017B9000FA3C6 /* HomeView.swift in Sources */,
 				8C517BF42AE080E600112045 /* APIConfig.swift in Sources */,
 				FFCD5B7B2AA00AA3000FA3C6 /* GADCustomNativeAdExtensions.swift in Sources */,
@@ -610,7 +610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.8.0;
+				MARKETING_VERSION = 9.8.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -634,10 +634,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sample App/Sample App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Sample App/Preview Content\"";
-				DEVELOPMENT_TEAM = A7Q59YT5G5;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sample-App-Info.plist";
@@ -652,7 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.8.0;
+				MARKETING_VERSION = 9.8.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -661,6 +663,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.getstoryteller.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc com.getstoryteller.showcase";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;

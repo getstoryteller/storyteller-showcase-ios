@@ -1,0 +1,57 @@
+pool:
+  vmImage: 'macOS-13'
+
+variables:
+  - group: storyteller-ios-secrets
+  - name: XCODE_VERSION
+    value: 15.2
+
+jobs:
+
+  - job: DemoApp
+    displayName: 'Demo App'
+    condition: or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    steps:
+      - bash: echo -e "machine github.com\n  login $USER_TOKEN" >> ~/.netrc
+        displayName: 'Github Login'
+        env:
+          USER_TOKEN: $(GithubUserToken)
+
+      - bash: 'cd main && bundle install'
+        displayName: 'Update Bundle & fastlane'
+
+      - bash: |
+          echo "Listing installed Xcode instances:"
+          ls /Applications | grep Xcode
+          sudo xcode-select -s /Applications/Xcode_$(XCODE_VERSION).app/Contents/Developer
+          echo ""
+          echo "Selected Xcode version:"
+          xcode-select -p
+        displayName: 'Find Xcode'
+
+      - bash: 'cd main && bundle exec fastlane ios upload_appcenter'
+        displayName: 'Sign & upload to AppCenter'
+        env:
+          APPCENTER_KEY: $(APPCENTER_KEY)    
+          USER_TOKEN: $(GithubUserToken)
+          MATCH_PASSWORD: $(MatchRepoPassword)
+          BUNDLE_IDENTIFIER: $(BUNDLE_IDENTIFIER)
+          BUILD_ID: $(Build.BuildId)
+
+      - task: DownloadSecureFile@1
+        name: AppStoreConnectApiKey
+        displayName: 'Download AppStore Connect API Key file'
+        inputs:
+          secureFile: 'AppStoreConnectApiKey.p8'
+
+      - bash: 'cd main && bundle exec fastlane ios upload_testflight'
+        displayName: 'Sign & upload to Testflight'
+        condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+        env:
+          APPSTORE_CONNECT_KEY_ID: $(AppStoreConnectKeyId)
+          APPSTORE_CONNECT_ISSUER_ID: $(AppStoreConnectIssuerId)
+          APPSTORE_CONNECT_KEY_PATH: $(AppStoreConnectApiKey.secureFilePath)
+          USER_TOKEN: $(GithubUserToken)
+          MATCH_PASSWORD: $(MatchRepoPassword)
+          BUNDLE_IDENTIFIER: $(BUNDLE_IDENTIFIER)
+          BUILD_ID: $(Build.BuildId)

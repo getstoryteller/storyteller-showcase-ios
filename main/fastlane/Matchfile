@@ -1,0 +1,7 @@
+if ENV["USER_TOKEN"]
+    git_url("https://" + ENV["USER_TOKEN"] + "@github.com/stormideas/stormideas-ios-signing")
+else 
+    git_url("git@github.com:stormideas/stormideas-ios-signing.git")
+end
+
+git_branch("storyteller")

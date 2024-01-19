@@ -1,0 +1,93 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  lane :upload_appcenter do
+      api_key = ENV["APPCENTER_KEY"]
+
+      unless api_key
+        UI.user_error!("Missing AppCenter.ms api key, please provide api_key parameter")
+      end
+
+      build type: "adhoc"
+
+      owner_name = "stormideas"
+      owner_type = "organization"
+      appcenter_app_name = "Showcase-iOS"
+
+      file = "./builds/Sample App.ipa"
+
+      # Gather changelog
+      commits = changelog_from_git_commits(commits_count: 5, pretty: '%s')
+      changelog = 
+      <<~EOS
+      **Latest commits:**
+      
+      #{commits.gsub!(/^/, '* ')}
+      EOS
+
+      appcenter_upload(
+          api_token: api_key,
+          owner_name: owner_name,
+          owner_type: owner_type,
+          app_name: appcenter_app_name,
+          file: file,
+          notify_testers: true,
+          release_notes: changelog
+      )
+  end
+
+  lane :upload_testflight do
+    app_store_connect_api_key(
+        key_id: ENV["APPSTORE_CONNECT_KEY_ID"],
+        issuer_id: ENV["APPSTORE_CONNECT_ISSUER_ID"],
+        key_filepath: ENV["APPSTORE_CONNECT_KEY_PATH"],
+        duration: 1200,
+        in_house: false
+    )
+    
+    build type: "appstore"
+
+    file = "./builds/Sample App.ipa"
+
+    testflight(
+        app_identifier: ENV["BUNDLE_IDENTIFIER"],
+        skip_waiting_for_build_processing: true,
+        ipa: file
+    )
+  end
+
+  private_lane :build do |options|
+    setup_ci
+    match(type: options[:type],
+      readonly: true,
+      app_identifier: ENV["BUNDLE_IDENTIFIER"],
+      platform: "ios"
+    )
+
+    increment_build_number({
+      build_number: ENV["BUILD_ID"]
+    })
+
+    gym(
+        scheme: "Sample App",
+        include_symbols: true,
+        output_directory: "./builds",
+    )
+  end
+end
