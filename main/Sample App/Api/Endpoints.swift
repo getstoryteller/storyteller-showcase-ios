@@ -33,6 +33,6 @@ struct TabsEndpoint: Endpoint {
 
 struct TabByIdEndpoint: Endpoint {
     typealias Response = FeedResponse
-    let path = "/tabs"
+    let path = "/v2/tabs"
     let extraPath = ":tabId"
 }

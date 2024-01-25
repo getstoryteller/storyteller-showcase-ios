@@ -4,7 +4,7 @@ import StorytellerSDK
 class MoreViewModel: ObservableObject {
     
     @Published var title: String
-    @Published var videoType: FeedItem.VideoType
+    @Published var videoType: StorytellerItem.VideoType
 
     @Published var storiesModel: StorytellerStoriesListModel?
     @Published var clipsModel: StorytellerClipsListModel?

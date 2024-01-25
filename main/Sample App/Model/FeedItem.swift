@@ -1,6 +1,6 @@
 import Foundation
 
-extension FeedItem {
+extension StorytellerItem {
     func getRowHeight() -> CGFloat {
         switch self.tileType {
         case .rectangular:

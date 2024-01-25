@@ -23,6 +23,7 @@
 		AFAF65B52B19E10900C23704 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF65B42B19E10900C23704 /* PageView.swift */; };
 		AFB3C2512B4E95FF0082077C /* ActionLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */; };
 		AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD901A2B0CDA5100E10866 /* UserStorage.swift */; };
+		AFF025212B62932600E44EEF /* FeedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF025202B62932600E44EEF /* FeedImageView.swift */; };
 		AFF789B22B21F6AA009B64CC /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */; };
 		FF4BEF332AB9D8B60094A501 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF4BEF322AB9D8B60094A501 /* StorytellerSDK */; };
 		FFA0FA4F2AA411920053DE0C /* StorytellerThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */; };
@@ -86,6 +87,7 @@
 		AFAF65B42B19E10900C23704 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLinkView.swift; sourceTree = "<group>"; };
 		AFDD901A2B0CDA5100E10866 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		AFF025202B62932600E44EEF /* FeedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageView.swift; sourceTree = "<group>"; };
 		AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 		FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerThemeManager.swift; sourceTree = "<group>"; };
 		FFA0FA502AA4183C0053DE0C /* StorytellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerService.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			children = (
 				FFCD5B8E2AA018C7000FA3C6 /* HomeTabsView.swift */,
 				FFB57B232AA16D7B00A17FE4 /* FeedItemsView.swift */,
+				AFF025202B62932600E44EEF /* FeedImageView.swift */,
 				AFAF65B42B19E10900C23704 /* PageView.swift */,
 			);
 			path = Components;
@@ -440,6 +443,7 @@
 				FFCD5B732AA009EC000FA3C6 /* AdManager.swift in Sources */,
 				8C517BF82AE0812A00112045 /* Endpoints.swift in Sources */,
 				AF2BF4C62B174C3D0021D05A /* CollectionExtensions.swift in Sources */,
+				AFF025212B62932600E44EEF /* FeedImageView.swift in Sources */,
 				8C33E0942AE483140016A7D4 /* AccessCodeView.swift in Sources */,
 				8C517BFE2AE0815A00112045 /* DataGateway.swift in Sources */,
 				FFCD5B572AA00571000FA3C6 /* MainView.swift in Sources */,

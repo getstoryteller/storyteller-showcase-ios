@@ -30,7 +30,7 @@ class FeedItemsViewModel: ObservableObject, Equatable {
     // to determine how they look and behave.
     // For more information on the various properties which can be passed here, please see our public
     // documentation which is available here https://www.getstoryteller.com/documentation/ios/storyteller-list-views
-    func configuration(for item: FeedItem) -> StorytellerStoriesListModel {
+    func configuration(for item: StorytellerItem) -> StorytellerStoriesListModel {
         StorytellerStoriesListModel(
             categories: item.categories,
             cellType: item.tileType.storytellerCellType,
@@ -39,7 +39,7 @@ class FeedItemsViewModel: ObservableObject, Equatable {
         )
     }
     
-    func configuration(for item: FeedItem) -> StorytellerClipsListModel {
+    func configuration(for item: StorytellerItem) -> StorytellerClipsListModel {
         StorytellerClipsListModel(
             collectionId: item.collection,
             cellType: item.tileType.storytellerCellType,
@@ -55,7 +55,7 @@ class FeedItemsViewModel: ObservableObject, Equatable {
     // render in the Storyteller row/grid.
     // For more information on this pattern, please see our public documentation here
     // https://www.getstoryteller.com/documentation/ios/storyteller-list-views
-    func storytellerListDelegate(item: FeedItem) -> (StorytellerSDK.StorytellerListAction) -> Void {
+    func storytellerListDelegate(item: StorytellerItem) -> (StorytellerSDK.StorytellerListAction) -> Void {
         { [weak self] action in
             switch(action) {
             case .onDataLoadComplete(_, let error, let dataCount):
@@ -106,7 +106,12 @@ struct FeedItemsView: View {
                         VStack(spacing: 0) {
                             Spacer().id("HomeTabsView").frame(height: 1)
                             ForEach(viewModel.feedItems, id: \.id) { item in
-                                FeedItemView(for: item)
+                                switch item {
+                                case .image(let item):
+                                    FeedImageView(item: item)
+                                case .storytellerItem(let item):
+                                    FeedItemView(for: item)
+                                }
                             }
                         }
                     }
@@ -161,7 +166,7 @@ struct FeedItemsView: View {
     // it to construct the relevant Storyteller Row or Grid views.
     
     @ViewBuilder
-    func FeedItemView(for item: FeedItem) -> some View {
+    func FeedItemView(for item: StorytellerItem) -> some View {
         switch item.layout {
         case .grid:
             gridView(for: item)
@@ -179,7 +184,7 @@ struct FeedItemsView: View {
         }
     }
     
-    private func singletonView(for item: FeedItem) -> some View {
+    private func singletonView(for item: StorytellerItem) -> some View {
         VStack(spacing: 0) {
             CellHeaderView(item: item)
             switch item.videoType {
@@ -193,7 +198,7 @@ struct FeedItemsView: View {
         }
     }
     
-    private func gridView(for item: FeedItem) -> some View {
+    private func gridView(for item: StorytellerItem) -> some View {
         VStack(spacing: 0) {
             CellHeaderView(item: item)
             switch item.videoType {
@@ -207,7 +212,7 @@ struct FeedItemsView: View {
         }
     }
     
-    private func rowView(for item: FeedItem) -> some View {
+    private func rowView(for item: StorytellerItem) -> some View {
         VStack(spacing: 0) {
             CellHeaderView(item: item)
             switch item.videoType {
@@ -239,7 +244,7 @@ private struct OffsetPreferenceKey: PreferenceKey {
 }
 
 struct CellHeaderView: View {
-    let item: FeedItem
+    let item: StorytellerItem
     @EnvironmentObject var router: Router
     
     var body: some View {

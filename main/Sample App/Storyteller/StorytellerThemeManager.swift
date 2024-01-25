@@ -104,7 +104,7 @@ class StorytellerThemeManager {
         return theme
     }()
     
-    static func buildTheme(for item: FeedItem) -> StorytellerTheme {
+    static func buildTheme(for item: StorytellerItem) -> StorytellerTheme {
         var theme: StorytellerTheme
         
         switch(item.tileType) {

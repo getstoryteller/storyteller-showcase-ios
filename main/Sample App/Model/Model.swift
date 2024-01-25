@@ -13,7 +13,54 @@ struct TenantData: Decodable, Equatable {
 }
 
 typealias FeedItems = [FeedItem]
-struct FeedItem: Decodable, Identifiable, Hashable {
+
+enum FeedItem: Decodable, Identifiable, Hashable {
+    case image(ButtonItem)
+    case storytellerItem(StorytellerItem)
+    
+    var id: String {
+        switch self {
+        case .image(let item):
+            item.id
+        case .storytellerItem(let item):
+            item.id
+        }
+    }
+    
+    enum CodingKeys: CodingKey {
+        case type
+        case data
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        switch try container.decode(String.self, forKey: .type) {
+        case "image":    self = .image(try container.decode(ButtonItem.self, forKey: .data))
+        case "verticalVideoList": self = .storytellerItem(try container.decode(StorytellerItem.self, forKey: .data))
+        default: fatalError("Unknown type")
+        }
+    }
+}
+    
+struct ButtonItem: Decodable, Identifiable, Hashable {
+    let id: String
+    let url: String
+    let title: String?
+    let action: ButtonItemAction
+}
+
+struct ButtonItemAction: Decodable, Hashable {
+    let type: ActionType
+    let url: String
+    
+    enum ActionType: String, Decodable {
+        case inApp
+        case web
+    }
+}
+
+struct StorytellerItem: Decodable, Identifiable, Hashable {
     let categories: [String]
     let collection: String?
     let count: Int?
@@ -27,7 +74,7 @@ struct FeedItem: Decodable, Identifiable, Hashable {
     let id: String
 }
 
-extension FeedItem {
+extension StorytellerItem {
     enum Layout: String, Decodable {
         case row = "row"
         case grid = "grid"
