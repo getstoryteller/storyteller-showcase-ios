@@ -52,23 +52,23 @@ class StorytellerThemeManager {
         
         theme.light.engagementUnits.poll.selectedAnswerBorderColor = theme.light.colors.white.primary.withAlphaComponent(0.7)
         
-        theme.light.storyTiles.rectangularTile.unreadIndicator.backgroundColor = UIColor(hexString: "#FBCD44")
-        theme.light.storyTiles.rectangularTile.unreadIndicator.textColor = .black
-        theme.light.storyTiles.rectangularTile.chip.alignment = .start
+        theme.light.tiles.rectangularTile.unreadIndicator.backgroundColor = UIColor(hexString: "#FBCD44")
+        theme.light.tiles.rectangularTile.unreadIndicator.textColor = .black
+        theme.light.tiles.rectangularTile.chip.alignment = .start
         
-        theme.light.storyTiles.rectangularTile.liveChip.unreadBackgroundColor = UIColor(hexString: "#C8102E")
-        theme.light.storyTiles.rectangularTile.liveChip.readBackgroundColor = UIColor(hexString: "#4E5356")
+        theme.light.tiles.rectangularTile.liveChip.unreadBackgroundColor = UIColor(hexString: "#C8102E")
+        theme.light.tiles.rectangularTile.liveChip.readBackgroundColor = UIColor(hexString: "#4E5356")
         
-        theme.light.storyTiles.circularTile.liveChip = theme.light.storyTiles.rectangularTile.liveChip
+        theme.light.tiles.circularTile.liveChip = theme.light.tiles.rectangularTile.liveChip
         
-        theme.light.storyTiles.circularTile.title.unreadTextColor = .black
-        theme.light.storyTiles.circularTile.title.readTextColor = UIColor(hexString: "#4E5356")
-        theme.light.storyTiles.circularTile.readIndicatorColor = UIColor(hexString: "#C5C5C5")
-        theme.light.storyTiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#FBCD44")
+        theme.light.tiles.circularTile.title.unreadTextColor = .black
+        theme.light.tiles.circularTile.title.readTextColor = UIColor(hexString: "#4E5356")
+        theme.light.tiles.circularTile.readIndicatorColor = UIColor(hexString: "#C5C5C5")
+        theme.light.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#FBCD44")
         
-        theme.light.storyTiles.title.alignment = .start
-        theme.light.storyTiles.title.textSize = 13
-        theme.light.storyTiles.title.lineHeight = 13
+        theme.light.tiles.title.alignment = .start
+        theme.light.tiles.title.textSize = 13
+        theme.light.tiles.title.lineHeight = 13
         
         theme.light.instructions.button.textColor = UIColor.white
         
@@ -79,7 +79,7 @@ class StorytellerThemeManager {
         
         theme.dark = theme.light
         
-        theme.dark.storyTiles.circularTile.title.unreadTextColor = .white
+        theme.dark.tiles.circularTile.title.unreadTextColor = .white
         theme.dark.lists.backgroundColor = theme.dark.colors.black.primary
         
         theme.dark.instructions.button.textColor = UIColor.black
@@ -90,16 +90,16 @@ class StorytellerThemeManager {
     static var roundTheme: StorytellerTheme = {
         var theme = squareTheme
         
-        theme.light.storyTiles.title.alignment = .center
-        theme.light.storyTiles.title.lineHeight = 13
-        theme.light.storyTiles.title.textSize = 10
+        theme.light.tiles.title.alignment = .center
+        theme.light.tiles.title.lineHeight = 13
+        theme.light.tiles.title.textSize = 10
         
-        theme.dark.storyTiles.title.alignment = .center
-        theme.dark.storyTiles.title.lineHeight = 13
-        theme.dark.storyTiles.title.textSize = 10
+        theme.dark.tiles.title.alignment = .center
+        theme.dark.tiles.title.lineHeight = 13
+        theme.dark.tiles.title.textSize = 10
         
-        theme.dark.storyTiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
-        theme.light.storyTiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
+        theme.dark.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
+        theme.light.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
         
         return theme
     }()
@@ -115,28 +115,28 @@ class StorytellerThemeManager {
             
             switch(item.size) {
             case .medium:
-                theme.light.storyTiles.title.textSize = 16
-                theme.dark.storyTiles.title.textSize = 16
-                theme.light.storyTiles.title.lineHeight = 20
-                theme.dark.storyTiles.title.lineHeight = 20
+                theme.light.tiles.title.textSize = 16
+                theme.dark.tiles.title.textSize = 16
+                theme.light.tiles.title.lineHeight = 20
+                theme.dark.tiles.title.lineHeight = 20
             case .large:
-                theme.light.storyTiles.title.textSize = 18
-                theme.dark.storyTiles.title.textSize = 18
-                theme.light.storyTiles.title.lineHeight = 22
-                theme.dark.storyTiles.title.lineHeight = 22
+                theme.light.tiles.title.textSize = 18
+                theme.dark.tiles.title.textSize = 18
+                theme.light.tiles.title.lineHeight = 22
+                theme.dark.tiles.title.lineHeight = 22
             default:
                 break
             }
             
             if item.layout == .singleton {
                 theme.light.lists.grid.columns = 1
-                theme.light.storyTiles.rectangularTile.chip.alignment = .start
-                theme.light.storyTiles.title.textSize = 21
-                theme.light.storyTiles.title.lineHeight = 24
+                theme.light.tiles.rectangularTile.chip.alignment = .start
+                theme.light.tiles.title.textSize = 21
+                theme.light.tiles.title.lineHeight = 24
                 theme.dark.lists.grid.columns = 1
-                theme.dark.storyTiles.rectangularTile.chip.alignment = .start
-                theme.dark.storyTiles.title.textSize = 21
-                theme.dark.storyTiles.title.lineHeight = 24
+                theme.dark.tiles.rectangularTile.chip.alignment = .start
+                theme.dark.tiles.title.textSize = 21
+                theme.dark.tiles.title.lineHeight = 24
             }
         }
         
