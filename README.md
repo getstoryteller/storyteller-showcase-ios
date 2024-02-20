@@ -17,6 +17,10 @@
 
 All of the documentation for our iOS SDK is [available on our website](https://www.getstoryteller.com/documentation/ios/quickstart)
 
+## App Store
+
+Our sample app can be downloaded from the [App Store](https://apps.apple.com/md/app/storyteller-showcase/id6470821630) so that you can test out our SDK's features without needing access to a development environment.
+
 ## Sample Apps
 
 This repo contains the following sample applications:
