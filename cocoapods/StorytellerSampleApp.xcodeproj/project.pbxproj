@@ -616,7 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.10.0;
+				MARKETING_VERSION = 9.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.getstoryteller.showcase;
 				PRODUCT_NAME = StorytellerSampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -642,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.10.0;
+				MARKETING_VERSION = 9.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.getstoryteller.showcase;
 				PRODUCT_NAME = StorytellerSampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
