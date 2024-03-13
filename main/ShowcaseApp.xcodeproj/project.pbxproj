@@ -101,7 +101,7 @@
 		FFA0FA5D2AA44F380053DE0C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FFB57B212AA161C000A17FE4 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		FFB57B232AA16D7B00A17FE4 /* FeedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsView.swift; sourceTree = "<group>"; };
-		FFCD5B512AA00571000FA3C6 /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCD5B512AA00571000FA3C6 /* ShowcaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowcaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCD5B542AA00571000FA3C6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		FFCD5B562AA00571000FA3C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FFCD5B582AA00573000FA3C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,9 +114,9 @@
 		FFCD5B782AA00A2E000FA3C6 /* AdTrackingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTrackingManager.swift; sourceTree = "<group>"; };
 		FFCD5B7A2AA00AA3000FA3C6 /* GADCustomNativeAdExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADCustomNativeAdExtensions.swift; sourceTree = "<group>"; };
 		FFCD5B802AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerTrackingDelegate.swift; sourceTree = "<group>"; };
-		FFCD5B822AA010D0000FA3C6 /* Sample App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sample App.entitlements"; sourceTree = "<group>"; };
+		FFCD5B822AA010D0000FA3C6 /* ShowcaseApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShowcaseApp.entitlements; sourceTree = "<group>"; };
 		FFCD5B842AA0130E000FA3C6 /* ClipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsView.swift; sourceTree = "<group>"; };
-		FFCD5B882AA016E0000FA3C6 /* Sample-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sample-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FFCD5B882AA016E0000FA3C6 /* ShowcaseApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShowcaseApp-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FFCD5B8B2AA017B9000FA3C6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFCD5B8E2AA018C7000FA3C6 /* HomeTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,7 +224,7 @@
 		FFCD5B482AA00571000FA3C6 = {
 			isa = PBXGroup;
 			children = (
-				FFCD5B532AA00571000FA3C6 /* Sample App */,
+				FFCD5B532AA00571000FA3C6 /* ShowcaseApp */,
 				FFCD5B522AA00571000FA3C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -232,16 +232,16 @@
 		FFCD5B522AA00571000FA3C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FFCD5B512AA00571000FA3C6 /* Sample App.app */,
+				FFCD5B512AA00571000FA3C6 /* ShowcaseApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FFCD5B532AA00571000FA3C6 /* Sample App */ = {
+		FFCD5B532AA00571000FA3C6 /* ShowcaseApp */ = {
 			isa = PBXGroup;
 			children = (
-				FFCD5B882AA016E0000FA3C6 /* Sample-App-Info.plist */,
-				FFCD5B822AA010D0000FA3C6 /* Sample App.entitlements */,
+				FFCD5B882AA016E0000FA3C6 /* ShowcaseApp-Info.plist */,
+				FFCD5B822AA010D0000FA3C6 /* ShowcaseApp.entitlements */,
 				FFCD5B712AA009DD000FA3C6 /* Ads */,
 				FFCD5B7F2AA00BDB000FA3C6 /* Analytics */,
 				FFB57B1B2AA15F9500A17FE4 /* Api */,
@@ -255,7 +255,7 @@
 				FFCD5B582AA00573000FA3C6 /* Assets.xcassets */,
 				FFCD5B5A2AA00573000FA3C6 /* Preview Content */,
 			);
-			path = "Sample App";
+			path = ShowcaseApp;
 			sourceTree = "<group>";
 		};
 		FFCD5B5A2AA00573000FA3C6 /* Preview Content */ = {
@@ -344,9 +344,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FFCD5B502AA00571000FA3C6 /* Sample App */ = {
+		FFCD5B502AA00571000FA3C6 /* ShowcaseApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FFCD5B5F2AA00573000FA3C6 /* Build configuration list for PBXNativeTarget "Sample App" */;
+			buildConfigurationList = FFCD5B5F2AA00573000FA3C6 /* Build configuration list for PBXNativeTarget "ShowcaseApp" */;
 			buildPhases = (
 				FFCD5B4D2AA00571000FA3C6 /* Sources */,
 				FFCD5B4E2AA00571000FA3C6 /* Frameworks */,
@@ -357,14 +357,14 @@
 			);
 			dependencies = (
 			);
-			name = "Sample App";
+			name = ShowcaseApp;
 			packageProductDependencies = (
 				FFCD5B6F2AA009D1000FA3C6 /* GoogleMobileAds */,
 				FFCD5B7D2AA00BA3000FA3C6 /* Amplitude */,
 				FF4BEF322AB9D8B60094A501 /* StorytellerSDK */,
 			);
-			productName = "Sample App";
-			productReference = FFCD5B512AA00571000FA3C6 /* Sample App.app */;
+			productName = ShowcaseApp;
+			productReference = FFCD5B512AA00571000FA3C6 /* ShowcaseApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -382,7 +382,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FFCD5B4C2AA00571000FA3C6 /* Build configuration list for PBXProject "Sample App" */;
+			buildConfigurationList = FFCD5B4C2AA00571000FA3C6 /* Build configuration list for PBXProject "ShowcaseApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -400,7 +400,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FFCD5B502AA00571000FA3C6 /* Sample App */,
+				FFCD5B502AA00571000FA3C6 /* ShowcaseApp */,
 			);
 		};
 /* End PBXProject section */
@@ -594,15 +594,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Sample App/Sample App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ShowcaseApp/ShowcaseApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 36;
-				DEVELOPMENT_ASSET_PATHS = "\"Sample App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ShowcaseApp/Preview Content\"";
 				DEVELOPMENT_TEAM = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Sample-App-Info.plist";
+				INFOPLIST_FILE = "ShowcaseApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Storyteller;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -636,17 +636,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Sample App/Sample App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ShowcaseApp/ShowcaseApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_ASSET_PATHS = "\"Sample App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ShowcaseApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Sample-App-Info.plist";
+				INFOPLIST_FILE = "ShowcaseApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Storyteller;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -679,7 +679,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FFCD5B4C2AA00571000FA3C6 /* Build configuration list for PBXProject "Sample App" */ = {
+		FFCD5B4C2AA00571000FA3C6 /* Build configuration list for PBXProject "ShowcaseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFCD5B5D2AA00573000FA3C6 /* Debug */,
@@ -688,7 +688,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FFCD5B5F2AA00573000FA3C6 /* Build configuration list for PBXNativeTarget "Sample App" */ = {
+		FFCD5B5F2AA00573000FA3C6 /* Build configuration list for PBXNativeTarget "ShowcaseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FFCD5B602AA00573000FA3C6 /* Debug */,

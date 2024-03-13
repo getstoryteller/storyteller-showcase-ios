@@ -30,7 +30,7 @@ platform :ios do
       owner_type = "organization"
       appcenter_app_name = "Showcase-iOS"
 
-      file = "./builds/Sample App.ipa"
+      file = "./builds/ShowcaseApp.ipa"
 
       # Gather changelog
       commits = changelog_from_git_commits(commits_count: 5, pretty: '%s')
@@ -63,7 +63,7 @@ platform :ios do
     
     build type: "appstore"
 
-    file = "./builds/Sample App.ipa"
+    file = "./builds/ShowcaseApp.ipa"
 
     testflight(
         app_identifier: ENV["BUNDLE_IDENTIFIER"],
@@ -85,7 +85,7 @@ platform :ios do
     })
 
     gym(
-        scheme: "Sample App",
+        scheme: "ShowcaseApp",
         include_symbols: true,
         output_directory: "./builds",
     )

@@ -20,9 +20,9 @@ class AppViewModel: ObservableObject {
 }
 
 @main
-struct SampleApp: App {
+struct ShowcaseApp: App {
 
-    // This sample application shows how to fetch information about which Stories and Clips content to display
+    // This showcase application shows how to fetch information about which Stories and Clips content to display
     // from an external API and then how to render these using the Storyteller SDK.
     // The DataGateway class is used to fetch this information from the API.
     

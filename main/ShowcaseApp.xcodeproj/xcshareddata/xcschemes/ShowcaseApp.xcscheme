@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FFCD5B502AA00571000FA3C6"
-               BuildableName = "Sample App.app"
-               BlueprintName = "Sample App"
-               ReferencedContainer = "container:Sample App.xcodeproj">
+               BuildableName = "ShowcaseApp.app"
+               BlueprintName = "ShowcaseApp"
+               ReferencedContainer = "container:ShowcaseApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FFCD5B502AA00571000FA3C6"
-            BuildableName = "Sample App.app"
-            BlueprintName = "Sample App"
-            ReferencedContainer = "container:Sample App.xcodeproj">
+            BuildableName = "ShowcaseApp.app"
+            BlueprintName = "ShowcaseApp"
+            ReferencedContainer = "container:ShowcaseApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FFCD5B502AA00571000FA3C6"
-            BuildableName = "Sample App.app"
-            BlueprintName = "Sample App"
-            ReferencedContainer = "container:Sample App.xcodeproj">
+            BuildableName = "ShowcaseApp.app"
+            BlueprintName = "ShowcaseApp"
+            ReferencedContainer = "container:ShowcaseApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
