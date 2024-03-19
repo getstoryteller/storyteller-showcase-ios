@@ -103,6 +103,28 @@ class StorytellerThemeManager {
         
         return theme
     }()
+
+    static var singleItemRoundRowTheme: StorytellerTheme = {
+        var theme = StorytellerTheme()
+
+        theme.light.lists.row.startInset = 0
+        theme.light.lists.row.endInset = 0
+
+        theme.light.tiles.title.show = false
+        theme.light.tiles.circularTile.readBorderWidth = 2
+        theme.light.tiles.circularTile.unreadBorderWidth = 2
+        theme.light.tiles.circularTile.readIndicatorColor = UIColor(hexString: "#F9BF4B")
+        theme.light.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#F9BF4B")
+
+        theme.light.tiles.circularTile.liveChip.readBackgroundColor = UIColor(hexString: "#F9BF4B")
+        theme.light.tiles.circularTile.liveChip.unreadBackgroundColor = UIColor(hexString: "#F9BF4B")
+        theme.light.tiles.circularTile.liveChip.readImage = UIImage()
+        theme.light.tiles.circularTile.liveChip.unreadImage = UIImage()
+
+        theme.dark = theme.light
+
+        return theme
+    }()
     
     static func buildTheme(for item: StorytellerItem) -> StorytellerTheme {
         var theme: StorytellerTheme
