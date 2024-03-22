@@ -15,6 +15,8 @@
 
 default_platform(:ios)
 
+bundle_id = 'com.getstoryteller.showcase'
+
 platform :ios do
 
   lane :upload_appcenter do
@@ -66,7 +68,7 @@ platform :ios do
     file = "./builds/ShowcaseApp.ipa"
 
     testflight(
-        app_identifier: ENV["BUNDLE_IDENTIFIER"],
+        app_identifier: bundle_id,
         skip_waiting_for_build_processing: true,
         ipa: file
     )
@@ -76,7 +78,7 @@ platform :ios do
     setup_ci
     match(type: options[:type],
       readonly: true,
-      app_identifier: ENV["BUNDLE_IDENTIFIER"],
+      app_identifier: bundle_id,
       platform: "ios"
     )
 

@@ -6,11 +6,12 @@ variables:
   - name: XCODE_VERSION
     value: 15.2
 
-jobs:
+pr: none
+trigger: none
 
+jobs:
   - job: DemoApp
     displayName: 'Demo App'
-    condition: or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     steps:
       - bash: echo -e "machine github.com\n  login $USER_TOKEN" >> ~/.netrc
         displayName: 'Github Login'
@@ -35,7 +36,6 @@ jobs:
           APPCENTER_KEY: $(APPCENTER_KEY)    
           USER_TOKEN: $(GithubUserToken)
           MATCH_PASSWORD: $(MatchRepoPassword)
-          BUNDLE_IDENTIFIER: $(BUNDLE_IDENTIFIER)
           BUILD_ID: $(Build.BuildId)
 
       - task: DownloadSecureFile@1
@@ -53,5 +53,4 @@ jobs:
           APPSTORE_CONNECT_KEY_PATH: $(AppStoreConnectApiKey.secureFilePath)
           USER_TOKEN: $(GithubUserToken)
           MATCH_PASSWORD: $(MatchRepoPassword)
-          BUNDLE_IDENTIFIER: $(BUNDLE_IDENTIFIER)
           BUILD_ID: $(Build.BuildId)
