@@ -56,6 +56,7 @@ struct ClipsView: View {
             .onAppear() {
                 viewModel.updateCollectionId()
                 viewModel.reloadDataIfNeeded()
+                StorytellerInstanceDelegate.currentLocation = "Moments"
             }
             .onDisappear() {
                 viewModel.lastTimeAppeared = Date()

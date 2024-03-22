@@ -116,7 +116,7 @@ struct HomeView: View {
             VStack {
                 if !viewModel.feeds.isEmpty {
                     HomeTabsView(
-                        viewModel: HomeTabsViewModel(tabs: viewModel.dataService.userStorage.tabs.tabNames, selectedTab: $viewModel.selectedTab, selectedTabOnComplete: $viewModel.selectedTabOnComplete), currentTabOnComplete: $viewModel.selectedTabOnComplete)
+                        viewModel: HomeTabsViewModel(tabs: viewModel.dataService.userStorage.tabs.tabNames, selectedTab: $viewModel.selectedTab), currentTabOnComplete: $viewModel.selectedTabOnComplete)
                     FeedPageView(
                         pagesViewModel: viewModel.feedViewModels,
                         moveToOriginTab: {

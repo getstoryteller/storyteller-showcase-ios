@@ -24,12 +24,12 @@ final class UserStorage: ObservableObject {
             self.objectWillChange.send()
         }
     }
-    @AppStorage("hasAccount") var hasAccount: String = "" {
+    @AppStorage("hasAccount") var hasAccount: Bool = false {
         didSet {
             self.objectWillChange.send()
         }
     }
-    @AppStorage("allowEventTracking") var allowEventTracking: String = "" {
+    @AppStorage("allowEventTracking") var allowEventTracking: Bool = true {
         didSet {
             self.objectWillChange.send()
         }

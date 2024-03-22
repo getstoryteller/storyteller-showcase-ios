@@ -18,6 +18,8 @@ class StorytellerInstanceDelegate : StorytellerDelegate {
     let adsDelegate: StorytellerAdsDelegate
     let storytellerTracker: StorytellerTrackingDelegate
     
+    static var currentLocation = ""
+    
     var router: Router
     
     init(router: Router, dataService: DataGateway) {

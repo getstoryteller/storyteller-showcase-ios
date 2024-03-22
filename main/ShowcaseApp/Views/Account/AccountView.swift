@@ -36,16 +36,10 @@ struct AccountView: View {
                         }
                     }.pickerStyle(NavigationLinkPickerStyle())
                 }
-                Picker("Has Account", selection: $viewModel.hasAccount) {
-                    Text("No").tag("false")
-                    Text("Yes").tag("true")
-                }.pickerStyle(NavigationLinkPickerStyle())
+                Toggle("Has Account", isOn: $viewModel.hasAccount)
             }
             Section("Settings") {
-                Picker("Allow Event Tracking", selection: $viewModel.allowEventTracking) {
-                    Text("Yes").tag("yes")
-                    Text("No").tag("no")
-                }.pickerStyle(NavigationLinkPickerStyle())
+                Toggle("Allow Event Tracking", isOn: $viewModel.allowEventTracking)
                 Button("Reset") {
                     viewModel.resetUser()
                     showingAlert = true

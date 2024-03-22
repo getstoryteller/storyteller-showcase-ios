@@ -26,7 +26,7 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
     
     @MainActor
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        guard dataService.userStorage.allowEventTracking == "yes" else { return }
+        guard dataService.userStorage.allowEventTracking else { return }
         switch(type) {
         case .OpenedStory:
             logAmplitudeEvent(name: "Opened Story", data: data)
@@ -48,6 +48,7 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
             "Clip Index": data.clipId as Any,
             "Clip Title": data.clipTitle as Any,
             "Clip Collection": data.collection as Any,
+            "Location": StorytellerInstanceDelegate.currentLocation as Any,
         ] as [String: Any]
 
         Amplitude.instance().logEvent(name, withEventProperties: eventData)

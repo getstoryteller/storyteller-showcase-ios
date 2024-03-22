@@ -27,7 +27,7 @@ class AccountViewModel: ObservableObject {
         }
     }
     
-    var hasAccount: String {
+    var hasAccount: Bool {
         get {
             dataService.userStorage.hasAccount
         } set {
@@ -38,15 +38,11 @@ class AccountViewModel: ObservableObject {
         }
     }
     
-    var allowEventTracking: String {
+    var allowEventTracking: Bool {
         get {
             dataService.userStorage.allowEventTracking
         } set {
-            if newValue == "yes" {
-                StorytellerService.enableEventTracking()
-            } else {
-                StorytellerService.disableEventTracking()
-            }
+            StorytellerService.enableEventTracking(newValue)
             dataService.userStorage.allowEventTracking = newValue
             latestTabEvent.send(true)
             self.objectWillChange.send()
@@ -80,8 +76,8 @@ class AccountViewModel: ObservableObject {
     private func reset() {
         favoriteTeam = ""
         language = ""
-        hasAccount = ""
-        allowEventTracking = "yes"
+        hasAccount = false
+        allowEventTracking = true
         dataService.userStorage.resetUser()
     }
 }

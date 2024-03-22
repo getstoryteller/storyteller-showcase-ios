@@ -6,8 +6,13 @@ import Combine
 
 class StorytellerService {
     private var cancellables = Set<AnyCancellable>()
-    
-    func setDelegate(dataService: DataGateway, router: Router) {
+    private let dataService: DataGateway
+
+    init(dataService: DataGateway) {
+        self.dataService = dataService
+    }
+
+    func setDelegate(router: Router) {
         Storyteller.sharedInstance.delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
     }
 
@@ -36,6 +41,11 @@ class StorytellerService {
             userInput: UserInput(externalId: userId),
             onComplete: {
                 Storyteller.theme = StorytellerThemeManager.squareTheme
+
+                Self.setFavoriteTeam(dataService.userStorage.favoriteTeam)
+                Self.setLanguage(dataService.userStorage.language)
+                Self.setHasAccount(dataService.userStorage.hasAccount)
+                Self.enableEventTracking(dataService.userStorage.allowEventTracking)
             }
         )
     }
@@ -63,19 +73,19 @@ class StorytellerService {
         }
     }
     
-    static func setHasAccount(_ hasAccount: String) {
-        Storyteller.user.setCustomAttribute(key: "hasAccount", value: hasAccount)
+    static func setHasAccount(_ hasAccount: Bool) {
+        Storyteller.user.setCustomAttribute(key: "hasAccount", value: hasAccount.description)
     }
     
     // The code here shows to enable and disable event tracking for
     // the Storyteller SDK. The corresponding code which calls these
     // functions is visible in the AccountView.swift class
     
-    static func enableEventTracking() {
-        Storyteller.enableEventTracking()
-    }
-    
-    static func disableEventTracking() {
-        Storyteller.disableEventTracking()
+    static func enableEventTracking(_ enable: Bool) {
+        if enable {
+            Storyteller.enableEventTracking()
+        } else {
+            Storyteller.disableEventTracking()
+        }
     }
 }

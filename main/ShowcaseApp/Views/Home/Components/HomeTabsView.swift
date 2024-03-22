@@ -3,12 +3,14 @@ import SwiftUI
 class HomeTabsViewModel: ObservableObject {
     let tabBarOptions: [String]
     let selectedTab: Binding<Int>
-    let selectedTabOnComplete: Binding<Int>
-    
-    init(tabs: [String], selectedTab: Binding<Int>, selectedTabOnComplete: Binding<Int>) {
+
+    var selectedTabName: String {
+        tabBarOptions.isEmpty ? "Home" : tabBarOptions[selectedTab.wrappedValue]
+    }
+
+    init(tabs: [String], selectedTab: Binding<Int>) {
         self.tabBarOptions = tabs
         self.selectedTab = selectedTab
-        self.selectedTabOnComplete = selectedTabOnComplete
     }
 }
 
@@ -30,7 +32,12 @@ struct HomeTabsView: View {
                     })
                 }
             }
+            .onAppear(perform: {
+                StorytellerInstanceDelegate.currentLocation = viewModel.selectedTabName
+            })
             .onChange(of: viewModel.selectedTab.wrappedValue, perform: { tapped in
+                StorytellerInstanceDelegate.currentLocation = viewModel.selectedTabName
+
                 Task {
                     withAnimation {
                         let tapped = max(tapped - 1, 0)

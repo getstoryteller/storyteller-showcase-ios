@@ -6,8 +6,8 @@ import Amplitude
 class AppViewModel: ObservableObject {
     @ObservedObject var router = Router()
     @ObservedObject var dataService = DataGateway()
-    let storytellerService = StorytellerService()
-    
+    lazy var storytellerService = StorytellerService(dataService: dataService)
+
     init() {
         Task {
             storytellerService.setup(withDataService: dataService)
@@ -15,7 +15,7 @@ class AppViewModel: ObservableObject {
     }
     
     func setStorytellerDelegate() {
-        storytellerService.setDelegate(dataService: dataService, router: router)
+        storytellerService.setDelegate(router: router)
     }
 }
 
