@@ -2,11 +2,11 @@ PODS:
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (2.3.0)
-  - StorytellerSDK (9.11.0)
+  - StorytellerSDK (9.12.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
-  - StorytellerSDK (~> 9.11.0)
+  - StorytellerSDK (~> 9.12.1)
 
 SPEC REPOS:
   https://github.com/getstoryteller/storyteller-sdk-ios-podspec.git:
@@ -18,8 +18,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleUserMessagingPlatform: b1ad7bb1ee3ce64749d4fec24f667b36e45c396c
-  StorytellerSDK: 637b6e772f174c90f2e4aaaa168f1e21a2a0cdd1
+  StorytellerSDK: ecdfcf67233adf7392fe15ae486f2184c9cef5f9
 
-PODFILE CHECKSUM: b291856577b8c66293c71bbaebf1aa259f2fa13c
+PODFILE CHECKSUM: a6db2594634bb87e42d003f5d853cfd77eab57f4
 
 COCOAPODS: 1.15.2
