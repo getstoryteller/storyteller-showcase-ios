@@ -88,8 +88,8 @@ final class DataGateway: ObservableObject {
     }
     
     private func refresh() async throws {
-        userStorage.languages = try await api.call(forEndpoint: LanguagesEndpoint()).data
-        userStorage.favoriteTeams = try await api.call(forEndpoint: TeamsEndpoint()).data
+        userStorage.languages = []
+        userStorage.favoriteTeams = []
         try await reloadTabs()
     }
 }
