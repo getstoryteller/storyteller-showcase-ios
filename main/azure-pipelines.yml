@@ -33,7 +33,7 @@ jobs:
       - bash: 'cd main && bundle exec fastlane ios upload_appcenter'
         displayName: 'Sign & upload to AppCenter'
         env:
-          APPCENTER_KEY: $(APPCENTER_KEY)    
+          APPCENTER_KEY: $(AppCenterKey-Showcase)    
           USER_TOKEN: $(GithubUserToken)
           MATCH_PASSWORD: $(MatchRepoPassword)
           BUILD_ID: $(Build.BuildId)
