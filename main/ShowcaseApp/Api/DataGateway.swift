@@ -52,6 +52,7 @@ final class DataGateway: ObservableObject {
                 let settings = try await api.call(forEndpoint: ValidateCodeEndpoint(), params: EndpointParams(body: ["code": code])).data
                 userStorage.settings = settings
                 userStorage.apiKey = settings.apiKey
+                userStorage.resetUser()
                 isAuthenticated = true
                 try await refresh()
             } catch {

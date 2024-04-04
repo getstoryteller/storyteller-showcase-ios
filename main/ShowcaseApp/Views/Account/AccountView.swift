@@ -6,7 +6,8 @@ struct AccountView: View {
     @ObservedObject var viewModel: AccountViewModel
     @Binding var isShowing: Bool
     @State var showingAlert: Bool = false
-    
+    @State var userId: String = ""
+
     // This view demonstrates how to pass User Attributes to the Storyteller SDK
     // for the purposes of personalization and targeting of stories.
     // The corresponding code which interacts with the Storyteller SDK is
@@ -38,6 +39,26 @@ struct AccountView: View {
                 }
                 Toggle("Has Account", isOn: $viewModel.hasAccount)
             }
+
+            Section("User") {
+                HStack {
+                    Text("User ID")
+                    Spacer()
+                    TextField("User ID", text: $userId) { focus in
+                        if !focus, viewModel.userId != userId {
+                            viewModel.userId = userId
+                        }
+                    }
+                    .foregroundStyle(Color.secondary)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .submitLabel(.done)
+                    .onChange(of: viewModel.userId) { newValue in
+                        userId = newValue
+                    }
+                }
+            }
+
             Section("Settings") {
                 Toggle("Allow Event Tracking", isOn: $viewModel.allowEventTracking)
                 Button("Reset") {
@@ -50,6 +71,7 @@ struct AccountView: View {
                 }
                 .tint(Color(.activeRed))
             }
+
             Section("App Info") {
                 HStack {
                     Text("Version")
@@ -62,6 +84,9 @@ struct AccountView: View {
         .navigationBarTitleDisplayMode(.inline)
         .alert("Reset completed!", isPresented: $showingAlert) {
             Button("OK", action: submit)
+        }
+        .onAppear {
+            userId = viewModel.userId
         }
     }
     

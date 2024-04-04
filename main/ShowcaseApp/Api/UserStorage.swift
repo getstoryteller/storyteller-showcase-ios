@@ -8,7 +8,7 @@ final class UserStorage: ObservableObject {
         }
     }
     
-    @PublishingAppStorage("userId") var userId: String = "sample-app-user-\(UUID())" {
+    @PublishingAppStorage("userId") var userId: String = UUID().uuidString {
         didSet {
             self.objectWillChange.send()
         }
@@ -47,19 +47,15 @@ final class UserStorage: ObservableObject {
     @Published var tabs: Tabs = []
     
     func resetUser() {
-        self.userId = generateUserId()
+        self.userId = UUID().uuidString
     }
     
     func logout() {
         apiKey = ""
-        resetUser()
+        userId = ""
         settings = .empty
         languages = []
         favoriteTeams = []
         tabs = []
-    }
-    
-    private func generateUserId() -> String {
-        "sample-app-user-\(UUID())"
     }
 }

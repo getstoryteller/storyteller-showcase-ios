@@ -37,7 +37,17 @@ class AccountViewModel: ObservableObject {
             self.objectWillChange.send()
         }
     }
-    
+
+    var userId: String {
+        get {
+            dataService.userStorage.userId
+        } set {
+            dataService.userStorage.userId = newValue
+            latestTabEvent.send(true)
+            self.objectWillChange.send()
+        }
+    }
+
     var allowEventTracking: Bool {
         get {
             dataService.userStorage.allowEventTracking
