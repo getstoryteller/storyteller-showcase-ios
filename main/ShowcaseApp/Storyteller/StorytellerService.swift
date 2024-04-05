@@ -7,13 +7,15 @@ import Combine
 class StorytellerService {
     private var cancellables = Set<AnyCancellable>()
     private let dataService: DataGateway
+    private var delegate: StorytellerInstanceDelegate?
 
     init(dataService: DataGateway) {
         self.dataService = dataService
     }
 
     func setDelegate(router: Router) {
-        Storyteller.sharedInstance.delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
+        delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
+        Storyteller.sharedInstance.delegate = delegate
     }
 
     func setup(withDataService dataService: DataGateway) {
