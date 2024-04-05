@@ -48,22 +48,13 @@ class AccountViewModel: ObservableObject {
         }
     }
 
-    var allowEventTracking: Bool {
-        get {
-            dataService.userStorage.allowEventTracking
-        } set {
-            StorytellerService.enableEventTracking(newValue)
-            dataService.userStorage.allowEventTracking = newValue
-            latestTabEvent.send(true)
-            self.objectWillChange.send()
-        }
-    }
-
     let latestTabEvent: PassthroughSubject<Bool, Never>
+    let analyticsViewModel: AnalyticsViewModel
     
     init(dataService: DataGateway, latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
         self.latestTabEvent = latestTabEvent
+        self.analyticsViewModel = AnalyticsViewModel(dataService: dataService, latestTabEvent: latestTabEvent)
     }
 
     var favoriteTeams: FavoriteTeams {
@@ -87,7 +78,7 @@ class AccountViewModel: ObservableObject {
         favoriteTeam = ""
         language = ""
         hasAccount = false
-        allowEventTracking = true
+        analyticsViewModel.reset()
         dataService.userStorage.resetUser()
     }
 }

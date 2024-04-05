@@ -47,7 +47,9 @@ class StorytellerService {
                 Self.setFavoriteTeam(dataService.userStorage.favoriteTeam)
                 Self.setLanguage(dataService.userStorage.language)
                 Self.setHasAccount(dataService.userStorage.hasAccount)
-                Self.enableEventTracking(dataService.userStorage.allowEventTracking)
+                Self.enableStorytellerTracking(dataService.userStorage.enableStorytellerTracking)
+                Self.enablePersonalization(dataService.userStorage.enablePersonalization)
+                Self.enableUserActivityTracking(dataService.userStorage.enableUserActivityTracking)
             }
         )
     }
@@ -79,15 +81,19 @@ class StorytellerService {
         Storyteller.user.setCustomAttribute(key: "hasAccount", value: hasAccount.description)
     }
     
-    // The code here shows to enable and disable event tracking for
+    // The code here shows to enable and disable event tracking options for
     // the Storyteller SDK. The corresponding code which calls these
     // functions is visible in the AccountView.swift class
     
-    static func enableEventTracking(_ enable: Bool) {
-        if enable {
-            Storyteller.enableEventTracking()
-        } else {
-            Storyteller.disableEventTracking()
-        }
+    static func enablePersonalization(_ enable: Bool) {
+        Storyteller.eventTrackingOptions.enablePersonalization = enable
+    }
+    
+    static func enableStorytellerTracking(_ enable: Bool) {
+        Storyteller.eventTrackingOptions.enableStorytellerTracking = enable
+    }
+    
+    static func enableUserActivityTracking(_ enable: Bool) {
+        Storyteller.eventTrackingOptions.enableUserActivityTracking = enable
     }
 }

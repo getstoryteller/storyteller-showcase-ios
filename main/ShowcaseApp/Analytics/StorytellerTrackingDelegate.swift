@@ -26,7 +26,6 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
     
     @MainActor
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        guard dataService.userStorage.allowEventTracking else { return }
         switch(type) {
         case .OpenedStory:
             logAmplitudeEvent(name: "Opened Story", data: data)

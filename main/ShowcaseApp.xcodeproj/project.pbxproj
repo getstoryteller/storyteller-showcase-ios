@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34E08F2E2BC453F900EF1B15 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 34E08F2D2BC453F900EF1B15 /* StorytellerSDK */; };
+		34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F302BC454A200EF1B15 /* AnalyticsView.swift */; };
+		34E08F332BC454A200EF1B15 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F312BC454A200EF1B15 /* AnalyticsViewModel.swift */; };
 		8C33E0942AE483140016A7D4 /* AccessCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E0932AE483140016A7D4 /* AccessCodeView.swift */; };
 		8C33E09B2AEAC0000016A7D4 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E09A2AEAC0000016A7D4 /* AccountView.swift */; };
 		8C33E0A12AEFAB600016A7D4 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E0A02AEFAB600016A7D4 /* AccountViewModel.swift */; };
@@ -71,6 +74,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		34E08F302BC454A200EF1B15 /* AnalyticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		34E08F312BC454A200EF1B15 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		8C33E0932AE483140016A7D4 /* AccessCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeView.swift; sourceTree = "<group>"; };
 		8C33E09A2AEAC0000016A7D4 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		8C33E0A02AEFAB600016A7D4 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34E08F2F2BC454A200EF1B15 /* TrackingOptions */ = {
+			isa = PBXGroup;
+			children = (
+				34E08F302BC454A200EF1B15 /* AnalyticsView.swift */,
+				34E08F312BC454A200EF1B15 /* AnalyticsViewModel.swift */,
+			);
+			name = TrackingOptions;
+			path = Account/TrackingOptions;
+			sourceTree = "<group>";
+		};
 		8C33E0952AE8685C0016A7D4 /* AccessCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				8C33E0992AEABFED0016A7D4 /* Account */,
+				34E08F2F2BC454A200EF1B15 /* TrackingOptions */,
 				8C33E0952AE8685C0016A7D4 /* AccessCode */,
 				FFCD5B832AA012FD000FA3C6 /* Clips */,
 				FFCD5B892AA0179A000FA3C6 /* Home */,
@@ -451,6 +467,7 @@
 				8C33E0A12AEFAB600016A7D4 /* AccountViewModel.swift in Sources */,
 				FFCD5B8F2AA018C7000FA3C6 /* HomeTabsView.swift in Sources */,
 				FFCD5B772AA00A19000FA3C6 /* Constants.swift in Sources */,
+				34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */,
 				FFCD5B792AA00A2E000FA3C6 /* AdTrackingManager.swift in Sources */,
 				FFA0FA5E2AA44F380053DE0C /* Router.swift in Sources */,
 				AFAF65B52B19E10900C23704 /* PageView.swift in Sources */,
@@ -465,6 +482,7 @@
 				FFB57B222AA161C000A17FE4 /* FeedItem.swift in Sources */,
 				8C517BF02AE0735B00112045 /* Endpoint.swift in Sources */,
 				AFF789B22B21F6AA009B64CC /* AppVersionProvider.swift in Sources */,
+				34E08F332BC454A200EF1B15 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

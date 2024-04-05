@@ -29,7 +29,17 @@ final class UserStorage: ObservableObject {
             self.objectWillChange.send()
         }
     }
-    @AppStorage("allowEventTracking") var allowEventTracking: Bool = true {
+    @AppStorage("enableUserActivityTracking") var enableUserActivityTracking: Bool = true {
+        didSet {
+            self.objectWillChange.send()
+        }
+    }
+    @AppStorage("enablePersonalization") var enablePersonalization: Bool = true {
+        didSet {
+            self.objectWillChange.send()
+        }
+    }
+    @AppStorage("enableStorytellerTracking") var enableStorytellerTracking: Bool = true {
         didSet {
             self.objectWillChange.send()
         }

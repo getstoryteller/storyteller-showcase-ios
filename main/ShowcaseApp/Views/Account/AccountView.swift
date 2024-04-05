@@ -39,6 +39,11 @@ struct AccountView: View {
                 }
                 Toggle("Has Account", isOn: $viewModel.hasAccount)
             }
+            Section("Analytics") {
+                NavigationLink(destination: AnalyticsView(viewModel: viewModel.analyticsViewModel)) {
+                    Text("User Privacy Preferences")
+                }
+            }
 
             Section("User") {
                 HStack {
@@ -60,7 +65,6 @@ struct AccountView: View {
             }
 
             Section("Settings") {
-                Toggle("Allow Event Tracking", isOn: $viewModel.allowEventTracking)
                 Button("Reset") {
                     viewModel.resetUser()
                     showingAlert = true
