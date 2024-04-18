@@ -56,22 +56,19 @@ final class StorytellerStoriesGridTableViewCell: UITableViewCell, StorytellerLis
     func configure(with item: StorytellerItem) {
         self.item = item
         storytellerGridViewContainer.delegate = self
-        storytellerGridViewContainer.categories = item.categories
-
-        switch item.tileType {
-        case .rectangular:
-            storytellerGridViewContainer.cellType = .square
-        case .round:
-            storytellerGridViewContainer.cellType = .round
-        }
-
-        let theme = StorytellerThemeManager.theme(for: item)
-        storytellerGridViewContainer.theme = theme
-
-        headerView.configure(headerText: item.title, extraButtonText: item.moreButtonTitle)
 
         let singletonMode = item.layout == .singleton && item.tileType == .rectangular
-        storytellerGridViewContainer.displayLimit = singletonMode ? 1 : item.count
+
+        let config = StorytellerStoriesListConfiguration(
+            categories: item.categories,
+            cellType: item.tileType == .rectangular ? .square : .round,
+            theme: StorytellerThemeManager.theme(for: item),
+            displayLimit: singletonMode ? 1 : item.count
+        )
+
+        storytellerGridViewContainer.configuration = config
+
+        headerView.configure(headerText: item.title, extraButtonText: item.moreButtonTitle)
 
         if singletonMode && traitCollection.horizontalSizeClass == .regular {
             let singletonPadding: CGFloat = 100
@@ -86,7 +83,7 @@ final class StorytellerStoriesGridTableViewCell: UITableViewCell, StorytellerLis
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        storytellerGridViewContainer.uiStyle = traitCollection.userInterfaceStyle.storytellerStyle
+        storytellerGridViewContainer.configuration.uiStyle = traitCollection.userInterfaceStyle.storytellerStyle
         layoutSubviews()
     }
 

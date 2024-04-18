@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34E08F2E2BC453F900EF1B15 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 34E08F2D2BC453F900EF1B15 /* StorytellerSDK */; };
 		34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F302BC454A200EF1B15 /* AnalyticsView.swift */; };
 		34E08F332BC454A200EF1B15 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F312BC454A200EF1B15 /* AnalyticsViewModel.swift */; };
 		8C33E0942AE483140016A7D4 /* AccessCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E0932AE483140016A7D4 /* AccessCodeView.swift */; };
@@ -723,7 +722,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.13.1;
+				minimumVersion = 10.0.0;
 			};
 		};
 		FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {

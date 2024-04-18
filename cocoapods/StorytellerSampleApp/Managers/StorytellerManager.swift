@@ -9,7 +9,7 @@ final class StorytellerManager {
 
         // Set current class for StorytellerDelegate.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/storyteller-delegate#HowToUse
-        Storyteller.sharedInstance.delegate = storytellerDelegate
+        Storyteller.delegate = storytellerDelegate
     }
 
     // MARK: Internal
@@ -21,7 +21,7 @@ final class StorytellerManager {
 
         // SDK initialization requires providing api key.
         // For more info, see: https://www.getstoryteller.com/documentation/ios/getting-started#SDKInitialization
-        Storyteller.sharedInstance.initialize(apiKey: appStorage.apiKey, userInput: userInput) { [weak self] in
+        Storyteller.initialize(apiKey: appStorage.apiKey, userInput: userInput) { [weak self] in
             self?.isInitalized = true
             onComplete()
         } onError: { error in

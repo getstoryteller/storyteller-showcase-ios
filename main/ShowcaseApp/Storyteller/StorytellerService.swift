@@ -15,7 +15,7 @@ class StorytellerService {
 
     func setDelegate(router: Router) {
         delegate = StorytellerInstanceDelegate(router: router, dataService: dataService)
-        Storyteller.sharedInstance.delegate = delegate
+        Storyteller.delegate = delegate
     }
 
     func setup(withDataService dataService: DataGateway) {
@@ -38,7 +38,7 @@ class StorytellerService {
     private func setupStoryteller(withApiKey apiKey: String, userId: String, dataService: DataGateway) {
         print("^ Setting up Storyteller with key: '\(apiKey)'")
         print("^ userId: '\(userId)'")
-        Storyteller.sharedInstance.initialize(
+        Storyteller.initialize(
             apiKey: apiKey,
             userInput: UserInput(externalId: userId),
             onComplete: {

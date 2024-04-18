@@ -65,15 +65,21 @@ final class StorytellerClipsRowTableViewCell: UITableViewCell, StorytellerListVi
     func configure(with item: StorytellerItem) {
         self.item = item
         storytellerRowViewContainer.delegate = self
-        storytellerRowViewContainer.collectionId = item.collection
+
+        let config = StorytellerClipsListConfiguration(
+            collectionId: item.collection,
+            cellType: item.tileType == .rectangular ? .square : .round,
+            theme: StorytellerThemeManager.theme(for: item),
+            displayLimit: item.count
+        )
+
+        storytellerRowViewContainer.configuration = config
 
         switch item.tileType {
         case .round:
-            storytellerRowViewContainer.cellType = .round
             rowHeightConstraint.constant = TableViewConstants.rowRoundHeight
             stackViewBottomAnchorConstraint.constant = TableViewConstants.roundBottomPadding
         case .rectangular:
-            storytellerRowViewContainer.cellType = .square
             rowHeightConstraint.constant = TableViewConstants.rowSquareHeight
             stackViewBottomAnchorConstraint.constant = TableViewConstants.squareBottomPadding
             switch item.size {
@@ -86,12 +92,7 @@ final class StorytellerClipsRowTableViewCell: UITableViewCell, StorytellerListVi
             }
         }
 
-        let theme = StorytellerThemeManager.theme(for: item)
-        storytellerRowViewContainer.theme = theme
-
         headerView.configure(headerText: item.title, extraButtonText: item.moreButtonTitle)
-
-        storytellerRowViewContainer.displayLimit = item.count
 
         if item.forceReload {
             storytellerRowViewContainer.reloadData()
@@ -100,7 +101,7 @@ final class StorytellerClipsRowTableViewCell: UITableViewCell, StorytellerListVi
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        storytellerRowViewContainer.uiStyle = traitCollection.userInterfaceStyle.storytellerStyle
+        storytellerRowViewContainer.configuration.uiStyle = traitCollection.userInterfaceStyle.storytellerStyle
     }
 
     func onDataLoadComplete(success _: Bool, error _: Error?, dataCount _: Int) {
