@@ -31,7 +31,7 @@ class HomeViewModel: ObservableObject {
     let latestTabEvent: PassthroughSubject<Bool, Never>
     let scrollToTopOrSwitchTabToOrigintEvent = PassthroughSubject<Int, Never>()
     let scrollToTopEvent = PassthroughSubject<Int, Never>()
-    var lastTimeAppeared = Date()
+    var lastTimeDataFetched = Date()
 
     init(dataService: DataGateway, router: Router, homeTabTapEvent: PassthroughSubject<Bool, Never>, latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
@@ -83,13 +83,13 @@ class HomeViewModel: ObservableObject {
     func reloadDataIfNeeded() {
         guard dataService.isAuthenticated == true else { return }
         //reload collection if it was more then 10 min (10 * 60) since last reload
-        if self.lastTimeAppeared.timeIntervalSinceNow.isLess(than: -(10*60)) {
+        if self.lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10*60)) {
             scrollToTopEvent.send(selectedTab)
         }
     }
     
     private func fetchData(for tab: Int) {
-        lastTimeAppeared = Date()
+        lastTimeDataFetched = Date()
         Task {
             if dataService.userStorage.settings.tabsEnabled {
                 let tabs = dataService.userStorage.tabs

@@ -7,7 +7,7 @@ class ClipsViewModel : ObservableObject {
     @Published var clipsViewModel: StorytellerClipsModel
     let clipsTabTapEvent: PassthroughSubject<Bool, Never>
     let didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>
-    var lastTimeAppeared = Date()
+    var lastTimeDataFetched = Date()
 
     init(dataService: DataGateway, clipsTabTapEvent: PassthroughSubject<Bool, Never>, didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>) {
         self.dataService = dataService
@@ -23,7 +23,7 @@ class ClipsViewModel : ObservableObject {
     func reloadDataIfNeeded() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
             //reload collection if it was more then 10 min (10 * 60) since last reload
-            if self.lastTimeAppeared.timeIntervalSinceNow.isLess(than: -(10*60)) {
+            if self.lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10*60)) {
                 self.reloadData()
             }
         }
@@ -31,7 +31,7 @@ class ClipsViewModel : ObservableObject {
 
     func reloadData() {
         self.clipsViewModel.reloadData()
-        self.lastTimeAppeared = Date()
+        self.lastTimeDataFetched = Date()
     }
 }
 
@@ -41,6 +41,7 @@ class ClipsViewModel : ObservableObject {
 
 struct ClipsView: View {
     @StateObject var viewModel: ClipsViewModel
+    @Environment(\.scenePhase) private var phase
 
     var body: some View {
         StorytellerClipsView(model: viewModel.clipsViewModel, action: { action in
@@ -58,9 +59,11 @@ struct ClipsView: View {
                 viewModel.reloadDataIfNeeded()
                 StorytellerInstanceDelegate.currentLocation = "Moments"
             }
-            .onDisappear() {
-                viewModel.lastTimeAppeared = Date()
-            }
+            .onChange(of: phase, perform: { value in
+                if value == .active {
+                    viewModel.reloadDataIfNeeded()
+                }
+            })
             .onReceive(viewModel.clipsTabTapEvent) { _ in
                 viewModel.reloadData()
             }
