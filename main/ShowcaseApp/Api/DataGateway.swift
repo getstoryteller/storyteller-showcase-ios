@@ -24,7 +24,7 @@ final class DataGateway: ObservableObject {
         isAuthenticated = true
     }
 
-    func getHomeFeed() async -> FeedItems {
+    func getHomeFeed() async -> [FeedItem] {
         do {
             return try await api.call(forEndpoint: HomeFeedEndpoint()).data
         } catch {
@@ -33,7 +33,7 @@ final class DataGateway: ObservableObject {
         return []
     }
 
-    func getTabFeed(withId id: String) async -> FeedItems {
+    func getTabFeed(withId id: String) async -> [FeedItem] {
         do {
             return try await api.call(forEndpoint: TabByIdEndpoint(), params: EndpointParams(extraPath: id)).data
         } catch {

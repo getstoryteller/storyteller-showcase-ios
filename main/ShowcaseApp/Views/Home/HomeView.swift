@@ -9,24 +9,7 @@ class HomeViewModel: ObservableObject {
     @ObservedObject var router: Router
     @Published var selectedTab: Int = 0
     @Published var selectedTabOnComplete: Int = -1
-    @Published var feeds: [FeedItems] = [] {
-        didSet {
-            feedViewModels = feeds.enumerated().map { index, feed in
-                FeedItemsViewModel(
-                    index: index,
-                    feedItems: feed,
-                    router: router,
-                    scrollToTopOrSwitchTabToOrigintEvent: scrollToTopOrSwitchTabToOrigintEvent,
-                    scrollToTopEvent: scrollToTopEvent,
-                    reloadList: {
-                        self.fetchCurrentTabData()
-                    }
-                )
-            }
-        }
-    }
-    
-    var feedViewModels: [FeedItemsViewModel] = []
+    @Published var feedViewModels: [FeedItemsViewModel] = []
     var lastSelectedTab: Int = -1
 
     let homeTabTapEvent: PassthroughSubject<Bool, Never>
@@ -39,7 +22,6 @@ class HomeViewModel: ObservableObject {
         self.router = router
         self.homeTabTapEvent = homeTabTapEvent
         self.latestTabEvent = latestTabEvent
-        self.feeds = []
     }
     
     func reload() {
@@ -58,28 +40,26 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchTabsData() async {
-        self.feeds = feeds.map { _ in [] }
         if dataService.userStorage.settings.tabsEnabled {
             guard !dataService.userStorage.tabs.isEmpty else { return }
-            var feeds: [FeedItems] = []
+            
+            var feeds: [FeedItemsViewModel] = []
             for (index, tab) in dataService.userStorage.tabs.enumerated() {
-                let feed: FeedItems
-                if index == selectedTab {
-                    feed = await dataService.getTabFeed(withId: tab.value)
-                } else {
-                    feed = []
-                }
-                feeds.append(feed)
+                let feed = index == selectedTab ? await dataService.getTabFeed(withId: tab.value) : []
+                feeds.append(feedViewModelFromFeedItems(feed, index: index))
             }
-            self.feeds = feeds
+            feedViewModels = feeds
         } else if dataService.isAuthenticated == true {
             let items = await dataService.getHomeFeed()
-            feeds.append(items)
+            feedViewModels = [feedViewModelFromFeedItems(items, index: 0)]
         }
     }
     
     func fetchCurrentTabData() {
-        fetchData(for: selectedTab)
+        Task {
+            await fetchData(for: selectedTab)
+            feedViewModels[selectedTab].feedItems.forEach { $0.reload() }
+        }
     }
     
     func reloadDataIfNeeded() {
@@ -89,17 +69,39 @@ class HomeViewModel: ObservableObject {
             scrollToTopEvent.send(selectedTab)
         }
     }
-    
-    private func fetchData(for tab: Int) {
+
+    private func fetchData(for tab: Int) async {
         lastTimeDataFetched = Date()
-        Task {
-            if dataService.userStorage.settings.tabsEnabled {
-                let tabs = dataService.userStorage.tabs
-                feeds[tab] = await dataService.getTabFeed(withId: tabs[tab].value)
-            } else {
-                feeds[0] = await dataService.getHomeFeed()
-            }
+        let feed: [FeedItem]
+
+        if dataService.userStorage.settings.tabsEnabled {
+            let tabs = dataService.userStorage.tabs
+            feed = await dataService.getTabFeed(withId: tabs[tab].value)
+        } else {
+            feed = await dataService.getHomeFeed()
         }
+
+        updateTab(with: feed, index: tab)
+    }
+
+    private func updateTab(with feedItems: [FeedItem], index: Int) {
+        let tab = feedViewModels[index]
+
+        // We keep the original viewmodel if it hasn't changed so that reloading Storyteller lists continues to work
+        tab.feedItems = feedItems.map { item in
+            let viewModel = FeedItemViewModel(feedItem: item)
+            return tab.feedItems.first(where: { $0 == viewModel }) ?? viewModel
+        }
+    }
+
+    private func feedViewModelFromFeedItems(_ feedItem: [FeedItem], index: Int) -> FeedItemsViewModel {
+        return FeedItemsViewModel(
+            index: index,
+            feedItems: feedItem.map(FeedItemViewModel.init),
+            router: router,
+            scrollToTopOrSwitchTabToOrigintEvent: scrollToTopOrSwitchTabToOrigintEvent,
+            scrollToTopEvent: scrollToTopEvent
+        )
     }
 }
 
@@ -116,7 +118,7 @@ struct HomeView: View {
     
     var body: some View {
             VStack {
-                if !viewModel.feeds.isEmpty {
+                if !viewModel.feedViewModels.isEmpty {
                     HomeTabsView(
                         viewModel: HomeTabsViewModel(tabs: viewModel.dataService.userStorage.tabs.tabNames, selectedTab: $viewModel.selectedTab), currentTabOnComplete: $viewModel.selectedTabOnComplete)
                     FeedPageView(
@@ -144,13 +146,12 @@ struct HomeView: View {
                 viewModel.scrollToTopOrSwitchTabToOrigintEvent.send(viewModel.selectedTab)
             }
             .onReceive(viewModel.latestTabEvent) { _ in
-                viewModel.feeds = viewModel.feeds.map({ _ in [] })
                 viewModel.selectedTab = 0
                 viewModel.reloadTabs()
             }
             .onReceive(viewModel.$selectedTab, perform: { index in
                 guard viewModel.lastSelectedTab >= 0 else {
-                    viewModel.lastSelectedTab = index 
+                    viewModel.lastSelectedTab = index
                     return
                 }
                 if viewModel.lastSelectedTab == index {

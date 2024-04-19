@@ -5,7 +5,7 @@ struct TenantConfigResponse: Decodable {
 }
 
 struct FeedResponse: Decodable {
-    let data: FeedItems
+    let data: [FeedItem]
 }
 
 struct TabsResponse: Decodable {

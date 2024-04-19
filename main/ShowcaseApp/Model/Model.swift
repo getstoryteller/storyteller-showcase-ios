@@ -38,21 +38,10 @@ struct PersonalisationAttribute: Identifiable, Hashable, Codable {
     }
 }
 
-typealias FeedItems = [FeedItem]
-
-enum FeedItem: Decodable, Identifiable, Hashable {
+enum FeedItem: Decodable, Hashable {
     case image(ButtonItem)
     case storytellerItem(StorytellerItem)
-    
-    var id: String {
-        switch self {
-        case .image(let item):
-            item.id
-        case .storytellerItem(let item):
-            item.id
-        }
-    }
-    
+
     enum CodingKeys: CodingKey {
         case type
         case data
@@ -69,8 +58,7 @@ enum FeedItem: Decodable, Identifiable, Hashable {
     }
 }
     
-struct ButtonItem: Decodable, Identifiable, Hashable {
-    let id: String
+struct ButtonItem: Decodable, Hashable {
     let url: String
     let title: String?
     let action: ButtonItemAction
@@ -86,8 +74,8 @@ struct ButtonItemAction: Decodable, Hashable {
     }
 }
 
-struct StorytellerItem: Decodable, Identifiable, Hashable {
-    let categories: [String]
+struct StorytellerItem: Decodable, Hashable {
+    var categories: [String]
     let collection: String?
     let count: Int?
     let layout: Layout
@@ -97,7 +85,6 @@ struct StorytellerItem: Decodable, Identifiable, Hashable {
     let videoType: VideoType
     let title: String?
     let moreButtonTitle: String?
-    let id: String
 }
 
 extension StorytellerItem {
@@ -128,6 +115,20 @@ extension StorytellerItem {
     enum VideoType: String, Decodable {
         case stories = "stories"
         case clips = "clips"
+    }
+}
+
+extension StorytellerItem {
+    func getRowHeight() -> CGFloat {
+        switch self.tileType {
+        case .rectangular:
+            switch self.size {
+            case .regular: return 220
+            case .medium: return 330
+            case .large: return 440
+            }
+        case .round: return 106
+        }
     }
 }
 

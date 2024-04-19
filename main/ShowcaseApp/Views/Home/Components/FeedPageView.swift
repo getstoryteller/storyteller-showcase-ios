@@ -12,33 +12,32 @@ struct FeedPageView: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> UIPageViewController {
-        let pageViewController = UIPageViewController(
-            transitionStyle: .scroll,
-            navigationOrientation: .horizontal)
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         pageViewController.dataSource = context.coordinator
         pageViewController.delegate = context.coordinator
-
 
         return pageViewController
     }
 
-    
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
         let direction: UIPageViewController.NavigationDirection = currentPage > context.coordinator.lastSelectedIndex ? .forward : .reverse
-        if context.coordinator.lastSelectedIndex == currentPage && pagesViewModel[currentPage] != context.coordinator.pagesViewModel[currentPage] {
-            context.coordinator.reloadData(on: currentPage, with: pagesViewModel[currentPage].feedItems)
-            context.coordinator.pagesViewModel.remove(at: currentPage)
-            context.coordinator.pagesViewModel.insert(pagesViewModel[currentPage], at: currentPage)
-        } else if context.coordinator.lastSelectedIndex == currentPage {
-            //case for swiping to the same
-        } else {
+
+        if context.coordinator.pagesViewModel != pagesViewModel {
+            context.coordinator.pagesViewModel = pagesViewModel
+            context.coordinator.resetControllers()
+            pageViewController.setViewControllers([context.coordinator.controllers[currentPage]], direction: direction, animated: false)
+        }
+
+        if context.coordinator.lastSelectedIndex != currentPage {
             context.coordinator.lastSelectedIndex = currentPage
             pageViewController.setViewControllers([context.coordinator.controllers[currentPage]], direction: direction, animated: true)
         }
     }
 
-
     class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+        // Although the parent is always recreated by SwiftUI, we're storing it
+        // so that we have access to its callbacks which don't change, and currentPage which is a binding,
+        // so it persists across instances.
         var parent: FeedPageView
         var pagesViewModel: [FeedItemsViewModel]
         var controllers = [UIViewController]()
@@ -47,12 +46,13 @@ struct FeedPageView: UIViewControllerRepresentable {
         init(_ parent: FeedPageView) {
             self.parent = parent
             self.pagesViewModel = parent.pagesViewModel
-            controllers = parent.pagesViewModel.map { UIHostingController(rootView: FeedItemsView(viewModel: $0, moveToOriginTab: parent.moveToOriginTab, reload: parent.reload)) }
+            super.init()
+            resetControllers()
         }
-        
-        func reloadData(on index: Int, with items: FeedItems ) {
-            if let controller = controllers[index] as? UIHostingController<FeedItemsView> {
-                controller.rootView.viewModel.reload(items: items)
+
+        func resetControllers() {
+            controllers = pagesViewModel.map { 
+                UIHostingController(rootView: FeedItemsView(viewModel: $0, moveToOriginTab: parent.moveToOriginTab, reload: parent.reload))
             }
         }
 
