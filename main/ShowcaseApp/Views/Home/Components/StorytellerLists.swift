@@ -16,8 +16,8 @@ struct StoriesListView: View {
         switch viewModel.item.layout {
         case .row:
             StorytellerStoriesRow(model: viewModel.storyModel!, action: action)
-                .padding(.vertical, 5)
                 .frame(height: viewModel.item.getRowHeight())
+                .padding(.vertical, 5)
         case .grid:
             StorytellerStoriesGrid(model: viewModel.storyModel!, action: action)
                 .padding(.vertical, 5)
@@ -67,8 +67,8 @@ struct ClipsListView: View {
         switch viewModel.item.layout {
         case .row:
             StorytellerClipsRow(model: viewModel.clipModel!, action: action)
-                .padding(.vertical, 5)
                 .frame(height: viewModel.item.getRowHeight())
+                .padding(.vertical, 5)
         case .grid:
             StorytellerClipsGrid(model: viewModel.clipModel!, action: action)
                 .padding(.vertical, 5)
