@@ -22,13 +22,24 @@
 		8C517C032AE1D9A000112045 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C517C022AE1D9A000112045 /* Model.swift */; };
 		8C517C062AE1E5FC00112045 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C517C052AE1E5FC00112045 /* NetworkError.swift */; };
 		8C95ED112AF52EC3005053B9 /* PublishingAppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */; };
+		8D33D2CE2BC42D7A009C9DEF /* AttributeLineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D33D2CD2BC42D7A009C9DEF /* AttributeLineItem.swift */; };
+		8D4132AD2BBE9BDF0078F19D /* MultiSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132AC2BBE9BDF0078F19D /* MultiSelectView.swift */; };
+		8D4132AF2BBEA6F10078F19D /* SingleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132AE2BBEA6F10078F19D /* SingleSelectView.swift */; };
+		8D4132B12BBEA8CA0078F19D /* SelectableItemLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132B02BBEA8CA0078F19D /* SelectableItemLine.swift */; };
+		8D4132B32BBEBC710078F19D /* AppStorageDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132B22BBEBC710078F19D /* AppStorageDictionary.swift */; };
+		8D4D1A312BC346D300D8D78F /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4D1A302BC346D300D8D78F /* StorytellerSDK */; };
+		8D4D1A362BC347BA00D8D78F /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D1A332BC347BA00D8D78F /* AnalyticsView.swift */; };
+		8D4D1A372BC347BA00D8D78F /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D1A342BC347BA00D8D78F /* AnalyticsViewModel.swift */; };
+		8D7FAC212BCD054B00E46676 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FAC202BCD054B00E46676 /* SequenceExtensions.swift */; };
+		8D7FAC232BCD0B9300E46676 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FAC222BCD0B9300E46676 /* DependencyContainer.swift */; };
+		8DA34E932BBEDBC500B9E885 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA34E922BBEDBC500B9E885 /* StorytellerSDK */; };
+		8DBE59432BC929E3007C396A /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8DBE59422BC929E3007C396A /* StorytellerSDK */; };
 		AF2BF4C62B174C3D0021D05A /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */; };
 		AFAF65B52B19E10900C23704 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF65B42B19E10900C23704 /* PageView.swift */; };
 		AFB3C2512B4E95FF0082077C /* ActionLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */; };
 		AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD901A2B0CDA5100E10866 /* UserStorage.swift */; };
 		AFF025212B62932600E44EEF /* FeedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF025202B62932600E44EEF /* FeedImageView.swift */; };
 		AFF789B22B21F6AA009B64CC /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */; };
-		FF4BEF332AB9D8B60094A501 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF4BEF322AB9D8B60094A501 /* StorytellerSDK */; };
 		FFA0FA4F2AA411920053DE0C /* StorytellerThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */; };
 		FFA0FA512AA4183C0053DE0C /* StorytellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA502AA4183C0053DE0C /* StorytellerService.swift */; };
 		FFA0FA5A2AA423A80053DE0C /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0FA592AA423A80053DE0C /* MoreView.swift */; };
@@ -89,6 +100,15 @@
 		8C517C022AE1D9A000112045 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8C517C052AE1E5FC00112045 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishingAppStorage.swift; sourceTree = "<group>"; };
+		8D33D2CD2BC42D7A009C9DEF /* AttributeLineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeLineItem.swift; sourceTree = "<group>"; };
+		8D4132AC2BBE9BDF0078F19D /* MultiSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectView.swift; sourceTree = "<group>"; };
+		8D4132AE2BBEA6F10078F19D /* SingleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectView.swift; sourceTree = "<group>"; };
+		8D4132B02BBEA8CA0078F19D /* SelectableItemLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableItemLine.swift; sourceTree = "<group>"; };
+		8D4132B22BBEBC710078F19D /* AppStorageDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageDictionary.swift; sourceTree = "<group>"; };
+		8D4D1A332BC347BA00D8D78F /* AnalyticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		8D4D1A342BC347BA00D8D78F /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
+		8D7FAC202BCD054B00E46676 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		8D7FAC222BCD0B9300E46676 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		AFAF65B42B19E10900C23704 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLinkView.swift; sourceTree = "<group>"; };
@@ -132,9 +152,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBE59432BC929E3007C396A /* StorytellerSDK in Frameworks */,
 				FFCD5B7E2AA00BA3000FA3C6 /* Amplitude in Frameworks */,
-				FF4BEF332AB9D8B60094A501 /* StorytellerSDK in Frameworks */,
+				8D4D1A312BC346D300D8D78F /* StorytellerSDK in Frameworks */,
 				FFCD5B702AA009D1000FA3C6 /* GoogleMobileAds in Frameworks */,
+				8DA34E932BBEDBC500B9E885 /* StorytellerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,9 +184,13 @@
 		8C33E0992AEABFED0016A7D4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				8D4D1A352BC347BA00D8D78F /* TrackingOptions */,
 				8C33E0A02AEFAB600016A7D4 /* AccountViewModel.swift */,
 				8C33E09A2AEAC0000016A7D4 /* AccountView.swift */,
 				AFF789B12B21F6AA009B64CC /* AppVersionProvider.swift */,
+				8D4132AC2BBE9BDF0078F19D /* MultiSelectView.swift */,
+				8D4132AE2BBEA6F10078F19D /* SingleSelectView.swift */,
+				8D4132B02BBEA8CA0078F19D /* SelectableItemLine.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -195,6 +221,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8D4D1A352BC347BA00D8D78F /* TrackingOptions */ = {
+			isa = PBXGroup;
+			children = (
+				8D4D1A332BC347BA00D8D78F /* AnalyticsView.swift */,
+				8D4D1A342BC347BA00D8D78F /* AnalyticsViewModel.swift */,
+			);
+			path = TrackingOptions;
+			sourceTree = "<group>";
+		};
 		FFA0FA522AA41F500053DE0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +255,7 @@
 			children = (
 				8C95ED102AF52EC3005053B9 /* PublishingAppStorage.swift */,
 				AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */,
+				8D7FAC202BCD054B00E46676 /* SequenceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +269,7 @@
 				8C517BFB2AE0814000112045 /* ResponseModels.swift */,
 				8C517C002AE0832400112045 /* Framework */,
 				AFDD901A2B0CDA5100E10866 /* UserStorage.swift */,
+				8D4132B22BBEBC710078F19D /* AppStorageDictionary.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -270,6 +307,7 @@
 				FFA0FA5D2AA44F380053DE0C /* Router.swift */,
 				FFCD5B582AA00573000FA3C6 /* Assets.xcassets */,
 				FFCD5B5A2AA00573000FA3C6 /* Preview Content */,
+				8D7FAC222BCD0B9300E46676 /* DependencyContainer.swift */,
 				553226B02BCE43AB009E2373 /* PrivacyInfo.xcprivacy */,
 			);
 			path = ShowcaseApp;
@@ -344,6 +382,7 @@
 				FFCD5B832AA012FD000FA3C6 /* Clips */,
 				FFCD5B892AA0179A000FA3C6 /* Home */,
 				FFCD5B562AA00571000FA3C6 /* MainView.swift */,
+				8D33D2CD2BC42D7A009C9DEF /* AttributeLineItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,7 +418,9 @@
 			packageProductDependencies = (
 				FFCD5B6F2AA009D1000FA3C6 /* GoogleMobileAds */,
 				FFCD5B7D2AA00BA3000FA3C6 /* Amplitude */,
-				FF4BEF322AB9D8B60094A501 /* StorytellerSDK */,
+				8DA34E922BBEDBC500B9E885 /* StorytellerSDK */,
+				8D4D1A302BC346D300D8D78F /* StorytellerSDK */,
+				8DBE59422BC929E3007C396A /* StorytellerSDK */,
 			);
 			productName = ShowcaseApp;
 			productReference = FFCD5B512AA00571000FA3C6 /* ShowcaseApp.app */;
@@ -412,7 +453,7 @@
 			packageReferences = (
 				FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				FFCD5B7C2AA00BA3000FA3C6 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
-				FF4BEF312AB9D8B60094A501 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
+				8D71E4AA2BD2718E0092C8D8 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
 			);
 			productRefGroup = FFCD5B522AA00571000FA3C6 /* Products */;
 			projectDirPath = "";
@@ -454,10 +495,13 @@
 				8C517BF42AE080E600112045 /* APIConfig.swift in Sources */,
 				FFCD5B7B2AA00AA3000FA3C6 /* GADCustomNativeAdExtensions.swift in Sources */,
 				FFB57B242AA16D7B00A17FE4 /* FeedItemsView.swift in Sources */,
+				8D4D1A362BC347BA00D8D78F /* AnalyticsView.swift in Sources */,
 				8C517BF12AE0735B00112045 /* API.swift in Sources */,
 				FFA0FA5A2AA423A80053DE0C /* MoreView.swift in Sources */,
 				AFDD901B2B0CDA5100E10866 /* UserStorage.swift in Sources */,
 				FFCD5B752AA00A0B000FA3C6 /* NativeAdRequest.swift in Sources */,
+				8D33D2CE2BC42D7A009C9DEF /* AttributeLineItem.swift in Sources */,
+				8D7FAC232BCD0B9300E46676 /* DependencyContainer.swift in Sources */,
 				FFCD5B812AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift in Sources */,
 				FFCD5B732AA009EC000FA3C6 /* AdManager.swift in Sources */,
 				8C517BF82AE0812A00112045 /* Endpoints.swift in Sources */,
@@ -466,10 +510,16 @@
 				8C33E0942AE483140016A7D4 /* AccessCodeView.swift in Sources */,
 				8C517BFE2AE0815A00112045 /* DataGateway.swift in Sources */,
 				FFCD5B572AA00571000FA3C6 /* MainView.swift in Sources */,
+				8D4132B12BBEA8CA0078F19D /* SelectableItemLine.swift in Sources */,
 				8C33E09B2AEAC0000016A7D4 /* AccountView.swift in Sources */,
+				8D4D1A372BC347BA00D8D78F /* AnalyticsViewModel.swift in Sources */,
 				8C33E0A12AEFAB600016A7D4 /* AccountViewModel.swift in Sources */,
+				8D4132AF2BBEA6F10078F19D /* SingleSelectView.swift in Sources */,
+				8D4132AD2BBE9BDF0078F19D /* MultiSelectView.swift in Sources */,
+				8D7FAC212BCD054B00E46676 /* SequenceExtensions.swift in Sources */,
 				FFCD5B8F2AA018C7000FA3C6 /* HomeTabsView.swift in Sources */,
 				FFCD5B772AA00A19000FA3C6 /* Constants.swift in Sources */,
+				8D4132B32BBEBC710078F19D /* AppStorageDictionary.swift in Sources */,
 				34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */,
 				FFCD5B792AA00A2E000FA3C6 /* AdTrackingManager.swift in Sources */,
 				FFA0FA5E2AA44F380053DE0C /* Router.swift in Sources */,
@@ -635,7 +685,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.11.0;
+				MARKETING_VERSION = 10.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -661,7 +711,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowcaseApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = A7Q59YT5G5;
@@ -679,7 +729,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 9.11.0;
+				MARKETING_VERSION = 10.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -721,12 +771,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FF4BEF312AB9D8B60094A501 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
+		8D71E4AA2BD2718E0092C8D8 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				kind = exactVersion;
+				version = 10.0.0;
 			};
 		};
 		FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
@@ -734,7 +784,7 @@
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 11.1.0;
 			};
 		};
 		FFCD5B7C2AA00BA3000FA3C6 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */ = {
@@ -748,9 +798,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FF4BEF322AB9D8B60094A501 /* StorytellerSDK */ = {
+		8D4D1A302BC346D300D8D78F /* StorytellerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF4BEF312AB9D8B60094A501 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */;
+			productName = StorytellerSDK;
+		};
+		8DA34E922BBEDBC500B9E885 /* StorytellerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StorytellerSDK;
+		};
+		8DBE59422BC929E3007C396A /* StorytellerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = StorytellerSDK;
 		};
 		FFCD5B6F2AA009D1000FA3C6 /* GoogleMobileAds */ = {

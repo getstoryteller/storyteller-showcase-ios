@@ -3,17 +3,19 @@ import Combine
 import StorytellerSDK
 
 class ClipsViewModel : ObservableObject {
-    @ObservedObject var dataService: DataGateway
+
+    @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
     @Published var clipsViewModel: StorytellerClipsModel
     let clipsTabTapEvent: PassthroughSubject<Bool, Never>
     let didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>
     var lastTimeDataFetched = Date()
 
-    init(dataService: DataGateway, clipsTabTapEvent: PassthroughSubject<Bool, Never>, didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>) {
-        self.dataService = dataService
+    init(clipsTabTapEvent: PassthroughSubject<Bool, Never>,
+         didFinishLoadingMomentsEvent: PassthroughSubject<Bool, Never>
+    ) {
         self.clipsTabTapEvent = clipsTabTapEvent
         self.didFinishLoadingMomentsEvent = didFinishLoadingMomentsEvent
-        self.clipsViewModel = StorytellerClipsModel(collectionId: dataService.userStorage.settings.topLevelClipsCollection)
+        self.clipsViewModel = StorytellerClipsModel(collectionId: DependencyContainer.shared.dataService.userStorage.settings.topLevelClipsCollection)
     }
 
     func updateCollectionId() {

@@ -21,11 +21,7 @@ class StorytellerAdsDelegate : StorytellerDelegate {
     
     private var nativeAds = [String: GADCustomNativeAd]()
     private let trackingManager = AdTrackingManager()
-    private let dataService: DataGateway
-    
-    init(dataService: DataGateway) {
-        self.dataService = dataService
-    }
+    private let dataService: DataGateway = DependencyContainer.shared.dataService
     
     func getAd(for adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         DispatchQueue.main.async {

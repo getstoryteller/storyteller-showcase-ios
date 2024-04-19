@@ -12,6 +12,32 @@ struct TenantData: Decodable, Equatable {
     }
 }
 
+struct PersonalisationAttribute: Identifiable, Hashable, Codable {
+    let id: String
+    let title: String
+    let urlName: String
+    let allowMultiple: Bool
+    let nullable: Bool
+    let defaultValue: String?
+    let type: String?
+    let isFollowable: Bool
+    let sortOrder: Int
+    let attributeValues: [AttributeValue]
+
+    init(attribute: Attribute, values: [AttributeValue]) {
+        id = attribute.id
+        title = attribute.title
+        urlName = attribute.urlName
+        allowMultiple = attribute.allowMultiple
+        nullable = attribute.nullable
+        defaultValue = attribute.defaultValue
+        type = attribute.type
+        isFollowable = attribute.isFollowable ?? false
+        sortOrder = attribute.sortOrder
+        attributeValues = values
+    }
+}
+
 typealias FeedItems = [FeedItem]
 
 enum FeedItem: Decodable, Identifiable, Hashable {
@@ -123,6 +149,25 @@ struct Language: Decodable, Identifiable {
     var id: String { name }
     let name: String
     let value: String
+}
+
+struct Attribute: Decodable, Identifiable {
+    var id: String { urlName }
+    let title: String
+    let urlName: String
+    let sortOrder: Int
+    let allowMultiple: Bool
+    let nullable: Bool
+    let defaultValue: String?
+    let type: String?
+    let isFollowable: Bool?
+}
+
+struct AttributeValue: Codable, Hashable, Identifiable {
+    var id: String { urlName }
+    let title: String
+    let urlName: String
+    let sortOrder: Int
 }
 
 typealias Tabs = [Tab]

@@ -18,26 +18,24 @@ struct AccountView: View {
     // The code here also shows to enable and disable event tracking for
     // the Storyteller SDK. The corresponding code which interacts with the
     // Storyteller SDK is visible in the StorytellerService class.
+
     var body: some View {
         List {
-            Section("Personalisation") {
-                if !viewModel.favoriteTeams.isEmpty {
-                    Picker("Favorite Teams", selection: $viewModel.favoriteTeam) {
-                        Text("Not Set").tag("")
-                        ForEach(viewModel.favoriteTeams) { team in
-                            Text(team.name).tag(team.value)
+            if !viewModel.personalisationAttributes.isEmpty {
+                Section("Personalisation") {
+                    ForEach(viewModel.allAttributes) { attribute in
+                        let selectedItems = viewModel.personalisationAttributes[attribute] ?? Set<AttributeValue>()
+                        if attribute.allowMultiple {
+                            NavigationLink(destination: MultiSelectView(attribute: attribute, selectedItems: selectedItems, viewModel: viewModel)) {
+                                AttributeLineItem(title: attribute.title, selectedValues: selectedItems)
+                            }
+                        } else {
+                            NavigationLink(destination: SingleSelectView(attribute: attribute, selectedItem: selectedItems.first, viewModel: viewModel)) {
+                                AttributeLineItem(title: attribute.title, selectedValues: selectedItems)
+                            }
                         }
-                    }.pickerStyle(NavigationLinkPickerStyle())
+                    }
                 }
-                if !viewModel.languages.isEmpty {
-                    Picker("Language", selection: $viewModel.language) {
-                        Text("Not Set").tag("")
-                        ForEach(viewModel.languages) { language in
-                            Text(language.name).tag(language.value)
-                        }
-                    }.pickerStyle(NavigationLinkPickerStyle())
-                }
-                Toggle("Has Account", isOn: $viewModel.hasAccount)
             }
             Section("Analytics") {
                 NavigationLink(destination: AnalyticsView(viewModel: viewModel.analyticsViewModel)) {

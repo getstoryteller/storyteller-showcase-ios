@@ -3,7 +3,9 @@ import Combine
 
 @MainActor
 class HomeViewModel: ObservableObject {
-    @ObservedObject var dataService: DataGateway
+
+    let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
+    @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
     @ObservedObject var router: Router
     @Published var selectedTab: Int = 0
     @Published var selectedTabOnComplete: Int = -1
@@ -33,8 +35,7 @@ class HomeViewModel: ObservableObject {
     let scrollToTopEvent = PassthroughSubject<Int, Never>()
     var lastTimeDataFetched = Date()
 
-    init(dataService: DataGateway, router: Router, homeTabTapEvent: PassthroughSubject<Bool, Never>, latestTabEvent: PassthroughSubject<Bool, Never>) {
-        self.dataService = dataService
+    init(router: Router, homeTabTapEvent: PassthroughSubject<Bool, Never>, latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.router = router
         self.homeTabTapEvent = homeTabTapEvent
         self.latestTabEvent = latestTabEvent
@@ -45,6 +46,7 @@ class HomeViewModel: ObservableObject {
         Task {
             await dataService.getSettings()
             await fetchTabsData()
+            await storytellerService.getAttributes()
         }
     }
     

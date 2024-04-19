@@ -5,6 +5,7 @@ import StorytellerSDK
 @MainActor
 class MainViewModel: ObservableObject {
     @Published var selectedTab = 0
+    private let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
     let homeTabTapEvent = PassthroughSubject<Bool, Never>()
     let latestTabEvent = PassthroughSubject<Bool, Never>()
     let clipsTabTapEvent = PassthroughSubject<Bool, Never>()
@@ -37,14 +38,14 @@ struct MainView: View {
     
     var body: some View {
         if dataService.isAuthenticated == false {
-            AccessCodeView(dataService: dataService)
+            AccessCodeView()
         } else {
             NavigationStack(path: $router.path) {
                 ZStack(alignment: .bottom) {
                     TabView(selection: selectedTab) {
-                        HomeView(viewModel: HomeViewModel(dataService: dataService, router: router, homeTabTapEvent: viewModel.homeTabTapEvent, latestTabEvent: viewModel.latestTabEvent))
+                        HomeView(viewModel: HomeViewModel(router: router, homeTabTapEvent: viewModel.homeTabTapEvent, latestTabEvent: viewModel.latestTabEvent))
                             .tag(0)
-                        ClipsView(viewModel: ClipsViewModel(dataService: dataService, clipsTabTapEvent: viewModel.clipsTabTapEvent, didFinishLoadingMomentsEvent: viewModel.didFinishLoadingMomentsEvent))
+                        ClipsView(viewModel: ClipsViewModel(clipsTabTapEvent: viewModel.clipsTabTapEvent, didFinishLoadingMomentsEvent: viewModel.didFinishLoadingMomentsEvent))
                             .tag(1)
                     }
                     
@@ -65,8 +66,8 @@ struct MainView: View {
                         }.buttonStyle(NoTapAnimationStyle())
                         Spacer()
                     }
-                    .background(colorScheme == .dark ? .black : .white)
                     .frame(height: 50)
+                    .background(colorScheme == .dark ? .black : .white)
                     .navigationDestination(for: Router.Destination.self, destination: { destination in
                         switch destination {
                         case .actionLink(let url):
@@ -103,7 +104,7 @@ struct MainView: View {
                     momentsItem = .moments
                 })
                 .navigationDestination(isPresented: $showSettings) {
-                    AccountView(viewModel: AccountViewModel(dataService: dataService, latestTabEvent: viewModel.latestTabEvent), isShowing: $showSettings)
+                    AccountView(viewModel: AccountViewModel(latestTabEvent: viewModel.latestTabEvent), isShowing: $showSettings)
                 }
             }
         }

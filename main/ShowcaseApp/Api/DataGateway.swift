@@ -1,9 +1,6 @@
 import Foundation
 import SwiftUI
 
-
-
-@MainActor
 final class DataGateway: ObservableObject {
     enum CodeVerificationStatus {
         case none
@@ -75,6 +72,57 @@ final class DataGateway: ObservableObject {
         }
     }
     
+    func getAttributes() async -> [PersonalisationAttribute] {
+        do {
+            let attributes = try await api.call(forEndpoint: AttributesEndpoint()).data.sorted(by: { $0.sortOrder < $1.sortOrder })
+            let attributeValues = await getAttributeValuesList(for: attributes)
+
+            var personalisationAttributes: [PersonalisationAttribute] = []
+            for (index, attribute) in attributes.enumerated() {
+                let currentAttributeValues = attributeValues[index]
+
+                if !currentAttributeValues.isEmpty {
+                    personalisationAttributes.append(PersonalisationAttribute(attribute: attribute, values: currentAttributeValues))
+                }
+            }
+            return personalisationAttributes
+        } catch {
+            print("getAttributes call failed with error: '\(error.localizedDescription)'")
+            return []
+        }
+    }
+
+    private func getAttributeValuesList(for attributes: [Attribute]) async -> [[AttributeValue]] {
+        await withTaskGroup(of: (String, [AttributeValue]).self) { group in
+            for attribute in attributes {
+                group.addTask { await self.getAttributeValues(for: attribute.urlName) }
+            }
+
+            var result = [(String, [AttributeValue])]()
+            for await attributeValues in group {
+                result.append(attributeValues)
+            }
+
+            var orderedResult = [[AttributeValue]]()
+            for attribute in attributes {
+                if let values = result.first(where: { $0.0 == attribute.urlName }) {
+                    orderedResult.append(values.1)
+                }
+            }
+            return orderedResult
+        }
+    }
+
+    private func getAttributeValues(for attribute: String) async -> (String, [AttributeValue]) {
+        do {
+            let attributeValues = try await api.call(forEndpoint: AttributeValuesEndpoint(attribute: attribute)).data.sorted(by: { $0.sortOrder < $1.sortOrder })
+            return (attribute, attributeValues)
+        } catch {
+            print("getAttributes call failed with error: '\(error.localizedDescription)'")
+            return (attribute, [])
+        }
+    }
+
     func reloadTabs() async throws {
         if userStorage.settings.tabsEnabled {
             userStorage.tabs = try await api.call(forEndpoint: TabsEndpoint()).data
@@ -89,8 +137,6 @@ final class DataGateway: ObservableObject {
     }
     
     private func refresh() async throws {
-        userStorage.languages = []
-        userStorage.favoriteTeams = []
         try await reloadTabs()
     }
 }

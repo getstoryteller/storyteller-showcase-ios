@@ -3,7 +3,6 @@ import Combine
 
 @MainActor
 class AnalyticsViewModel: ObservableObject {
-    let dataService: DataGateway
 
     var enableStorytellerTracking: Bool {
         get {
@@ -37,8 +36,7 @@ class AnalyticsViewModel: ObservableObject {
 
     let latestTabEvent: PassthroughSubject<Bool, Never>
     
-    init(dataService: DataGateway, latestTabEvent: PassthroughSubject<Bool, Never>) {
-        self.dataService = dataService
+    init(latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.latestTabEvent = latestTabEvent
     }
     
@@ -47,4 +45,6 @@ class AnalyticsViewModel: ObservableObject {
         enablePersonalization = true
         enableUserActivityTracking = true
     }
+
+    private let dataService: DataGateway = DependencyContainer.shared.dataService
 }

@@ -19,3 +19,11 @@ struct FavoriteTeamsResponse: Decodable {
 struct LanguagesResponse: Decodable {
     let data: Languages
 }
+
+struct AttributesResponse: Decodable {
+    let data: [Attribute]
+}
+
+struct AttributeValuesResponse: Decodable {
+    let data: [AttributeValue]
+}

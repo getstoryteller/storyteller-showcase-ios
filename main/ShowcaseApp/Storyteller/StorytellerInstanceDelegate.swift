@@ -17,15 +17,17 @@ class StorytellerInstanceDelegate : StorytellerDelegate {
     
     let adsDelegate: StorytellerAdsDelegate
     let storytellerTracker: StorytellerTrackingDelegate
-    
+    private let dataService: DataGateway = DependencyContainer.shared.dataService
+    private let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
+
     static var currentLocation = ""
     
     var router: Router
     
-    init(router: Router, dataService: DataGateway) {
+    init(router: Router) {
         self.router = router
-        self.storytellerTracker = StorytellerTrackingDelegate(dataService: dataService)
-        self.adsDelegate = StorytellerAdsDelegate(dataService: dataService)
+        self.storytellerTracker = StorytellerTrackingDelegate()
+        self.adsDelegate = StorytellerAdsDelegate()
     }
     
     func getAd(for adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
@@ -43,5 +45,9 @@ class StorytellerInstanceDelegate : StorytellerDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.router.navigateToActionLink(url: url)
         }
+    }
+
+    func categoryFollowActionTaken(category: StorytellerSDK.Category, isFollowing: Bool) {
+        storytellerService.followCategoryAction(category, isFollowing: isFollowing)
     }
 }

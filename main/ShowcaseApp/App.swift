@@ -4,13 +4,14 @@ import GoogleMobileAds
 import Amplitude
 
 class AppViewModel: ObservableObject {
+
     @ObservedObject var router = Router()
-    @ObservedObject var dataService = DataGateway()
-    lazy var storytellerService = StorytellerService(dataService: dataService)
+    @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
+    private let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
 
     init() {
         Task {
-            storytellerService.setup(withDataService: dataService)
+            storytellerService.setup()
         }
     }
     

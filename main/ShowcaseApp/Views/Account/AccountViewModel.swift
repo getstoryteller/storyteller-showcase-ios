@@ -3,39 +3,16 @@ import Combine
 
 @MainActor
 class AccountViewModel: ObservableObject {
-    let dataService: DataGateway
 
-    var favoriteTeam: String {
-        get {
-            dataService.userStorage.favoriteTeam
-        } set {
-            StorytellerService.setFavoriteTeam(newValue)
-            dataService.userStorage.favoriteTeam = newValue
-            latestTabEvent.send(true)
-            self.objectWillChange.send()
-        }
+    private let dataService: DataGateway = DependencyContainer.shared.dataService
+    private let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
+
+    var allAttributes: [PersonalisationAttribute] {
+        dataService.userStorage.allAttributes
     }
-    
-    var language: String {
-        get {
-            dataService.userStorage.language
-        } set {
-            StorytellerService.setLanguage(newValue)
-            dataService.userStorage.language = newValue
-            latestTabEvent.send(true)
-            self.objectWillChange.send()
-        }
-    }
-    
-    var hasAccount: Bool {
-        get {
-            dataService.userStorage.hasAccount
-        } set {
-            StorytellerService.setHasAccount(newValue)
-            dataService.userStorage.hasAccount = newValue
-            latestTabEvent.send(true)
-            self.objectWillChange.send()
-        }
+
+    var personalisationAttributes: [PersonalisationAttribute: Set<AttributeValue>] {
+        dataService.userStorage.selectedAttributes
     }
 
     var userId: String {
@@ -50,19 +27,15 @@ class AccountViewModel: ObservableObject {
 
     let latestTabEvent: PassthroughSubject<Bool, Never>
     let analyticsViewModel: AnalyticsViewModel
-    
-    init(dataService: DataGateway, latestTabEvent: PassthroughSubject<Bool, Never>) {
-        self.dataService = dataService
+
+    init(latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.latestTabEvent = latestTabEvent
-        self.analyticsViewModel = AnalyticsViewModel(dataService: dataService, latestTabEvent: latestTabEvent)
+        self.analyticsViewModel = AnalyticsViewModel(latestTabEvent: latestTabEvent)
     }
 
-    var favoriteTeams: FavoriteTeams {
-        dataService.userStorage.favoriteTeams
-    }
-
-    var languages: Languages {
-        dataService.userStorage.languages
+    func personalisationUpdated(for attribute: PersonalisationAttribute, actionType: SelectActionType) {
+        storytellerService.attributeUpdated(for: attribute, actionType: actionType)
+        self.objectWillChange.send()
     }
 
     func resetUser() {
@@ -73,12 +46,14 @@ class AccountViewModel: ObservableObject {
         reset()
         dataService.logout()
     }
-    
+
+    func personalisationUpdated() {
+        latestTabEvent.send(true)
+    }
+
     private func reset() {
-        favoriteTeam = ""
-        language = ""
-        hasAccount = false
         analyticsViewModel.reset()
         dataService.userStorage.resetUser()
+        StorytellerService.clearFollowedCategories()
     }
 }

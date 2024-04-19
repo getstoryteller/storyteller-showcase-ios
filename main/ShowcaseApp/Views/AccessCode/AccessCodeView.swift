@@ -3,16 +3,14 @@ import Combine
 
 @MainActor
 class AccessCodeViewModel : ObservableObject {
-    @ObservedObject var dataService: DataGateway
+    @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
     @Published var code: String = ""
     @Published var verificationInProgress: Bool = false
     @Published var codeVerificationStatus: DataGateway.CodeVerificationStatus = .none
     var cancellables: Set<AnyCancellable> = []
 
 
-    init(dataService: DataGateway) {
-        self.dataService = dataService
-
+    init() {
         dataService.$codeVerificationStatus
             .subscribe(on: RunLoop.main)
             .sink { [weak self] status in
@@ -47,8 +45,8 @@ struct AccessCodeView: View {
         .padding()
     }
 
-    init(dataService: DataGateway) {
-        self._viewModel = StateObject(wrappedValue: AccessCodeViewModel(dataService: dataService))
+    init() {
+        self._viewModel = StateObject(wrappedValue: AccessCodeViewModel())
     }
 }
 

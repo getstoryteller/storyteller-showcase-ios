@@ -26,3 +26,18 @@ struct TabByIdEndpoint: Endpoint {
     let path = "/v3/tabs"
     let extraPath = ":tabId"
 }
+
+struct AttributesEndpoint: Endpoint {
+    typealias Response = AttributesResponse
+    let path = "/v3/attributes"
+}
+
+struct AttributeValuesEndpoint: Endpoint {
+    typealias Response = AttributeValuesResponse
+
+    var path: String {
+        "/v3/attributes/\(attribute)/values"
+    }
+
+    let attribute: String
+}

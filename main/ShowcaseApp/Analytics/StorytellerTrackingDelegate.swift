@@ -4,11 +4,7 @@ import StorytellerSDK
 
 class StorytellerTrackingDelegate : StorytellerDelegate {
     
-    private let dataService: DataGateway
-    
-    init(dataService: DataGateway) {
-        self.dataService = dataService
-    }
+    private let dataService: DataGateway = DependencyContainer.shared.dataService
     
     // This method is called from the StorytellerInstanceDelegate.swift class which is attached
     // to the Storyteller instance as its delegate.
