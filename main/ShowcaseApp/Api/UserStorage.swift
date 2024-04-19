@@ -53,6 +53,12 @@ final class UserStorage: ObservableObject {
             return
         }
 
+        for attribute in attributes {
+            if selectedAttributes[attribute] == nil {
+                selectedAttributes[attribute] = Set()
+            }
+        }
+
         setDefaultValuesIfNeeded()
     }
 
