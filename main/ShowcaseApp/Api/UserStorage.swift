@@ -53,10 +53,6 @@ final class UserStorage: ObservableObject {
             return
         }
 
-        for attribute in attributes {
-            selectedAttributes[attribute] = Set()
-        }
-
         setDefaultValuesIfNeeded()
     }
 
