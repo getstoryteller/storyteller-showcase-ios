@@ -25,11 +25,11 @@ class EmbeddedClipsViewController: UIViewController, UITextFieldDelegate {
         clipsViewController.didMove(toParent: self)
         clipsViewController.collectionId = appStorage.momentsCollectionId
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         clipsViewController.willShow()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         clipsViewController.willHide()
     }

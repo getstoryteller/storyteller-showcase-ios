@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 @MainActor
 class AccountViewModel: ObservableObject {
@@ -21,7 +21,7 @@ class AccountViewModel: ObservableObject {
         } set {
             dataService.userStorage.userId = newValue
             latestTabEvent.send(true)
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
 
@@ -30,18 +30,18 @@ class AccountViewModel: ObservableObject {
 
     init(latestTabEvent: PassthroughSubject<Bool, Never>) {
         self.latestTabEvent = latestTabEvent
-        self.analyticsViewModel = AnalyticsViewModel(latestTabEvent: latestTabEvent)
+        analyticsViewModel = AnalyticsViewModel(latestTabEvent: latestTabEvent)
     }
 
     func personalisationUpdated(for attribute: PersonalisationAttribute, actionType: SelectActionType) {
         storytellerService.attributeUpdated(for: attribute, actionType: actionType)
-        self.objectWillChange.send()
+        objectWillChange.send()
     }
 
     func resetUser() {
         reset()
     }
-    
+
     func logout() {
         reset()
         dataService.logout()

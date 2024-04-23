@@ -45,13 +45,13 @@ struct FeedPageView: UIViewControllerRepresentable {
 
         init(_ parent: FeedPageView) {
             self.parent = parent
-            self.pagesViewModel = parent.pagesViewModel
+            pagesViewModel = parent.pagesViewModel
             super.init()
             resetControllers()
         }
 
         func resetControllers() {
-            controllers = pagesViewModel.map { 
+            controllers = pagesViewModel.map {
                 UIHostingController(rootView: FeedItemsView(viewModel: $0, moveToOriginTab: parent.moveToOriginTab, reload: parent.reload))
             }
         }
@@ -82,7 +82,7 @@ struct FeedPageView: UIViewControllerRepresentable {
             }
             return controllers[index + 1]
         }
-        
+
         func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
             if let visibleViewController = pendingViewControllers.first,
                let index = controllers.firstIndex(of: visibleViewController) {
@@ -97,15 +97,15 @@ struct FeedPageView: UIViewControllerRepresentable {
             previousViewControllers: [UIViewController],
             transitionCompleted completed: Bool) {
             if completed,
-                let visibleViewController = pageViewController.viewControllers?.first,
-                let index = controllers.firstIndex(of: visibleViewController),
-                parent.currentPage != index {
+               let visibleViewController = pageViewController.viewControllers?.first,
+               let index = controllers.firstIndex(of: visibleViewController),
+               parent.currentPage != index {
                 lastSelectedIndex = index
                 parent.currentPage = index
             } else if finished && !completed,
-                let visibleViewController = previousViewControllers.first,
-                let index = controllers.firstIndex(of: visibleViewController),
-                parent.currentPage != index {
+                      let visibleViewController = previousViewControllers.first,
+                      let index = controllers.firstIndex(of: visibleViewController),
+                      parent.currentPage != index {
                 lastSelectedIndex = index
                 parent.currentPage = index
             }

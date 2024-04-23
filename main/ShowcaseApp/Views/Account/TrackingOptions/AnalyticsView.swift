@@ -1,5 +1,5 @@
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 struct AnalyticsView: View {
     @Environment(\.colorScheme) var colorScheme

@@ -1,8 +1,8 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 @MainActor
-class AccessCodeViewModel : ObservableObject {
+class AccessCodeViewModel: ObservableObject {
     @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
     @Published var code: String = ""
     @Published var verificationInProgress: Bool = false
@@ -46,7 +46,7 @@ struct AccessCodeView: View {
     }
 
     init() {
-        self._viewModel = StateObject(wrappedValue: AccessCodeViewModel())
+        _viewModel = StateObject(wrappedValue: AccessCodeViewModel())
     }
 }
 
@@ -92,7 +92,7 @@ struct AccessCodeField: View {
                     .font(.system(size: 12, weight: .regular))
             }
         }
-        .onAppear{
+        .onAppear {
             // This has to be called after displaying the field
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 isCodeEntryFocused = true
@@ -117,7 +117,7 @@ struct VerifyButton: View {
 
     var body: some View {
         Button(
-            action: { viewModel.verifyCode()},
+            action: { viewModel.verifyCode() },
             label: {
                 if viewModel.verificationInProgress {
                     ProgressView()

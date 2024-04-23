@@ -15,7 +15,7 @@ final class StorytellerManager {
     // MARK: Internal
 
     var isInitalized: Bool = false
-    let storytellerDelegate: StorytellerMainDelegate = StorytellerMainDelegate()
+    let storytellerDelegate: StorytellerMainDelegate = .init()
 
     func initializeSdk(userInput: UserInput? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
 
@@ -28,6 +28,6 @@ final class StorytellerManager {
             onError(error)
         }
     }
-    
+
     private let appStorage: AppStorage
 }

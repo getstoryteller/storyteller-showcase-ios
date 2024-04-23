@@ -46,7 +46,7 @@ enum FeedItem: Decodable, Hashable {
         case type
         case data
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -57,7 +57,7 @@ enum FeedItem: Decodable, Hashable {
         }
     }
 }
-    
+
 struct ButtonItem: Decodable, Hashable {
     let url: String
     let title: String?
@@ -67,7 +67,7 @@ struct ButtonItem: Decodable, Hashable {
 struct ButtonItemAction: Decodable, Hashable {
     let type: ActionType
     let url: String
-    
+
     enum ActionType: String, Decodable {
         case inApp
         case web
@@ -120,9 +120,9 @@ extension StorytellerItem {
 
 extension StorytellerItem {
     func getRowHeight() -> CGFloat {
-        switch self.tileType {
+        switch tileType {
         case .rectangular:
-            switch self.size {
+            switch size {
             case .regular: return 220
             case .medium: return 330
             case .large: return 440

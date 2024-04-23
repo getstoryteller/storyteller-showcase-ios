@@ -8,7 +8,7 @@ final class Resolver {
     static let shared = Resolver()
 
     // MARK: Internal
-    
+
     func makeStorytellerManager() -> StorytellerManager {
         guard let manager = storytellerManager else {
             let manager = StorytellerManager(appStorage: makeAppStorage())
@@ -25,15 +25,15 @@ final class Resolver {
     func makeMultipleListsViewController() -> MultipleListsViewController {
         MultipleListsViewController(viewModel: makeMultipleListsViewModel(), dataSource: MultipleListsDataSource())
     }
-    
+
     private func makeMultipleListsViewModel() -> MultipleListsViewModel {
         MultipleListsViewModel(storytellerManager: makeStorytellerManager(), networkDataProvider: makeNetworkDataProvider(), appStorage: makeAppStorage())
     }
-    
+
     func makeSettingsViewController() -> SettingsViewController {
         SettingsViewController(viewModel: makeSettingsViewModel())
     }
-    
+
     private func makeSettingsViewModel() -> SettingsViewModel {
         SettingsViewModel(appStorage: makeAppStorage(), networkDataProvider: makeNetworkDataProvider())
     }

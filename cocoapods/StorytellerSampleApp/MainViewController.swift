@@ -1,5 +1,5 @@
-import UIKit
 import StorytellerSDK
+import UIKit
 
 class MainViewController: UITabBarController {
     init() {
@@ -28,7 +28,7 @@ class MainViewController: UITabBarController {
         let settingsButton = UIButton(type: .system)
         settingsButton.setImage(UIImage(systemName: "person.crop.circle"), for: .normal)
         settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
-        
+
         let settingsBarItem = UIBarButtonItem(customView: settingsButton)
         settingsBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
         settingsBarItem.customView?.heightAnchor.constraint(equalToConstant: 44).isActive = true
@@ -41,7 +41,7 @@ class MainViewController: UITabBarController {
 
         viewControllers = [multipleListsVC, embeddedClipsVC]
     }
-    
+
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         navigationController?.isNavigationBarHidden = item.tag == 1
     }
@@ -49,11 +49,11 @@ class MainViewController: UITabBarController {
     private let embeddedClipsVC: EmbeddedClipsViewController = Resolver.shared.makeEmbeddeClipsViewController()
     private let multipleListsVC: MultipleListsViewController = Resolver.shared.makeMultipleListsViewController()
     private let storytellerManager = Resolver.shared.makeStorytellerManager()
-    
+
     @objc
     func openSettings() {
         let vc = createSettingsViewController()
-        
+
         vc.actionHandler = { action in
             switch action {
             case .dismiss:
@@ -61,15 +61,15 @@ class MainViewController: UITabBarController {
                 self.multipleListsVC.reload()
             }
         }
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     private func createSettingsViewController() -> SettingsViewController {
         let vc = Resolver.shared.makeSettingsViewController()
         vc.title = "Settings"
         return vc
     }
-    
+
     private var modalNavigationController: UINavigationController?
 }

@@ -2,10 +2,10 @@ import Amplitude
 import Foundation
 import StorytellerSDK
 
-class StorytellerTrackingDelegate : StorytellerDelegate {
-    
+class StorytellerTrackingDelegate: StorytellerDelegate {
+
     private let dataService: DataGateway = DependencyContainer.shared.dataService
-    
+
     // This method is called from the StorytellerInstanceDelegate.swift class which is attached
     // to the Storyteller instance as its delegate.
     // More information on the StorytellerDelegate and its methods is available in our public
@@ -19,10 +19,10 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
     // for an example of this) to continue to work.
     // Therefore, the additional check as to whether event tracking is enabled is needed before sending
     // data to Amplitude (or any other analytics provider)
-    
+
     @MainActor
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
-        switch(type) {
+        switch type {
         case .OpenedStory:
             logAmplitudeEvent(name: "Opened Story", data: data)
         case .OpenedClip:
@@ -31,7 +31,7 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
             break
         }
     }
-    
+
     private func logAmplitudeEvent(name: String, data: UserActivityData) {
         let eventData = [
             "Story ID": data.storyId as Any,
@@ -48,5 +48,5 @@ class StorytellerTrackingDelegate : StorytellerDelegate {
 
         Amplitude.instance().logEvent(name, withEventProperties: eventData)
     }
-    
+
 }

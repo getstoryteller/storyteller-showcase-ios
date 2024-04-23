@@ -13,33 +13,33 @@ import StorytellerSDK
 // in your app. For more information on this particular delegate method, please see our public
 // documentation here https://www.getstoryteller.com/documentation/ios/navigating-to-app
 
-class StorytellerInstanceDelegate : StorytellerDelegate {
-    
+class StorytellerInstanceDelegate: StorytellerDelegate {
+
     let adsDelegate: StorytellerAdsDelegate
     let storytellerTracker: StorytellerTrackingDelegate
     private let dataService: DataGateway = DependencyContainer.shared.dataService
     private let storytellerService: StorytellerService = DependencyContainer.shared.storytellerService
 
     static var currentLocation = ""
-    
+
     var router: Router
-    
+
     init(router: Router) {
         self.router = router
-        self.storytellerTracker = StorytellerTrackingDelegate()
-        self.adsDelegate = StorytellerAdsDelegate()
+        storytellerTracker = StorytellerTrackingDelegate()
+        adsDelegate = StorytellerAdsDelegate()
     }
-    
+
     func getAd(for adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         adsDelegate.getAd(for: adRequestInfo, onComplete: onComplete, onError: onError)
     }
-    
-    @MainActor 
+
+    @MainActor
     func onUserActivityOccurred(type: UserActivity.EventType, data: UserActivityData) {
         adsDelegate.onUserActivityOccurred(type: type, data: data)
         storytellerTracker.onUserActivityOccurred(type: type, data: data)
     }
-    
+
     func userNavigatedToApp(url: String) {
         Storyteller.dismissPlayer(animated: true)
         DispatchQueue.main.async { [weak self] in

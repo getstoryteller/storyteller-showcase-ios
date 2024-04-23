@@ -3,18 +3,18 @@ import StorytellerSDK
 import UIKit
 
 final class SettingsViewModel {
-    
+
     enum InputAction {
         case getData
         case reset
     }
-    
+
     enum OutputAction {
         case reload
     }
 
     var outputActionHandler: (SettingsViewModel.OutputAction) -> Void = { _ in }
-    
+
     var availableLanguages: [Language] = []
     var availableTeams: [FavoriteTeam] = []
 
@@ -24,7 +24,7 @@ final class SettingsViewModel {
             Storyteller.user.setCustomAttribute(key: "language", value: selectedLanguage)
         }
     }
-    
+
     var favoriteTeam: String {
         didSet {
             appStorage.favoriteTeam = favoriteTeam
@@ -46,9 +46,9 @@ final class SettingsViewModel {
         selectedLanguage = appStorage.selectedLanguage
         favoriteTeam = appStorage.favoriteTeam
     }
-    
+
     func handle(action: InputAction) {
-        switch(action) {
+        switch action {
         case .getData:
             getData()
         case .reset:
@@ -58,7 +58,7 @@ final class SettingsViewModel {
 
     private let appStorage: AppStorage
     private let networkDataProvider: NetworkDataProvider
-    
+
     private func getData() {
         networkDataProvider.fetchSettingsOptions { [weak self] item in
             self?.availableLanguages = item.languages
@@ -68,7 +68,7 @@ final class SettingsViewModel {
             print("Error \(error)!")
         }
     }
-    
+
     private func reset() {
         currentUserId = UUID().uuidString
     }

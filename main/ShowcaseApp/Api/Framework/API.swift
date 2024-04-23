@@ -8,9 +8,9 @@ enum HTTPMethod: String {
 typealias APIParams = [String: String]
 
 class API {
-    
+
     private let userStorage: UserStorage
-    
+
     init(userStorage: UserStorage) {
         self.userStorage = userStorage
     }
@@ -19,15 +19,15 @@ class API {
         let configuration = URLSessionConfiguration.ephemeral
         return URLSession(configuration: configuration)
     }()
-    
+
     func call<R: Endpoint>(forEndpoint endpoint: R, params: EndpointParams = EndpointParams()) async throws ->
-    R.Response {
+        R.Response {
         let (data, response) = try await session.data(for: request(to: endpoint, params: params))
         return try JSONDecoder().decode(R.Response.self, from: try mapResponse(response: (data, response)))
     }
 
     func request(to endpoint: any Endpoint, params: EndpointParams) -> URLRequest {
-        let queryParams = params.query.merging(["apiKey": userStorage.apiKey]){ $1 }
+        let queryParams = params.query.merging(["apiKey": userStorage.apiKey]) { $1 }
         var finalPath = endpoint.path
         if !params.extraPath.isEmpty {
             finalPath.append("/\(params.extraPath)")
@@ -47,7 +47,7 @@ class API {
         var urlString = base.absoluteString.appending(path)
         switch method {
         case .GET:
-            let queryString = getParameters.reduce(into: String()) { (query, item) in
+            let queryString = getParameters.reduce(into: String()) { query, item in
                 if !query.isEmpty {
                     query.append("&")
                 }

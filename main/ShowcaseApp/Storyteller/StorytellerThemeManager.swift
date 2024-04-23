@@ -10,19 +10,19 @@ import UIKit
 // here https://www.getstoryteller.com/documentation/ios/themes
 
 class StorytellerThemeManager {
-    
-    class CustomFontProvider : FontProvider {
+
+    class CustomFontProvider: FontProvider {
         override func font(weight: StorytellerFontWeight, size: CGFloat) -> UIFont? {
             switch weight {
             case .regular:
                 return UIFont(name: "SFProText-Regular", size: size)
-                
+
             case .medium:
                 return UIFont(name: "SFProText-Medium", size: size)
-                
+
             case .semibold:
                 return UIFont(name: "SFProText-Semibold", size: size)
-                
+
             case .bold, .heavy, .black:
                 return UIFont(name: "SFProText-Bold", size: size)
 
@@ -31,10 +31,10 @@ class StorytellerThemeManager {
             }
         }
     }
-    
+
     static var squareTheme: StorytellerTheme = {
         var theme = StorytellerTheme()
-        
+
         theme.light.colors.primary = UIColor(hexString: "#FBCD44")
         theme.light.colors.success = UIColor(hexString: "3BB327")
         theme.light.colors.alert = UIColor(hexString: "#C8102E")
@@ -44,63 +44,63 @@ class StorytellerThemeManager {
         theme.light.colors.black.primary = UIColor(hexString: "#000000")
         theme.light.colors.black.secondary = UIColor(hexString: "#45494C")
         theme.light.colors.black.tertiary = UIColor(hexString: "#4E5356")
-        
+
         theme.light.lists.backgroundColor = UIColor(hexString: "#F3F4F5")
-        
+
         theme.light.buttons.textColor = .black
         theme.light.buttons.backgroundColor = .white
-        
+
         theme.light.engagementUnits.poll.selectedAnswerBorderColor = theme.light.colors.white.primary.withAlphaComponent(0.7)
-        
+
         theme.light.tiles.rectangularTile.unreadIndicator.backgroundColor = UIColor(hexString: "#FBCD44")
         theme.light.tiles.rectangularTile.unreadIndicator.textColor = .black
         theme.light.tiles.rectangularTile.chip.alignment = .start
-        
+
         theme.light.tiles.rectangularTile.liveChip.unreadBackgroundColor = UIColor(hexString: "#C8102E")
         theme.light.tiles.rectangularTile.liveChip.readBackgroundColor = UIColor(hexString: "#4E5356")
-        
+
         theme.light.tiles.circularTile.liveChip = theme.light.tiles.rectangularTile.liveChip
-        
+
         theme.light.tiles.circularTile.title.unreadTextColor = .black
         theme.light.tiles.circularTile.title.readTextColor = UIColor(hexString: "#4E5356")
         theme.light.tiles.circularTile.readIndicatorColor = UIColor(hexString: "#C5C5C5")
         theme.light.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#FBCD44")
-        
+
         theme.light.tiles.title.alignment = .start
         theme.light.tiles.title.textSize = 13
         theme.light.tiles.title.lineHeight = 13
-        
+
         theme.light.instructions.button.textColor = UIColor.white
-        
+
         theme.light.customFont = CustomFontProvider()
-        
+
         theme.light.lists.row.startInset = 12
         theme.light.lists.row.endInset = 12
-        
+
         theme.dark = theme.light
-        
+
         theme.dark.tiles.circularTile.title.unreadTextColor = .white
         theme.dark.lists.backgroundColor = theme.dark.colors.black.primary
-        
+
         theme.dark.instructions.button.textColor = UIColor.black
-        
+
         return theme
     }()
-    
+
     static var roundTheme: StorytellerTheme = {
         var theme = squareTheme
-        
+
         theme.light.tiles.title.alignment = .center
         theme.light.tiles.title.lineHeight = 13
         theme.light.tiles.title.textSize = 10
-        
+
         theme.dark.tiles.title.alignment = .center
         theme.dark.tiles.title.lineHeight = 13
         theme.dark.tiles.title.textSize = 10
-        
+
         theme.dark.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
         theme.light.tiles.circularTile.unreadIndicatorColor = UIColor(hexString: "#C8102E")
-        
+
         return theme
     }()
 
@@ -125,17 +125,17 @@ class StorytellerThemeManager {
 
         return theme
     }()
-    
+
     static func buildTheme(for item: StorytellerItem) -> StorytellerTheme {
         var theme: StorytellerTheme
-        
-        switch(item.tileType) {
+
+        switch item.tileType {
         case .round:
             theme = roundTheme
         case .rectangular:
             theme = squareTheme
-            
-            switch(item.size) {
+
+            switch item.size {
             case .medium:
                 theme.light.tiles.title.textSize = 16
                 theme.dark.tiles.title.textSize = 16
@@ -149,7 +149,7 @@ class StorytellerThemeManager {
             default:
                 break
             }
-            
+
             if item.layout == .singleton {
                 theme.light.lists.grid.columns = 1
                 theme.light.tiles.rectangularTile.chip.alignment = .start
@@ -161,33 +161,33 @@ class StorytellerThemeManager {
                 theme.dark.tiles.title.lineHeight = 24
             }
         }
-        
+
         return theme
     }
-    
+
 }
 
 public extension UIColor {
     convenience init(hexString: String) {
         let r, g, b: CGFloat
-        
+
         var start: String.Index = hexString.startIndex
-        var hexColor: String = String(hexString)
-        
+        var hexColor = String(hexString)
+
         if hexString.hasPrefix("#") {
             start = hexString.index(hexString.startIndex, offsetBy: 1)
             hexColor = String(hexString[start...])
         }
-        
+
         if hexColor.count == 6 {
             let scanner = Scanner(string: hexColor)
             var hexNumber: UInt64 = 0
-            
+
             if scanner.scanHexInt64(&hexNumber) {
                 r = CGFloat((hexNumber & 0xff0000) >> 16) / 255
                 g = CGFloat((hexNumber & 0x00ff00) >> 8) / 255
                 b = CGFloat(hexNumber & 0x0000ff) / 255
-                
+
                 self.init(red: r, green: g, blue: b, alpha: 255)
                 return
             }

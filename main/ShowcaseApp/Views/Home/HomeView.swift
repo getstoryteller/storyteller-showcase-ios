@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 @MainActor
 class HomeViewModel: ObservableObject {
@@ -23,7 +23,7 @@ class HomeViewModel: ObservableObject {
         self.homeTabTapEvent = homeTabTapEvent
         self.latestTabEvent = latestTabEvent
     }
-    
+
     func reload() {
         Task {
             await dataService.getSettings()
@@ -31,18 +31,18 @@ class HomeViewModel: ObservableObject {
             await storytellerService.getAttributes()
         }
     }
-    
+
     func reloadTabs() {
         Task {
             try? await dataService.reloadTabs()
             await fetchTabsData()
         }
     }
-    
+
     func fetchTabsData() async {
         if dataService.userStorage.settings.tabsEnabled {
             guard !dataService.userStorage.tabs.isEmpty else { return }
-            
+
             var feeds: [FeedItemsViewModel] = []
             for (index, tab) in dataService.userStorage.tabs.enumerated() {
                 let feed = index == selectedTab ? await dataService.getTabFeed(withId: tab.value) : []
@@ -54,18 +54,18 @@ class HomeViewModel: ObservableObject {
             feedViewModels = [feedViewModelFromFeedItems(items, index: 0)]
         }
     }
-    
+
     func fetchCurrentTabData() {
         Task {
             await fetchData(for: selectedTab)
             feedViewModels[selectedTab].feedItems.forEach { $0.reload() }
         }
     }
-    
+
     func reloadDataIfNeeded() {
         guard dataService.isAuthenticated == true else { return }
         //reload collection if it was more then 10 min (10 * 60) since last reload
-        if self.lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10*60)) {
+        if lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10 * 60)) {
             scrollToTopEvent.send(selectedTab)
         }
     }
@@ -95,7 +95,7 @@ class HomeViewModel: ObservableObject {
     }
 
     private func feedViewModelFromFeedItems(_ feedItem: [FeedItem], index: Int) -> FeedItemsViewModel {
-        return FeedItemsViewModel(
+        FeedItemsViewModel(
             index: index,
             feedItems: feedItem.map(FeedItemViewModel.init),
             router: router,
@@ -110,73 +110,73 @@ struct HomeView: View {
     @EnvironmentObject var dataService: DataGateway
     @EnvironmentObject var router: Router
     @Environment(\.scenePhase) private var phase
-    
+
     // The Storyteller SDK supports opening it's search experience using the
     // Storyteller.openSearch method. This can be triggered from wherever you
     // would like in your application. In this case, we show an example of doing
     // it from a main nav bar button
-    
+
     var body: some View {
-            VStack {
-                if !viewModel.feedViewModels.isEmpty {
-                    HomeTabsView(
-                        viewModel: HomeTabsViewModel(tabs: viewModel.dataService.userStorage.tabs.tabNames, selectedTab: $viewModel.selectedTab), currentTabOnComplete: $viewModel.selectedTabOnComplete)
-                    FeedPageView(
-                        pagesViewModel: viewModel.feedViewModels,
-                        moveToOriginTab: {
-                            if viewModel.selectedTab > 0 {
-                                self.viewModel.selectedTab = 0
-                            } else {
-                                viewModel.fetchCurrentTabData()
-                            }
-                        }, reload: {
+        VStack {
+            if !viewModel.feedViewModels.isEmpty {
+                HomeTabsView(
+                    viewModel: HomeTabsViewModel(tabs: viewModel.dataService.userStorage.tabs.tabNames, selectedTab: $viewModel.selectedTab), currentTabOnComplete: $viewModel.selectedTabOnComplete)
+                FeedPageView(
+                    pagesViewModel: viewModel.feedViewModels,
+                    moveToOriginTab: {
+                        if viewModel.selectedTab > 0 {
+                            viewModel.selectedTab = 0
+                        } else {
                             viewModel.fetchCurrentTabData()
-                        }, currentPage: $viewModel.selectedTab)
-                } else {
-                    Spacer()
-                    ProgressView().progressViewStyle(.circular)
-                    Spacer()
-                }
+                        }
+                    }, reload: {
+                        viewModel.fetchCurrentTabData()
+                    }, currentPage: $viewModel.selectedTab)
+            } else {
+                Spacer()
+                ProgressView().progressViewStyle(.circular)
+                Spacer()
             }
-            .onReceive(viewModel.dataService.$isAuthenticated, perform: { isAuthenticated in
-                guard isAuthenticated == true else { return }
-                viewModel.reload()
-            })
-            .onReceive(viewModel.homeTabTapEvent) { _ in
-                viewModel.scrollToTopOrSwitchTabToOrigintEvent.send(viewModel.selectedTab)
+        }
+        .onReceive(viewModel.dataService.$isAuthenticated, perform: { isAuthenticated in
+            guard isAuthenticated == true else { return }
+            viewModel.reload()
+        })
+        .onReceive(viewModel.homeTabTapEvent) { _ in
+            viewModel.scrollToTopOrSwitchTabToOrigintEvent.send(viewModel.selectedTab)
+        }
+        .onReceive(viewModel.latestTabEvent) { _ in
+            viewModel.selectedTab = 0
+            viewModel.reloadTabs()
+        }
+        .onReceive(viewModel.$selectedTab, perform: { index in
+            guard viewModel.lastSelectedTab >= 0 else {
+                viewModel.lastSelectedTab = index
+                return
             }
-            .onReceive(viewModel.latestTabEvent) { _ in
-                viewModel.selectedTab = 0
-                viewModel.reloadTabs()
+            if viewModel.lastSelectedTab == index {
+                viewModel.scrollToTopEvent.send(viewModel.selectedTab)
+            } else {
+                viewModel.lastSelectedTab = index
             }
-            .onReceive(viewModel.$selectedTab, perform: { index in
-                guard viewModel.lastSelectedTab >= 0 else {
-                    viewModel.lastSelectedTab = index
-                    return
-                }
-                if viewModel.lastSelectedTab == index {
-                    viewModel.scrollToTopEvent.send(viewModel.selectedTab)
-                } else {
-                    viewModel.lastSelectedTab = index
-                }
-            })
-            .onReceive(viewModel.$selectedTabOnComplete.debounce(for: 1, scheduler: RunLoop.main), perform: { index in
-                guard index >= 0 else { return }
-                guard viewModel.lastSelectedTab == index else { return }
-                viewModel.fetchCurrentTabData()
-            })
-            .onAppear() {
+        })
+        .onReceive(viewModel.$selectedTabOnComplete.debounce(for: 1, scheduler: RunLoop.main), perform: { index in
+            guard index >= 0 else { return }
+            guard viewModel.lastSelectedTab == index else { return }
+            viewModel.fetchCurrentTabData()
+        })
+        .onAppear {
+            viewModel.reloadDataIfNeeded()
+        }
+        .onChange(of: phase, perform: { value in
+            switch value {
+            case .active:
                 viewModel.reloadDataIfNeeded()
+            case .inactive, .background:
+                break
+            @unknown default:
+                break
             }
-            .onChange(of: phase, perform: { value in
-                switch value {
-                case .active:
-                    viewModel.reloadDataIfNeeded()
-                case .inactive, .background:
-                    break
-                @unknown default:
-                    break
-                }
-            })
+        })
     }
 }

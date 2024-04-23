@@ -9,7 +9,7 @@ class HomeTabsViewModel: ObservableObject {
     }
 
     init(tabs: [String], selectedTab: Binding<Int>) {
-        self.tabBarOptions = tabs
+        tabBarOptions = tabs
         self.selectedTab = selectedTab
     }
 }
@@ -18,18 +18,18 @@ struct HomeTabsView: View {
     @ObservedObject var viewModel: HomeTabsViewModel
     @Binding var currentTabOnComplete: Int
     @Namespace var namespace
-    
+
     var body: some View {
         ScrollViewReader { value in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    ForEach(Array(zip(self.viewModel.tabBarOptions.indices, self.viewModel.tabBarOptions)),
+                    ForEach(Array(zip(viewModel.tabBarOptions.indices, viewModel.tabBarOptions)),
                             id: \.0,
                             content: {
-                        index, name in
-                        TabBarItem(currentTab: self.viewModel.selectedTab, namespace: namespace.self, tabBarItemName: name, tab: index)
-                            .padding(.horizontal, 10)
-                    })
+                                index, name in
+                                TabBarItem(currentTab: viewModel.selectedTab, namespace: namespace.self, tabBarItemName: name, tab: index)
+                                    .padding(.horizontal, 10)
+                            })
                 }
             }
             .onAppear(perform: {
@@ -45,7 +45,7 @@ struct HomeTabsView: View {
                             value.scrollTo(tapped, anchor: .leading)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                                 withAnimation {
-                                    self.currentTabOnComplete = viewModel.selectedTab.wrappedValue
+                                    currentTabOnComplete = viewModel.selectedTab.wrappedValue
                                 }
                             }
                         }
@@ -59,14 +59,14 @@ struct HomeTabsView: View {
 struct TabBarItem: View {
     @Binding var currentTab: Int
     let namespace: Namespace.ID
-    
+
     var tabBarItemName: String
     var tab: Int
-    
+
     var body: some View {
         Button {
             withAnimation(.spring) {
-                self.currentTab = tab
+                currentTab = tab
             }
         } label: {
             VStack(spacing: 5) {
@@ -82,7 +82,7 @@ struct TabBarItem: View {
                     Color.clear.frame(height: 2)
                 }
             }
-            .animation(.spring(), value: self.currentTab)
+            .animation(.spring(), value: currentTab)
         }
         .buttonStyle(.plain)
     }

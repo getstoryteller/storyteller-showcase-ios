@@ -19,10 +19,10 @@ struct SingleSelectView: View {
             }
             ForEach(attribute.attributeValues, id: \.self) { item in
                 SelectableItemLine(title: item.title, selected: selectedItem == item)
-                .onTapGesture {
-                    selectionUpdated = true
-                    viewModel.personalisationUpdated(for: attribute, actionType: .set(item))
-                }
+                    .onTapGesture {
+                        selectionUpdated = true
+                        viewModel.personalisationUpdated(for: attribute, actionType: .set(item))
+                    }
             }
         }
         .onDisappear {

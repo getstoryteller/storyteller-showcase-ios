@@ -44,7 +44,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
     }
 
     private func fetchAd(adRequestInfo: StorytellerAdRequestInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
-        
+
         switch adRequestInfo {
         case .stories(let placement, let categories, let story):
             handleStoryAd(placement: placement, categories: categories, story: story, onComplete: onComplete, onError: onError)
@@ -52,7 +52,7 @@ class StorytellerAdsDelegate: StorytellerDelegate {
             handleClipsAd(collection: collection, clip: clip, onComplete: onComplete, onError: onError)
         }
     }
-        
+
     private func handleStoryAd(placement: String, categories: [String], story: StorytellerAdRequestInfo.ItemInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
 
         let storyCategories = story.categories.map(\.externalId).joined(separator: ",")
@@ -78,10 +78,10 @@ class StorytellerAdsDelegate: StorytellerDelegate {
                 }
             }
     }
-    
+
     private func handleClipsAd(collection: String, clip: StorytellerAdRequestInfo.ItemInfo, onComplete: @escaping (StorytellerAd) -> Void, onError: @escaping (Error) -> Void) {
         let clipCategories = clip.categories.map(\.externalId).joined(separator: ",")
-        
+
         let keyValues: [String: String] = [
             Ads.storytellerClipId: clip.id,
             Ads.storytellerCollection: collection,

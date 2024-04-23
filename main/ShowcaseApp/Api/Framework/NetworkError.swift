@@ -14,7 +14,7 @@ func mapResponse(response: (data: Data, response: URLResponse)) throws -> Data {
     }
 
     switch httpResponse.statusCode {
-    case 200..<300: return response.data
+    case 200 ..< 300: return response.data
     case 400: throw NetworkError.badRequest
     case 401: throw NetworkError.unauthorized
     case 403: throw NetworkError.forbidden

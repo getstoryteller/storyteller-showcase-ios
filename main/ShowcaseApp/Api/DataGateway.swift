@@ -71,7 +71,7 @@ final class DataGateway: ObservableObject {
             print("getSettings call failed with error: '\(error.localizedDescription)'")
         }
     }
-    
+
     func getAttributes() async -> [PersonalisationAttribute] {
         do {
             let attributes = try await api.call(forEndpoint: AttributesEndpoint()).data.sorted(by: { $0.sortOrder < $1.sortOrder })
@@ -130,12 +130,12 @@ final class DataGateway: ObservableObject {
             userStorage.tabs = []
         }
     }
-    
+
     func logout() {
         userStorage.logout()
         isAuthenticated = false
     }
-    
+
     private func refresh() async throws {
         try await reloadTabs()
     }

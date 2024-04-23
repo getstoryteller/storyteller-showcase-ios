@@ -9,7 +9,7 @@ final class MultipleListsViewModel {
         self.storytellerManager = storytellerManager
         self.networkDataProvider = networkDataProvider
         self.appStorage = appStorage
-        
+
         if !storytellerManager.isInitalized {
             storytellerManager.initializeSdk { error in
                 print("[Error] \(error)")

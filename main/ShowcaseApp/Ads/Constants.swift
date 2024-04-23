@@ -60,7 +60,7 @@ enum Kvps {
 enum AdUnits {
     static let storyTemplateId = "12102683"
     static let storiesAdUnit = "/33813572/stories-native-ad-unit"
-    
+
     static let clipTemplateId = "12269089"
     static let clipsAdUnit = "/33813572/clips-native-ad-unit"
 }

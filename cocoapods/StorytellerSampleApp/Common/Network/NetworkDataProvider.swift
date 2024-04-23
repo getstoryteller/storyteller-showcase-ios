@@ -21,7 +21,7 @@ final class NetworkDataProvider {
             }
         }
     }
-    
+
     func fetchSettingsOptions(onComplete: @escaping (SettingsResponse) -> Void, onError: @escaping (Error) -> Void) {
         Task {
             do {
@@ -34,82 +34,82 @@ final class NetworkDataProvider {
             }
         }
     }
-    
+
     private func fetchMomentsCollection() async throws -> MomentsConfig {
-        
+
         //create the new url
         let url = URL(string: "https://sampleappcontent.usestoryteller.com/api/settings?apiKey=\(appStorage.apiKey)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-        
+
         //create a new urlRequest passing the url
         let request = URLRequest(url: url!)
-        
+
         //run the request and retrieve both the data and the response of the call
         let (data, response) = try await URLSession.shared.data(for: request)
-        
+
         //checks if there are errors regarding the HTTP status code and decodes using the passed struct
-        let fetchedData = try JSONDecoder().decode(MomentsConfigResponse.self, from: try mapResponse(response: (data,response)))
-        
+        let fetchedData = try JSONDecoder().decode(MomentsConfigResponse.self, from: try mapResponse(response: (data, response)))
+
         return fetchedData.data
     }
-    
+
     private func fetchMultipleListData() async throws -> [StorytellerItem] {
-        
+
         //create the new url
         let url = URL(string: "https://sampleappcontent.usestoryteller.com/api/home?apiKey=\(appStorage.apiKey)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-        
+
         //create a new urlRequest passing the url
         let request = URLRequest(url: url!)
-        
+
         //run the request and retrieve both the data and the response of the call
         let (data, response) = try await URLSession.shared.data(for: request)
-        
+
         //checks if there are errors regarding the HTTP status code and decodes using the passed struct
-        let fetchedData = try JSONDecoder().decode(StorytellerDataItemsResponse.self, from: try mapResponse(response: (data,response)))
-        
+        let fetchedData = try JSONDecoder().decode(StorytellerDataItemsResponse.self, from: try mapResponse(response: (data, response)))
+
         return fetchedData.data
     }
-    
+
     private func fetchLanguages() async throws -> [Language] {
         //create the new url
         let url = URL(string: "https://sampleappcontent.usestoryteller.com/api/languages?apiKey=\(appStorage.apiKey)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-        
+
         //create a new urlRequest passing the url
         let request = URLRequest(url: url!)
-        
+
         //run the request and retrieve both the data and the response of the call
         let (data, response) = try await URLSession.shared.data(for: request)
-        
+
         //checks if there are errors regarding the HTTP status code and decodes using the passed struct
-        let fetchedData = try JSONDecoder().decode(LanguageResponse.self, from: try mapResponse(response: (data,response)))
-        
+        let fetchedData = try JSONDecoder().decode(LanguageResponse.self, from: try mapResponse(response: (data, response)))
+
         return fetchedData.data
     }
-    
+
     private func fetchFavorites() async throws -> [FavoriteTeam] {
         //create the new url
         let url = URL(string: "https://sampleappcontent.usestoryteller.com/api/teams?apiKey=\(appStorage.apiKey)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-        
+
         //create a new urlRequest passing the url
         let request = URLRequest(url: url!)
-        
+
         //run the request and retrieve both the data and the response of the call
         let (data, response) = try await URLSession.shared.data(for: request)
-        
+
         //checks if there are errors regarding the HTTP status code and decodes using the passed struct
-        let fetchedData = try JSONDecoder().decode(FavoriteTeamResponse.self, from: try mapResponse(response: (data,response)))
-        
+        let fetchedData = try JSONDecoder().decode(FavoriteTeamResponse.self, from: try mapResponse(response: (data, response)))
+
         return fetchedData.data
     }
 
     private let appStorage: AppStorage
-    
+
     private func mapResponse(response: (data: Data, response: URLResponse)) throws -> Data {
         guard let httpResponse = response.response as? HTTPURLResponse else {
             return response.data
         }
-        
+
         switch httpResponse.statusCode {
-        case 200..<300:
+        case 200 ..< 300:
             return response.data
         case 400:
             throw NetworkError.badRequest

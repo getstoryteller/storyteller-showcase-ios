@@ -1,5 +1,5 @@
-import StorytellerSDK
 import Combine
+import StorytellerSDK
 
 // This class is responsible for interacting with the Storyteller SDK's main instance methods
 // In particular, it is responsible for initializing the SDK when required.
@@ -16,7 +16,7 @@ class StorytellerService {
 
     func setup() {
         setupStoryteller(withApiKey: dataService.userStorage.apiKey, userId: dataService.userStorage.userId, dataService: dataService)
-        
+
         dataService.userStorage.$apiKey.publisher
             .sink { [weak self] apiKey in
                 guard Storyteller.currentApiKey != apiKey, let self else { return }
@@ -24,7 +24,7 @@ class StorytellerService {
                 setupStoryteller(withApiKey: apiKey, userId: dataService.userStorage.userId, dataService: dataService)
             }
             .store(in: &cancellables)
-        
+
         dataService.userStorage.$userId.publisher
             .sink { [weak self] userId in
                 guard let self else { return }
@@ -49,7 +49,7 @@ class StorytellerService {
             }
         )
     }
-    
+
     // This functions below show how to pass User Attributes to the Storyteller SDK
     // for the purposes of personalization and targeting of stories.
     // The corresponding code which calls these functions is available in the
@@ -148,15 +148,15 @@ class StorytellerService {
     // The code here shows how to enable and disable event tracking options for
     // the Storyteller SDK. The corresponding code which calls these
     // functions is visible in the AccountView.swift class
-    
+
     static func enablePersonalization(_ enable: Bool) {
         Storyteller.eventTrackingOptions.enablePersonalization = enable
     }
-    
+
     static func enableStorytellerTracking(_ enable: Bool) {
         Storyteller.eventTrackingOptions.enableStorytellerTracking = enable
     }
-    
+
     static func enableUserActivityTracking(_ enable: Bool) {
         Storyteller.eventTrackingOptions.enableUserActivityTracking = enable
     }

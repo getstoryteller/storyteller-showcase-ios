@@ -1,34 +1,34 @@
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 class MoreViewModel: ObservableObject {
-    
+
     @Published var title: String
     @Published var videoType: StorytellerItem.VideoType
 
     @Published var storiesModel: StorytellerStoriesListModel?
     @Published var clipsModel: StorytellerClipsListModel?
-    
+
     init(title: String, category: String) {
         self.title = title
-        self.videoType = .stories
+        videoType = .stories
         let model = StorytellerStoriesListModel(
             categories: [category],
             cellType: .square
         )
-        self.storiesModel = model
+        storiesModel = model
     }
-    
+
     init(title: String, collection: String) {
         self.title = title
-        self.videoType = .clips
+        videoType = .clips
         let model = StorytellerClipsListModel(
             collectionId: collection,
             cellType: .square
         )
-        self.clipsModel = model
+        clipsModel = model
     }
-    
+
     func reloadData() {
         storiesModel?.reloadData()
         clipsModel?.reloadData()
@@ -38,7 +38,7 @@ class MoreViewModel: ObservableObject {
 struct MoreView: View {
     @ObservedObject var viewModel: MoreViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         StorytellerGrid()
             .padding(.horizontal, 12)
@@ -47,9 +47,9 @@ struct MoreView: View {
             .refreshable {
                 viewModel.reloadData()
             }
-        
+
     }
-    
+
     @ViewBuilder
     private func StorytellerGrid() -> some View {
         switch viewModel.videoType {

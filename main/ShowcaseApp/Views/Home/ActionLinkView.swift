@@ -1,10 +1,10 @@
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 struct ActionLinkView: View {
     @State var link: String
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         VStack {
             Image(systemName: "link")

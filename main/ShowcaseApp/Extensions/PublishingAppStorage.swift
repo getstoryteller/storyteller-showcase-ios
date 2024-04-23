@@ -1,6 +1,6 @@
+import Combine
 import Foundation
 import SwiftUI
-import Combine
 
 @propertyWrapper
 struct PublishingAppStorage<Value> {

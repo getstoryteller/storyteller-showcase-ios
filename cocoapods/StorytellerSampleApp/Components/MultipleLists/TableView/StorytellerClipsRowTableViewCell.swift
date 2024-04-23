@@ -4,7 +4,7 @@ import UIKit
 
 final class StorytellerClipsRowTableViewCell: UITableViewCell, StorytellerListViewDelegate {
     var actionHandler: (StorytellerCellAction) -> Void = { _ in }
-    
+
     private lazy var headerView: StorytellerRowHeaderView = {
         let header = StorytellerRowHeaderView(frame: .zero)
         header.translatesAutoresizingMaskIntoConstraints = false

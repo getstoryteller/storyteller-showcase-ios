@@ -1,8 +1,8 @@
-import SwiftUI
 import Combine
 import StorytellerSDK
+import SwiftUI
 
-class ClipsViewModel : ObservableObject {
+class ClipsViewModel: ObservableObject {
 
     @ObservedObject var dataService: DataGateway = DependencyContainer.shared.dataService
     @Published var clipsViewModel: StorytellerClipsModel
@@ -15,25 +15,25 @@ class ClipsViewModel : ObservableObject {
     ) {
         self.clipsTabTapEvent = clipsTabTapEvent
         self.didFinishLoadingMomentsEvent = didFinishLoadingMomentsEvent
-        self.clipsViewModel = StorytellerClipsModel(collectionId: DependencyContainer.shared.dataService.userStorage.settings.topLevelClipsCollection)
+        clipsViewModel = StorytellerClipsModel(collectionId: DependencyContainer.shared.dataService.userStorage.settings.topLevelClipsCollection)
     }
 
     func updateCollectionId() {
-        self.clipsViewModel.collectionId = dataService.userStorage.settings.topLevelClipsCollection
+        clipsViewModel.collectionId = dataService.userStorage.settings.topLevelClipsCollection
     }
-    
+
     func reloadDataIfNeeded() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
             //reload collection if it was more then 10 min (10 * 60) since last reload
-            if self.lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10*60)) {
+            if self.lastTimeDataFetched.timeIntervalSinceNow.isLess(than: -(10 * 60)) {
                 self.reloadData()
             }
         }
     }
 
     func reloadData() {
-        self.clipsViewModel.reloadData()
-        self.lastTimeDataFetched = Date()
+        clipsViewModel.reloadData()
+        lastTimeDataFetched = Date()
     }
 }
 
@@ -55,19 +55,19 @@ struct ClipsView: View {
             @unknown default: break
             }
         })
-            .ignoresSafeArea(.container, edges: .top)
-            .onAppear() {
-                viewModel.updateCollectionId()
+        .ignoresSafeArea(.container, edges: .top)
+        .onAppear {
+            viewModel.updateCollectionId()
+            viewModel.reloadDataIfNeeded()
+            StorytellerInstanceDelegate.currentLocation = "Moments"
+        }
+        .onChange(of: phase, perform: { value in
+            if value == .active {
                 viewModel.reloadDataIfNeeded()
-                StorytellerInstanceDelegate.currentLocation = "Moments"
             }
-            .onChange(of: phase, perform: { value in
-                if value == .active {
-                    viewModel.reloadDataIfNeeded()
-                }
-            })
-            .onReceive(viewModel.clipsTabTapEvent) { _ in
-                viewModel.reloadData()
-            }
+        })
+        .onReceive(viewModel.clipsTabTapEvent) { _ in
+            viewModel.reloadData()
+        }
     }
 }

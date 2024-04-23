@@ -5,32 +5,32 @@ final class UserStorage: ObservableObject {
 
     @PublishingAppStorage("apiKey") var apiKey: String = "" {
         didSet {
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
-    
+
     @PublishingAppStorage("userId") var userId: String = UUID().uuidString {
         didSet {
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
 
     @AppStorage("enableUserActivityTracking") var enableUserActivityTracking: Bool = true {
         didSet {
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
     @AppStorage("enablePersonalization") var enablePersonalization: Bool = true {
         didSet {
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
     @AppStorage("enableStorytellerTracking") var enableStorytellerTracking: Bool = true {
         didSet {
-            self.objectWillChange.send()
+            objectWillChange.send()
         }
     }
-    
+
     @Published var settings: TenantData = .empty {
         didSet {
             if !settings.tabsEnabled {
@@ -44,9 +44,9 @@ final class UserStorage: ObservableObject {
     var allAttributes: [PersonalisationAttribute] {
         selectedAttributes.keys.sorted(by: \.sortOrder)
     }
-    
+
     @Published var tabs: Tabs = []
-    
+
     func setAttributes(_ attributes: [PersonalisationAttribute]) {
         guard !attributes.isEmpty else {
             selectedAttributes = [:]
@@ -80,10 +80,10 @@ final class UserStorage: ObservableObject {
     }
 
     func resetUser() {
-        self.userId = UUID().uuidString
+        userId = UUID().uuidString
         resetAttributes()
     }
-    
+
     func connectedAttribute(to attribute: PersonalisationAttribute, requireMultiple: Bool) -> PersonalisationAttribute? {
         allAttributes.first(where: { $0.type == attribute.type && $0.urlName.lowercased() != attribute.urlName.lowercased() && (requireMultiple ? $0.allowMultiple : true) })
     }
@@ -91,7 +91,7 @@ final class UserStorage: ObservableObject {
     func setDefaultValuesIfNeeded() {
         for attribute in allAttributes {
             if let defaultValue = attribute.attributeValues.first(where: { $0.urlName.lowercased() == attribute.defaultValue?.lowercased() }),
-                selectedAttributes[attribute]?.isEmpty ?? true {
+               selectedAttributes[attribute]?.isEmpty ?? true {
                 selectedAttributes[attribute] = Set<AttributeValue>([defaultValue])
             }
         }

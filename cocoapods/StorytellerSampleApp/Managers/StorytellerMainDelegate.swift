@@ -4,7 +4,7 @@ import StorytellerSDK
 class StorytellerMainDelegate: StorytellerDelegate {
 
     let adsDelegate = StorytellerAdsDelegate()
-    
+
     enum Action {
         case navigatedToApp(url: String)
     }

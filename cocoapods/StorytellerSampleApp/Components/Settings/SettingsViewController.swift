@@ -30,19 +30,19 @@ final class SettingsViewController: UIViewController, CastView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bindViewModel()
-        
+
         viewModel.handle(action: .getData)
 
         castView.languagePickerView.dataSource = self
         castView.languagePickerView.delegate = self
         castView.favoriteTeamPickerView.dataSource = self
         castView.favoriteTeamPickerView.delegate = self
-        
+
         castView.resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
     }
-    
+
     @objc
     func reset() {
         viewModel.handle(action: .reset)
@@ -52,7 +52,7 @@ final class SettingsViewController: UIViewController, CastView {
     // MARK: Private
 
     private let viewModel: SettingsViewModel
-    
+
     private func bindViewModel() {
         viewModel.outputActionHandler = { [weak self] action in
             guard let self = self else { return }
@@ -61,7 +61,7 @@ final class SettingsViewController: UIViewController, CastView {
                 DispatchQueue.main.async {
                     self.castView.languagePickerView.reloadAllComponents()
                     self.castView.favoriteTeamPickerView.reloadAllComponents()
-                    
+
                     let selectedLanguageIndex = self.viewModel.availableLanguages.firstIndex { $0.value == self.viewModel.selectedLanguage }
                     if let selectedLanguageIndex = selectedLanguageIndex {
                         self.castView.languagePickerView.selectRow(selectedLanguageIndex, inComponent: 0, animated: false)
@@ -78,7 +78,7 @@ final class SettingsViewController: UIViewController, CastView {
 
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in _: UIPickerView) -> Int {
-        return 1
+        1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent _: Int) -> Int {

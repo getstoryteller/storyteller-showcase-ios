@@ -1,6 +1,6 @@
-import SwiftUI
 import Combine
 import StorytellerSDK
+import SwiftUI
 
 @MainActor
 class MainViewModel: ObservableObject {
@@ -19,7 +19,7 @@ struct MainView: View {
     @StateObject var viewModel: MainViewModel
     @State var showSettings: Bool = false
     @State var momentsItem = TabbedItems.moments
-    
+
     var selectedTab: Binding<Int> {
         Binding(
             get: { viewModel.selectedTab },
@@ -35,7 +35,7 @@ struct MainView: View {
             }
         )
     }
-    
+
     var body: some View {
         if dataService.isAuthenticated == false {
             AccessCodeView()
@@ -48,21 +48,21 @@ struct MainView: View {
                         ClipsView(viewModel: ClipsViewModel(clipsTabTapEvent: viewModel.clipsTabTapEvent, didFinishLoadingMomentsEvent: viewModel.didFinishLoadingMomentsEvent))
                             .tag(1)
                     }
-                    
-                    HStack{
+
+                    HStack {
                         Spacer()
                         Button {
                             selectedTab.wrappedValue = 0
                         } label: {
                             let item = TabbedItems.home
-                            CustomTabItem(item: item, isActive: (viewModel.selectedTab == item.rawValue))
+                            CustomTabItem(item: item, isActive: viewModel.selectedTab == item.rawValue)
                         }.buttonStyle(NoTapAnimationStyle())
                         Spacer()
                         Spacer()
                         Button {
                             selectedTab.wrappedValue = 1
                         } label: {
-                            CustomTabItem(item: momentsItem, isActive: (viewModel.selectedTab == 1 || viewModel.selectedTab == 2))
+                            CustomTabItem(item: momentsItem, isActive: viewModel.selectedTab == 1 || viewModel.selectedTab == 2)
                         }.buttonStyle(NoTapAnimationStyle())
                         Spacer()
                     }
@@ -109,7 +109,7 @@ struct MainView: View {
             }
         }
     }
-    
+
     private func CustomTabItem(item: TabbedItems, isActive: Bool) -> some View {
         VStack(spacing: 5) {
             item.icon(isActive: isActive)
@@ -130,19 +130,19 @@ struct NoTapAnimationStyle: PrimitiveButtonStyle {
     }
 }
 
-enum TabbedItems: Int, CaseIterable{
+enum TabbedItems: Int, CaseIterable {
     case home
     case moments
     case momentsLoading
-    
-    var title: String{
+
+    var title: String {
         switch self {
         case .home: "Home"
         case .moments: "Moments"
         case .momentsLoading: "Moments"
         }
     }
-    
+
     @ViewBuilder
     func icon(isActive: Bool) -> some View {
         switch self {

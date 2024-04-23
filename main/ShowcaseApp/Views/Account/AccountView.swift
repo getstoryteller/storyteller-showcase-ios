@@ -1,5 +1,5 @@
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 struct AccountView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -14,7 +14,7 @@ struct AccountView: View {
     // visible in the StorytellerService class.
     // There is more information available about this feature in our
     // documentation here https://www.getstoryteller.com/documentation/ios/custom-attributes
-    
+
     // The code here also shows to enable and disable event tracking for
     // the Storyteller SDK. The corresponding code which interacts with the
     // Storyteller SDK is visible in the StorytellerService class.
@@ -91,7 +91,7 @@ struct AccountView: View {
             userId = viewModel.userId
         }
     }
-    
+
     func submit() {
         showingAlert = false
     }

@@ -7,7 +7,7 @@ final class MultipleListsViewController: UIViewController, CastView {
     // MARK: Lifecycle
 
     typealias CastView = MultipleListsView
-    
+
     init(viewModel: MultipleListsViewModel, dataSource: MultipleListsDataSource) {
         self.viewModel = viewModel
         self.dataSource = dataSource
@@ -40,7 +40,7 @@ final class MultipleListsViewController: UIViewController, CastView {
     }
 
     // MARK: Internal
-    
+
     func reload() {
         viewModel.handle(action: .reinitialize)
     }

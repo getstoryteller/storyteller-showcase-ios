@@ -37,13 +37,13 @@ final class SettingsView: UIView {
         let pickerView = UIPickerView()
         return pickerView
     }()
-    
+
     private lazy var favoriteTeamLabel: UILabel = {
         let label = UILabel()
         label.text = "Favorite Team:"
         return label
     }()
-    
+
     let favoriteTeamPickerView: UIPickerView = {
         let pickerView = UIPickerView()
         return pickerView

@@ -1,9 +1,9 @@
-import SwiftUI
 import StorytellerSDK
+import SwiftUI
 
 struct FeedImageView: View {
     let item: ButtonItem
-    
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .bottom) {
@@ -12,9 +12,9 @@ struct FeedImageView: View {
                 }
                 Spacer()
             }
-            
+
             Spacer()
-            
+
             if let imageUrl = URL(string: item.url) {
                 Button {
                     switch item.action.type {
@@ -31,15 +31,15 @@ struct FeedImageView: View {
                             ProgressView()
                         case .success(let image):
                             image.resizable()
-                                 .aspectRatio(contentMode: .fit)
-                                 .clipShape(.rect(cornerRadius: 4))
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(.rect(cornerRadius: 4))
                         case .failure:
                             Image(systemName: "photo")
                         @unknown default:
                             EmptyView()
                         }
                     }
-                        
+
                 }
             }
         }

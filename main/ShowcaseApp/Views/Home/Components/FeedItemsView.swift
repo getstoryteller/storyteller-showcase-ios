@@ -1,9 +1,9 @@
-import SwiftUI
-import StorytellerSDK
 import Combine
+import StorytellerSDK
+import SwiftUI
 
 class FeedItemsViewModel: ObservableObject, Equatable {
-    
+
     @Published var feedItems: [FeedItemViewModel] {
         didSet {
             setupFailedLoadCallbacks()
@@ -31,7 +31,7 @@ class FeedItemsViewModel: ObservableObject, Equatable {
 
         setupFailedLoadCallbacks()
     }
-    
+
     func hideList(item: StorytellerItemViewModel) {
         feedItems.removeAll {
             if case let .storytellerViewModel(viewModel) = $0, viewModel == item {
@@ -41,17 +41,17 @@ class FeedItemsViewModel: ObservableObject, Equatable {
             }
         }
     }
-    
+
     @MainActor
     func navigateToMoreStories(title: String, category: String) {
         router.navigateToMore(title: title, category: category)
     }
-    
+
     @MainActor
     func navigateToMoreClips(title: String, collection: String) {
         router.navigateToMore(title: title, collection: collection)
     }
-    
+
     static func == (lhs: FeedItemsViewModel, rhs: FeedItemsViewModel) -> Bool {
         lhs === rhs
     }
@@ -70,7 +70,7 @@ struct FeedItemsView: View {
     @EnvironmentObject var router: Router
     var moveToOriginTab: () -> Void
     var reload: () -> Void
-    
+
     var body: some View {
         ScrollViewReader { reader in
             Group {
@@ -96,7 +96,7 @@ struct FeedItemsView: View {
                 }
             }
             .onReceive(viewModel.scrollToTopOrSwitchTabToOrigintEvent, perform: { index in
-                guard self.viewModel.index == index else { return }
+                guard viewModel.index == index else { return }
                 if viewModel.scrollOffset < 0 {
                     viewModel.isScrolling = true
                     DispatchQueue.main.async {
@@ -109,7 +109,7 @@ struct FeedItemsView: View {
                 }
             })
             .onReceive(viewModel.scrollToTopEvent, perform: { index in
-                guard self.viewModel.index == index else { return }
+                guard viewModel.index == index else { return }
                 if viewModel.scrollOffset < 0 {
                     viewModel.isScrolling = true
                     DispatchQueue.main.async {
@@ -135,36 +135,36 @@ struct FeedItemsView: View {
             }
         }
     }
-    
+
     private var offsetReader: some View {
         GeometryReader { proxy in
-          Color.clear
-            .preference(
-              key: OffsetPreferenceKey.self,
-              value: proxy.frame(in: .named("frameLayer")).minY
-            )
+            Color.clear
+                .preference(
+                    key: OffsetPreferenceKey.self,
+                    value: proxy.frame(in: .named("frameLayer")).minY
+                )
         }
         .frame(height: 0)
-      }
+    }
 }
 
 private struct OffsetPreferenceKey: PreferenceKey {
-  static var defaultValue: CGFloat = .zero
-  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
+    static var defaultValue: CGFloat = .zero
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
 }
 
 struct CellHeaderView: View {
     let item: StorytellerItem
     @EnvironmentObject var router: Router
-    
+
     var body: some View {
         HStack(alignment: .bottom) {
             if let title = item.title {
                 CellHeaderTitle(title: title)
             }
-            
+
             Spacer()
-            
+
             if let moreButtonTitle = item.moreButtonTitle {
                 Button {
                     switch item.videoType {
@@ -173,7 +173,7 @@ struct CellHeaderView: View {
                     case .clips:
                         router.navigateToMore(title: item.title ?? "", collection: item.collection ?? "")
                     }
-                    
+
                 } label: {
                     Text(moreButtonTitle)
                         .foregroundColor(.primary)
@@ -189,7 +189,7 @@ struct CellHeaderView: View {
 
 struct CellHeaderTitle: View {
     let title: String
-    
+
     var body: some View {
         Text(title)
             .foregroundColor(.primary)

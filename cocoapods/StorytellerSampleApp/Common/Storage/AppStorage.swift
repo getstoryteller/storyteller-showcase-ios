@@ -2,24 +2,24 @@ import Foundation
 
 final class AppStorage {
     let apiKey = "[API-KEY]"
-    
+
     var selectedLanguage: String {
         get {
-            return value(forKey: Key.language) ?? ""
+            value(forKey: Key.language) ?? ""
         } set {
             store(data: newValue, forKey: Key.language)
         }
     }
-    
+
     var favoriteTeam: String {
         get {
-            return value(forKey: Key.favoriteTeam) ?? ""
+            value(forKey: Key.favoriteTeam) ?? ""
         }
         set {
             store(data: newValue, forKey: Key.favoriteTeam)
         }
     }
-    
+
     var momentsCollectionId: String {
         get {
             guard let value: String = value(forKey: Key.momentsCollectionId) else {

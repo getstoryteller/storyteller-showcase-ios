@@ -25,10 +25,10 @@ struct MultiSelectView: View {
             }
             ForEach(attribute.attributeValues, id: \.self) { item in
                 SelectableItemLine(title: item.title, selected: selectedItems.contains(item))
-                .onTapGesture {
-                    selectionUpdated = true
-                    viewModel.personalisationUpdated(for: attribute, actionType: selectedItems.contains(item) ? .remove(item) : .add(item))
-                }
+                    .onTapGesture {
+                        selectionUpdated = true
+                        viewModel.personalisationUpdated(for: attribute, actionType: selectedItems.contains(item) ? .remove(item) : .add(item))
+                    }
             }
         }
         .onDisappear {
