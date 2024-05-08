@@ -1,4 +1,5 @@
 {
+  "originHash" : "574037c90c73e565325872dc45e364b0c408de69436b5bacd80582b24ba76663",
   "pins" : [
     {
       "identity" : "amplitude-ios",
@@ -23,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getstoryteller/storyteller-sdk-swift-package",
       "state" : {
-        "revision" : "f9d2a5c89f548f224cb0d99178cb3e8825ffef55",
-        "version" : "10.0.0"
+        "revision" : "85f2291bdc24a9ffdcddd5db193fb79c719578fa",
+        "version" : "10.0.1"
       }
     },
     {
@@ -46,5 +47,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

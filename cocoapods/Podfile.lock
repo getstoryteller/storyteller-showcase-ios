@@ -1,8 +1,8 @@
 PODS:
-  - Google-Mobile-Ads-SDK (11.2.0):
+  - Google-Mobile-Ads-SDK (11.4.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleUserMessagingPlatform (2.3.0)
-  - StorytellerSDK (10.0.0)
+  - GoogleUserMessagingPlatform (2.4.0)
+  - StorytellerSDK (10.0.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
@@ -16,9 +16,9 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
-  GoogleUserMessagingPlatform: b1ad7bb1ee3ce64749d4fec24f667b36e45c396c
-  StorytellerSDK: c6b97a8dbbb067c626abc74e7e62ed7e91107268
+  Google-Mobile-Ads-SDK: d097dca17b9344135dcf592e79df0c7fbd89947b
+  GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
+  StorytellerSDK: 0aa42a3b8f9b59d1064de7700f446c81afcfb2ad
 
 PODFILE CHECKSUM: a88b980c26dcb8caf2b8c0b7fb06939dfcf3d88c
 
