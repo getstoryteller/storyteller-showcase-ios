@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getstoryteller/storyteller-sdk-swift-package",
       "state" : {
-        "revision" : "85f2291bdc24a9ffdcddd5db193fb79c719578fa",
-        "version" : "10.0.1"
+        "revision" : "53195d4342be0a85ee9503ec0d49e3dca9df4a88",
+        "version" : "10.1.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads",
       "state" : {
-        "revision" : "9ab66e38f5f0c2d02f2b024b1babd880130f19bf",
-        "version" : "11.3.0"
+        "revision" : "41118048ffdeb8ef6c0f2207b685f84fba260f56",
+        "version" : "11.4.0"
       }
     },
     {
