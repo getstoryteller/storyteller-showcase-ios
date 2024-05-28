@@ -1,10 +1,10 @@
 pool:
-  vmImage: 'macOS-13'
+  vmImage: 'macOS-14'
 
 variables:
   - group: storyteller-ios-secrets
   - name: XCODE_VERSION
-    value: 15.2
+    value: 15.3
 
 pr: none
 trigger: none
