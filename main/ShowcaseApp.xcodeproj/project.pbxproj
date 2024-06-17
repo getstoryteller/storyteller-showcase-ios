@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3426915A2C2098AA0087A11D /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 342691592C2098AA0087A11D /* StorytellerSDK */; };
 		345F4A8B2BC6F6A500B484EF /* StorytellerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8A2BC6F6A500B484EF /* StorytellerItemView.swift */; };
 		345F4A8D2BC6FA0600B484EF /* StorytellerLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8C2BC6FA0600B484EF /* StorytellerLists.swift */; };
 		345F4A8F2BC6FA3000B484EF /* StorytellerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8E2BC6FA3000B484EF /* StorytellerItemViewModel.swift */; };
@@ -31,13 +32,10 @@
 		8D4132AF2BBEA6F10078F19D /* SingleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132AE2BBEA6F10078F19D /* SingleSelectView.swift */; };
 		8D4132B12BBEA8CA0078F19D /* SelectableItemLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132B02BBEA8CA0078F19D /* SelectableItemLine.swift */; };
 		8D4132B32BBEBC710078F19D /* AppStorageDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4132B22BBEBC710078F19D /* AppStorageDictionary.swift */; };
-		8D4D1A312BC346D300D8D78F /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4D1A302BC346D300D8D78F /* StorytellerSDK */; };
 		8D4D1A362BC347BA00D8D78F /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D1A332BC347BA00D8D78F /* AnalyticsView.swift */; };
 		8D4D1A372BC347BA00D8D78F /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D1A342BC347BA00D8D78F /* AnalyticsViewModel.swift */; };
 		8D7FAC212BCD054B00E46676 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FAC202BCD054B00E46676 /* SequenceExtensions.swift */; };
 		8D7FAC232BCD0B9300E46676 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FAC222BCD0B9300E46676 /* DependencyContainer.swift */; };
-		8DA34E932BBEDBC500B9E885 /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA34E922BBEDBC500B9E885 /* StorytellerSDK */; };
-		8DBE59432BC929E3007C396A /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8DBE59422BC929E3007C396A /* StorytellerSDK */; };
 		AF2BF4C62B174C3D0021D05A /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BF4C52B174C3D0021D05A /* CollectionExtensions.swift */; };
 		AFAF65B52B19E10900C23704 /* FeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF65B42B19E10900C23704 /* FeedPageView.swift */; };
 		AFB3C2512B4E95FF0082077C /* ActionLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB3C2502B4E95FF0082077C /* ActionLinkView.swift */; };
@@ -158,11 +156,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBE59432BC929E3007C396A /* StorytellerSDK in Frameworks */,
 				FFCD5B7E2AA00BA3000FA3C6 /* Amplitude in Frameworks */,
-				8D4D1A312BC346D300D8D78F /* StorytellerSDK in Frameworks */,
 				FFCD5B702AA009D1000FA3C6 /* GoogleMobileAds in Frameworks */,
-				8DA34E932BBEDBC500B9E885 /* StorytellerSDK in Frameworks */,
+				3426915A2C2098AA0087A11D /* StorytellerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +423,7 @@
 			packageProductDependencies = (
 				FFCD5B6F2AA009D1000FA3C6 /* GoogleMobileAds */,
 				FFCD5B7D2AA00BA3000FA3C6 /* Amplitude */,
-				8DA34E922BBEDBC500B9E885 /* StorytellerSDK */,
-				8D4D1A302BC346D300D8D78F /* StorytellerSDK */,
-				8DBE59422BC929E3007C396A /* StorytellerSDK */,
+				342691592C2098AA0087A11D /* StorytellerSDK */,
 			);
 			productName = ShowcaseApp;
 			productReference = FFCD5B512AA00571000FA3C6 /* ShowcaseApp.app */;
@@ -462,7 +456,7 @@
 			packageReferences = (
 				FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				FFCD5B7C2AA00BA3000FA3C6 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
-				8D71E4AA2BD2718E0092C8D8 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
+				342691582C2098AA0087A11D /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */,
 			);
 			productRefGroup = FFCD5B522AA00571000FA3C6 /* Products */;
 			projectDirPath = "";
@@ -783,7 +777,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8D71E4AA2BD2718E0092C8D8 /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
+		342691582C2098AA0087A11D /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
@@ -810,16 +804,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8D4D1A302BC346D300D8D78F /* StorytellerSDK */ = {
+		342691592C2098AA0087A11D /* StorytellerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = StorytellerSDK;
-		};
-		8DA34E922BBEDBC500B9E885 /* StorytellerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StorytellerSDK;
-		};
-		8DBE59422BC929E3007C396A /* StorytellerSDK */ = {
-			isa = XCSwiftPackageProductDependency;
+			package = 342691582C2098AA0087A11D /* XCRemoteSwiftPackageReference "storyteller-sdk-swift-package" */;
 			productName = StorytellerSDK;
 		};
 		FFCD5B6F2AA009D1000FA3C6 /* GoogleMobileAds */ = {
