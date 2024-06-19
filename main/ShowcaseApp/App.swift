@@ -79,11 +79,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     // https://www.getstoryteller.com/documentation/ios/deeplinking
     // This methods are then implemented to handle the Universal Link
     // and open the Story or Clips Player at the relevant Story or Clip.
-    // Note that Storyteller.openDeepLink returns a bool so you can tell if it handled the deeplink or not.
+    // Note that Storyteller.openDeepLink throws an error if deeplink cannot be opened, so you can tell if it handled the deeplink or not.
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        Storyteller.openDeepLink(url: url) { error in
-            print(error)
+
+        Task {
+            do {
+                try await Storyteller.openDeepLink(url: url)
+            } catch(let error) {
+                print(error)
+            }
         }
+
+        return Storyteller.isStorytellerDeepLink(url: url)
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -92,8 +99,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             return false
         }
 
-        Storyteller.openDeepLink(url: url) { error in
-            print(error)
+        Task {
+            do {
+                try await Storyteller.openDeepLink(url: url)
+            } catch(let error) {
+                print(error)
+            }
         }
 
         return true
