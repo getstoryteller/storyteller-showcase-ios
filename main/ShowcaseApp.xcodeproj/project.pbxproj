@@ -674,7 +674,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShowcaseApp/ShowcaseApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowcaseApp/Preview Content\"";
 				DEVELOPMENT_TEAM = A7Q59YT5G5;
 				ENABLE_PREVIEWS = YES;
@@ -691,7 +691,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.0.0;
+				MARKETING_VERSION = 10.2.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -735,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.0.0;
+				MARKETING_VERSION = 10.2.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
