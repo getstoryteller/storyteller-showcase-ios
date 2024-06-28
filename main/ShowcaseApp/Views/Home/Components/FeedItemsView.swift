@@ -7,8 +7,10 @@ class FeedItemsViewModel: ObservableObject, Equatable {
     @Published var feedItems: [FeedItemViewModel] {
         didSet {
             setupFailedLoadCallbacks()
+            didReceiveResponse = true
         }
     }
+    @Published var didReceiveResponse = false
     private let router: Router
     let scrollToTopOrSwitchTabToOrigintEvent: PassthroughSubject<Int, Never>
     let scrollToTopEvent: PassthroughSubject<Int, Never>
@@ -59,6 +61,7 @@ class FeedItemsViewModel: ObservableObject, Equatable {
     private func setupFailedLoadCallbacks() {
         for case let .storytellerViewModel(viewModel) in feedItems {
             viewModel.onFailedToLoad = { [weak self] in
+                self?.didReceiveResponse = true
                 self?.hideList(item: viewModel)
             }
         }
@@ -91,7 +94,14 @@ struct FeedItemsView: View {
                     }
                 } else {
                     Spacer()
-                    ProgressView().controlSize(.large).progressViewStyle(.circular)
+                    if viewModel.didReceiveResponse {
+                        Image(.empty)
+                        Text("No content found")
+                            .font(.custom("SFProText-Semibold", size: 18))
+                            .kerning(-0.4)
+                    } else {
+                        ProgressView().controlSize(.large).progressViewStyle(.circular)
+                    }
                     Spacer()
                 }
             }
@@ -108,6 +118,9 @@ struct FeedItemsView: View {
                     moveToOriginTab()
                 }
             })
+            .onAppear() {
+                viewModel.didReceiveResponse = false
+            }
             .onReceive(viewModel.scrollToTopEvent, perform: { index in
                 guard viewModel.index == index else { return }
                 if viewModel.scrollOffset < 0 {
@@ -118,12 +131,12 @@ struct FeedItemsView: View {
                         }
                     }
                 } else {
-                    reload()
+                    safeReload()
                 }
             })
         }
         .refreshable {
-            reload()
+            safeReload()
         }
         .animation(.default, value: viewModel.feedItems)
         .coordinateSpace(name: "frameLayer")
@@ -131,7 +144,7 @@ struct FeedItemsView: View {
             viewModel.scrollOffset = value
             if value == 0 && viewModel.isScrolling {
                 viewModel.isScrolling = false
-                reload()
+                safeReload()
             }
         }
     }
@@ -145,6 +158,11 @@ struct FeedItemsView: View {
                 )
         }
         .frame(height: 0)
+    }
+
+    private func safeReload() {
+        viewModel.didReceiveResponse = false
+        reload()
     }
 }
 
