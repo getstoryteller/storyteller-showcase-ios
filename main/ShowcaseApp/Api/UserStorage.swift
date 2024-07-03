@@ -106,9 +106,7 @@ final class UserStorage: ObservableObject {
     }
 
     func resetAttributes() {
-        for attribute in selectedAttributes.keys {
-            selectedAttributes[attribute] = Set()
-        }
+        selectedAttributes = [:]
         setDefaultValuesIfNeeded()
     }
 }

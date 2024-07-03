@@ -59,6 +59,10 @@ class StorytellerService {
 
     func getAttributes() async {
         let personalisationAttributes = await dataService.getAttributes()
+        if await dataService.userStorage.allAttributes != personalisationAttributes {
+            await dataService.userStorage.resetAttributes()
+        }
+
         await dataService.userStorage.setAttributes(personalisationAttributes)
         updateStorytellerAttributes()
     }
