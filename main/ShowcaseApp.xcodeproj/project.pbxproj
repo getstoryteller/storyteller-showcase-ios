@@ -215,13 +215,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8C95ED122AFA77AF005053B9 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		8D4D1A352BC347BA00D8D78F /* TrackingOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,7 +318,6 @@
 		FFCD5B652AA00749000FA3C6 /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
-				8C95ED122AFA77AF005053B9 /* Helpers */,
 				FFCD5B6A2AA00877000FA3C6 /* StorytellerInstanceDelegate.swift */,
 				FFCD5B6C2AA008CD000FA3C6 /* StorytellerAdsDelegate.swift */,
 				FFA0FA4E2AA411920053DE0C /* StorytellerThemeManager.swift */,
@@ -691,7 +683,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.2.0;
+				MARKETING_VERSION = 10.3.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -735,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 10.2.0;
+				MARKETING_VERSION = 10.3.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-Wl",
@@ -782,7 +774,7 @@
 			repositoryURL = "https://github.com/getstoryteller/storyteller-sdk-swift-package";
 			requirement = {
 				kind = exactVersion;
-				version = 10.2.1;
+				version = 10.3.0;
 			};
 		};
 		FFCD5B6E2AA009D1000FA3C6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
