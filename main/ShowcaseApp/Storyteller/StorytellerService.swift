@@ -37,17 +37,15 @@ class StorytellerService {
     private func setupStoryteller(withApiKey apiKey: String, userId: String, dataService: DataGateway) {
         print("^ Setting up Storyteller with key: '\(apiKey)'")
         print("^ userId: '\(userId)'")
-        Storyteller.initialize(
-            apiKey: apiKey,
-            userInput: UserInput(externalId: userId),
-            onComplete: {
-                Storyteller.theme = StorytellerThemeManager.squareTheme
+        Task {
+            try await Storyteller.initialize(apiKey: apiKey, userInput: UserInput(externalId: userId))
 
-                Self.enableStorytellerTracking(dataService.userStorage.enableStorytellerTracking)
-                Self.enablePersonalization(dataService.userStorage.enablePersonalization)
-                Self.enableUserActivityTracking(dataService.userStorage.enableUserActivityTracking)
-            }
-        )
+            Storyteller.theme = StorytellerThemeManager.squareTheme
+
+            await Self.enableStorytellerTracking(dataService.userStorage.enableStorytellerTracking)
+            await Self.enablePersonalization(dataService.userStorage.enablePersonalization)
+            await Self.enableUserActivityTracking(dataService.userStorage.enableUserActivityTracking)
+        }
     }
 
     // This functions below show how to pass User Attributes to the Storyteller SDK

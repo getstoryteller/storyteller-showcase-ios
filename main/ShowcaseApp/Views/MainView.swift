@@ -91,7 +91,11 @@ struct MainView: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         HStack {
-                            Button(action: { Storyteller.openSearch() }, label: {
+                            Button(action: {
+                                Task {
+                                    await Storyteller.openSearch()
+                                }
+                            }, label: {
                                 Image(systemName: "magnifyingglass").tint(.primary)
                             })
                             Button(action: { showSettings.toggle() }, label: {

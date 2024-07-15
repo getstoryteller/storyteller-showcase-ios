@@ -41,9 +41,9 @@ class StorytellerInstanceDelegate: StorytellerDelegate {
     }
 
     func userNavigatedToApp(url: String) {
-        Storyteller.dismissPlayer(animated: true)
-        DispatchQueue.main.async { [weak self] in
-            self?.router.navigateToActionLink(url: url)
+        Task { @MainActor in
+            await Storyteller.dismissPlayer(animated: true)
+            router.navigateToActionLink(url: url)
         }
     }
 

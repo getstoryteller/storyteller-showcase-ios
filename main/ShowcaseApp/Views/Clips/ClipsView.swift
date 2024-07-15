@@ -15,11 +15,11 @@ class ClipsViewModel: ObservableObject {
     ) {
         self.clipsTabTapEvent = clipsTabTapEvent
         self.didFinishLoadingMomentsEvent = didFinishLoadingMomentsEvent
-        clipsViewModel = StorytellerClipsModel(collectionId: DependencyContainer.shared.dataService.userStorage.settings.topLevelClipsCollection)
+        clipsViewModel = StorytellerClipsModel(configuration: ClipCollectionConfiguration(collectionId: DependencyContainer.shared.dataService.userStorage.settings.topLevelClipsCollection))
     }
 
     func updateCollectionId() {
-        clipsViewModel.collectionId = dataService.userStorage.settings.topLevelClipsCollection
+        clipsViewModel.configuration = ClipCollectionConfiguration(collectionId: dataService.userStorage.settings.topLevelClipsCollection)
     }
 
     func reloadDataIfNeeded() {

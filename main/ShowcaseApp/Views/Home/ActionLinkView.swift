@@ -18,6 +18,7 @@ struct ActionLinkView: View {
                 .foregroundColor(.secondary)
                 .fontWeight(.bold)
         }
+        .padding(.horizontal)
         .navigationTitle("Action Link")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
@@ -25,5 +26,5 @@ struct ActionLinkView: View {
 }
 
 #Preview {
-    ActionLinkView(link: "test link")
+    ActionLinkView(link: "a very very very very very very very very very very very very very very very very very very long test link")
 }

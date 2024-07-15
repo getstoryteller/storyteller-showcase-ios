@@ -64,10 +64,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     // For more on this integration, please see the code in the Analytics folder in this application
     // as well as our public documentation here https://www.getstoryteller.com/documentation/ios/analytics
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
-
         Amplitude.instance().initializeApiKey(Settings.AmplitudeApiKey)
 
         return true

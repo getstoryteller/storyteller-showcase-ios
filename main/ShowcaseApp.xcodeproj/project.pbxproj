@@ -12,8 +12,6 @@
 		345F4A8D2BC6FA0600B484EF /* StorytellerLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8C2BC6FA0600B484EF /* StorytellerLists.swift */; };
 		345F4A8F2BC6FA3000B484EF /* StorytellerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8E2BC6FA3000B484EF /* StorytellerItemViewModel.swift */; };
 		34D586FA2BC7BF20007710E2 /* FeedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D586F92BC7BF20007710E2 /* FeedItemViewModel.swift */; };
-		34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F302BC454A200EF1B15 /* AnalyticsView.swift */; };
-		34E08F332BC454A200EF1B15 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E08F312BC454A200EF1B15 /* AnalyticsViewModel.swift */; };
 		553226B12BCE43AB009E2373 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 553226B02BCE43AB009E2373 /* PrivacyInfo.xcprivacy */; };
 		8C33E0942AE483140016A7D4 /* AccessCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E0932AE483140016A7D4 /* AccessCodeView.swift */; };
 		8C33E09B2AEAC0000016A7D4 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33E09A2AEAC0000016A7D4 /* AccountView.swift */; };
@@ -429,7 +427,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					FFCD5B502AA00571000FA3C6 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -518,7 +516,6 @@
 				FFCD5B8F2AA018C7000FA3C6 /* HomeTabsView.swift in Sources */,
 				FFCD5B772AA00A19000FA3C6 /* Constants.swift in Sources */,
 				8D4132B32BBEBC710078F19D /* AppStorageDictionary.swift in Sources */,
-				34E08F322BC454A200EF1B15 /* AnalyticsView.swift in Sources */,
 				FFCD5B792AA00A2E000FA3C6 /* AdTrackingManager.swift in Sources */,
 				FFA0FA5E2AA44F380053DE0C /* Router.swift in Sources */,
 				AFAF65B52B19E10900C23704 /* FeedPageView.swift in Sources */,
@@ -533,7 +530,6 @@
 				FFA0FA5C2AA43BE70053DE0C /* Settings.swift in Sources */,
 				8C517BF02AE0735B00112045 /* Endpoint.swift in Sources */,
 				AFF789B22B21F6AA009B64CC /* AppVersionProvider.swift in Sources */,
-				34E08F332BC454A200EF1B15 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -606,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

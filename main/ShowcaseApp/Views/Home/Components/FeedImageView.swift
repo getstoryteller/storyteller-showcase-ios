@@ -17,12 +17,14 @@ struct FeedImageView: View {
 
             if let imageUrl = URL(string: item.url) {
                 Button {
-                    switch item.action.type {
-                    case .inApp:
-                        guard let category = URLComponents(string: item.action.url)?.queryItems?.first(where: { $0.name == "categoryId" })?.value else { return }
-                        Storyteller.openCategory(category: category)
-                    case .web:
-                        break
+                    Task {
+                        switch item.action.type {
+                        case .inApp:
+                            guard let category = URLComponents(string: item.action.url)?.queryItems?.first(where: { $0.name == "categoryId" })?.value else { return }
+                            try await Storyteller.openCategory(category: category)
+                        case .web:
+                            break
+                        }
                     }
                 } label: {
                     AsyncImage(url: imageUrl) { phase in
