@@ -26,6 +26,8 @@ struct MatchCenterView: View {
         )
     }()
 
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+
     var body: some View {
         ZStack(alignment: .center) {
             Image(.background)
@@ -35,6 +37,9 @@ struct MatchCenterView: View {
                 .frame(width: 90, height: 90)
                 .offset(y: -120)
         }
+        .onReceive(timer, perform: { input in
+            storytellerModel.reloadData()
+        })
     }
 }
 
