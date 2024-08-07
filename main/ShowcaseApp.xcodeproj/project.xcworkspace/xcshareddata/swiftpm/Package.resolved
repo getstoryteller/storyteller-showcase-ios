@@ -7,7 +7,7 @@
       "location" : "https://github.com/amplitude/Amplitude-iOS",
       "state" : {
         "branch" : "main",
-        "revision" : "f780c123ca21339d37277f00449cb0f6494e676a"
+        "revision" : "bfdec453a31fd35942a619ef472fcf2f09e2313a"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads",
       "state" : {
-        "revision" : "41118048ffdeb8ef6c0f2207b685f84fba260f56",
-        "version" : "11.4.0"
+        "revision" : "746253bf8803826e4de14c9e619739733ea8fb3b",
+        "version" : "11.5.0"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
       "state" : {
-        "revision" : "cfe8b2ae16b9bc81f4cdf1d1a12a01a452489c32",
-        "version" : "2.3.0"
+        "revision" : "9b68aa69fb508f0274853e226c734151a973c7b7",
+        "version" : "2.4.0"
       }
     }
   ],

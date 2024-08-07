@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3426915A2C2098AA0087A11D /* StorytellerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 342691592C2098AA0087A11D /* StorytellerSDK */; };
+		3429B02D2C63D86A009131DE /* MatchCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429B02C2C63D86A009131DE /* MatchCenterView.swift */; };
 		345F4A8B2BC6F6A500B484EF /* StorytellerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8A2BC6F6A500B484EF /* StorytellerItemView.swift */; };
 		345F4A8D2BC6FA0600B484EF /* StorytellerLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8C2BC6FA0600B484EF /* StorytellerLists.swift */; };
 		345F4A8F2BC6FA3000B484EF /* StorytellerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F4A8E2BC6FA3000B484EF /* StorytellerItemViewModel.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3429B02C2C63D86A009131DE /* MatchCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCenterView.swift; sourceTree = "<group>"; };
 		345F4A8A2BC6F6A500B484EF /* StorytellerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerItemView.swift; sourceTree = "<group>"; };
 		345F4A8C2BC6FA0600B484EF /* StorytellerLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorytellerLists.swift; sourceTree = "<group>"; };
 		345F4A8E2BC6FA3000B484EF /* StorytellerItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorytellerItemViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3429B02B2C63D83D009131DE /* MatchCenter */ = {
+			isa = PBXGroup;
+			children = (
+				3429B02C2C63D86A009131DE /* MatchCenterView.swift */,
+			);
+			path = MatchCenter;
+			sourceTree = "<group>";
+		};
 		34E08F2F2BC454A200EF1B15 /* TrackingOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +382,7 @@
 				8C33E0952AE8685C0016A7D4 /* AccessCode */,
 				FFCD5B832AA012FD000FA3C6 /* Clips */,
 				FFCD5B892AA0179A000FA3C6 /* Home */,
+				3429B02B2C63D83D009131DE /* MatchCenter */,
 				FFCD5B562AA00571000FA3C6 /* MainView.swift */,
 				8D33D2CD2BC42D7A009C9DEF /* AttributeLineItem.swift */,
 			);
@@ -498,6 +509,7 @@
 				FFCD5B752AA00A0B000FA3C6 /* NativeAdRequest.swift in Sources */,
 				8D33D2CE2BC42D7A009C9DEF /* AttributeLineItem.swift in Sources */,
 				8D7FAC232BCD0B9300E46676 /* DependencyContainer.swift in Sources */,
+				3429B02D2C63D86A009131DE /* MatchCenterView.swift in Sources */,
 				FFCD5B812AA00BFD000FA3C6 /* StorytellerTrackingDelegate.swift in Sources */,
 				FFCD5B732AA009EC000FA3C6 /* AdManager.swift in Sources */,
 				8C517BF82AE0812A00112045 /* Endpoints.swift in Sources */,

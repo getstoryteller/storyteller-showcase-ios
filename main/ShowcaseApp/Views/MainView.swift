@@ -47,6 +47,8 @@ struct MainView: View {
                             .tag(0)
                         ClipsView(viewModel: ClipsViewModel(clipsTabTapEvent: viewModel.clipsTabTapEvent, didFinishLoadingMomentsEvent: viewModel.didFinishLoadingMomentsEvent))
                             .tag(1)
+                        MatchCenterView()
+                            .tag(3)
                     }
 
                     HStack {
@@ -56,14 +58,26 @@ struct MainView: View {
                         } label: {
                             let item = TabbedItems.home
                             CustomTabItem(item: item, isActive: viewModel.selectedTab == item.rawValue)
-                        }.buttonStyle(NoTapAnimationStyle())
-                        Spacer()
+                        }
+                        .buttonStyle(NoTapAnimationStyle())
+                        .frame(maxWidth: .infinity)
                         Spacer()
                         Button {
                             selectedTab.wrappedValue = 1
                         } label: {
                             CustomTabItem(item: momentsItem, isActive: viewModel.selectedTab == 1 || viewModel.selectedTab == 2)
-                        }.buttonStyle(NoTapAnimationStyle())
+                        }
+                        .buttonStyle(NoTapAnimationStyle())
+                        .frame(maxWidth: .infinity)
+                        Spacer()
+                        Button {
+                            selectedTab.wrappedValue = 3
+                        } label: {
+                            let item = TabbedItems.matchCenter
+                            CustomTabItem(item: item, isActive: viewModel.selectedTab == item.rawValue)
+                        }
+                        .buttonStyle(NoTapAnimationStyle())
+                        .frame(maxWidth: .infinity)
                         Spacer()
                     }
                     .frame(height: 50)
@@ -138,12 +152,14 @@ enum TabbedItems: Int, CaseIterable {
     case home
     case moments
     case momentsLoading
+    case matchCenter
 
     var title: String {
         switch self {
         case .home: "Home"
         case .moments: "Moments"
         case .momentsLoading: "Moments"
+        case .matchCenter: "Match Center"
         }
     }
 
@@ -168,6 +184,14 @@ enum TabbedItems: Int, CaseIterable {
             }
         case .momentsLoading:
             ProgressView().tint(.blue)
+        case .matchCenter:
+            if isActive {
+                Image(systemName: "megaphone.fill")
+                    .renderingMode(.template)
+            } else {
+                Image(systemName: "megaphone")
+                    .renderingMode(.template)
+            }
         }
     }
 }
